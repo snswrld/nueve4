@@ -1,11 +1,11 @@
 <?php
 /**
- * Premium Features Enabler for Neve Theme
+ * Premium Features Enabler for Nueve4 Theme
  * 
- * @package Neve\Premium
+ * @package Nueve4\Premium
  */
 
-namespace Neve\Premium;
+namespace Nueve4\Premium;
 
 class Premium_Features {
 
@@ -20,17 +20,17 @@ class Premium_Features {
     }
 
     public function init() {
-        if (!defined('NEVE_PRO_VERSION')) {
-            define('NEVE_PRO_VERSION', '2.8.0');
+        if (!defined('NUEVE4_PRO_VERSION')) {
+            define('NUEVE4_PRO_VERSION', '2.8.0');
         }
         
-        if (!defined('NEVE_PRO_BASEFILE')) {
-            define('NEVE_PRO_BASEFILE', __FILE__);
+        if (!defined('NUEVE4_PRO_BASEFILE')) {
+            define('NUEVE4_PRO_BASEFILE', __FILE__);
         }
 
-        add_filter('neve_has_valid_addons', '__return_true');
-        add_filter('neve_pro_addon_is_active', '__return_true');
-        add_filter('neve_upgrade_link_from_child_theme_filter', array($this, 'remove_upgrade_links'));
+        add_filter('nueve4_has_valid_addons', '__return_true');
+        add_filter('nueve4_pro_addon_is_active', '__return_true');
+        add_filter('nueve4_upgrade_link_from_child_theme_filter', array($this, 'remove_upgrade_links'));
         
         $this->enable_premium_layouts();
         $this->add_premium_blocks();
@@ -40,6 +40,14 @@ class Premium_Features {
         $this->add_premium_woocommerce_features();
         $this->add_custom_code_features();
         $this->add_performance_features();
+        $this->load_master_addons_integration();
+    }
+    
+    /**
+     * Load Master Addons Integration
+     */
+    private function load_master_addons_integration() {
+        $this->safe_require('inc/nueve4-master-addons.php');
     }
 
     public function remove_upgrade_links($url) {
@@ -48,12 +56,12 @@ class Premium_Features {
 
     private function enable_premium_layouts() {
         $filters = array(
-            'theme_mod_neve_checkout_page_layout' => 'standard',
-            'theme_mod_neve_product_card_layout' => 'grid',
-            'theme_mod_neve_category_card_layout' => 'default',
-            'theme_mod_neve_product_content_alignment' => 'left',
-            'theme_mod_neve_sale_tag_position' => 'inside',
-            'theme_mod_neve_add_to_cart_display' => 'none'
+            'theme_mod_nueve4_checkout_page_layout' => 'standard',
+            'theme_mod_nueve4_product_card_layout' => 'grid',
+            'theme_mod_nueve4_category_card_layout' => 'default',
+            'theme_mod_nueve4_product_content_alignment' => 'left',
+            'theme_mod_nueve4_sale_tag_position' => 'inside',
+            'theme_mod_nueve4_add_to_cart_display' => 'none'
         );
 
         foreach ($filters as $filter => $default) {
@@ -74,8 +82,8 @@ class Premium_Features {
             $this->safe_require($file);
         }
 
-        if (class_exists('\Neve\Customizer\Options\Premium_Panel')) {
-            $panel = new \Neve\Customizer\Options\Premium_Panel();
+        if (class_exists('\Nueve4\Customizer\Options\Premium_Panel')) {
+            $panel = new \Nueve4\Customizer\Options\Premium_Panel();
             $panel->init();
         }
     }
@@ -110,14 +118,14 @@ class Premium_Features {
 
         foreach ($blocks as $block => $callback) {
             wp_register_script(
-                "neve-{$block}-block",
+                "nueve4-{$block}-block",
                 get_template_directory_uri() . "/assets/js/premium-blocks/{$block}.js",
                 array('wp-blocks', 'wp-element', 'wp-editor'),
-                defined('NEVE_VERSION') ? NEVE_VERSION : '1.0.0'
+                defined('NUEVE4_VERSION') ? NUEVE4_VERSION : '1.0.0'
             );
 
-            register_block_type("neve/{$block}", array(
-                'editor_script' => "neve-{$block}-block",
+            register_block_type("nueve4/{$block}", array(
+                'editor_script' => "nueve4-{$block}-block",
                 'render_callback' => array($this, $callback)
             ));
         }
@@ -132,7 +140,7 @@ class Premium_Features {
         }
 
         ob_start();
-        echo '<div class="neve-testimonials-block layout-' . esc_attr($layout) . '">';
+        echo '<div class="nueve4-testimonials-block layout-' . esc_attr($layout) . '">';
         foreach ($testimonials as $testimonial) {
             if (!is_array($testimonial)) continue;
             
@@ -164,7 +172,7 @@ class Premium_Features {
         }
 
         ob_start();
-        echo '<div class="neve-pricing-block columns-' . esc_attr($columns) . '">';
+        echo '<div class="nueve4-pricing-block columns-' . esc_attr($columns) . '">';
         foreach ($plans as $plan) {
             if (!is_array($plan)) continue;
             
@@ -204,7 +212,7 @@ class Premium_Features {
         }
 
         ob_start();
-        echo '<div class="neve-team-block columns-' . esc_attr($columns) . '">';
+        echo '<div class="nueve4-team-block columns-' . esc_attr($columns) . '">';
         foreach ($members as $member) {
             if (!is_array($member)) continue;
             
@@ -249,68 +257,68 @@ class Premium_Features {
             return;
         }
 
-        $wp_customize->add_section('neve_scroll_to_top', array(
-            'title' => __('Scroll to Top', 'neve'),
-            'panel' => 'neve_layout',
+        $wp_customize->add_section('nueve4_scroll_to_top', array(
+            'title' => __('Scroll to Top', 'nueve4'),
+            'panel' => 'nueve4_layout',
             'priority' => 80
         ));
 
-        $wp_customize->add_setting('neve_scroll_to_top_enable', array(
+        $wp_customize->add_setting('nueve4_scroll_to_top_enable', array(
             'default' => false,
             'sanitize_callback' => 'wp_validate_boolean'
         ));
 
-        $wp_customize->add_control('neve_scroll_to_top_enable', array(
-            'label' => __('Enable Scroll to Top', 'neve'),
-            'section' => 'neve_scroll_to_top',
+        $wp_customize->add_control('nueve4_scroll_to_top_enable', array(
+            'label' => __('Enable Scroll to Top', 'nueve4'),
+            'section' => 'nueve4_scroll_to_top',
             'type' => 'checkbox'
         ));
 
-        $wp_customize->add_setting('neve_scroll_to_top_position', array(
+        $wp_customize->add_setting('nueve4_scroll_to_top_position', array(
             'default' => 'bottom-right',
             'sanitize_callback' => 'sanitize_text_field'
         ));
 
-        $wp_customize->add_control('neve_scroll_to_top_position', array(
-            'label' => __('Position', 'neve'),
-            'section' => 'neve_scroll_to_top',
+        $wp_customize->add_control('nueve4_scroll_to_top_position', array(
+            'label' => __('Position', 'nueve4'),
+            'section' => 'nueve4_scroll_to_top',
             'type' => 'select',
             'choices' => array(
-                'bottom-right' => __('Bottom Right', 'neve'),
-                'bottom-left' => __('Bottom Left', 'neve'),
-                'bottom-center' => __('Bottom Center', 'neve')
+                'bottom-right' => __('Bottom Right', 'nueve4'),
+                'bottom-left' => __('Bottom Left', 'nueve4'),
+                'bottom-center' => __('Bottom Center', 'nueve4')
             )
         ));
 
-        $wp_customize->add_section('neve_custom_css', array(
-            'title' => __('Custom CSS', 'neve'),
+        $wp_customize->add_section('nueve4_custom_css', array(
+            'title' => __('Custom CSS', 'nueve4'),
             'priority' => 200
         ));
 
-        $wp_customize->add_setting('neve_custom_css_code', array(
+        $wp_customize->add_setting('nueve4_custom_css_code', array(
             'default' => '',
             'sanitize_callback' => array($this, 'sanitize_css')
         ));
 
-        $wp_customize->add_control('neve_custom_css_code', array(
-            'label' => __('Additional CSS', 'neve'),
-            'section' => 'neve_custom_css',
+        $wp_customize->add_control('nueve4_custom_css_code', array(
+            'label' => __('Additional CSS', 'nueve4'),
+            'section' => 'nueve4_custom_css',
             'type' => 'textarea'
         ));
 
-        $wp_customize->add_section('neve_custom_js', array(
-            'title' => __('Custom JavaScript', 'neve'),
+        $wp_customize->add_section('nueve4_custom_js', array(
+            'title' => __('Custom JavaScript', 'nueve4'),
             'priority' => 201
         ));
 
-        $wp_customize->add_setting('neve_custom_js_code', array(
+        $wp_customize->add_setting('nueve4_custom_js_code', array(
             'default' => '',
             'sanitize_callback' => array($this, 'sanitize_js')
         ));
 
-        $wp_customize->add_control('neve_custom_js_code', array(
-            'label' => __('Custom JavaScript', 'neve'),
-            'section' => 'neve_custom_js',
+        $wp_customize->add_control('nueve4_custom_js_code', array(
+            'label' => __('Custom JavaScript', 'nueve4'),
+            'section' => 'nueve4_custom_js',
             'type' => 'textarea'
         ));
     }
@@ -340,20 +348,20 @@ class Premium_Features {
         
         return array_merge($components, array(
             'social_icons' => array(
-                'name' => __('Social Icons', 'neve'),
-                'description' => __('Display social media icons', 'neve')
+                'name' => __('Social Icons', 'nueve4'),
+                'description' => __('Display social media icons', 'nueve4')
             ),
             'contact_info' => array(
-                'name' => __('Contact Info', 'neve'),
-                'description' => __('Display contact information', 'neve')
+                'name' => __('Contact Info', 'nueve4'),
+                'description' => __('Display contact information', 'nueve4')
             ),
             'language_switcher' => array(
-                'name' => __('Language Switcher', 'neve'),
-                'description' => __('WPML/Polylang language switcher', 'neve')
+                'name' => __('Language Switcher', 'nueve4'),
+                'description' => __('WPML/Polylang language switcher', 'nueve4')
             ),
             'breadcrumbs' => array(
-                'name' => __('Breadcrumbs', 'neve'),
-                'description' => __('Navigation breadcrumbs', 'neve')
+                'name' => __('Breadcrumbs', 'nueve4'),
+                'description' => __('Navigation breadcrumbs', 'nueve4')
             )
         ));
     }
@@ -372,32 +380,32 @@ class Premium_Features {
     public function add_quick_view_button() {
         global $product;
         if ($product && is_a($product, 'WC_Product')) {
-            echo '<a href="#" class="neve-quick-view" data-product-id="' . esc_attr($product->get_id()) . '">' . __('Quick View', 'neve') . '</a>';
+            echo '<a href="#" class="nueve4-quick-view" data-product-id="' . esc_attr($product->get_id()) . '">' . __('Quick View', 'nueve4') . '</a>';
         }
     }
 
     public function add_wishlist_button() {
         global $product;
         if ($product && is_a($product, 'WC_Product')) {
-            echo '<a href="#" class="neve-wishlist" data-product-id="' . esc_attr($product->get_id()) . '">' . __('Add to Wishlist', 'neve') . '</a>';
+            echo '<a href="#" class="nueve4-wishlist" data-product-id="' . esc_attr($product->get_id()) . '">' . __('Add to Wishlist', 'nueve4') . '</a>';
         }
     }
 
     public function add_compare_button() {
         global $product;
         if ($product && is_a($product, 'WC_Product')) {
-            echo '<a href="#" class="neve-compare" data-product-id="' . esc_attr($product->get_id()) . '">' . __('Compare', 'neve') . '</a>';
+            echo '<a href="#" class="nueve4-compare" data-product-id="' . esc_attr($product->get_id()) . '">' . __('Compare', 'nueve4') . '</a>';
         }
     }
 
     public function add_product_filters() {
-        if (get_theme_mod('neve_enable_product_filters', false)) {
-            echo '<div class="neve-product-filters">';
-            echo '<select class="neve-price-filter">';
-            echo '<option value="">' . __('Filter by Price', 'neve') . '</option>';
-            echo '<option value="0-50">' . __('$0 - $50', 'neve') . '</option>';
-            echo '<option value="50-100">' . __('$50 - $100', 'neve') . '</option>';
-            echo '<option value="100+">' . __('$100+', 'neve') . '</option>';
+        if (get_theme_mod('nueve4_enable_product_filters', false)) {
+            echo '<div class="nueve4-product-filters">';
+            echo '<select class="nueve4-price-filter">';
+            echo '<option value="">' . __('Filter by Price', 'nueve4') . '</option>';
+            echo '<option value="0-50">' . __('$0 - $50', 'nueve4') . '</option>';
+            echo '<option value="50-100">' . __('$50 - $100', 'nueve4') . '</option>';
+            echo '<option value="100+">' . __('$100+', 'nueve4') . '</option>';
             echo '</select></div>';
         }
     }
@@ -411,15 +419,15 @@ class Premium_Features {
     
     public function enqueue_premium_styles() {
         wp_enqueue_style(
-            'neve-premium-blocks',
+            'nueve4-premium-blocks',
             get_template_directory_uri() . '/assets/css/premium-blocks.css',
-            array('neve-style'),
-            defined('NEVE_VERSION') ? NEVE_VERSION : '1.0.0'
+            array('nueve4-style'),
+            defined('NUEVE4_VERSION') ? NUEVE4_VERSION : '1.0.0'
         );
     }
 
     public function output_custom_css() {
-        $custom_css = get_theme_mod('neve_custom_css_code', '');
+        $custom_css = get_theme_mod('nueve4_custom_css_code', '');
         if (!empty($custom_css)) {
             echo '<style type="text/css">' . $this->sanitize_css($custom_css) . '</style>';
         }
@@ -429,16 +437,16 @@ class Premium_Features {
         if (!current_user_can('unfiltered_html')) {
             return;
         }
-        $custom_js = get_theme_mod('neve_custom_js_code', '');
+        $custom_js = get_theme_mod('nueve4_custom_js_code', '');
         if (!empty($custom_js)) {
             echo '<script type="text/javascript">' . $this->sanitize_js($custom_js) . '</script>';
         }
     }
 
     public function enqueue_scroll_to_top() {
-        if (get_theme_mod('neve_scroll_to_top_enable', false)) {
+        if (get_theme_mod('nueve4_scroll_to_top_enable', false)) {
             wp_add_inline_script('jquery', $this->get_scroll_to_top_js());
-            wp_add_inline_style('neve-style', $this->get_scroll_to_top_css());
+            wp_add_inline_style('nueve4-style', $this->get_scroll_to_top_css());
             add_action('wp_footer', array($this, 'output_scroll_to_top_button'));
         }
     }
@@ -448,7 +456,7 @@ class Premium_Features {
     }
 
     private function get_scroll_to_top_css() {
-        $position = get_theme_mod('neve_scroll_to_top_position', 'bottom-right');
+        $position = get_theme_mod('nueve4_scroll_to_top_position', 'bottom-right');
         $css_position = 'bottom:20px;right:20px;';
         
         if ($position === 'bottom-left') {
@@ -457,7 +465,7 @@ class Premium_Features {
             $css_position = 'bottom:20px;left:50%;transform:translateX(-50%);';
         }
         
-        return ".neve-scroll-to-top{position:fixed;{$css_position}width:50px;height:50px;background:#0073aa;color:white;text-align:center;line-height:50px;border-radius:50%;cursor:pointer;display:none;z-index:9999;transition:all 0.3s ease;}.neve-scroll-to-top:hover{background:#005a87;transform:translateY(-2px);}";
+        return ".nueve4-scroll-to-top{position:fixed;{$css_position}width:50px;height:50px;background:#0073aa;color:white;text-align:center;line-height:50px;border-radius:50%;cursor:pointer;display:none;z-index:9999;transition:all 0.3s ease;}.nueve4-scroll-to-top:hover{background:#005a87;transform:translateY(-2px);}";
     }
 
     public function output_scroll_to_top_button() {
@@ -471,7 +479,7 @@ class Premium_Features {
     }
 
     public function optimize_css_delivery() {
-        if (get_theme_mod('neve_optimize_css', false)) {
+        if (get_theme_mod('nueve4_optimize_css', false)) {
             add_filter('style_loader_tag', array($this, 'defer_non_critical_css'), 10, 2);
         }
     }
@@ -484,14 +492,14 @@ class Premium_Features {
     }
 
     public function add_resource_preloads() {
-        $fonts = get_theme_mod('neve_preload_fonts', array());
+        $fonts = get_theme_mod('nueve4_preload_fonts', array());
         if (is_array($fonts)) {
             foreach ($fonts as $font) {
                 echo '<link rel="preload" href="' . esc_url($font) . '" as="font" type="font/woff2" crossorigin>';
             }
         }
         
-        $hero_image = get_theme_mod('neve_hero_image', '');
+        $hero_image = get_theme_mod('nueve4_hero_image', '');
         if (!empty($hero_image)) {
             echo '<link rel="preload" href="' . esc_url($hero_image) . '" as="image">';
         }

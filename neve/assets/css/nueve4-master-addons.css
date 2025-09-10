@@ -1,0 +1,577 @@
+/**
+ * Nueve4 Master Addons Styles
+ */
+
+/* Base Widget Styles */
+.nueve4-widget-accordion .accordion-item {
+    border: 1px solid #e1e5e9;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.nueve4-widget-accordion .accordion-header {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nueve4-widget-accordion .accordion-header:hover {
+    background: #e9ecef;
+}
+
+.nueve4-widget-accordion .accordion-content {
+    padding: 20px;
+    display: none;
+}
+
+.nueve4-widget-accordion .accordion-item.active .accordion-content {
+    display: block;
+}
+
+/* Advanced Image */
+.nueve4-widget-advanced-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.nueve4-widget-advanced-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.nueve4-widget-advanced-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Animated Headlines */
+.nueve4-widget-animated-headlines .headline {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.nueve4-widget-animated-headlines .animated-text {
+    color: #0073aa;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Blockquote */
+.nueve4-widget-blockquote {
+    position: relative;
+    padding: 30px;
+    background: #f8f9fa;
+    border-left: 4px solid #0073aa;
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.nueve4-widget-blockquote::before {
+    content: '"';
+    font-size: 4em;
+    color: #0073aa;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    line-height: 1;
+}
+
+/* Business Hours */
+.nueve4-widget-business-hours .hours-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nueve4-widget-business-hours .hours-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.nueve4-widget-business-hours .day {
+    font-weight: 600;
+}
+
+.nueve4-widget-business-hours .time {
+    color: #666;
+}
+
+/* Call to Action */
+.nueve4-widget-call-to-action {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+}
+
+.nueve4-widget-call-to-action .cta-title {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.nueve4-widget-call-to-action .cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nueve4-widget-call-to-action .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Cards */
+.nueve4-widget-cards .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.nueve4-widget-cards .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.nueve4-widget-cards .card:hover {
+    transform: translateY(-5px);
+}
+
+.nueve4-widget-cards .card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.nueve4-widget-cards .card-content {
+    padding: 20px;
+}
+
+/* Countdown Timer */
+.nueve4-widget-countdown-timer .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nueve4-widget-countdown-timer .countdown-item {
+    text-align: center;
+    padding: 20px;
+    background: #0073aa;
+    color: white;
+    border-radius: 8px;
+    min-width: 80px;
+}
+
+.nueve4-widget-countdown-timer .countdown-number {
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+}
+
+.nueve4-widget-countdown-timer .countdown-label {
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+/* Counter Up */
+.nueve4-widget-counter-up {
+    text-align: center;
+    padding: 30px;
+}
+
+.nueve4-widget-counter-up .counter-number {
+    font-size: 3em;
+    font-weight: bold;
+    color: #0073aa;
+    display: block;
+}
+
+.nueve4-widget-counter-up .counter-title {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Creative Buttons */
+.nueve4-widget-creative-buttons .creative-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #0073aa;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.nueve4-widget-creative-buttons .creative-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.nueve4-widget-creative-buttons .creative-btn:hover::before {
+    left: 100%;
+}
+
+/* Flip Box */
+.nueve4-widget-flipbox .flipbox-container {
+    perspective: 1000px;
+    height: 300px;
+}
+
+.nueve4-widget-flipbox .flipbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.nueve4-widget-flipbox .flipbox-container:hover .flipbox {
+    transform: rotateY(180deg);
+}
+
+.nueve4-widget-flipbox .flipbox-front,
+.nueve4-widget-flipbox .flipbox-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nueve4-widget-flipbox .flipbox-front {
+    background: #0073aa;
+    color: white;
+}
+
+.nueve4-widget-flipbox .flipbox-back {
+    background: #333;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Info Box */
+.nueve4-widget-infobox {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nueve4-widget-infobox:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.nueve4-widget-infobox .infobox-icon {
+    font-size: 3em;
+    color: #0073aa;
+    margin-bottom: 20px;
+}
+
+.nueve4-widget-infobox .infobox-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Pricing Table */
+.nueve4-widget-pricing-table .pricing-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.nueve4-widget-pricing-table .pricing-plan {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nueve4-widget-pricing-table .pricing-plan.featured {
+    border-color: #0073aa;
+    transform: scale(1.05);
+}
+
+.nueve4-widget-pricing-table .pricing-plan:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.nueve4-widget-pricing-table .plan-price {
+    font-size: 3em;
+    font-weight: bold;
+    color: #0073aa;
+    margin: 20px 0;
+}
+
+.nueve4-widget-pricing-table .plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.nueve4-widget-pricing-table .plan-features li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Progress Bar */
+.nueve4-widget-progressbar .progress-item {
+    margin-bottom: 20px;
+}
+
+.nueve4-widget-progressbar .progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.nueve4-widget-progressbar .progress-bar {
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.nueve4-widget-progressbar .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0073aa, #005a87);
+    border-radius: 5px;
+    transition: width 2s ease-in-out;
+}
+
+/* Team Members */
+.nueve4-widget-team-members .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.nueve4-widget-team-members .team-member {
+    text-align: center;
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.nueve4-widget-team-members .team-member:hover {
+    transform: translateY(-5px);
+}
+
+.nueve4-widget-team-members .member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
+
+.nueve4-widget-team-members .member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nueve4-widget-team-members .member-name {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.nueve4-widget-team-members .member-position {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.nueve4-widget-team-members .member-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nueve4-widget-team-members .social-link {
+    width: 40px;
+    height: 40px;
+    background: #0073aa;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nueve4-widget-team-members .social-link:hover {
+    background: #005a87;
+    transform: translateY(-2px);
+}
+
+/* Testimonials */
+.nueve4-widget-testimonials .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.nueve4-widget-testimonials .testimonial {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.nueve4-widget-testimonials .testimonial::before {
+    content: '"';
+    font-size: 4em;
+    color: #0073aa;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    line-height: 1;
+}
+
+.nueve4-widget-testimonials .testimonial-content {
+    font-style: italic;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.nueve4-widget-testimonials .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nueve4-widget-testimonials .author-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.nueve4-widget-testimonials .author-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nueve4-widget-testimonials .author-name {
+    font-weight: 600;
+}
+
+.nueve4-widget-testimonials .author-position {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nueve4-widget-countdown-timer .countdown {
+        gap: 10px;
+    }
+    
+    .nueve4-widget-countdown-timer .countdown-item {
+        min-width: 60px;
+        padding: 15px;
+    }
+    
+    .nueve4-widget-pricing-table .pricing-plans {
+        grid-template-columns: 1fr;
+    }
+    
+    .nueve4-widget-team-members .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nueve4-widget-testimonials .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation Classes */
+.nueve4-fade-in {
+    animation: nueve4FadeIn 0.6s ease-in-out;
+}
+
+.nueve4-slide-up {
+    animation: nueve4SlideUp 0.6s ease-in-out;
+}
+
+.nueve4-zoom-in {
+    animation: nueve4ZoomIn 0.6s ease-in-out;
+}
+
+@keyframes nueve4FadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes nueve4SlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes nueve4ZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

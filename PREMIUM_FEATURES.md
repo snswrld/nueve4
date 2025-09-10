@@ -1,10 +1,10 @@
-# Neve Theme - Premium Features Enabled
+# Nueve4 Theme - Premium Features Enabled
 
-This document outlines all the premium features that have been enabled and added to the Neve WordPress theme.
+This document outlines all the premium features that have been enabled and added to the Nueve4 WordPress theme.
 
 ## 🚀 Overview
 
-The Neve theme has been enhanced with comprehensive premium features that were previously locked behind paywalls. All premium functionality is now available, plus additional custom features have been added.
+The Nueve4 theme has been enhanced with comprehensive premium features that were previously locked behind paywalls. All premium functionality is now available, plus additional custom features have been added.
 
 ## ✨ Premium Features Enabled
 
@@ -55,7 +55,7 @@ The Neve theme has been enhanced with comprehensive premium features that were p
 
 ## 🎨 New Premium Blocks
 
-### 1. **Testimonials Block** (`neve/testimonials`)
+### 1. **Testimonials Block** (`nueve4/testimonials`)
 - **Layouts**: Grid, Slider, List
 - **Features**: 
   - Multiple testimonials management
@@ -64,7 +64,7 @@ The Neve theme has been enhanced with comprehensive premium features that were p
   - Auto-playing slider with navigation
 - **Customization**: Layout selection, styling options
 
-### 2. **Pricing Table Block** (`neve/pricing-table`)
+### 2. **Pricing Table Block** (`nueve4/pricing-table`)
 - **Features**:
   - Unlimited pricing plans
   - Featured plan highlighting
@@ -73,7 +73,7 @@ The Neve theme has been enhanced with comprehensive premium features that were p
   - Responsive columns (1-4)
 - **Customization**: Colors, spacing, button styles
 
-### 3. **Team Members Block** (`neve/team-members`)
+### 3. **Team Members Block** (`nueve4/team-members`)
 - **Features**:
   - Team member profiles
   - Social media links
@@ -124,7 +124,7 @@ Located in **Appearance > Customize > Premium Features**
 
 ### File Structure
 ```
-neve/
+nueve4/
 ├── inc/
 │   ├── premium-features.php          # Main premium features class
 │   ├── premium-blocks-category.php   # Block category management
@@ -143,9 +143,9 @@ neve/
 ```
 
 ### Key Classes
-- `Neve\Premium\Premium_Features` - Main premium features controller
-- `Neve\Premium\Premium_Blocks_Category` - Block category manager
-- `Neve\Customizer\Options\Premium_Panel` - Customizer panel
+- `Nueve4\Premium\Premium_Features` - Main premium features controller
+- `Nueve4\Premium\Premium_Blocks_Category` - Block category manager
+- `Nueve4\Customizer\Options\Premium_Panel` - Customizer panel
 
 ## 🚀 Getting Started
 
@@ -154,7 +154,7 @@ Premium features are automatically activated when the theme is loaded. No additi
 
 ### Accessing Features
 1. **Customizer**: Go to **Appearance > Customize > Premium Features**
-2. **Blocks**: In the block editor, look for the "Neve Premium Blocks" category
+2. **Blocks**: In the block editor, look for the "Nueve4 Premium Blocks" category
 3. **WooCommerce**: Premium options appear in **Customize > WooCommerce**
 
 ### Configuration
@@ -166,10 +166,10 @@ Premium features are automatically activated when the theme is loaded. No additi
 ## 🎨 Styling and Customization
 
 ### CSS Classes
-- `.neve-testimonials-block` - Testimonials container
-- `.neve-pricing-block` - Pricing table container
-- `.neve-team-block` - Team members container
-- `.neve-scroll-to-top` - Scroll to top button
+- `.nueve4-testimonials-block` - Testimonials container
+- `.nueve4-pricing-block` - Pricing table container
+- `.nueve4-team-block` - Team members container
+- `.nueve4-scroll-to-top` - Scroll to top button
 - `.pricing-plan.featured` - Featured pricing plan
 - `.team-member` - Individual team member
 
