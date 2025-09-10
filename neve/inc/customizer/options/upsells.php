@@ -623,7 +623,7 @@ class Upsells extends Base_Customizer {
 					)
 				);
 
-				return false;
+				continue;
 			}
 			$this->add_control(
 				new Control(

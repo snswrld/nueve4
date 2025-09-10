@@ -37,7 +37,7 @@ class Premium_Activation {
         
         // Set premium status
         update_option('neve_premium_active', true);
-        update_option('neve_premium_version', NEVE_VERSION);
+        update_option('neve_premium_version', defined('NEVE_VERSION') ? NEVE_VERSION : '1.0.0');
         
         // Flush rewrite rules if needed
         if (get_option('neve_premium_flush_rules')) {
@@ -95,13 +95,13 @@ class Premium_Activation {
                     <a href="<?php echo admin_url('customize.php?autofocus[panel]=neve_premium_features'); ?>" class="button button-primary">
                         <?php _e('Explore Premium Features', 'neve'); ?>
                     </a>
-                    <button type="button" class="notice-dismiss" onclick="neveDissmissPremiumNotice()">
+                    <button type="button" class="notice-dismiss" onclick="neveDismissPremiumNotice()">
                         <span class="screen-reader-text"><?php _e('Dismiss this notice.', 'neve'); ?></span>
                     </button>
                 </p>
             </div>
             <script>
-            function neveDissmissPremiumNotice() {
+            function neveDismissPremiumNotice() {
                 document.getElementById('neve-premium-notice').style.display = 'none';
                 fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
                     method: 'POST',
@@ -120,7 +120,7 @@ class Premium_Activation {
      * Handle notice dismissal
      */
     public function dismiss_premium_notice() {
-        if (wp_verify_nonce($_POST['nonce'], 'neve_premium_nonce')) {
+        if (isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'neve_premium_nonce') && current_user_can('manage_options')) {
             update_option('neve_premium_notice_dismissed', true);
         }
         wp_die();
@@ -129,7 +129,7 @@ class Premium_Activation {
 
 // Handle AJAX notice dismissal
 add_action('wp_ajax_neve_dismiss_premium_notice', function() {
-    if (wp_verify_nonce($_POST['nonce'], 'neve_premium_nonce')) {
+    if (isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'neve_premium_nonce') && current_user_can('manage_options')) {
         update_option('neve_premium_notice_dismissed', true);
     }
     wp_die();
