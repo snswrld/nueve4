@@ -77,7 +77,7 @@ foreach ( $_files_to_check as $_file_to_check ) {
  */
 function _neve_bootstrap_errors() {
 	global $_neve_bootstrap_errors;
-	printf( '<div class="notice notice-error"><p>%1$s</p></div>', $_neve_bootstrap_errors->get_error_message() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	printf( '<div class="notice notice-error"><p>%1$s</p></div>', wp_kses_post( $_neve_bootstrap_errors->get_error_message() ) );
 }
 
 if ( $_neve_bootstrap_errors->has_errors() ) {
@@ -119,11 +119,21 @@ add_filter(
 		return $compatibilities;
 	}
 );
-require_once 'globals/migrations.php';
-require_once 'globals/utilities.php';
-require_once 'globals/hooks.php';
-require_once 'globals/sanitize-functions.php';
-require_once get_template_directory() . '/start.php';
+if ( file_exists( NEVE_INC_DIR . 'globals/migrations.php' ) ) {
+	require_once NEVE_INC_DIR . 'globals/migrations.php';
+}
+if ( file_exists( NEVE_INC_DIR . 'globals/utilities.php' ) ) {
+	require_once NEVE_INC_DIR . 'globals/utilities.php';
+}
+if ( file_exists( NEVE_INC_DIR . 'globals/hooks.php' ) ) {
+	require_once NEVE_INC_DIR . 'globals/hooks.php';
+}
+if ( file_exists( NEVE_INC_DIR . 'globals/sanitize-functions.php' ) ) {
+	require_once NEVE_INC_DIR . 'globals/sanitize-functions.php';
+}
+if ( file_exists( get_template_directory() . '/start.php' ) ) {
+	require_once get_template_directory() . '/start.php';
+}
 
 /**
  * If the new widget editor is available,
@@ -140,7 +150,7 @@ if ( neve_is_new_widget_editor() ) {
 	 * @return mixed
 	 */
 	function neve_customizer_custom_widget_areas( $section_args, $section_id, $sidebar_id ) {
-		if ( strpos( $section_id, 'widgets-footer' ) ) {
+		if ( strpos( $section_id, 'widgets-footer' ) !== false ) {
 			$section_args['panel'] = 'hfg_footer';
 		}
 
@@ -150,7 +160,14 @@ if ( neve_is_new_widget_editor() ) {
 	add_filter( 'customizer_widgets_section_args', 'neve_customizer_custom_widget_areas', 10, 3 );
 }
 
-require_once get_template_directory() . '/header-footer-grid/loader.php';
+if ( file_exists( get_template_directory() . '/header-footer-grid/loader.php' ) ) {
+	require_once get_template_directory() . '/header-footer-grid/loader.php';
+}
+
+// Load Premium Features
+if ( file_exists( get_template_directory() . '/inc/premium-features.php' ) ) {
+	require_once get_template_directory() . '/inc/premium-features.php';
+}
 
 add_filter(
 	'neve_welcome_metadata',
