@@ -3,23 +3,23 @@
  */
 
 /* Testimonials Block */
-.neve-testimonials-block {
+.nueve4-testimonials-block {
     margin: 2rem 0;
 }
 
-.neve-testimonials-block.layout-grid {
+.nueve4-testimonials-block.layout-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.neve-testimonials-block.layout-list .testimonial-item {
+.nueve4-testimonials-block.layout-list .testimonial-item {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid #eee;
 }
 
-.neve-testimonials-block.layout-slider {
+.nueve4-testimonials-block.layout-slider {
     overflow: hidden;
     position: relative;
 }
@@ -79,19 +79,19 @@
 }
 
 /* Pricing Table Block */
-.neve-pricing-block {
+.nueve4-pricing-block {
     display: grid;
     gap: 2rem;
     margin: 2rem 0;
 }
 
-.neve-pricing-block.columns-1 { grid-template-columns: 1fr; }
-.neve-pricing-block.columns-2 { grid-template-columns: repeat(2, 1fr); }
-.neve-pricing-block.columns-3 { grid-template-columns: repeat(3, 1fr); }
-.neve-pricing-block.columns-4 { grid-template-columns: repeat(4, 1fr); }
+.nueve4-pricing-block.columns-1 { grid-template-columns: 1fr; }
+.nueve4-pricing-block.columns-2 { grid-template-columns: repeat(2, 1fr); }
+.nueve4-pricing-block.columns-3 { grid-template-columns: repeat(3, 1fr); }
+.nueve4-pricing-block.columns-4 { grid-template-columns: repeat(4, 1fr); }
 
 @media (max-width: 768px) {
-    .neve-pricing-block {
+    .nueve4-pricing-block {
         grid-template-columns: 1fr !important;
     }
 }
@@ -207,19 +207,19 @@
 }
 
 /* Team Members Block */
-.neve-team-block {
+.nueve4-team-block {
     display: grid;
     gap: 2rem;
     margin: 2rem 0;
 }
 
-.neve-team-block.columns-1 { grid-template-columns: 1fr; }
-.neve-team-block.columns-2 { grid-template-columns: repeat(2, 1fr); }
-.neve-team-block.columns-3 { grid-template-columns: repeat(3, 1fr); }
-.neve-team-block.columns-4 { grid-template-columns: repeat(4, 1fr); }
+.nueve4-team-block.columns-1 { grid-template-columns: 1fr; }
+.nueve4-team-block.columns-2 { grid-template-columns: repeat(2, 1fr); }
+.nueve4-team-block.columns-3 { grid-template-columns: repeat(3, 1fr); }
+.nueve4-team-block.columns-4 { grid-template-columns: repeat(4, 1fr); }
 
 @media (max-width: 768px) {
-    .neve-team-block {
+    .nueve4-team-block {
         grid-template-columns: 1fr !important;
     }
 }
@@ -305,9 +305,9 @@
 }
 
 /* WooCommerce Premium Features */
-.neve-quick-view,
-.neve-wishlist,
-.neve-compare {
+.nueve4-quick-view,
+.nueve4-wishlist,
+.nueve4-compare {
     display: inline-block;
     margin: 0.25rem;
     padding: 0.5rem 1rem;
@@ -319,22 +319,22 @@
     transition: background 0.3s ease;
 }
 
-.neve-quick-view:hover,
-.neve-wishlist:hover,
-.neve-compare:hover {
+.nueve4-quick-view:hover,
+.nueve4-wishlist:hover,
+.nueve4-compare:hover {
     background: #005a87;
     color: white;
     text-decoration: none;
 }
 
-.neve-product-filters {
+.nueve4-product-filters {
     margin-bottom: 2rem;
     padding: 1rem;
     background: #f9f9f9;
     border-radius: 6px;
 }
 
-.neve-product-filters select {
+.nueve4-product-filters select {
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -342,7 +342,7 @@
 }
 
 /* Scroll to Top Button */
-.neve-scroll-to-top {
+.nueve4-scroll-to-top {
     position: fixed;
     width: 50px;
     height: 50px;
@@ -359,23 +359,23 @@
     font-weight: bold;
 }
 
-.neve-scroll-to-top:hover {
+.nueve4-scroll-to-top:hover {
     background: #005a87;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0,115,170,0.3);
 }
 
 /* Block Editor Styles */
-.wp-block-neve-testimonials,
-.wp-block-neve-pricing-table,
-.wp-block-neve-team-members {
+.wp-block-nueve4-testimonials,
+.wp-block-nueve4-pricing-table,
+.wp-block-nueve4-team-members {
     margin: 2rem 0;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .neve-pricing-block.columns-4,
-    .neve-team-block.columns-4 {
+    .nueve4-pricing-block.columns-4,
+    .nueve4-team-block.columns-4 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -410,7 +410,7 @@
     }
 }
 
-.neve-animate-in {
+.nueve4-animate-in {
     animation: fadeInUp 0.6s ease-out;
 }
 

@@ -28,7 +28,7 @@ class Nav extends Abstract_Component {
 	const HOVER_COLOR_ID           = 'hover_color';
 	const HOVER_TEXT_COLOR_ID      = 'hover_text_color';
 	const ACTIVE_COLOR_ID          = 'active_color';
-	const LAST_ITEM_ID             = 'neve_last_menu_item';
+	const LAST_ITEM_ID             = 'nueve4_last_menu_item';
 	const NAV_MENU_ID              = 'nv-primary-navigation';
 	const ITEM_HEIGHT              = 'item_height';
 	const SPACING                  = 'spacing';
@@ -42,7 +42,7 @@ class Nav extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Primary Menu', 'neve' ) );
+		$this->set_property( 'label', __( 'Primary Menu', 'nueve4' ) );
 		$this->set_property( 'component_slug', 'hfg-primary-menu' );
 		$this->set_property( 'id', $this->get_class_const( 'COMPONENT_ID' ) );
 		$this->set_property( 'width', 6 );
@@ -53,32 +53,32 @@ class Nav extends Abstract_Component {
 		$this->set_property( 'default_typography_selector', $this->default_typography_selector . '.builder-item--' . $this->get_id() );
 		$this->default_align = 'right';
 		add_filter(
-			'neve_last_menu_setting_slug_' . $this->get_class_const( 'COMPONENT_ID' ),
+			'nueve4_last_menu_setting_slug_' . $this->get_class_const( 'COMPONENT_ID' ),
 			array(
 				$this,
-				'filter_neve_last_menu_setting_slug',
+				'filter_nueve4_last_menu_setting_slug',
 			)
 		);
 
 		add_action(
-			'neve_before_render_nav',
+			'nueve4_before_render_nav',
 			function ( $component_id ) {
 				if ( $this->get_id() !== $component_id ) {
 					return;
 				}
-				add_filter( 'neve_first_level_expanded', [ $this, 'expanded_dropdown' ] );
+				add_filter( 'nueve4_first_level_expanded', [ $this, 'expanded_dropdown' ] );
 				add_filter( 'nav_menu_submenu_css_class', [ $this, 'filter_menu_item_class' ], 10, 3 );
 				add_filter( 'nav_menu_css_class', [ $this, 'filter_active_item_classes' ] );
 			}
 		);
 
 		add_action(
-			'neve_after_render_nav',
+			'nueve4_after_render_nav',
 			function ( $component_id ) {
 				if ( $this->get_id() !== $component_id ) {
 					return;
 				}
-				remove_filter( 'neve_first_level_expanded', [ $this, 'expanded_dropdown' ] );
+				remove_filter( 'nueve4_first_level_expanded', [ $this, 'expanded_dropdown' ] );
 				remove_filter( 'nav_menu_submenu_css_class', [ $this, 'filter_menu_item_class' ] );
 				remove_filter( 'nav_menu_css_class', [ $this, 'filter_active_item_classes' ] );
 			}
@@ -145,7 +145,7 @@ class Nav extends Abstract_Component {
 	 * @access public
 	 */
 	public function run_nav_init() {
-		do_action( 'neve_after_nav_init', $this->get_class_const( 'COMPONENT_ID' ) );
+		do_action( 'nueve4_after_nav_init', $this->get_class_const( 'COMPONENT_ID' ) );
 	}
 
 	/**
@@ -157,7 +157,7 @@ class Nav extends Abstract_Component {
 	 * @since   2.3.7
 	 * @access  public
 	 */
-	public function filter_neve_last_menu_setting_slug( $slug ) {
+	public function filter_nueve4_last_menu_setting_slug( $slug ) {
 		if ( $slug !== $this->get_class_const( 'LAST_ITEM_ID' ) ) {
 			return $this->get_class_const( 'LAST_ITEM_ID' );
 		}
@@ -181,7 +181,7 @@ class Nav extends Abstract_Component {
 				'sanitize_callback'  => 'wp_filter_nohtml_kses',
 				'default'            => 'style-plain',
 				'conditional_header' => true,
-				'label'              => __( 'Hover Skin Mode', 'neve' ),
+				'label'              => __( 'Hover Skin Mode', 'nueve4' ),
 				'type'               => '\Neve\Customizer\Controls\React\Radio_Buttons',
 				'section'            => $this->section,
 				'options'            => [
@@ -198,10 +198,10 @@ class Nav extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => '',
-				'label'                 => __( 'Items Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Items Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'conditional_header'    => true,
 				'live_refresh_selector' => true,
@@ -211,7 +211,7 @@ class Nav extends Abstract_Component {
 						'selector' => '.builder-item--' . $this->get_id(),
 					],
 					'template' =>
-						$selector . ' li:not(.current_page_item):not(.current-menu-item):not(.woocommerce-mini-cart-item) > a,' . $selector . ' li.neve-mm-heading span {
+						$selector . ' li:not(.current_page_item):not(.current-menu-item):not(.woocommerce-mini-cart-item) > a,' . $selector . ' li.nueve4-mm-heading span {
 						color: {{value}};
 					}',
 				],
@@ -223,10 +223,10 @@ class Nav extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => 'var(--nv-primary-accent)',
-				'label'                 => __( 'Active Item Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Active Item Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'conditional_header'    => true,
 				'live_refresh_selector' => true,
@@ -248,10 +248,10 @@ class Nav extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => 'var(--nv-secondary-accent)',
-				'label'                 => __( 'Items Hover Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Items Hover Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'conditional_header'    => true,
 				'live_refresh_selector' => true,
@@ -276,10 +276,10 @@ class Nav extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => 'var(--nv-text-color)',
-				'label'                 => __( 'Hover Skin Mode', 'neve' ) . ' ' . __( 'Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Hover Skin Mode', 'nueve4' ) . ' ' . __( 'Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'conditional_header'    => true,
 				'live_refresh_selector' => true,
@@ -301,22 +301,22 @@ class Nav extends Abstract_Component {
 			'search',
 		);
 		$components               = array(
-			'search' => __( 'Search', 'neve' ),
+			'search' => __( 'Search', 'nueve4' ),
 		);
 
 		if ( class_exists( 'WooCommerce', false ) ) {
 			array_push( $order_default_components, 'cart' );
-			$components['cart'] = __( 'Cart', 'neve' );
+			$components['cart'] = __( 'Cart', 'nueve4' );
 		}
 
-		$components = apply_filters( 'neve_last_menu_item_components', $components );
+		$components = apply_filters( 'nueve4_last_menu_item_components', $components );
 
 		/**
 		 * Last menu item removed for new users and users who didn't have it set.
 		 *
 		 * @since 2.5.3
 		 */
-		$old_last_menu_item = json_decode( get_theme_mod( 'neve_last_menu_item' ) );
+		$old_last_menu_item = json_decode( get_theme_mod( 'nueve4_last_menu_item' ) );
 		if ( $old_last_menu_item !== false && ! empty( $old_last_menu_item ) ) {
 			SettingsManager::get_instance()->add(
 				[
@@ -327,7 +327,7 @@ class Nav extends Abstract_Component {
 					'transport'         => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 					'sanitize_callback' => array( $this, 'sanitize_last_menu_item' ),
 					'default'           => wp_json_encode( $order_default_components ),
-					'label'             => __( 'Last Menu Item', 'neve' ),
+					'label'             => __( 'Last Menu Item', 'nueve4' ),
 					'type'              => 'Neve\Customizer\Controls\Ordering',
 					'options'           => [
 						'components' => $components,
@@ -345,7 +345,7 @@ class Nav extends Abstract_Component {
 				'sanitize_callback' => 'esc_attr',
 				'type'              => '\Neve\Customizer\Controls\Button',
 				'options'           => [
-					'button_text'  => __( 'Primary Menu', 'neve' ),
+					'button_text'  => __( 'Primary Menu', 'nueve4' ),
 					'button_class' => 'nv-top-bar-menu-shortcut',
 					'icon_class'   => 'menu',
 					'shortcut'     => true,
@@ -360,7 +360,7 @@ class Nav extends Abstract_Component {
 				'group'              => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                => SettingsManager::TAB_LAYOUT,
 				'section'            => $this->section,
-				'label'              => __( 'Items Spacing (px)', 'neve' ),
+				'label'              => __( 'Items Spacing (px)', 'nueve4' ),
 				'type'               => 'Neve\Customizer\Controls\React\Responsive_Range',
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => [ $this, 'sanitize_responsive_int_json' ],
@@ -391,7 +391,7 @@ class Nav extends Abstract_Component {
 				'id'                 => self::ITEM_HEIGHT,
 				'group'              => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                => SettingsManager::TAB_LAYOUT,
-				'label'              => __( 'Items Min Height (px)', 'neve' ),
+				'label'              => __( 'Items Min Height (px)', 'nueve4' ),
 				'sanitize_callback'  => [ $this, 'sanitize_responsive_int_json' ],
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'default'            => $this->get_default_for_responsive_from_intval( self::ITEM_HEIGHT, 25 ),
@@ -426,8 +426,8 @@ class Nav extends Abstract_Component {
 				'transport'          => 'refresh',
 				'sanitize_callback'  => 'absint',
 				'default'            => 0,
-				'label'              => __( 'Expand first level of dropdowns when menu is in mobile menu content.', 'neve' ),
-				'type'               => 'neve_toggle_control',
+				'label'              => __( 'Expand first level of dropdowns when menu is in mobile menu content.', 'nueve4' ),
+				'type'               => 'nueve4_toggle_control',
 				'section'            => $this->section,
 				'conditional_header' => true,
 			]
@@ -470,9 +470,9 @@ class Nav extends Abstract_Component {
 	 * @access  public
 	 */
 	public function render_component() {
-		do_action( 'neve_before_render_nav', $this->get_id() );
+		do_action( 'nueve4_before_render_nav', $this->get_id() );
 		Main::get_instance()->load( 'components/component-nav', '', $this->args );
-		do_action( 'neve_after_render_nav', $this->get_id() );
+		do_action( 'nueve4_after_render_nav', $this->get_id() );
 	}
 
 	/**
@@ -521,7 +521,7 @@ class Nav extends Abstract_Component {
 			Dynamic_Selector::KEY_RULES    => $rules,
 		];
 
-		$css_array = apply_filters( 'neve_nav_filter_css', $css_array, $this->get_id() );
+		$css_array = apply_filters( 'nueve4_nav_filter_css', $css_array, $this->get_id() );
 
 
 		return parent::add_style( $css_array );

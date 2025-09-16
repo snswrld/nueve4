@@ -5,7 +5,7 @@
  * Author:      Bogdan Preda <bogdan.preda@themeisle.com>
  * Created on:  20-12-{2021}
  *
- * @package neve/neve-pro
+ * @package nueve4/nueve4-pro
  */
 namespace Neve\Customizer\Controls\React;
 
@@ -23,7 +23,7 @@ class Upsell_Section extends \WP_Customize_Section {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_upsell';
+	public $type = 'nueve4_upsell';
 
 	/**
 	 * Upgrade URL.
@@ -51,7 +51,7 @@ class Upsell_Section extends \WP_Customize_Section {
 		?>
 		<li id="accordion-section-{{ data.id }}"
 			data-slug="{{data.id}}"
-			class="control-section control-section-{{ data.type }} neve-upsell">
+			class="control-section control-section-{{ data.type }} nueve4-upsell">
 		</li>
 		<?php
 	}

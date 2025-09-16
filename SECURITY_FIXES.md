@@ -41,8 +41,8 @@ if (file_exists(get_template_directory() . '/inc/premium-blocks-category.php')) 
 **Fix Applied:**
 ```php
 // Added proper validation
-if (isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'neve_premium_nonce') && current_user_can('manage_options')) {
-    update_option('neve_premium_notice_dismissed', true);
+if (isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'nueve4_premium_nonce') && current_user_can('manage_options')) {
+    update_option('nueve4_premium_notice_dismissed', true);
 }
 ```
 
@@ -89,7 +89,7 @@ if (!is_array($components)) {
 ### 7. **Function Name Typo** - LOW PRIORITY
 **File:** `inc/premium-activation.php` (line 103)
 
-**Fix:** Corrected `neveDissmissPremiumNotice` to `neveDismissPremiumNotice`
+**Fix:** Corrected `nueve4DissmissPremiumNotice` to `nueve4DismissPremiumNotice`
 
 ## Security Best Practices Implemented
 

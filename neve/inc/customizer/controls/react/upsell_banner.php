@@ -5,7 +5,7 @@
  * Author:      Bogdan Preda <bogdan.preda@themeisle.com>
  * Created on:  20-12-{2021}
  *
- * @package neve/neve-pro
+ * @package nueve4/nueve4-pro
  */
 namespace Neve\Customizer\Controls\React;
 
@@ -23,7 +23,7 @@ class Upsell_Banner extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_upsell_banner';
+	public $type = 'nueve4_upsell_banner';
 
 	/**
 	 * Upgrade URL.
@@ -92,7 +92,7 @@ class Upsell_Banner extends \WP_Customize_Control {
 		?>
 		<li id="customize-control-<?php echo esc_attr( $this->id ); ?>"
 			data-slug="<?php echo esc_attr( $this->id ); ?>"
-			class="customize-control customize-control-<?php echo esc_attr( $this->id ); ?>-control neve-upsell-banner" style="background: none;">
+			class="customize-control customize-control-<?php echo esc_attr( $this->id ); ?>-control nueve4-upsell-banner" style="background: none;">
 		</li>
 		<?php
 	}

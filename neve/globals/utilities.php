@@ -16,15 +16,15 @@ use HFG\Core\Components\Utility\SearchIconButton;
  *
  * @return bool
  */
-function neve_is_amp() {
+function nueve4_is_amp() {
 	return ( function_exists( 'amp_is_request' ) && amp_is_request() ) || ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() );
 }
 
 /**
  * Show body attrs.
  */
-function neve_body_attrs() {
-	$body_attrs = apply_filters( 'neve_body_data_attrs', 'id="neve_body" ' );
+function nueve4_body_attrs() {
+	$body_attrs = apply_filters( 'nueve4_body_data_attrs', 'id="nueve4_body" ' );
 	echo( $body_attrs ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
@@ -33,59 +33,59 @@ function neve_body_attrs() {
  *
  * @return array $hooks - hooks locations and name
  */
-function neve_hooks() {
+function nueve4_hooks() {
 
 	$hooks = array(
 		'header'     => array(
-			'neve_html_start_before',
-			'neve_head_start_after',
-			'neve_head_end_before',
-			'neve_body_start_after',
-			'neve_before_header_hook',
-			'neve_before_header_wrapper_hook',
-			'neve_after_header_hook',
-			'neve_after_header_wrapper_hook',
-			'neve_before_mobile_menu_content',
-			'neve_after_mobile_menu_content',
+			'nueve4_html_start_before',
+			'nueve4_head_start_after',
+			'nueve4_head_end_before',
+			'nueve4_body_start_after',
+			'nueve4_before_header_hook',
+			'nueve4_before_header_wrapper_hook',
+			'nueve4_after_header_hook',
+			'nueve4_after_header_wrapper_hook',
+			'nueve4_before_mobile_menu_content',
+			'nueve4_after_mobile_menu_content',
 		),
 		'footer'     => array(
-			'neve_before_footer_hook',
-			'neve_after_footer_hook',
-			'neve_body_end_before',
+			'nueve4_before_footer_hook',
+			'nueve4_after_footer_hook',
+			'nueve4_body_end_before',
 		),
 		'post'       => array(
-			'neve_before_post_content',
-			'neve_after_post_content',
+			'nueve4_before_post_content',
+			'nueve4_after_post_content',
 		),
 		'page'       => array(
-			'neve_before_page_header',
-			'neve_before_page_comments',
+			'nueve4_before_page_header',
+			'nueve4_before_page_comments',
 		),
 		'single'     => array(
-			'neve_before_content',
-			'neve_after_content',
+			'nueve4_before_content',
+			'nueve4_after_content',
 		),
 		'sidebar'    => array(
-			'neve_before_sidebar_content',
-			'neve_after_sidebar_content',
+			'nueve4_before_sidebar_content',
+			'nueve4_after_sidebar_content',
 		),
 		'blog'       => array(
-			'neve_before_loop',
-			'neve_before_posts_loop',
-			'neve_after_posts_loop',
-			'neve_loop_entry_before',
-			'neve_loop_entry_after',
-			'neve_middle_posts_loop',
+			'nueve4_before_loop',
+			'nueve4_before_posts_loop',
+			'nueve4_after_posts_loop',
+			'nueve4_loop_entry_before',
+			'nueve4_loop_entry_after',
+			'nueve4_middle_posts_loop',
 		),
 		'pagination' => array(
-			'neve_before_pagination',
+			'nueve4_before_pagination',
 		),
 	);
 
 	if ( class_exists( 'WooCommerce' ) ) {
 		$hooks['shop']     = array(
-			'neve_before_cart_popup',
-			'neve_after_cart_popup',
+			'nueve4_before_cart_popup',
+			'nueve4_after_cart_popup',
 			'woocommerce_before_shop_loop',
 			'woocommerce_after_shop_loop',
 			'woocommerce_before_shop_loop_item',
@@ -153,16 +153,16 @@ function neve_hooks() {
 	}
 
 	$hooks['download-archive'] = array(
-		'neve_before_download_archive',
-		'neve_after_download_archive',
+		'nueve4_before_download_archive',
+		'nueve4_after_download_archive',
 	);
 
 	$hooks['single-download'] = array(
-		'neve_before_download_content',
-		'neve_after_download_content',
+		'nueve4_before_download_content',
+		'nueve4_after_download_content',
 	);
 
-	return apply_filters( 'neve_hooks_list', $hooks );
+	return apply_filters( 'nueve4_hooks_list', $hooks );
 }
 
 /**
@@ -177,7 +177,7 @@ function neve_hooks() {
  *
  * @return string|null
  */
-function neve_cart_icon( $echo = false, $size = 15, $cart_icon = '', $icon_custom = '' ) {
+function nueve4_cart_icon( $echo = false, $size = 15, $cart_icon = '', $icon_custom = '' ) {
 	$icon = '<svg width="' . $size . '" height="' . $size . '" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M704 1536q0 52-38 90t-90 38-90-38-38-90 38-90 90-38 90 38 38 90zm896 0q0 52-38 90t-90 38-90-38-38-90 38-90 90-38 90 38 38 90zm128-1088v512q0 24-16.5 42.5t-40.5 21.5l-1044 122q13 60 13 70 0 16-24 64h920q26 0 45 19t19 45-19 45-45 19h-1024q-26 0-45-19t-19-45q0-11 8-31.5t16-36 21.5-40 15.5-29.5l-177-823h-204q-26 0-45-19t-19-45 19-45 45-19h256q16 0 28.5 6.5t19.5 15.5 13 24.5 8 26 5.5 29.5 4.5 26h1201q26 0 45 19t19 45z"/></svg>';
 	if ( ! empty( $cart_icon ) && class_exists( '\Neve_Pro\Modules\Header_Footer_Grid\Components\Icons' ) ) {
 		$cart_icon_svg = Icons::get_instance()->get_single_icon( $cart_icon );
@@ -185,7 +185,7 @@ function neve_cart_icon( $echo = false, $size = 15, $cart_icon = '', $icon_custo
 	}
 
 	if ( $cart_icon === 'custom' ) {
-		$icon = neve_kses_svg( $icon_custom );
+		$icon = nueve4_kses_svg( $icon_custom );
 	}
 
 	$svg = '<span class="nv-icon nv-cart">' . $icon . '</span>';
@@ -207,7 +207,7 @@ function neve_cart_icon( $echo = false, $size = 15, $cart_icon = '', $icon_custo
  *
  * @return string|null
  */
-function neve_search_icon( $is_link = false, $echo = false, $size = 15, $amp_ready = false, $context = false ) {
+function nueve4_search_icon( $is_link = false, $echo = false, $size = 15, $amp_ready = false, $context = false ) {
 
 	$icon_type = SearchIconButton::DEFAULT_ICON;
 
@@ -230,10 +230,10 @@ function neve_search_icon( $is_link = false, $echo = false, $size = 15, $amp_rea
 	if ( $amp_ready ) {
 		$amp_state = 'on="tap:AMP.setState({visible: !visible})" role="button"  ';
 	}
-	$start_tag = $is_link ? 'a aria-label="' . __( 'Search', 'neve' ) . '" href="#"' : 'span';
+	$start_tag = $is_link ? 'a aria-label="' . __( 'Search', 'nueve4' ) . '" href="#"' : 'span';
 	$end_tag   = $is_link ? 'a' : 'span';
 	$output    = '<' . $start_tag . ' class="nv-icon nv-search" ' . $amp_state . '>
-				' . neve_kses_svg( $svg ) . '
+				' . nueve4_kses_svg( $svg ) . '
 			</' . $end_tag . '>';
 	if ( $echo === false ) {
 		return $output;
@@ -250,7 +250,7 @@ function neve_search_icon( $is_link = false, $echo = false, $size = 15, $amp_rea
  *
  * @return string
  */
-function neve_custom_kses_escape( $input, $additional_args ) {
+function nueve4_custom_kses_escape( $input, $additional_args ) {
 	$kses_defaults = wp_kses_allowed_html( 'post' );
 	$allowed_tags  = array_merge( $kses_defaults, $additional_args );
 
@@ -262,7 +262,7 @@ function neve_custom_kses_escape( $input, $additional_args ) {
  *
  * @return array
  */
-function neve_get_svg_allowed_tags() {
+function nueve4_get_svg_allowed_tags() {
 	return array(
 		'svg'      => array(
 			'class'           => true,
@@ -346,10 +346,10 @@ function neve_get_svg_allowed_tags() {
  *
  * @return string
  */
-function neve_kses_svg( $input ) {
-	$svg_args = neve_get_svg_allowed_tags();
+function nueve4_kses_svg( $input ) {
+	$svg_args = nueve4_get_svg_allowed_tags();
 
-	return neve_custom_kses_escape( $input, $svg_args );
+	return nueve4_custom_kses_escape( $input, $svg_args );
 }
 
 /**
@@ -359,7 +359,7 @@ function neve_kses_svg( $input ) {
  *
  * @return array
  */
-function neve_get_standard_fonts( $with_variants = false ) {
+function nueve4_get_standard_fonts( $with_variants = false ) {
 	$fonts = array(
 		'Arial, Helvetica, sans-serif'                     => array( '400', '700', '400italic', '700italic' ),
 		'Arial Black, Gadget, sans-serif'                  => array( '900', '900italic' ),
@@ -383,10 +383,10 @@ function neve_get_standard_fonts( $with_variants = false ) {
 	);
 
 	if ( $with_variants ) {
-		return apply_filters( 'neve_standard_fonts_with_variants_array', $fonts );
+		return apply_filters( 'nueve4_standard_fonts_with_variants_array', $fonts );
 	}
 
-	return apply_filters( 'neve_standard_fonts_array', array_keys( $fonts ) );
+	return apply_filters( 'nueve4_standard_fonts_array', array_keys( $fonts ) );
 }
 
 /**
@@ -396,14 +396,14 @@ function neve_get_standard_fonts( $with_variants = false ) {
  *
  * @return array
  */
-function neve_get_google_fonts( $with_variants = false ) {
+function nueve4_get_google_fonts( $with_variants = false ) {
 	$fonts = ( include NEVE_MAIN_DIR . 'globals/google-fonts.php' );
 
 	if ( $with_variants ) {
-		return apply_filters( 'neve_google_fonts_with_variants_array', $fonts );
+		return apply_filters( 'nueve4_google_fonts_with_variants_array', $fonts );
 	}
 
-	return apply_filters( 'neve_google_fonts_array', array_keys( $fonts ) );
+	return apply_filters( 'nueve4_google_fonts_array', array_keys( $fonts ) );
 }
 
 /**
@@ -411,9 +411,9 @@ function neve_get_google_fonts( $with_variants = false ) {
  *
  * @return array
  */
-function neve_get_headings_selectors() {
+function nueve4_get_headings_selectors() {
 	return apply_filters(
-		'neve_headings_typeface_selectors',
+		'nueve4_headings_typeface_selectors',
 		array(
 			'h1' => \Neve\Core\Settings\Config::$css_selectors_map[ \Neve\Core\Settings\Config::CSS_SELECTOR_TYPEFACE_H1 ],
 			'h2' => \Neve\Core\Settings\Config::$css_selectors_map[ \Neve\Core\Settings\Config::CSS_SELECTOR_TYPEFACE_H2 ],
@@ -437,14 +437,14 @@ function neve_get_headings_selectors() {
  *
  * @return string Full anchor tag.
  */
-function neve_external_link( $link, $text = '', $echo = false ) {
-	$text          = empty( $text ) ? __( 'Learn More', 'neve' ) : $text;
+function nueve4_external_link( $link, $text = '', $echo = false ) {
+	$text          = empty( $text ) ? __( 'Learn More', 'nueve4' ) : $text;
 	$return        = sprintf(
 		'<a target="_blank" rel="external noopener noreferrer" href="' . esc_url( $link ) . '"><span class="screen-reader-text">%s</span>%s <svg xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" viewBox="0 0 512 512" width="12" height="12" style="margin-right: 5px;"><path fill="currentColor" d="M432 320H400a16 16 0 0 0-16 16V448H64V128H208a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16H48A48 48 0 0 0 0 112V464a48 48 0 0 0 48 48H400a48 48 0 0 0 48-48V336A16 16 0 0 0 432 320ZM488 0h-128c-21.4 0-32 25.9-17 41l35.7 35.7L135 320.4a24 24 0 0 0 0 34L157.7 377a24 24 0 0 0 34 0L435.3 133.3 471 169c15 15 41 4.5 41-17V24A24 24 0 0 0 488 0Z"/></svg></a>',
-		esc_html__( '(opens in a new tab)', 'neve' ),
+		esc_html__( '(opens in a new tab)', 'nueve4' ),
 		esc_html( $text )
 	);
-	$is_whitelabel = apply_filters( 'neve_is_theme_whitelabeled', false ) || apply_filters( 'neve_is_plugin_whitelabeled', false );
+	$is_whitelabel = apply_filters( 'nueve4_is_theme_whitelabeled', false ) || apply_filters( 'nueve4_is_plugin_whitelabeled', false );
 	if ( $is_whitelabel ) {
 		return '';
 	}
@@ -455,7 +455,7 @@ function neve_external_link( $link, $text = '', $echo = false ) {
 	return '';
 }
 
-add_filter( 'neve_external_link', 'neve_external_link', 10, 3 );
+add_filter( 'nueve4_external_link', 'nueve4_external_link', 10, 3 );
 /**
  * Get Global Colors Default
  *
@@ -463,12 +463,12 @@ add_filter( 'neve_external_link', 'neve_external_link', 10, 3 );
  *
  * @return array
  */
-function neve_get_global_colors_default( $migrated = false ) {
+function nueve4_get_global_colors_default( $migrated = false ) {
 	return [
 		'activePalette' => 'base',
 		'palettes'      => [
 			'base'     => [
-				'name'          => __( 'Base', 'neve' ),
+				'name'          => __( 'Base', 'nueve4' ),
 				'allowDeletion' => false,
 				'colors'        => [
 					'nv-primary-accent'   => '#2f5aae',
@@ -483,7 +483,7 @@ function neve_get_global_colors_default( $migrated = false ) {
 				],
 			],
 			'darkMode' => [
-				'name'          => __( 'Dark Mode', 'neve' ),
+				'name'          => __( 'Dark Mode', 'nueve4' ),
 				'allowDeletion' => false,
 				'colors'        => [
 					'nv-primary-accent'   => '#00c2ff',
@@ -507,8 +507,8 @@ function neve_get_global_colors_default( $migrated = false ) {
  * @return bool
  * @since 3.0.0
  */
-function neve_is_new_builder() {
-	return get_theme_mod( 'neve_migrated_builders', true );
+function nueve4_is_new_builder() {
+	return get_theme_mod( 'nueve4_migrated_builders', true );
 }
 
 /**
@@ -517,8 +517,8 @@ function neve_is_new_builder() {
  * @return bool
  * @since 3.0.0
  */
-function neve_is_new_skin() {
-	return get_theme_mod( 'neve_new_skin', 'new' ) !== 'old';
+function nueve4_is_new_skin() {
+	return get_theme_mod( 'nueve4_new_skin', 'new' ) !== 'old';
 }
 
 /**
@@ -528,8 +528,8 @@ function neve_is_new_skin() {
  * @return bool
  * @since 3.6.x
  */
-function neve_was_auto_migrated_to_new() {
-	return get_theme_mod( 'neve_auto_migrated_to_new_skin', false );
+function nueve4_was_auto_migrated_to_new() {
+	return get_theme_mod( 'nueve4_auto_migrated_to_new_skin', false );
 }
 
 /**
@@ -538,8 +538,8 @@ function neve_was_auto_migrated_to_new() {
  * @return bool
  * @since 3.0.0
  */
-function neve_can_use_conditional_header() {
-	return defined( 'NEVE_PRO_COMPATIBILITY_FEATURES' ) && isset( NEVE_PRO_COMPATIBILITY_FEATURES['headerv2'] ) && neve_is_new_builder();
+function nueve4_can_use_conditional_header() {
+	return defined( 'NEVE_PRO_COMPATIBILITY_FEATURES' ) && isset( NEVE_PRO_COMPATIBILITY_FEATURES['headerv2'] ) && nueve4_is_new_builder();
 }
 
 /**
@@ -548,7 +548,7 @@ function neve_can_use_conditional_header() {
  * @return bool
  * @since 3.0.0
  */
-function neve_had_old_hfb() {
+function nueve4_had_old_hfb() {
 	return ( get_theme_mod( 'hfg_header_layout' ) !== false || get_theme_mod( 'hfg_footer_layout' ) ) !== false;
 }
 
@@ -557,7 +557,7 @@ function neve_had_old_hfb() {
  *
  * @param string $feature feature to check support for.
  */
-function neve_pro_has_support( $feature ) {
+function nueve4_pro_has_support( $feature ) {
 	return ( defined( 'NEVE_PRO_COMPATIBILITY_FEATURES' ) && isset( NEVE_PRO_COMPATIBILITY_FEATURES[ $feature ] ) );
 }
 
@@ -567,7 +567,7 @@ function neve_pro_has_support( $feature ) {
  * @return bool
  * @since 3.0.0
  */
-function neve_is_new_widget_editor() {
+function nueve4_is_new_widget_editor() {
 	return ( defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '10.6.2', '>' ) ) || version_compare( substr( get_bloginfo( 'version' ), 0, 3 ), '5.8', '>=' );
 }
 
@@ -579,7 +579,7 @@ function neve_is_new_widget_editor() {
  * @return bool
  * @since 3.0.5
  */
-function neve_is_using_wp_version( $version = '5.8' ) {
+function nueve4_is_using_wp_version( $version = '5.8' ) {
 	global $wp_version;
 	return version_compare( $wp_version, $version, '>=' );
 }
@@ -592,7 +592,7 @@ function neve_is_using_wp_version( $version = '5.8' ) {
  *
  * @return array|\WP_Error
  */
-function neve_safe_get( $url, $args = array() ) {
+function nueve4_safe_get( $url, $args = array() ) {
 	return function_exists( 'vip_safe_wp_remote_get' )
 		? vip_safe_wp_remote_get( $url )
 		: wp_remote_get( //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get, Already used.
@@ -604,7 +604,7 @@ function neve_safe_get( $url, $args = array() ) {
 /**
  * Create pagination for Easy Digital Downloads Archive.
  */
-function neve_edd_download_nav() {
+function nueve4_edd_download_nav() {
 
 	global $wp_query;
 
@@ -657,7 +657,7 @@ function neve_edd_download_nav() {
  *
  * @return bool
  */
-function neve_value_is_zero( $value ) {
+function nueve4_value_is_zero( $value ) {
 	return floatval( $value ) === 0.0;
 }
 
@@ -667,7 +667,7 @@ function neve_value_is_zero( $value ) {
  *
  * @param string $position Hook position.
  */
-function neve_do_loop_hook( $position ) {
+function nueve4_do_loop_hook( $position ) {
 	if ( ! in_array( $position, [ 'before', 'after', 'entry_before', 'entry_after' ] ) ) {
 		return;
 	}
@@ -686,12 +686,12 @@ function neve_do_loop_hook( $position ) {
 	 * This hook is not available for the following post types: post, page, product.
 	 *
 	 * Possible action names include:
-	 * - neve_loop_attachment_before
-	 * - neve_loop_acme_product_before
+	 * - nueve4_loop_attachment_before
+	 * - nueve4_loop_acme_product_before
 	 *
 	 * @since 2.11
 	 */
-	do_action( "neve_loop_{$current_post_type}_{$position}" );
+	do_action( "nueve4_loop_{$current_post_type}_{$position}" );
 }
 
 /**
@@ -702,16 +702,16 @@ function neve_do_loop_hook( $position ) {
  *
  * @return array
  */
-function neve_get_default_meta_value( $field, $default ) {
+function nueve4_get_default_meta_value( $field, $default ) {
 	$new_control_data = [];
 
 	$components = apply_filters(
-		'neve_meta_filter',
+		'nueve4_meta_filter',
 		[
-			'author'   => __( 'Author', 'neve' ),
-			'category' => __( 'Category', 'neve' ),
-			'date'     => __( 'Date', 'neve' ),
-			'comments' => __( 'Comments', 'neve' ),
+			'author'   => __( 'Author', 'nueve4' ),
+			'category' => __( 'Category', 'nueve4' ),
+			'date'     => __( 'Date', 'nueve4' ),
+			'comments' => __( 'Comments', 'nueve4' ),
 		]
 	);
 

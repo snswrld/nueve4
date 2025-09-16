@@ -92,27 +92,27 @@
   color: var(--nv-text-color);
 }
 
-.editor-styles-wrapper .has-neve-link-color-color {
+.editor-styles-wrapper .has-nueve4-link-color-color {
   color: var(--nv-primary-accent) !important;
 }
 
-.editor-styles-wrapper .has-neve-link-color-background-color {
+.editor-styles-wrapper .has-nueve4-link-color-background-color {
   background-color: var(--nv-primary-accent) !important;
 }
 
-.editor-styles-wrapper .has-neve-link-hover-color-color {
+.editor-styles-wrapper .has-nueve4-link-hover-color-color {
   color: var(--nv-secondary-accent) !important;
 }
 
-.editor-styles-wrapper .has-neve-link-hover-color-background-color {
+.editor-styles-wrapper .has-nueve4-link-hover-color-background-color {
   background-color: var(--nv-secondary-accent) !important;
 }
 
-.editor-styles-wrapper .has-neve-text-color-color {
+.editor-styles-wrapper .has-nueve4-text-color-color {
   color: var(--nv-text-color) !important;
 }
 
-.editor-styles-wrapper .has-neve-text-color-background-color {
+.editor-styles-wrapper .has-nueve4-text-color-background-color {
   background-color: var(--nv-text-color) !important;
 }
 
@@ -455,7 +455,7 @@ body .editor-styles-wrapper p {
   opacity: 0.9;
 }
 
-.neve-meta-button-group .components-button-group .components-button.is-primary:not(.import) {
+.nueve4-meta-button-group .components-button-group .components-button.is-primary:not(.import) {
   z-index: inherit;
 }
 

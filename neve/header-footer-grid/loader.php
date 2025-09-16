@@ -41,14 +41,14 @@ require_once 'functions-template.php';
 require_once 'functions-migration.php';
 
 add_action(
-	'neve_do_footer',
+	'nueve4_do_footer',
 	function () {
 		do_action( 'hfg_footer_render' );
 	}
 );
 
 add_action(
-	'neve_do_header',
+	'nueve4_do_header',
 	function () {
 		do_action( 'hfg_header_render' );
 	}

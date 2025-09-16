@@ -71,21 +71,21 @@ class Frontend extends Generator {
 	 * Setup legacy gutenberg palette for old users.
 	 */
 	private function setup_legacy_gutenberg_palette() {
-		$is_new_user           = get_option( 'neve_new_user' );
-		$imported_starter_site = get_option( 'neve_imported_demo' );
+		$is_new_user           = get_option( 'nueve4_new_user' );
+		$imported_starter_site = get_option( 'nueve4_imported_demo' );
 
 		if ( $is_new_user === 'yes' && $imported_starter_site !== 'yes' ) {
 			return;
 		}
 
-		$this->_subscribers['.has-neve-button-color-color']            = [
+		$this->_subscribers['.has-nueve4-button-color-color']            = [
 			Config::CSS_PROP_COLOR => [
 				Dynamic_Selector::META_KEY       => Config::MODS_BUTTON_PRIMARY_STYLE . '.background',
 				Dynamic_Selector::META_IMPORTANT => true,
 				Dynamic_Selector::META_DEFAULT   => '#0366d6',
 			],
 		];
-		$this->_subscribers['.has-neve-button-color-background-color'] = [
+		$this->_subscribers['.has-nueve4-button-color-background-color'] = [
 			Config::CSS_PROP_BACKGROUND_COLOR => [
 				Dynamic_Selector::META_KEY       => Config::MODS_BUTTON_PRIMARY_STYLE . '.background',
 				Dynamic_Selector::META_IMPORTANT => true,
@@ -99,15 +99,15 @@ class Frontend extends Generator {
 	 */
 	public function setup_blog_colors() {
 
-		$layout = get_theme_mod( 'neve_blog_archive_layout', 'grid' );
+		$layout = get_theme_mod( 'nueve4_blog_archive_layout', 'grid' );
 		if ( $layout === 'covers' ) {
-			$this->_subscribers['.neve-main'] = [
-				'--color' => 'neve_blog_covers_text_color',
+			$this->_subscribers['.nueve4-main'] = [
+				'--color' => 'nueve4_blog_covers_text_color',
 			];
 		}
 
-		$thumbnail_box_shadow_meta_name                  = apply_filters( 'neve_thumbnail_box_shadow_meta_filter', 'neve_post_thumbnail_box_shadow' );
-		$this->_subscribers['.neve-main']['--boxshadow'] = [
+		$thumbnail_box_shadow_meta_name                  = apply_filters( 'nueve4_thumbnail_box_shadow_meta_filter', 'nueve4_post_thumbnail_box_shadow' );
+		$this->_subscribers['.nueve4-main']['--boxshadow'] = [
 			Dynamic_Selector::META_KEY    => $thumbnail_box_shadow_meta_name,
 			Dynamic_Selector::META_FILTER => function ( $css_prop, $value, $meta, $device ) {
 				if ( absint( $value ) === 0 ) {
@@ -192,11 +192,11 @@ class Frontend extends Generator {
 
 		$this->_subscribers[':root'] = [
 			'--postwidth' => [
-				Dynamic_Selector::META_KEY           => 'neve_grid_layout',
+				Dynamic_Selector::META_KEY           => 'nueve4_grid_layout',
 				Dynamic_Selector::META_IS_RESPONSIVE => true,
 				Dynamic_Selector::META_DEFAULT       => $this->grid_columns_default(),
 				Dynamic_Selector::META_FILTER        => function ( $css_prop, $value, $meta, $device ) {
-					$blog_layout = get_theme_mod( 'neve_blog_archive_layout', 'grid' );
+					$blog_layout = get_theme_mod( 'nueve4_blog_archive_layout', 'grid' );
 					if ( ! in_array( $blog_layout, [ 'grid', 'covers' ], true ) ) {
 						return sprintf( '%s:%s;', $css_prop, '100%' );
 					}
@@ -290,7 +290,7 @@ class Frontend extends Generator {
 			return;
 		}
 		// Others content width.
-		$this->_subscribers['body:not(.single):not(.archive):not(.blog):not(.search):not(.error404) .neve-main > .container .col, body.post-type-archive-course .neve-main > .container .col, body.post-type-archive-llms_membership .neve-main > .container .col'] = [
+		$this->_subscribers['body:not(.single):not(.archive):not(.blog):not(.search):not(.error404) .nueve4-main > .container .col, body.post-type-archive-course .nueve4-main > .container .col, body.post-type-archive-llms_membership .nueve4-main > .container .col'] = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => Config::MODS_OTHERS_CONTENT_WIDTH,
 				Dynamic_Selector::META_DEFAULT     => $this->sidebar_layout_width_default( Config::MODS_OTHERS_CONTENT_WIDTH ),
@@ -308,7 +308,7 @@ class Frontend extends Generator {
 			],
 		];
 		// Archive content width.
-		$this->_subscribers['.neve-main > .archive-container .nv-index-posts.col'] = [
+		$this->_subscribers['.nueve4-main > .archive-container .nv-index-posts.col'] = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => Config::MODS_ARCHIVE_CONTENT_WIDTH,
 				Dynamic_Selector::META_DEFAULT     => $this->sidebar_layout_width_default( Config::MODS_ARCHIVE_CONTENT_WIDTH ),
@@ -316,7 +316,7 @@ class Frontend extends Generator {
 				Dynamic_Selector::META_SUFFIX      => '%',
 			],
 		];
-		$this->_subscribers['.neve-main > .archive-container .nv-sidebar-wrap']    = [
+		$this->_subscribers['.nueve4-main > .archive-container .nv-sidebar-wrap']    = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => Config::MODS_ARCHIVE_CONTENT_WIDTH,
 				Dynamic_Selector::META_DEFAULT     => $this->sidebar_layout_width_default( Config::MODS_ARCHIVE_CONTENT_WIDTH ),
@@ -329,7 +329,7 @@ class Frontend extends Generator {
 		list( $context, $allowed_context ) = $this->get_cpt_context( [ 'post' ] );
 		$sidebar_content_width_meta        = $this->get_sidebar_content_width_meta( $context, $allowed_context );
 		$sidebar_layout_width_default      = $this->sidebar_layout_width_default( $sidebar_content_width_meta );
-		$this->_subscribers['.neve-main > .single-post-container .nv-single-post-wrap.col'] = [
+		$this->_subscribers['.nueve4-main > .single-post-container .nv-single-post-wrap.col'] = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => $sidebar_content_width_meta,
 				Dynamic_Selector::META_DEFAULT     => $sidebar_layout_width_default,
@@ -362,7 +362,7 @@ class Frontend extends Generator {
 			],
 		];
 
-		$this->_subscribers['.neve-main > .single-post-container .nv-sidebar-wrap'] = [
+		$this->_subscribers['.nueve4-main > .single-post-container .nv-sidebar-wrap'] = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => $sidebar_content_width_meta,
 				Dynamic_Selector::META_DEFAULT     => $sidebar_layout_width_default,
@@ -377,7 +377,7 @@ class Frontend extends Generator {
 			return;
 		}
 
-		$this->_subscribers['.archive.woocommerce .neve-main > .shop-container .nv-shop.col']     = [
+		$this->_subscribers['.archive.woocommerce .nueve4-main > .shop-container .nv-shop.col']     = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => Config::MODS_SHOP_ARCHIVE_CONTENT_WIDTH,
 				Dynamic_Selector::META_DEFAULT     => $this->sidebar_layout_width_default( Config::MODS_SHOP_ARCHIVE_CONTENT_WIDTH ),
@@ -385,7 +385,7 @@ class Frontend extends Generator {
 				Dynamic_Selector::META_SUFFIX      => '%',
 			],
 		];
-		$this->_subscribers['.archive.woocommerce .neve-main > .shop-container .nv-sidebar-wrap'] = [
+		$this->_subscribers['.archive.woocommerce .nueve4-main > .shop-container .nv-sidebar-wrap'] = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => Config::MODS_SHOP_ARCHIVE_CONTENT_WIDTH,
 				Dynamic_Selector::META_DEFAULT     => $this->sidebar_layout_width_default( Config::MODS_SHOP_ARCHIVE_CONTENT_WIDTH ),
@@ -396,7 +396,7 @@ class Frontend extends Generator {
 		];
 
 
-		$this->_subscribers['.single-product .neve-main > .shop-container .nv-shop.col'] = [
+		$this->_subscribers['.single-product .nueve4-main > .shop-container .nv-shop.col'] = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => Config::MODS_SHOP_SINGLE_CONTENT_WIDTH,
 				Dynamic_Selector::META_DEFAULT     => $this->sidebar_layout_width_default( Config::MODS_SHOP_SINGLE_CONTENT_WIDTH ),
@@ -428,7 +428,7 @@ class Frontend extends Generator {
 				},
 			],
 		];
-		$this->_subscribers['.single-product .neve-main > .shop-container .nv-sidebar-wrap'] = [
+		$this->_subscribers['.single-product .nueve4-main > .shop-container .nv-sidebar-wrap'] = [
 			Config::CSS_PROP_MAX_WIDTH => [
 				Dynamic_Selector::META_KEY         => Config::MODS_SHOP_SINGLE_CONTENT_WIDTH,
 				Dynamic_Selector::META_DEFAULT     => $this->sidebar_layout_width_default( Config::MODS_SHOP_SINGLE_CONTENT_WIDTH ),
@@ -528,34 +528,34 @@ class Frontend extends Generator {
 		];
 
 		// Form button style. Override if needed.
-		$form_buttons_type = get_theme_mod( 'neve_form_button_type', 'primary' );
+		$form_buttons_type = get_theme_mod( 'nueve4_form_button_type', 'primary' );
 
 		if ( $form_buttons_type === 'primary' ) {
 			return;
 		}
 
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON ]['background-color']       = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtnbg, transparent)',
 		];
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON ]['color']                  = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtncolor)',
 		];
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON ]['padding']                = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtnpadding, 7px 12px)',
 		];
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON ]['border-radius']          = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtnborderradius, 3px)',
 		];
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON_HOVER ]['background-color'] = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtnhoverbg, transparent)',
 		];
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON_HOVER ]['color']            = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtnhovercolor)',
 		];
 
@@ -568,15 +568,15 @@ class Frontend extends Generator {
 		}
 
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON ]['border-width']       = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtnborderwidth, 3px)',
 		];
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON ]['border-color']       = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtnhovercolor)',
 		];
 		$this->_subscribers[ Config::CSS_SELECTOR_FORM_BUTTON_HOVER ]['border-color'] = [
-			'key'      => 'neve_form_button_type',
+			'key'      => 'nueve4_form_button_type',
 			'override' => 'var(--secondarybtnhovercolor)',
 		];
 	}
@@ -612,8 +612,8 @@ class Frontend extends Generator {
 		$archive_avatar_size_meta_key      = Config::MODS_ARCHIVE_POST_META_AUTHOR_AVATAR_SIZE;
 		$single_avatar_size_meta_key       = Config::MODS_SINGLE_POST_META_AUTHOR_AVATAR_SIZE;
 		if ( in_array( $context, $allowed_context, true ) && is_singular( $context ) || is_post_type_archive( $context ) ) {
-			$archive_avatar_size_meta_key = 'neve_' . $context . '_archive_author_avatar_size';
-			$single_avatar_size_meta_key  = 'neve_single_' . $context . '_avatar_size';
+			$archive_avatar_size_meta_key = 'nueve4_' . $context . '_archive_author_avatar_size';
+			$single_avatar_size_meta_key  = 'nueve4_single_' . $context . '_avatar_size';
 		}
 
 		$rules = [
@@ -630,7 +630,7 @@ class Frontend extends Generator {
 				Dynamic_Selector::META_KEY           => $single_avatar_size_meta_key,
 				Dynamic_Selector::META_IS_RESPONSIVE => true,
 				Dynamic_Selector::META_SUFFIX        => 'responsive_suffix',
-				Dynamic_Selector::META_DEFAULT       => Mods::get( 'neve_author_avatar_size', '{ "mobile": 20, "tablet": 20, "desktop": 20 }' ),
+				Dynamic_Selector::META_DEFAULT       => Mods::get( 'nueve4_author_avatar_size', '{ "mobile": 20, "tablet": 20, "desktop": 20 }' ),
 			],
 		];
 
@@ -905,17 +905,17 @@ class Frontend extends Generator {
 			];
 
 			$this->_subscribers[] = [
-				'selectors' => '.single:not(.single-product) .neve-main',
+				'selectors' => '.single:not(.single-product) .nueve4-main',
 				'rules'     => $post_rules,
 			];
 		}
 
 		list( $context )      = $this->get_cpt_context();
-		$post_inherits_vspace = Mods::get( 'neve_' . $context . '_' . Config::MODS_POST_TYPE_VSPACING_INHERIT, 'inherit' ) === 'inherit';
+		$post_inherits_vspace = Mods::get( 'nueve4_' . $context . '_' . Config::MODS_POST_TYPE_VSPACING_INHERIT, 'inherit' ) === 'inherit';
 		if ( ! $post_inherits_vspace ) {
 			$rules = [
 				'--c-vspace' => [
-					Dynamic_Selector::META_KEY           => 'neve_' . $context . '_' . Config::MODS_POST_TYPE_VSPACING,
+					Dynamic_Selector::META_KEY           => 'nueve4_' . $context . '_' . Config::MODS_POST_TYPE_VSPACING,
 					Dynamic_Selector::META_IS_RESPONSIVE => true,
 					Dynamic_Selector::META_SUFFIX        => 'responsive_unit',
 					Dynamic_Selector::META_DEFAULT       => $this->content_vspacing_default(),
@@ -926,7 +926,7 @@ class Frontend extends Generator {
 			$selectors = $context === 'page' ? '.' . $context : '.single-' . $context;
 
 			$this->_subscribers[] = [
-				'selectors' => $selectors . ' .neve-main',
+				'selectors' => $selectors . ' .nueve4-main',
 				'rules'     => $rules,
 			];
 		}

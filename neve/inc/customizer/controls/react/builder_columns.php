@@ -18,7 +18,7 @@ class Builder_Columns extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_builder_columns';
+	public $type = 'nueve4_builder_columns';
 
 	/**
 	 * Layout Choices.

@@ -22,7 +22,7 @@ class Link_Control extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_link';
+	public $type = 'nueve4_link';
 
 	/**
 	 * Control URL for link.

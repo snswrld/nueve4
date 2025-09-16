@@ -76,19 +76,19 @@ class Mods {
 			case Config::MODS_CONTAINER_WIDTH:
 				return '{ "mobile": 748, "tablet": 992, "desktop": 1170 }';
 			case Config::MODS_BUTTON_PRIMARY_STYLE:
-				return neve_get_button_appearance_default();
+				return nueve4_get_button_appearance_default();
 			case Config::MODS_BUTTON_SECONDARY_STYLE:
-				return neve_get_button_appearance_default( 'secondary' );
+				return nueve4_get_button_appearance_default( 'secondary' );
 			case Config::MODS_TYPEFACE_GENERAL:
 				$defaults  = self::get_typography_defaults(
 					[
-						'line_height'    => 'neve_body_line_height',
-						'letter_spacing' => 'neve_body_letter_spacing',
-						'font_weight'    => 'neve_body_font_weight',
-						'text_transform' => 'neve_body_text_transform',
+						'line_height'    => 'nueve4_body_line_height',
+						'letter_spacing' => 'nueve4_body_letter_spacing',
+						'font_weight'    => 'nueve4_body_font_weight',
+						'text_transform' => 'nueve4_body_text_transform',
 					]
 				);
-				$font_size = self::to_json( 'neve_body_font_size' );
+				$font_size = self::to_json( 'nueve4_body_font_size' );
 				if ( ! empty( $font_size ) ) {
 					$defaults['fontSize'] = $font_size;
 				}
@@ -102,36 +102,36 @@ class Mods {
 			case Config::MODS_TYPEFACE_H6:
 				$defaults   = self::get_typography_defaults(
 					[
-						'line_height'    => 'neve_headings_line_height',
-						'letter_spacing' => 'neve_headings_letter_spacing',
-						'font_weight'    => 'neve_headings_font_weight',
-						'text_transform' => 'neve_headings_text_transform',
+						'line_height'    => 'nueve4_headings_line_height',
+						'letter_spacing' => 'nueve4_headings_letter_spacing',
+						'font_weight'    => 'nueve4_headings_font_weight',
+						'text_transform' => 'nueve4_headings_text_transform',
 					]
 				);
 				$legacy_map = [
 					Config::MODS_TYPEFACE_H6 => [
-						'font_size'   => 'neve_h6_font_size',
-						'line_height' => 'neve_h6_line_height',
+						'font_size'   => 'nueve4_h6_font_size',
+						'line_height' => 'nueve4_h6_line_height',
 					],
 					Config::MODS_TYPEFACE_H5 => [
-						'font_size'   => 'neve_h5_font_size',
-						'line_height' => 'neve_h5_line_height',
+						'font_size'   => 'nueve4_h5_font_size',
+						'line_height' => 'nueve4_h5_line_height',
 					],
 					Config::MODS_TYPEFACE_H4 => [
-						'font_size'   => 'neve_h4_font_size',
-						'line_height' => 'neve_h4_line_height',
+						'font_size'   => 'nueve4_h4_font_size',
+						'line_height' => 'nueve4_h4_line_height',
 					],
 					Config::MODS_TYPEFACE_H3 => [
-						'font_size'   => 'neve_h3_font_size',
-						'line_height' => 'neve_h3_line_height',
+						'font_size'   => 'nueve4_h3_font_size',
+						'line_height' => 'nueve4_h3_line_height',
 					],
 					Config::MODS_TYPEFACE_H2 => [
-						'font_size'   => 'neve_h2_font_size',
-						'line_height' => 'neve_h2_line_height',
+						'font_size'   => 'nueve4_h2_font_size',
+						'line_height' => 'nueve4_h2_line_height',
 					],
 					Config::MODS_TYPEFACE_H1 => [
-						'font_size'   => 'neve_h1_font_size',
-						'line_height' => 'neve_h1_line_height',
+						'font_size'   => 'nueve4_h1_font_size',
+						'line_height' => 'nueve4_h1_line_height',
 					],
 				];
 

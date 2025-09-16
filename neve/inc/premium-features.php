@@ -1,11 +1,11 @@
 <?php
 /**
- * Premium Features Enabler for Nueve4 Theme
+ * Premium Features Enabler for Neve Theme
  * 
- * @package Nueve4\Premium
+ * @package Neve\Premium
  */
 
-namespace Nueve4\Premium;
+namespace Neve\Premium;
 
 class Premium_Features {
 
@@ -20,12 +20,12 @@ class Premium_Features {
     }
 
     public function init() {
-        if (!defined('NUEVE4_PRO_VERSION')) {
-            define('NUEVE4_PRO_VERSION', '2.8.0');
+        if (!defined('NEVE_PRO_VERSION')) {
+            define('NEVE_PRO_VERSION', '2.8.0');
         }
         
-        if (!defined('NUEVE4_PRO_BASEFILE')) {
-            define('NUEVE4_PRO_BASEFILE', __FILE__);
+        if (!defined('NEVE_PRO_BASEFILE')) {
+            define('NEVE_PRO_BASEFILE', __FILE__);
         }
 
         add_filter('nueve4_has_valid_addons', '__return_true');
@@ -40,14 +40,6 @@ class Premium_Features {
         $this->add_premium_woocommerce_features();
         $this->add_custom_code_features();
         $this->add_performance_features();
-        $this->load_master_addons_integration();
-    }
-    
-    /**
-     * Load Master Addons Integration
-     */
-    private function load_master_addons_integration() {
-        $this->safe_require('inc/nueve4-master-addons.php');
     }
 
     public function remove_upgrade_links($url) {
@@ -82,8 +74,8 @@ class Premium_Features {
             $this->safe_require($file);
         }
 
-        if (class_exists('\Nueve4\Customizer\Options\Premium_Panel')) {
-            $panel = new \Nueve4\Customizer\Options\Premium_Panel();
+        if (class_exists('\Neve\Customizer\Options\Premium_Panel')) {
+            $panel = new \Neve\Customizer\Options\Premium_Panel();
             $panel->init();
         }
     }
@@ -121,7 +113,7 @@ class Premium_Features {
                 "nueve4-{$block}-block",
                 get_template_directory_uri() . "/assets/js/premium-blocks/{$block}.js",
                 array('wp-blocks', 'wp-element', 'wp-editor'),
-                defined('NUEVE4_VERSION') ? NUEVE4_VERSION : '1.0.0'
+                defined('NEVE_VERSION') ? NEVE_VERSION : '1.0.0'
             );
 
             register_block_type("nueve4/{$block}", array(
@@ -422,7 +414,7 @@ class Premium_Features {
             'nueve4-premium-blocks',
             get_template_directory_uri() . '/assets/css/premium-blocks.css',
             array('nueve4-style'),
-            defined('NUEVE4_VERSION') ? NUEVE4_VERSION : '1.0.0'
+            defined('NEVE_VERSION') ? NEVE_VERSION : '1.0.0'
         );
     }
 
@@ -452,7 +444,7 @@ class Premium_Features {
     }
 
     private function get_scroll_to_top_js() {
-        return "jQuery(document).ready(function($){$(window).scroll(function(){if($(this).scrollTop()>100){$('.neve-scroll-to-top').fadeIn();}else{$('.neve-scroll-to-top').fadeOut();}});$('.neve-scroll-to-top').click(function(){$('html, body').animate({scrollTop:0},800);return false;});});";
+        return "jQuery(document).ready(function($){$(window).scroll(function(){if($(this).scrollTop()>100){$('.nueve4-scroll-to-top').fadeIn();}else{$('.nueve4-scroll-to-top').fadeOut();}});$('.nueve4-scroll-to-top').click(function(){$('html, body').animate({scrollTop:0},800);return false;});});";
     }
 
     private function get_scroll_to_top_css() {
@@ -469,7 +461,7 @@ class Premium_Features {
     }
 
     public function output_scroll_to_top_button() {
-        echo '<div class="neve-scroll-to-top">↑</div>';
+        echo '<div class="nueve4-scroll-to-top">↑</div>';
     }
 
     private function add_performance_features() {
@@ -507,8 +499,8 @@ class Premium_Features {
 }
 
 // Initialize premium features
-$neve_premium = Premium_Features::get_instance();
-$neve_premium->init();
+$nueve4_premium = Premium_Features::get_instance();
+$nueve4_premium->init();
 
 // Load premium activation
 $activation_file = get_template_directory() . '/inc/premium-activation.php';

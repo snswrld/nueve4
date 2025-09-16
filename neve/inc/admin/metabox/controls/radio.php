@@ -27,7 +27,7 @@ class Radio extends Control_Base {
 	 */
 	public function render_content( $post_id ) {
 		$selected = $this->get_value( $post_id );
-		$markup   = '<style>#neve-page-settings label{ display: block; margin-bottom: 5px;}</style>';
+		$markup   = '<style>#nueve4-page-settings label{ display: block; margin-bottom: 5px;}</style>';
 
 		$markup .= '<p>';
 		foreach ( $this->settings['choices'] as $value => $choice ) {

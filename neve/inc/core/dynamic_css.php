@@ -11,8 +11,8 @@ use Neve\Core\Settings\Mods;
 use Neve\Core\Settings\Config;
 
 class Dynamic_Css {
-	const FRONTEND_HANDLE = 'neve-style';
-	const GUTENBERG_HANDLE = 'neve-gutenberg-style';
+	const FRONTEND_HANDLE = 'nueve4-style';
+	const GUTENBERG_HANDLE = 'nueve4-gutenberg-style';
 	/**
 	 * Generator object.
 	 *
@@ -36,7 +36,7 @@ class Dynamic_Css {
 	}
 
 	public function legacy_style() {
-		$classes = apply_filters( 'neve_filter_inline_style_classes', [], 'neve-generated-style' );
+		$classes = apply_filters( 'nueve4_filter_inline_style_classes', [], 'nueve4-generated-style' );
 		$mobile_css = '';
 		$desktop_css = '';
 		$tablet_css = '';
@@ -54,7 +54,7 @@ class Dynamic_Css {
 		if ( ! empty( $desktop_css ) ) {
 			$all_css .= sprintf( '@media(min-width: 960px){ %s }', $desktop_css );
 		}
-		add_filter( 'neve_dynamic_style_output', function ( $css ) use ( $all_css ) {
+		add_filter( 'nueve4_dynamic_style_output', function ( $css ) use ( $all_css ) {
 			return $all_css . $css;
 		} );
 	}
@@ -71,11 +71,11 @@ class Dynamic_Css {
 		$this->generator = $is_for_gutenberg ? new Gutenberg() : new Frontend();
 		$_subscribers = $this->generator->get();
 
-		$_subscribers = array_merge( $_subscribers, apply_filters( 'neve_style_subscribers', [] ) );
+		$_subscribers = array_merge( $_subscribers, apply_filters( 'nueve4_style_subscribers', [] ) );
 
 		$this->generator->set( $_subscribers );
 
-		$style = apply_filters( 'neve_dynamic_style_output', $this->generator->generate(), $is_for_gutenberg ? 'gutenberg' : 'frontend' );
+		$style = apply_filters( 'nueve4_dynamic_style_output', $this->generator->generate(), $is_for_gutenberg ? 'gutenberg' : 'frontend' );
 
 		$style .= self::get_root_css();
 
@@ -103,7 +103,7 @@ class Dynamic_Css {
 		wp_enqueue_style( 'nv-css-vars' );
 
 		$css = ':root{' . $this->get_css_vars() . '}';
-		$css .= apply_filters( 'neve_after_css_root', $css );
+		$css .= apply_filters( 'nueve4_after_css_root', $css );
 		wp_add_inline_style( 'nv-css-vars', self::minify_css($css ) );
 
 		/**
@@ -144,7 +144,7 @@ class Dynamic_Css {
 
 		$css .= '}';
 
-		$css .= apply_filters( 'neve_after_css_root', $css );
+		$css .= apply_filters( 'nueve4_after_css_root', $css );
 
 		return self::minify_css( $css );
 	}
@@ -155,7 +155,7 @@ class Dynamic_Css {
 	 * @return string
 	 */
 	public static function get_fallback_font() {
-		$fallback = get_theme_mod( 'neve_fallback_font_family', 'Arial, Helvetica, sans-serif' );
+		$fallback = get_theme_mod( 'nueve4_fallback_font_family', 'Arial, Helvetica, sans-serif' );
 
 		return '--nv-fallback-ff:' . $fallback . ';';
 	}
@@ -181,7 +181,7 @@ class Dynamic_Css {
 	 * @return string
 	 */
 	private static function get_css_vars() {
-		$global_colors = get_theme_mod( 'neve_global_colors', neve_get_global_colors_default( true ) );
+		$global_colors = get_theme_mod( 'nueve4_global_colors', nueve4_get_global_colors_default( true ) );
 
 		if ( empty( $global_colors ) ) {
 			return '';

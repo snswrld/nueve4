@@ -134,7 +134,7 @@ class Dynamic_Selector {
 			if ( isset( Config::$css_selectors_map[ $expanded_selectors ] ) ) {
 				$expanded_selectors = Config::$css_selectors_map[ $expanded_selectors ];
 			}
-			$expanded_selectors = apply_filters( 'neve_selectors_' . $selector, $expanded_selectors, $context, $this );
+			$expanded_selectors = apply_filters( 'nueve4_selectors_' . $selector, $expanded_selectors, $context, $this );
 			if ( empty( $expanded_selectors ) ) {
 				continue;
 			}

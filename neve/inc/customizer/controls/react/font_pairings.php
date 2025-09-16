@@ -18,7 +18,7 @@ class Font_Pairings extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_font_pairings_control';
+	public $type = 'nueve4_font_pairings_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

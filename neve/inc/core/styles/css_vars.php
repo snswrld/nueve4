@@ -40,9 +40,9 @@ trait Css_Vars {
 	 */
 	public function get_button_rules() {
 		$mod_key_primary   = Config::MODS_BUTTON_PRIMARY_STYLE;
-		$default_primary   = neve_get_button_appearance_default();
+		$default_primary   = nueve4_get_button_appearance_default();
 		$mod_key_secondary = Config::MODS_BUTTON_SECONDARY_STYLE;
-		$default_secondary = neve_get_button_appearance_default( 'secondary' );
+		$default_secondary = nueve4_get_button_appearance_default( 'secondary' );
 
 		$rules = [
 			'--primarybtnbg'             => [
@@ -171,10 +171,10 @@ trait Css_Vars {
 			Dynamic_Selector::META_SUFFIX => 'responsive_unit',
 			Dynamic_Selector::META_FILTER        => function ( $css_prop, $value, $meta, $device ) {
 				$mod_key_primary = Config::MODS_BUTTON_PRIMARY_STYLE;
-				$default_primary = neve_get_button_appearance_default();
+				$default_primary = nueve4_get_button_appearance_default();
 
 				$mod_key_secondary = Config::MODS_BUTTON_SECONDARY_STYLE;
-				$default_secondary = neve_get_button_appearance_default( 'secondary' );
+				$default_secondary = nueve4_get_button_appearance_default( 'secondary' );
 
 				$values   = [
 					'primary'   => get_theme_mod( $mod_key_primary, $default_primary ),
@@ -283,9 +283,9 @@ trait Css_Vars {
 				Dynamic_Selector::META_KEY => Config::MODS_FONT_HEADINGS,
 			],
 		];
-		foreach ( neve_get_headings_selectors() as $id => $heading_selector ) {
+		foreach ( nueve4_get_headings_selectors() as $id => $heading_selector ) {
 
-			$composed_key = sprintf( 'neve_%s_typeface_general', $id );
+			$composed_key = sprintf( 'nueve4_%s_typeface_general', $id );
 			$mod_key      = $composed_key;
 			$default      = Mods::get_alternative_mod_default( $composed_key );
 

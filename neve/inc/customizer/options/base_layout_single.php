@@ -63,7 +63,7 @@ abstract class Base_Layout_Single extends Base_Customizer {
 	public function __construct() {
 		$this->post_type      = $this->get_post_type();
 		$this->cover_selector = $this->get_cover_selector();
-		$this->section        = 'neve_single_' . $this->post_type . '_layout';
+		$this->section        = 'nueve4_single_' . $this->post_type . '_layout';
 	}
 
 	/**
@@ -71,8 +71,8 @@ abstract class Base_Layout_Single extends Base_Customizer {
 	 */
 	private function get_section_label() {
 		$labels = [
-			'post' => esc_html__( 'Single Post', 'neve' ),
-			'page' => esc_html__( 'Page', 'neve' ),
+			'post' => esc_html__( 'Single Post', 'nueve4' ),
+			'page' => esc_html__( 'Page', 'nueve4' ),
 		];
 
 		if ( array_key_exists( $this->post_type, $labels ) ) {
@@ -100,11 +100,11 @@ abstract class Base_Layout_Single extends Base_Customizer {
 	private function create_section() {
 		$this->add_section(
 			new Section(
-				'neve_single_' . $this->post_type . '_layout',
+				'nueve4_single_' . $this->post_type . '_layout',
 				[
 					'priority' => 40,
 					'title'    => $this->get_section_label(),
-					'panel'    => 'neve_layout',
+					'panel'    => 'nueve4_layout',
 				]
 			)
 		);
@@ -116,12 +116,12 @@ abstract class Base_Layout_Single extends Base_Customizer {
 	private function add_header_layout_subsection() {
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_header_layout_heading',
+				'nueve4_' . $this->post_type . '_header_layout_heading',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'            => esc_html__( 'Header Layout', 'neve' ),
+					'label'            => esc_html__( 'Header Layout', 'nueve4' ),
 					'section'          => $this->section,
 					'priority'         => 5,
 					'class'            => 'header_layout-accordion',
@@ -141,7 +141,7 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_header_layout',
+				'nueve4_' . $this->post_type . '_header_layout',
 				[
 					'sanitize_callback' => 'wp_filter_nohtml_kses',
 					'default'           => 'normal',
@@ -151,11 +151,11 @@ abstract class Base_Layout_Single extends Base_Customizer {
 					'priority' => 10,
 					'choices'  => [
 						'normal' => [
-							'name'  => esc_html__( 'Normal', 'neve' ),
+							'name'  => esc_html__( 'Normal', 'nueve4' ),
 							'image' => 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUiIGhlaWdodD0iMTE4IiB2aWV3Qm94PSIwIDAgODUgMTE4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHJlY3QgeD0iMi4yNSIgeT0iMi40NjM4NyIgd2lkdGg9IjgwIiBoZWlnaHQ9IjExMyIgZmlsbD0id2hpdGUiLz4KICAgIDxyZWN0IHg9IjE3LjI1IiB5PSIxNC42MDQ1IiB3aWR0aD0iNTAiIGhlaWdodD0iMzQuNTUzNyIgZmlsbD0iIzc4QjZGRiIgZmlsbC1vcGFjaXR5PSIwLjQiLz4KICAgIDxsaW5lIHgxPSIxNy4yNSIgeTE9IjYyLjY5MjQiIHgyPSI2Ny4wNzkyIiB5Mj0iNjIuNjkyNCIgc3Ryb2tlPSIjQzRDNEM0IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxsaW5lIHgxPSIxNy4yNSIgeTE9IjY3Ljc2OTUiIHgyPSIyNS4yNSIgeTI9IjY3Ljc2OTUiIHN0cm9rZT0iI0M0QzRDNCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8bGluZSB4MT0iMTcuMjUiIHkxPSI1Ny40OTcxIiB4Mj0iNTEuMDA1MyIgeTI9IjU3LjQ5NzEiIHN0cm9rZT0iI0M0QzRDNCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8bGluZSB4MT0iMTcuMjUiIHkxPSI4Ny4zODA5IiB4Mj0iNjcuMDc5MiIgeTI9Ijg3LjM4MDkiIHN0cm9rZT0iI0M0QzRDNCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8bGluZSB4MT0iMTcuMjUiIHkxPSI5Mi41NzYyIiB4Mj0iNjcuMDc5MiIgeTI9IjkyLjU3NjIiIHN0cm9rZT0iI0M0QzRDNCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8bGluZSB4MT0iMTcuMjUiIHkxPSI5OC4wNjE1IiB4Mj0iNjcuMDc5MiIgeTI9Ijk4LjA2MTUiIHN0cm9rZT0iI0M0QzRDNCIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=',
 						],
 						'cover'  => [
-							'name'  => esc_html__( 'Cover', 'neve' ),
+							'name'  => esc_html__( 'Cover', 'nueve4' ),
 							'image' => 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODYiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgODYgMTIwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHJlY3QgeD0iMyIgeT0iMy40NjM4NyIgd2lkdGg9IjgwIiBoZWlnaHQ9IjExMyIgZmlsbD0id2hpdGUiLz4KICAgIDxyZWN0IHg9IjMiIHk9IjMuNDYzODciIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MS4zNjM2IiBmaWxsPSIjNzhCNkZGIiBmaWxsLW9wYWNpdHk9IjAuNCIvPgogICAgPGxpbmUgeDE9IjE5IiB5MT0iNjcuNDI4NyIgeDI9IjY4LjgyOTIiIHkyPSI2Ny40Mjg3IiBzdHJva2U9IiNDNEM0QzQiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPGxpbmUgeDE9IjE5IiB5MT0iODMuNzExOSIgeDI9IjY4LjgyOTIiIHkyPSI4My43MTE5IiBzdHJva2U9IiNDNEM0QzQiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPGxpbmUgeDE9IjE5IiB5MT0iNzIuNjI0IiB4Mj0iNjguODI5MiIgeTI9IjcyLjYyNCIgc3Ryb2tlPSIjQzRDNEM0IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxsaW5lIHgxPSIxOSIgeTE9Ijg4LjkwNzIiIHgyPSI2OC44MjkyIiB5Mj0iODguOTA3MiIgc3Ryb2tlPSIjQzRDNEM0IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxsaW5lIHgxPSIxOSIgeTE9Ijc4LjEwODQiIHgyPSI2OC44MjkyIiB5Mj0iNzguMTA4NCIgc3Ryb2tlPSIjQzRDNEM0IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxsaW5lIHgxPSIxOSIgeTE9Ijk0LjM5MjYiIHgyPSI2OC44MjkyIiB5Mj0iOTQuMzkyNiIgc3Ryb2tlPSIjQzRDNEM0IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxsaW5lIHgxPSIxOSIgeTE9IjgzLjcxMTkiIHgyPSI0OCIgeTI9IjgzLjcxMTkiIHN0cm9rZT0iI0M0QzRDNCIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8bGluZSB4MT0iMTkiIHkxPSI5OS45OTYxIiB4Mj0iNDgiIHkyPSI5OS45OTYxIiBzdHJva2U9IiNDNEM0QzQiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPGxpbmUgeDE9IjE5IiB5MT0iNDQuNDg5MyIgeDI9IjUyLjc1NTMiIHkyPSI0NC40ODkzIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxsaW5lIHgxPSIxOSIgeTE9IjM4Ljg4NTciIHgyPSI2OSIgeTI9IjM4Ljg4NTciIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgogICAgPHJlY3QgeD0iMS41IiB5PSIxLjk2Mzg3IiB3aWR0aD0iODMiIGhlaWdodD0iMTE2IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjMiLz4KPC9zdmc+Cg==',
 						],
 					],
@@ -166,16 +166,16 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_cover_height',
+				'nueve4_' . $this->post_type . '_cover_height',
 				[
-					'sanitize_callback' => 'neve_sanitize_range_value',
+					'sanitize_callback' => 'nueve4_sanitize_range_value',
 					'transport'         => $this->selective_refresh,
 					'default'           => '{ "mobile": 250, "tablet": 320, "desktop": 400 }',
 				],
 				[
-					'label'                 => esc_html__( 'Cover height', 'neve' ),
+					'label'                 => esc_html__( 'Cover height', 'nueve4' ),
 					'section'               => $this->section,
-					'type'                  => 'neve_responsive_range_control',
+					'type'                  => 'nueve4_responsive_range_control',
 					'input_attrs'           => [
 						'max'        => 700,
 						'units'      => [ 'px', 'vh', 'em', 'rem' ],
@@ -208,14 +208,14 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_cover_padding',
+				'nueve4_' . $this->post_type . '_cover_padding',
 				[
 					'sanitize_callback' => [ $this, 'sanitize_spacing_array' ],
 					'transport'         => $this->selective_refresh,
 					'default'           => $this->padding_default( 'cover' ),
 				],
 				[
-					'label'                 => esc_html__( 'Cover padding', 'neve' ),
+					'label'                 => esc_html__( 'Cover padding', 'nueve4' ),
 					'section'               => $this->section,
 					'input_attrs'           => [
 						'units' => [ 'px', 'em', 'rem' ],
@@ -239,27 +239,27 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_title_alignment',
+				'nueve4_' . $this->post_type . '_title_alignment',
 				[
-					'sanitize_callback' => 'neve_sanitize_alignment',
+					'sanitize_callback' => 'nueve4_sanitize_alignment',
 					'transport'         => $this->selective_refresh,
 					'default'           => self::post_title_alignment(),
 				],
 				[
-					'label'                 => esc_html__( 'Title Alignment', 'neve' ),
+					'label'                 => esc_html__( 'Title Alignment', 'nueve4' ),
 					'section'               => $this->section,
 					'priority'              => 30,
 					'choices'               => [
 						'left'   => [
-							'tooltip' => esc_html__( 'Left', 'neve' ),
+							'tooltip' => esc_html__( 'Left', 'nueve4' ),
 							'icon'    => 'editor-alignleft',
 						],
 						'center' => [
-							'tooltip' => esc_html__( 'Center', 'neve' ),
+							'tooltip' => esc_html__( 'Center', 'nueve4' ),
 							'icon'    => 'editor-aligncenter',
 						],
 						'right'  => [
-							'tooltip' => esc_html__( 'Right', 'neve' ),
+							'tooltip' => esc_html__( 'Right', 'nueve4' ),
 							'icon'    => 'editor-alignright',
 						],
 					],
@@ -283,7 +283,7 @@ abstract class Base_Layout_Single extends Base_Customizer {
 						],
 					],
 					'active_callback'       => $this->post_type === 'post' ? '__return_true' : function() {
-						return ! get_theme_mod( 'neve_page_hide_title', false );
+						return ! get_theme_mod( 'nueve4_page_hide_title', false );
 					},
 				],
 				'\Neve\Customizer\Controls\React\Responsive_Radio_Buttons'
@@ -292,9 +292,9 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_title_position',
+				'nueve4_' . $this->post_type . '_title_position',
 				[
-					'sanitize_callback' => 'neve_sanitize_position',
+					'sanitize_callback' => 'nueve4_sanitize_position',
 					'transport'         => $this->selective_refresh,
 					'default'           => [
 						'mobile'  => 'center',
@@ -303,20 +303,20 @@ abstract class Base_Layout_Single extends Base_Customizer {
 					],
 				],
 				[
-					'label'                 => esc_html__( 'Title Position', 'neve' ),
+					'label'                 => esc_html__( 'Title Position', 'nueve4' ),
 					'section'               => $this->section,
 					'priority'              => 35,
 					'choices'               => [
 						'flex-start' => [
-							'tooltip' => esc_html__( 'Top', 'neve' ),
+							'tooltip' => esc_html__( 'Top', 'nueve4' ),
 							'icon'    => 'arrow-up',
 						],
 						'center'     => [
-							'tooltip' => esc_html__( 'Middle', 'neve' ),
+							'tooltip' => esc_html__( 'Middle', 'nueve4' ),
 							'icon'    => 'sort',
 						],
 						'flex-end'   => [
-							'tooltip' => esc_html__( 'Bottom', 'neve' ),
+							'tooltip' => esc_html__( 'Bottom', 'nueve4' ),
 							'icon'    => 'arrow-down',
 						],
 					],
@@ -330,7 +330,7 @@ abstract class Base_Layout_Single extends Base_Customizer {
 					],
 					'show_labels'           => true,
 					'active_callback'       => function() {
-						return $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'neve_page_hide_title', false );
+						return $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'nueve4_page_hide_title', false );
 					},
 				],
 				'\Neve\Customizer\Controls\React\Responsive_Radio_Buttons'
@@ -339,14 +339,14 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_cover_background_color',
+				'nueve4_' . $this->post_type . '_cover_background_color',
 				[
-					'sanitize_callback' => 'neve_sanitize_colors',
+					'sanitize_callback' => 'nueve4_sanitize_colors',
 					'default'           => 'var(--nv-dark-bg)',
 					'transport'         => $this->selective_refresh,
 				],
 				[
-					'label'                 => esc_html__( 'Overlay color', 'neve' ),
+					'label'                 => esc_html__( 'Overlay color', 'nueve4' ),
 					'section'               => $this->section,
 					'priority'              => 45,
 					'input_attrs'           => [
@@ -367,14 +367,14 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_cover_text_color',
+				'nueve4_' . $this->post_type . '_cover_text_color',
 				[
-					'sanitize_callback' => 'neve_sanitize_colors',
+					'sanitize_callback' => 'nueve4_sanitize_colors',
 					'default'           => 'var(--nv-text-dark-bg)',
 					'transport'         => $this->selective_refresh,
 				],
 				[
-					'label'                 => esc_html__( 'Text color', 'neve' ),
+					'label'                 => esc_html__( 'Text color', 'nueve4' ),
 					'section'               => $this->section,
 					'priority'              => 50,
 					'live_refresh_selector' => true,
@@ -385,7 +385,7 @@ abstract class Base_Layout_Single extends Base_Customizer {
 						],
 					],
 					'active_callback'       => function() {
-						return $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'neve_page_hide_title', false );
+						return $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'nueve4_page_hide_title', false );
 					},
 				],
 				'Neve\Customizer\Controls\React\Color'
@@ -394,14 +394,14 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_cover_overlay_opacity',
+				'nueve4_' . $this->post_type . '_cover_overlay_opacity',
 				[
-					'sanitize_callback' => 'neve_sanitize_range_value',
+					'sanitize_callback' => 'nueve4_sanitize_range_value',
 					'transport'         => $this->selective_refresh,
 					'default'           => 50,
 				],
 				[
-					'label'                 => esc_html__( 'Overlay opacity', 'neve' ) . '(%)',
+					'label'                 => esc_html__( 'Overlay opacity', 'nueve4' ) . '(%)',
 					'section'               => $this->section,
 					'input_attrs'           => [
 						'min'        => 0,
@@ -425,15 +425,15 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_cover_hide_thumbnail',
+				'nueve4_' . $this->post_type . '_cover_hide_thumbnail',
 				[
-					'sanitize_callback' => 'neve_sanitize_checkbox',
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
 					'default'           => false,
 				],
 				[
-					'label'           => esc_html__( 'Hide featured image', 'neve' ),
+					'label'           => esc_html__( 'Hide featured image', 'nueve4' ),
 					'section'         => $this->section,
-					'type'            => 'neve_toggle_control',
+					'type'            => 'nueve4_toggle_control',
 					'priority'        => 60,
 					'active_callback' => [ $this, 'is_cover_layout' ],
 				],
@@ -443,31 +443,31 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_cover_blend_mode',
+				'nueve4_' . $this->post_type . '_cover_blend_mode',
 				[
 					'default'           => 'normal',
-					'sanitize_callback' => 'neve_sanitize_blend_mode',
+					'sanitize_callback' => 'nueve4_sanitize_blend_mode',
 					'transport'         => $this->selective_refresh,
 				],
 				[
-					'label'                 => esc_html__( 'Blend mode', 'neve' ),
+					'label'                 => esc_html__( 'Blend mode', 'nueve4' ),
 					'section'               => $this->section,
 					'priority'              => 65,
 					'type'                  => 'select',
 					'choices'               => [
-						'normal'      => esc_html__( 'Normal', 'neve' ),
-						'multiply'    => esc_html__( 'Multiply', 'neve' ),
-						'screen'      => esc_html__( 'Screen', 'neve' ),
-						'overlay'     => esc_html__( 'Overlay', 'neve' ),
-						'darken'      => esc_html__( 'Darken', 'neve' ),
-						'lighten'     => esc_html__( 'Lighten', 'neve' ),
-						'color-dodge' => esc_html__( 'Color Dodge', 'neve' ),
-						'saturation'  => esc_html__( 'Saturation', 'neve' ),
-						'color'       => esc_html__( 'Color', 'neve' ),
-						'difference'  => esc_html__( 'Difference', 'neve' ),
-						'exclusion'   => esc_html__( 'Exclusion', 'neve' ),
-						'hue'         => esc_html__( 'Hue', 'neve' ),
-						'luminosity'  => esc_html__( 'Luminosity', 'neve' ),
+						'normal'      => esc_html__( 'Normal', 'nueve4' ),
+						'multiply'    => esc_html__( 'Multiply', 'nueve4' ),
+						'screen'      => esc_html__( 'Screen', 'nueve4' ),
+						'overlay'     => esc_html__( 'Overlay', 'nueve4' ),
+						'darken'      => esc_html__( 'Darken', 'nueve4' ),
+						'lighten'     => esc_html__( 'Lighten', 'nueve4' ),
+						'color-dodge' => esc_html__( 'Color Dodge', 'nueve4' ),
+						'saturation'  => esc_html__( 'Saturation', 'nueve4' ),
+						'color'       => esc_html__( 'Color', 'nueve4' ),
+						'difference'  => esc_html__( 'Difference', 'nueve4' ),
+						'exclusion'   => esc_html__( 'Exclusion', 'nueve4' ),
+						'hue'         => esc_html__( 'Hue', 'nueve4' ),
+						'luminosity'  => esc_html__( 'Luminosity', 'nueve4' ),
 					],
 					'live_refresh_selector' => true,
 					'live_refresh_css_prop' => [
@@ -483,22 +483,22 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_cover_container',
+				'nueve4_' . $this->post_type . '_cover_container',
 				[
 					'default'           => 'contained',
-					'sanitize_callback' => 'neve_sanitize_container_layout',
+					'sanitize_callback' => 'nueve4_sanitize_container_layout',
 				],
 				[
-					'label'           => esc_html__( 'Cover container', 'neve' ),
+					'label'           => esc_html__( 'Cover container', 'nueve4' ),
 					'section'         => $this->section,
 					'priority'        => 70,
 					'type'            => 'select',
 					'choices'         => [
-						'contained'  => esc_html__( 'Contained', 'neve' ),
-						'full-width' => esc_html__( 'Full width', 'neve' ),
+						'contained'  => esc_html__( 'Contained', 'nueve4' ),
+						'full-width' => esc_html__( 'Full width', 'nueve4' ),
 					],
 					'active_callback' => function() {
-						return $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'neve_page_hide_title', false );
+						return $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'nueve4_page_hide_title', false );
 					},
 				]
 			)
@@ -514,11 +514,11 @@ abstract class Base_Layout_Single extends Base_Customizer {
 				'background_default'     => 'var(--nv-dark-bg)',
 				'boxed_selector'         => $this->cover_selector . ' .nv-is-boxed.nv-title-meta-wrap',
 				'toggle_active_callback' => function() {
-					return $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'neve_page_hide_title', false );
+					return $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'nueve4_page_hide_title', false );
 				},
 				'active_callback'        => function() {
-					$is_cover = $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'neve_page_hide_title', false );
-					return $is_cover && get_theme_mod( 'neve_' . $this->post_type . '_cover_title_boxed_layout', false );
+					$is_cover = $this->post_type === 'post' ? $this->is_cover_layout() : $this->is_cover_layout() && ! get_theme_mod( 'nueve4_page_hide_title', false );
+					return $is_cover && get_theme_mod( 'nueve4_' . $this->post_type . '_cover_title_boxed_layout', false );
 				},
 			]
 		);
@@ -531,12 +531,12 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_page_settings_heading',
+				'nueve4_' . $this->post_type . '_page_settings_heading',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'            => esc_html__( 'Page', 'neve' ) . ' ' . esc_html__( 'Settings', 'neve' ),
+					'label'            => esc_html__( 'Page', 'nueve4' ) . ' ' . esc_html__( 'Settings', 'nueve4' ),
 					'section'          => $this->section,
 					'priority'         => 90,
 					'class'            => 'page-settings-accordion',
@@ -550,28 +550,28 @@ abstract class Base_Layout_Single extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_inherit_vspacing',
+				'nueve4_' . $this->post_type . '_inherit_vspacing',
 				[
-					'sanitize_callback' => 'neve_sanitize_vspace_type',
+					'sanitize_callback' => 'nueve4_sanitize_vspace_type',
 					'default'           => 'inherit',
 				],
 				[
-					'label'              => esc_html__( 'Content Vertical Spacing', 'neve' ),
+					'label'              => esc_html__( 'Content Vertical Spacing', 'nueve4' ),
 					'section'            => $this->section,
 					'priority'           => 95,
 					'choices'            => [
 						'inherit'  => [
-							'tooltip' => esc_html__( 'Inherit', 'neve' ),
+							'tooltip' => esc_html__( 'Inherit', 'nueve4' ),
 							'icon'    => 'text',
 						],
 						'specific' => [
-							'tooltip' => esc_html__( 'Custom', 'neve' ),
+							'tooltip' => esc_html__( 'Custom', 'nueve4' ),
 							'icon'    => 'text',
 						],
 					],
 					'footer_description' => [
 						'inherit' => [
-							'template'         => esc_html__( 'Customize the default vertical spacing <ctaButton>here</ctaButton>.', 'neve' ),
+							'template'         => esc_html__( 'Customize the default vertical spacing <ctaButton>here</ctaButton>.', 'nueve4' ),
 							'control_to_focus' => Config::MODS_CONTENT_VSPACING,
 						],
 					],
@@ -583,19 +583,19 @@ abstract class Base_Layout_Single extends Base_Customizer {
 		$default_value = get_theme_mod( Config::MODS_CONTENT_VSPACING, $this->content_vspacing_default() );
 		$this->add_control(
 			new Control(
-				'neve_' . $this->post_type . '_content_vspacing',
+				'nueve4_' . $this->post_type . '_content_vspacing',
 				[
 					'default'   => $default_value,
 					'transport' => $this->selective_refresh,
 				],
 				[
-					'label'                 => __( 'Custom Value', 'neve' ),
+					'label'                 => __( 'Custom Value', 'nueve4' ),
 					'sanitize_callback'     => [ $this, 'sanitize_spacing_array' ],
 					'section'               => $this->section,
 					'input_attrs'           => [
 						'units'     => [ 'px', 'vh' ],
 						'axis'      => 'vertical',
-						'dependsOn' => [ 'neve_' . $this->post_type . '_inherit_vspacing' => 'specific' ],
+						'dependsOn' => [ 'nueve4_' . $this->post_type . '_inherit_vspacing' => 'specific' ],
 					],
 					'default'               => $default_value,
 					'priority'              => 100,
@@ -603,7 +603,7 @@ abstract class Base_Layout_Single extends Base_Customizer {
 					'live_refresh_css_prop' => [
 						'cssVar'      => [
 							'vars'       => '--c-vspace',
-							'selector'   => 'body.' . $this->post_type . ' .neve-main',
+							'selector'   => 'body.' . $this->post_type . ' .nueve4-main',
 							'responsive' => true,
 							'fallback'   => '',
 						],

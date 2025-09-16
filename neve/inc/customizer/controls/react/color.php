@@ -18,7 +18,7 @@ class Color extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_color_control';
+	public $type = 'nueve4_color_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

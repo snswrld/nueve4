@@ -9,46 +9,46 @@
 /**
  * Hook just before the header ( navigation ) area.
  *
- * @deprecated 2.11 Use do_action( 'neve_before_header_hook' ) instead.
+ * @deprecated 2.11 Use do_action( 'nueve4_before_header_hook' ) instead.
  */
-function neve_before_header_trigger() {
-	do_action( 'neve_before_header_hook' );
+function nueve4_before_header_trigger() {
+	do_action( 'nueve4_before_header_hook' );
 }
 
 /**
  * Hook at the beginning of header ( navigation ) area.
  *
- * @deprecated 2.11 Use do_action( 'neve_before_header_wrapper_hook' ) instead.
+ * @deprecated 2.11 Use do_action( 'nueve4_before_header_wrapper_hook' ) instead.
  */
-function neve_before_header_wrapper_trigger() {
-	do_action( 'neve_before_header_wrapper_hook' );
+function nueve4_before_header_wrapper_trigger() {
+	do_action( 'nueve4_before_header_wrapper_hook' );
 }
 
 /**
  * Hook just after the header ( navigation ) area.
  *
- * @deprecated 2.11 Use do_action( 'neve_after_header_hook' ) instead.
+ * @deprecated 2.11 Use do_action( 'nueve4_after_header_hook' ) instead.
  */
-function neve_after_header_trigger() {
-	do_action( 'neve_after_header_hook' );
+function nueve4_after_header_trigger() {
+	do_action( 'nueve4_after_header_hook' );
 }
 
 /**
  * Hook just after the header content ( navigation ) area
  *
- * @deprecated 2.11 Use do_action( 'neve_after_header_wrapper_hook' ) instead.
+ * @deprecated 2.11 Use do_action( 'nueve4_after_header_wrapper_hook' ) instead.
  */
-function neve_after_header_wrapper_trigger() {
-	do_action( 'neve_after_header_wrapper_hook' );
+function nueve4_after_header_wrapper_trigger() {
+	do_action( 'nueve4_after_header_wrapper_hook' );
 }
 
 /**
  * Hook just before the footer area
  *
- * @deprecated 2.11 Use do_action( 'neve_before_footer_hook' ) instead.
+ * @deprecated 2.11 Use do_action( 'nueve4_before_footer_hook' ) instead.
  */
-function neve_before_footer_trigger() {
-	do_action( 'neve_before_footer_hook' );
+function nueve4_before_footer_trigger() {
+	do_action( 'nueve4_before_footer_hook' );
 }
 
 /**
@@ -56,10 +56,10 @@ function neve_before_footer_trigger() {
  *
  * HTML context: after `footer`
  *
- * @deprecated 2.11 Use do_action( 'neve_after_footer_hook' ) instead.
+ * @deprecated 2.11 Use do_action( 'nueve4_after_footer_hook' ) instead.
  */
-function neve_after_footer_trigger() {
-	do_action( 'neve_after_footer_hook' );
+function nueve4_after_footer_trigger() {
+	do_action( 'nueve4_after_footer_hook' );
 }
 
 if ( ! function_exists( 'wp_body_open' ) ) {

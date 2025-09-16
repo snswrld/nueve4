@@ -37,8 +37,8 @@ class PWA {
 	 * Load hooks.
 	 */
 	private function load_hooks() {
-		add_action( 'neve_do_offline', array( $this, 'offline_default_template' ) );
-		add_action( 'neve_do_server_error', array( $this, 'server_error_default_template' ) );
+		add_action( 'nueve4_do_offline', array( $this, 'offline_default_template' ) );
+		add_action( 'nueve4_do_server_error', array( $this, 'server_error_default_template' ) );
 	}
 
 	/**
@@ -47,7 +47,7 @@ class PWA {
 	public function offline_default_template() {
 		?>
 		<main>
-			<h1><?php esc_html_e( 'Oops! It looks like you&#8217;re offline.', 'neve' ); ?></h1>
+			<h1><?php esc_html_e( 'Oops! It looks like you&#8217;re offline.', 'nueve4' ); ?></h1>
 			<?php wp_service_worker_error_message_placeholder(); ?>
 		</main>
 		<?php
@@ -60,7 +60,7 @@ class PWA {
 
 		?>
 		<main>
-			<h1><?php esc_html_e( 'Oops! Something went wrong.', 'neve' ); ?></h1>
+			<h1><?php esc_html_e( 'Oops! Something went wrong.', 'nueve4' ); ?></h1>
 			<?php wp_service_worker_error_message_placeholder(); ?>
 			<?php wp_service_worker_error_details_template(); ?>
 		</main>

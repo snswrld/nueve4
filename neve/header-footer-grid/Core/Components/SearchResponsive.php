@@ -39,7 +39,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Search Icon', 'neve' ) );
+		$this->set_property( 'label', __( 'Search Icon', 'nueve4' ) );
 		$this->set_property( 'id', self::COMPONENT_ID );
 		$this->set_property( 'width', 1 );
 		$this->set_property( 'icon', 'search' );
@@ -88,8 +88,8 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'tab'                => SettingsManager::TAB_GENERAL,
 				'transport'          => 'post' . $this->get_builder_id(),
 				'sanitize_callback'  => 'wp_filter_nohtml_kses',
-				'default'            => __( 'Search for...', 'neve' ),
-				'label'              => __( 'Placeholder', 'neve' ),
+				'default'            => __( 'Search for...', 'nueve4' ),
+				'label'              => __( 'Placeholder', 'nueve4' ),
 				'type'               => 'text',
 				'section'            => $this->section,
 				'conditional_header' => true,
@@ -104,13 +104,13 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'transport'          => 'post' . $this->get_builder_id(),
 				'sanitize_callback'  => 'wp_filter_nohtml_kses',
 				'default'            => 'canvas',
-				'label'              => __( 'Open Behaviour', 'neve' ),
+				'label'              => __( 'Open Behaviour', 'nueve4' ),
 				'type'               => 'select',
 				'options'            => [
 					'choices' => [
-						'canvas'   => __( 'Canvas', 'neve' ),
-						'minimal'  => __( 'Minimal', 'neve' ),
-						'floating' => __( 'Float Above Header', 'neve' ),
+						'canvas'   => __( 'Canvas', 'nueve4' ),
+						'minimal'  => __( 'Minimal', 'nueve4' ),
+						'floating' => __( 'Float Above Header', 'nueve4' ),
 					],
 				],
 				'section'            => $this->section,
@@ -126,7 +126,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'transport'         => 'postMessage',
 				'type'              => 'Neve\Customizer\Controls\Heading',
 				'sanitize_callback' => 'sanitize_text_field',
-				'label'             => __( 'Icon', 'neve' ),
+				'label'             => __( 'Icon', 'nueve4' ),
 				'section'           => $this->section,
 				'options'           => [
 					'accordion'        => true,
@@ -145,7 +145,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => 'absint',
 				'default'               => self::DEFAULT_ICON_SIZE,
-				'label'                 => __( 'Icon Size', 'neve' ),
+				'label'                 => __( 'Icon Size', 'nueve4' ),
 				'type'                  => 'Neve\Customizer\Controls\React\Range',
 				'options'               => [
 					'input_attrs' => [
@@ -179,8 +179,8 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Color', 'neve' ),
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Color', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Color',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
@@ -204,8 +204,8 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Hover Color', 'neve' ),
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Hover Color', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Color',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
@@ -231,7 +231,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'transport'         => 'postMessage',
 				'type'              => 'Neve\Customizer\Controls\Heading',
 				'sanitize_callback' => 'sanitize_text_field',
-				'label'             => __( 'Search Field', 'neve' ),
+				'label'             => __( 'Search Field', 'nueve4' ),
 				'section'           => $this->section,
 				'options'           => [
 					'accordion'        => true,
@@ -248,7 +248,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'section'               => $this->section,
-				'label'                 => __( 'Height', 'neve' ),
+				'label'                 => __( 'Height', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Responsive_Range',
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
@@ -298,7 +298,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'section'               => $this->section,
-				'label'                 => __( 'Font Size', 'neve' ),
+				'label'                 => __( 'Font Size', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Responsive_Range',
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
@@ -374,7 +374,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => array( $this, 'sanitize_spacing_array' ),
 				'default'               => $default_border_width,
-				'label'                 => __( 'Border Width', 'neve' ),
+				'label'                 => __( 'Border Width', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Spacing',
 				'options'               => [
 					'input_attrs' => array(
@@ -437,7 +437,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => array( $this, 'sanitize_spacing_array' ),
 				'default'               => $default_border_width,
-				'label'                 => __( 'Border Radius', 'neve' ),
+				'label'                 => __( 'Border Radius', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Spacing',
 				'options'               => [
 					'input_attrs' => array(
@@ -475,8 +475,8 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Background Color', 'neve' ),
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Background Color', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Color',
 				'section'               => $this->section,
 				'options'               => [
@@ -506,9 +506,9 @@ class SearchResponsive extends Abstract_SearchComponent {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Text and Border', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Text and Border', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
@@ -546,7 +546,7 @@ class SearchResponsive extends Abstract_SearchComponent {
 	 */
 	public function add_style( array $css_array = array() ) {
 		if ( is_admin_bar_showing() ) {
-			wp_add_inline_style( 'neve-style', 'body.admin-bar .floating .nv-nav-search {margin-top: 32px;}' );
+			wp_add_inline_style( 'nueve4-style', 'body.admin-bar .floating .nv-nav-search {margin-top: 32px;}' );
 		}
 
 
@@ -630,6 +630,6 @@ class SearchResponsive extends Abstract_SearchComponent {
 	 * @return string
 	 */
 	public function change_placeholder( $placeholder ) {
-		return get_theme_mod( $this->id . '_placeholder', __( 'Search for...', 'neve' ) );
+		return get_theme_mod( $this->id . '_placeholder', __( 'Search for...', 'nueve4' ) );
 	}
 }

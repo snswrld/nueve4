@@ -51,13 +51,13 @@ class Main extends Base_Customizer {
 	 */
 	private function add_main_panels() {
 		$panels = array(
-			'neve_layout'     => array(
+			'nueve4_layout'     => array(
 				'priority' => 25,
-				'title'    => __( 'Layout', 'neve' ),
+				'title'    => __( 'Layout', 'nueve4' ),
 			),
-			'neve_typography' => array(
+			'nueve4_typography' => array(
 				'priority' => 35,
-				'title'    => __( 'Typography', 'neve' ),
+				'title'    => __( 'Typography', 'nueve4' ),
 			),
 		);
 
@@ -75,27 +75,27 @@ class Main extends Base_Customizer {
 		$this->wpc->add_section(
 			new Instructions_Section(
 				$this->wpc,
-				'neve_typography_quick_links',
+				'nueve4_typography_quick_links',
 				array(
 					'priority' => - 100,
-					'panel'    => 'neve_typography',
+					'panel'    => 'nueve4_typography',
 					'type'     => 'hfg_instructions',
 					'options'  => array(
 						'quickLinks' => array(
-							'neve_body_font_family'     => array(
-								'label' => esc_html__( 'Change main font', 'neve' ),
+							'nueve4_body_font_family'     => array(
+								'label' => esc_html__( 'Change main font', 'nueve4' ),
 								'icon'  => 'dashicons-editor-spellcheck',
 							),
-							'neve_headings_font_family' => array(
-								'label' => esc_html__( 'Change headings font', 'neve' ),
+							'nueve4_headings_font_family' => array(
+								'label' => esc_html__( 'Change headings font', 'nueve4' ),
 								'icon'  => 'dashicons-heading',
 							),
-							'neve_h1_accordion_wrap'    => array(
-								'label' => esc_html__( 'Change H1 font size', 'neve' ),
+							'nueve4_h1_accordion_wrap'    => array(
+								'label' => esc_html__( 'Change H1 font size', 'nueve4' ),
 								'icon'  => 'dashicons-info-outline',
 							),
-							'neve_archive_typography_post_title' => array(
-								'label' => esc_html__( 'Change archive font size', 'neve' ),
+							'nueve4_archive_typography_post_title' => array(
+								'label' => esc_html__( 'Change archive font size', 'nueve4' ),
 								'icon'  => 'dashicons-sticky',
 							),
 						),
@@ -107,11 +107,11 @@ class Main extends Base_Customizer {
 		$this->wpc->add_section(
 			new Documentation_Section(
 				$this->wpc,
-				'neve_documentation',
+				'nueve4_documentation',
 				[
 					'priority' => PHP_INT_MAX,
-					'title'    => esc_html__( 'Neve', 'neve' ),
-					'url'      => tsdk_utmify( 'https://docs.themeisle.com/article/946-neve-doc', 'docsbtn' ),
+					'title'    => esc_html__( 'Neve', 'nueve4' ),
+					'url'      => tsdk_utmify( 'https://docs.themeisle.com/article/946-nueve4-doc', 'docsbtn' ),
 				]
 			)
 		);
@@ -121,7 +121,7 @@ class Main extends Base_Customizer {
 	 * Change controls
 	 */
 	protected function change_controls() {
-		$this->change_customizer_object( 'section', 'static_front_page', 'panel', 'neve_layout' );
+		$this->change_customizer_object( 'section', 'static_front_page', 'panel', 'nueve4_layout' );
 		// Change default for shop columns WooCommerce option.
 		$this->change_customizer_object( 'setting', 'woocommerce_catalog_columns', 'default', 3 );
 	}

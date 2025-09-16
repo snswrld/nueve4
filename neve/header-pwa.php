@@ -19,5 +19,5 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php echo wp_kses( apply_filters( 'neve_body_data_attrs', '' ), array( '[class]' => true ) ); ?> <?php body_class(); ?> >
+<body <?php echo wp_kses( apply_filters( 'nueve4_body_data_attrs', '' ), array( '[class]' => true ) ); ?> <?php body_class(); ?> >
 

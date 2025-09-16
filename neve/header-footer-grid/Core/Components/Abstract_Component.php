@@ -512,7 +512,7 @@ abstract class Abstract_Component implements Component {
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => array( $this, 'sanitize_spacing_array' ),
 				'default'               => $this->default_padding_value,
-				'label'                 => __( 'Padding', 'neve' ),
+				'label'                 => __( 'Padding', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Spacing',
 				'options'               => [
 					'input_attrs' => array(
@@ -542,7 +542,7 @@ abstract class Abstract_Component implements Component {
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => array( $this, 'sanitize_spacing_array' ),
 				'default'               => $this->default_margin_value,
-				'label'                 => __( 'Margin', 'neve' ),
+				'label'                 => __( 'Margin', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Spacing',
 				'live_refresh_selector' => '.builder-item--' . $this->get_id(),
 				'live_refresh_css_prop' => array(
@@ -786,7 +786,7 @@ abstract class Abstract_Component implements Component {
 				'priority'          => $priority,
 				'type'              => 'Neve\Customizer\Controls\Heading',
 				'sanitize_callback' => 'sanitize_text_field',
-				'label'             => __( 'Typography', 'neve' ),
+				'label'             => __( 'Typography', 'nueve4' ),
 				'section'           => $this->section,
 				'options'           => [
 					'accordion'        => true,
@@ -856,7 +856,7 @@ abstract class Abstract_Component implements Component {
 					],
 					'section'               => $this->section,
 					'default'               => $this->typography_default,
-					'sanitize_callback'     => 'neve_sanitize_typography_control',
+					'sanitize_callback'     => 'nueve4_sanitize_typography_control',
 					'options'               => [
 						'input_attrs'         => array(
 							'size_units'             => [ 'em', 'px', 'rem' ],
@@ -924,21 +924,21 @@ abstract class Abstract_Component implements Component {
 
 		$align_choices = [
 			'left'   => [
-				'tooltip' => __( 'Left', 'neve' ),
+				'tooltip' => __( 'Left', 'nueve4' ),
 				'icon'    => 'editor-alignleft',
 			],
 			'center' => [
-				'tooltip' => __( 'Center', 'neve' ),
+				'tooltip' => __( 'Center', 'nueve4' ),
 				'icon'    => 'editor-aligncenter',
 			],
 			'right'  => [
-				'tooltip' => __( 'Right', 'neve' ),
+				'tooltip' => __( 'Right', 'nueve4' ),
 				'icon'    => 'editor-alignright',
 			],
 		];
 		if ( strpos( $this->get_id(), Button::COMPONENT_ID ) !== false ) {
 			$align_choices['justify'] = [
-				'tooltip' => __( 'Justify', 'neve' ),
+				'tooltip' => __( 'Justify', 'nueve4' ),
 				'icon'    => 'editor-justify',
 			];
 		}
@@ -949,13 +949,13 @@ abstract class Abstract_Component implements Component {
 				'group'                 => $this->get_id(),
 				'tab'                   => SettingsManager::TAB_LAYOUT,
 				'transport'             => $this->is_auto_width ? 'post' . $this->get_builder_id() : 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_alignment',
+				'sanitize_callback'     => 'nueve4_sanitize_alignment',
 				'default'               => [
 					'desktop' => $this->default_align,
 					'tablet'  => $this->default_align,
 					'mobile'  => $this->default_align,
 				],
-				'label'                 => __( 'Alignment', 'neve' ),
+				'label'                 => __( 'Alignment', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Responsive_Radio_Buttons',
 				'live_refresh_selector' => $this->is_auto_width ? null : '.builder-item--' . $this->get_id(),
 				'live_refresh_css_prop' => [

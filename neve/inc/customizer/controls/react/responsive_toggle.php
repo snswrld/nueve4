@@ -18,7 +18,7 @@ class Responsive_Toggle extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_responsive_toggle_control';
+	public $type = 'nueve4_responsive_toggle_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

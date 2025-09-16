@@ -7,10 +7,10 @@ const { InspectorControls, RichText } = wp.blockEditor;
 const { PanelBody, RangeControl, ToggleControl, TextControl, IconButton } = wp.components;
 const { Fragment } = wp.element;
 
-registerBlockType('neve/pricing-table', {
+registerBlockType('nueve4/pricing-table', {
     title: 'Neve Pricing Table',
     icon: 'money-alt',
-    category: 'neve-blocks',
+    category: 'nueve4-blocks',
     attributes: {
         plans: {
             type: 'array',
@@ -92,7 +92,7 @@ registerBlockType('neve/pricing-table', {
                     </PanelBody>
                 </InspectorControls>
 
-                <div className={`neve-pricing-block columns-${columns}`}>
+                <div className={`nueve4-pricing-block columns-${columns}`}>
                     <h3>Pricing Table</h3>
                     {plans.map((plan, planIndex) => (
                         <div key={planIndex} className={`pricing-plan ${plan.featured ? 'featured' : ''}`}>

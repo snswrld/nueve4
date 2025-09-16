@@ -27,7 +27,7 @@ class Form_Fields extends Base_Customizer {
 	 *
 	 * @var string
 	 */
-	private $section_id = 'neve_form_fields_section';
+	private $section_id = 'nueve4_form_fields_section';
 
 	/**
 	 * Function that should be extended to add customizer controls.
@@ -52,8 +52,8 @@ class Form_Fields extends Base_Customizer {
 				[
 					'priority'           => 45,
 					'description_hidden' => true,
-					'description'        => __( 'Customize the general design of the form elements across the site.', 'neve' ) . ' ' . neve_external_link( 'https://docs.themeisle.com/article/1341-neve-form-fields', 'Learn More' ),
-					'title'              => esc_html__( 'Form Fields', 'neve' ),
+					'description'        => __( 'Customize the general design of the form elements across the site.', 'nueve4' ) . ' ' . nueve4_external_link( 'https://docs.themeisle.com/article/1341-nueve4-form-fields', 'Learn More' ),
+					'title'              => esc_html__( 'Form Fields', 'nueve4' ),
 				]
 			)
 		);
@@ -65,12 +65,12 @@ class Form_Fields extends Base_Customizer {
 	private function add_form_fields_controls() {
 		$this->add_control(
 			new Control(
-				'neve_form_fields_heading',
+				'nueve4_form_fields_heading',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'            => esc_html__( 'Form Fields', 'neve' ),
+					'label'            => esc_html__( 'Form Fields', 'nueve4' ),
 					'section'          => $this->section_id,
 					'priority'         => 10,
 					'class'            => 'form-fields-accordion',
@@ -92,7 +92,7 @@ class Form_Fields extends Base_Customizer {
 					'default'           => $default_padding,
 				],
 				[
-					'label'                 => esc_html__( 'Field Padding', 'neve' ),
+					'label'                 => esc_html__( 'Field Padding', 'nueve4' ),
 					'section'               => $this->section_id,
 					'priority'              => 15,
 					'units'                 => [ 'px', 'em', 'rem' ],
@@ -139,12 +139,12 @@ class Form_Fields extends Base_Customizer {
 			new Control(
 				Config::MODS_FORM_FIELDS_BACKGROUND_COLOR,
 				[
-					'sanitize_callback' => 'neve_sanitize_colors',
+					'sanitize_callback' => 'nueve4_sanitize_colors',
 					'default'           => 'var(--nv-site-bg)',
 					'transport'         => $this->selective_refresh,
 				],
 				[
-					'label'                 => esc_html__( 'Field Background Color', 'neve' ),
+					'label'                 => esc_html__( 'Field Background Color', 'nueve4' ),
 					'section'               => $this->section_id,
 					'priority'              => 17,
 					'default'               => 'var(--nv-site-bg)',
@@ -189,7 +189,7 @@ class Form_Fields extends Base_Customizer {
 					'default'           => $default_width,
 				],
 				[
-					'label'                 => esc_html__( 'Border Width', 'neve' ),
+					'label'                 => esc_html__( 'Border Width', 'nueve4' ),
 					'section'               => $this->section_id,
 					'priority'              => 18,
 					'units'                 => [ 'px', 'em', 'rem' ],
@@ -236,7 +236,7 @@ class Form_Fields extends Base_Customizer {
 					'default'           => false,
 				],
 				[
-					'label'                 => esc_html__( 'Border Radius', 'neve' ),
+					'label'                 => esc_html__( 'Border Radius', 'nueve4' ),
 					'section'               => $this->section_id,
 					'priority'              => 19,
 					'units'                 => [ 'px', 'em', 'rem' ],
@@ -284,12 +284,12 @@ class Form_Fields extends Base_Customizer {
 			new Control(
 				Config::MODS_FORM_FIELDS_BORDER_COLOR,
 				[
-					'sanitize_callback' => 'neve_sanitize_colors',
+					'sanitize_callback' => 'nueve4_sanitize_colors',
 					'default'           => '#dddddd',
 					'transport'         => $this->selective_refresh,
 				],
 				[
-					'label'                 => esc_html__( 'Border Color', 'neve' ),
+					'label'                 => esc_html__( 'Border Color', 'nueve4' ),
 					'section'               => $this->section_id,
 					'priority'              => 20,
 					'default'               => '#dddddd',
@@ -326,12 +326,12 @@ class Form_Fields extends Base_Customizer {
 	private function add_input_text_controls() {
 		$this->add_control(
 			new Control(
-				'neve_input_text_heading',
+				'nueve4_input_text_heading',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'            => esc_html__( 'Input Text', 'neve' ),
+					'label'            => esc_html__( 'Input Text', 'nueve4' ),
 					'section'          => $this->section_id,
 					'priority'         => 30,
 					'class'            => 'form-input-accordion',
@@ -348,12 +348,12 @@ class Form_Fields extends Base_Customizer {
 			new Control(
 				Config::MODS_FORM_FIELDS_COLOR,
 				[
-					'sanitize_callback' => 'neve_sanitize_colors',
+					'sanitize_callback' => 'nueve4_sanitize_colors',
 					'default'           => 'var(--nv-text-color)',
 					'transport'         => $this->selective_refresh,
 				],
 				[
-					'label'                 => esc_html__( 'Color', 'neve' ),
+					'label'                 => esc_html__( 'Color', 'nueve4' ),
 					'section'               => $this->section_id,
 					'priority'              => 31,
 					'default'               => 'var(--nv-text-color)',
@@ -419,8 +419,8 @@ class Form_Fields extends Base_Customizer {
 							'desktop' => '',
 						),
 					),
-					'type'                  => 'neve_typeface_control',
-					'font_family_control'   => 'neve_body_font_family',
+					'type'                  => 'nueve4_typeface_control',
+					'font_family_control'   => 'nueve4_body_font_family',
 					'refresh_on_reset'      => true,
 					'live_refresh_selector' => '
 						form input:read-write,
@@ -469,12 +469,12 @@ class Form_Fields extends Base_Customizer {
 	private function add_form_labels_controls() {
 		$this->add_control(
 			new Control(
-				'neve_form_labels_heading',
+				'nueve4_form_labels_heading',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'            => esc_html__( 'Form Labels', 'neve' ),
+					'label'            => esc_html__( 'Form Labels', 'nueve4' ),
 					'section'          => $this->section_id,
 					'priority'         => 50,
 					'class'            => 'form-labels-accordion',
@@ -520,8 +520,8 @@ class Form_Fields extends Base_Customizer {
 							'desktop' => '',
 						],
 					],
-					'type'                  => 'neve_typeface_control',
-					'font_family_control'   => 'neve_body_font_family',
+					'type'                  => 'nueve4_typeface_control',
+					'font_family_control'   => 'nueve4_body_font_family',
 					'refresh_on_reset'      => true,
 					'live_refresh_selector' => 'form label, body .wpforms-container .wpforms-field-label, .woocommerce form .form-row label',
 					'live_refresh_css_prop' => [
@@ -558,12 +558,12 @@ class Form_Fields extends Base_Customizer {
 	private function add_button_controls() {
 		$this->add_control(
 			new Control(
-				'neve_form_button_heading',
+				'nueve4_form_button_heading',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				array(
-					'label'            => esc_html__( 'Button', 'neve' ),
+					'label'            => esc_html__( 'Button', 'nueve4' ),
 					'section'          => $this->section_id,
 					'priority'         => 70,
 					'class'            => 'form-button-accordion',
@@ -577,24 +577,24 @@ class Form_Fields extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_form_button_type',
+				'nueve4_form_button_type',
 				[
-					'sanitize_callback' => 'neve_sanitize_button_type',
+					'sanitize_callback' => 'nueve4_sanitize_button_type',
 					'default'           => 'primary',
 				],
 				[
-					'label'    => __( 'Button Style', 'neve' ),
+					'label'    => __( 'Button Style', 'nueve4' ),
 					'priority' => 71,
 					'section'  => $this->section_id,
-					'type'     => 'neve_inline_select',
+					'type'     => 'nueve4_inline_select',
 					'options'  => [
-						'primary'   => __( 'Primary', 'neve' ),
-						'secondary' => __( 'Secondary', 'neve' ),
+						'primary'   => __( 'Primary', 'nueve4' ),
+						'secondary' => __( 'Secondary', 'nueve4' ),
 					],
 					'default'  => 'primary',
 					'link'     => [
-						'focus'  => [ 'section', 'neve_buttons_section' ],
-						'string' => esc_html__( 'Customize the default button styles', 'neve' ),
+						'focus'  => [ 'section', 'nueve4_buttons_section' ],
+						'string' => esc_html__( 'Customize the default button styles', 'nueve4' ),
 					],
 				],
 				'Neve\Customizer\Controls\React\Inline_Select'

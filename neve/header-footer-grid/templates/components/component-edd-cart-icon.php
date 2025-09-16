@@ -27,16 +27,16 @@ $cart_label    = EddCartIcon::should_load_pro_features() ? parse_dynamic_tags( c
 				echo '</span>';
 			}
 			?>
-			<?php neve_cart_icon( true, 15, $cart_icon ); ?>
+			<?php nueve4_cart_icon( true, 15, $cart_icon ); ?>
 			<span class="screen-reader-text">
-				<?php esc_html_e( 'Cart', 'neve' ); ?>
+				<?php esc_html_e( 'Cart', 'nueve4' ); ?>
 			</span>
 			<span class="edd-cart-count">
 			<span class="edd-cart-quantity">
 				<?php echo esc_html( edd_get_cart_quantity() ); ?>
 			</span>
 			</span>
-			<?php do_action( 'neve_cart_icon_after_cart_total' ); ?>
+			<?php do_action( 'nueve4_cart_icon_after_cart_total' ); ?>
 		</a>
 	</div>
 </div>

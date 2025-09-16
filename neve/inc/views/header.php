@@ -36,12 +36,12 @@ class Header extends Base_View {
 	 * Hide last menu item search in mobile sidebar.
 	 */
 	public function hide_last_menu_item_search_in_sidebar() {
-		if ( neve_is_new_builder() ) {
+		if ( nueve4_is_new_builder() ) {
 			return;
 		}
 
 		wp_add_inline_style(
-			'neve-style',
+			'nueve4-style',
 			'.header-menu-sidebar-inner li.menu-item-nav-search { display: none; }
 		[data-row-id] .row { display: flex !important; align-items: center; flex-wrap: unset;}
 		@media (max-width: 960px) { .footer--row .row { flex-direction: column; } }'
@@ -89,11 +89,11 @@ class Header extends Base_View {
 			} elseif ( $item === 'cart' ) {
 				$items .= $this->get_nav_menu_cart();
 			} else {
-				$items .= apply_filters( 'neve_last_menu_item_' . $item, '' );
+				$items .= apply_filters( 'nueve4_last_menu_item_' . $item, '' );
 			}
 		}
 
-		return apply_filters( 'neve_last_menu_item', $items );
+		return apply_filters( 'nueve4_last_menu_item', $items );
 	}
 
 	/**
@@ -107,7 +107,7 @@ class Header extends Base_View {
 		if ( isset( Nav::$current_component ) ) {
 			$current_component = Nav::$current_component;
 		}
-		$last_menu_setting_slug = apply_filters( 'neve_last_menu_setting_slug_' . $current_component, 'neve_last_menu_item' );
+		$last_menu_setting_slug = apply_filters( 'nueve4_last_menu_setting_slug_' . $current_component, 'nueve4_last_menu_item' );
 
 		return get_theme_mod( $last_menu_setting_slug, wp_json_encode( $default ) );
 	}
@@ -133,12 +133,12 @@ class Header extends Base_View {
 		$id = 'nv-menu-item-search-' . self::$primary_nav_instance_no;
 
 		$search     .= '<' . esc_attr( $tag ) . ' class="' . esc_attr( $class ) . '" id="' . esc_attr( $id ) . '"  aria-label="search">';
-		$extra_attrs = apply_filters( 'neve_search_menu_item_filter', '', self::$primary_nav_instance_no );
-		$search     .= '<a href="#" class="nv-nav-search-icon" ' . $extra_attrs . '>' . neve_search_icon() . '</a>';
+		$extra_attrs = apply_filters( 'nueve4_search_menu_item_filter', '', self::$primary_nav_instance_no );
+		$search     .= '<a href="#" class="nv-nav-search-icon" ' . $extra_attrs . '>' . nueve4_search_icon() . '</a>';
 		$search     .= '<div class="nv-nav-search">';
 		if ( $responsive === true ) {
 			$search .= '<div class="container close-container">';
-			$search .= '<a class="button button-secondary close-responsive-search">' . __( 'Close', 'neve' ) . '</a>';
+			$search .= '<a class="button button-secondary close-responsive-search">' . __( 'Close', 'nueve4' ) . '</a>';
 			$search .= '</div>';
 		}
 		if ( version_compare( get_bloginfo( 'version' ), '5.2.0', '>=' ) ) {
@@ -176,8 +176,8 @@ class Header extends Base_View {
 		$cart = '';
 
 		$cart .= '<' . esc_attr( $tag ) . ' class="' . esc_attr( $class ) . '"><a href="' . esc_url( wc_get_cart_url() ) . '" class="cart-icon-wrapper">';
-		$cart .= neve_cart_icon();
-		$cart .= '<span class="screen-reader-text">' . __( 'Cart', 'neve' ) . '</span>';
+		$cart .= nueve4_cart_icon();
+		$cart .= '<span class="screen-reader-text">' . __( 'Cart', 'nueve4' ) . '</span>';
 		$cart .= '<span class="cart-count">' . WC()->cart->get_cart_contents_count() . '</span>';
 		$cart .= '</a>';
 
@@ -221,7 +221,7 @@ class Header extends Base_View {
 		ob_start();
 		echo '<div class="nv-nav-cart widget">';
 		echo '<div class="widget woocommerce widget_shopping_cart">';
-		do_action( 'neve_before_cart_popup' );
+		do_action( 'nueve4_before_cart_popup' );
 		$markup = ob_get_contents();
 		ob_end_clean();
 		return $markup;
@@ -234,7 +234,7 @@ class Header extends Base_View {
 	 */
 	private function after_cart_popup() {
 		ob_start();
-		do_action( 'neve_after_cart_popup' );
+		do_action( 'nueve4_after_cart_popup' );
 		echo '</div>';
 		echo '</div>';
 		$markup = ob_get_contents();
@@ -277,7 +277,7 @@ class Header extends Base_View {
 		}
 		$has_mm = false;
 		foreach ( $menu_items as $menu_item ) {
-			if ( in_array( 'neve-mega-menu', $menu_item->classes, true ) ) {
+			if ( in_array( 'nueve4-mega-menu', $menu_item->classes, true ) ) {
 				$has_mm = true;
 				break;
 			}

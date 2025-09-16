@@ -153,7 +153,7 @@ class Button extends \WP_Customize_Control {
 			$classes .= $this->button_class;
 		}
 		if ( $this->control_to_focus ) {
-			$classes .= ' neve-control-focus';
+			$classes .= ' nueve4-control-focus';
 		}
 
 		return $classes;

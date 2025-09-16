@@ -119,8 +119,8 @@ class Main {
 	 * @access  public
 	 */
 	public function init() {
-		add_filter( 'neve_style_subscribers', array( $this, 'inline_styles' ) );
-		if ( ! neve_is_new_builder() ) {
+		add_filter( 'nueve4_style_subscribers', array( $this, 'inline_styles' ) );
+		if ( ! nueve4_is_new_builder() ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_utils_scripts' ) );
 		}
 	}

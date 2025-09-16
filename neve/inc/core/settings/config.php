@@ -18,83 +18,83 @@ class Config {
 	 *
 	 * @deprecated
 	 */
-	const MODS_LINK_COLOR = 'neve_link_color';
+	const MODS_LINK_COLOR = 'nueve4_link_color';
 	/**
 	 * Link hover color - deprecated.
 	 *
 	 * @deprecated
 	 */
-	const MODS_LINK_HOVER_COLOR           = 'neve_link_hover_color';
-	const MODS_GLOBAL_COLORS              = 'neve_global_colors';
-	const MODS_GLOBAL_CUSTOM_COLORS       = 'neve_global_custom_colors';
-	const MODS_TEXT_COLOR                 = 'neve_text_color';
-	const MODS_CONTAINER_WIDTH            = 'neve_container_width';
-	const MODS_SITEWIDE_CONTENT_WIDTH     = 'neve_sitewide_content_width';
-	const MODS_OTHERS_CONTENT_WIDTH       = 'neve_other_pages_content_width';
-	const MODS_ARCHIVE_CONTENT_WIDTH      = 'neve_blog_archive_content_width';
-	const MODS_SINGLE_CONTENT_WIDTH       = 'neve_single_post_content_width';
-	const MODS_SHOP_ARCHIVE_CONTENT_WIDTH = 'neve_shop_archive_content_width';
-	const MODS_SHOP_SINGLE_CONTENT_WIDTH  = 'neve_single_product_content_width';
-	const MODS_ADVANCED_LAYOUT_OPTIONS    = 'neve_advanced_layout_options';
-	const MODS_BUTTON_PRIMARY_STYLE       = 'neve_button_appearance';
-	const MODS_BUTTON_SECONDARY_STYLE     = 'neve_secondary_button_appearance';
-	const MODS_BUTTON_PRIMARY_PADDING     = 'neve_button_padding';
+	const MODS_LINK_HOVER_COLOR           = 'nueve4_link_hover_color';
+	const MODS_GLOBAL_COLORS              = 'nueve4_global_colors';
+	const MODS_GLOBAL_CUSTOM_COLORS       = 'nueve4_global_custom_colors';
+	const MODS_TEXT_COLOR                 = 'nueve4_text_color';
+	const MODS_CONTAINER_WIDTH            = 'nueve4_container_width';
+	const MODS_SITEWIDE_CONTENT_WIDTH     = 'nueve4_sitewide_content_width';
+	const MODS_OTHERS_CONTENT_WIDTH       = 'nueve4_other_pages_content_width';
+	const MODS_ARCHIVE_CONTENT_WIDTH      = 'nueve4_blog_archive_content_width';
+	const MODS_SINGLE_CONTENT_WIDTH       = 'nueve4_single_post_content_width';
+	const MODS_SHOP_ARCHIVE_CONTENT_WIDTH = 'nueve4_shop_archive_content_width';
+	const MODS_SHOP_SINGLE_CONTENT_WIDTH  = 'nueve4_single_product_content_width';
+	const MODS_ADVANCED_LAYOUT_OPTIONS    = 'nueve4_advanced_layout_options';
+	const MODS_BUTTON_PRIMARY_STYLE       = 'nueve4_button_appearance';
+	const MODS_BUTTON_SECONDARY_STYLE     = 'nueve4_secondary_button_appearance';
+	const MODS_BUTTON_PRIMARY_PADDING     = 'nueve4_button_padding';
 	/**
 	 * Background color - deprecated.
 	 *
 	 * @deprecated
 	 */
 	const MODS_BACKGROUND_COLOR            = 'background_color';
-	const MODS_BUTTON_SECONDARY_PADDING    = 'neve_secondary_button_padding';
-	const MODS_TYPEFACE_GENERAL            = 'neve_typeface_general';
-	const MODS_TYPEFACE_H1                 = 'neve_h1_typeface_general';
-	const MODS_TYPEFACE_H2                 = 'neve_h2_typeface_general';
-	const MODS_TYPEFACE_H3                 = 'neve_h3_typeface_general';
-	const MODS_TYPEFACE_H4                 = 'neve_h4_typeface_general';
-	const MODS_TYPEFACE_H5                 = 'neve_h5_typeface_general';
-	const MODS_TYPEFACE_H6                 = 'neve_h6_typeface_general';
-	const MODS_FONT_GENERAL                = 'neve_body_font_family';
-	const MODS_FONT_GENERAL_VARIANTS       = 'neve_body_font_family_variants';
-	const MODS_FONT_HEADINGS               = 'neve_headings_font_family';
-	const MODS_DEFAULT_CONTAINER_STYLE     = 'neve_default_container_style';
-	const MODS_SINGLE_POST_CONTAINER_STYLE = 'neve_single_post_container_style';
+	const MODS_BUTTON_SECONDARY_PADDING    = 'nueve4_secondary_button_padding';
+	const MODS_TYPEFACE_GENERAL            = 'nueve4_typeface_general';
+	const MODS_TYPEFACE_H1                 = 'nueve4_h1_typeface_general';
+	const MODS_TYPEFACE_H2                 = 'nueve4_h2_typeface_general';
+	const MODS_TYPEFACE_H3                 = 'nueve4_h3_typeface_general';
+	const MODS_TYPEFACE_H4                 = 'nueve4_h4_typeface_general';
+	const MODS_TYPEFACE_H5                 = 'nueve4_h5_typeface_general';
+	const MODS_TYPEFACE_H6                 = 'nueve4_h6_typeface_general';
+	const MODS_FONT_GENERAL                = 'nueve4_body_font_family';
+	const MODS_FONT_GENERAL_VARIANTS       = 'nueve4_body_font_family_variants';
+	const MODS_FONT_HEADINGS               = 'nueve4_headings_font_family';
+	const MODS_DEFAULT_CONTAINER_STYLE     = 'nueve4_default_container_style';
+	const MODS_SINGLE_POST_CONTAINER_STYLE = 'nueve4_single_post_container_style';
 
-	const MODS_BUTTON_TYPEFACE           = 'neve_button_typeface';
-	const MODS_SECONDARY_BUTTON_TYPEFACE = 'neve_secondary_button_typeface';
+	const MODS_BUTTON_TYPEFACE           = 'nueve4_button_typeface';
+	const MODS_SECONDARY_BUTTON_TYPEFACE = 'nueve4_secondary_button_typeface';
 
-	const MODS_TYPEFACE_ARCHIVE_POST_TITLE   = 'neve_archive_typography_post_title';
-	const MODS_TYPEFACE_ARCHIVE_POST_EXCERPT = 'neve_archive_typography_post_excerpt';
-	const MODS_TYPEFACE_ARCHIVE_POST_META    = 'neve_archive_typography_post_meta';
+	const MODS_TYPEFACE_ARCHIVE_POST_TITLE   = 'nueve4_archive_typography_post_title';
+	const MODS_TYPEFACE_ARCHIVE_POST_EXCERPT = 'nueve4_archive_typography_post_excerpt';
+	const MODS_TYPEFACE_ARCHIVE_POST_META    = 'nueve4_archive_typography_post_meta';
 
-	const MODS_TYPEFACE_SINGLE_POST_TITLE         = 'neve_single_post_typography_post_title';
-	const MODS_TYPEFACE_SINGLE_POST_META          = 'neve_single_post_typography_post_meta';
-	const MODS_TYPEFACE_SINGLE_POST_COMMENT_TITLE = 'neve_single_post_typography_comments_title';
+	const MODS_TYPEFACE_SINGLE_POST_TITLE         = 'nueve4_single_post_typography_post_title';
+	const MODS_TYPEFACE_SINGLE_POST_META          = 'nueve4_single_post_typography_post_meta';
+	const MODS_TYPEFACE_SINGLE_POST_COMMENT_TITLE = 'nueve4_single_post_typography_comments_title';
 
-	const MODS_FORM_FIELDS_PADDING          = 'neve_form_fields_padding';
-	const MODS_FORM_FIELDS_SPACING          = 'neve_form_fields_spacing';
-	const MODS_FORM_FIELDS_BACKGROUND_COLOR = 'neve_form_fields_background_color';
-	const MODS_FORM_FIELDS_BORDER_WIDTH     = 'neve_form_fields_border_width';
-	const MODS_FORM_FIELDS_BORDER_RADIUS    = 'neve_form_fields_border_radius';
-	const MODS_FORM_FIELDS_BORDER_COLOR     = 'neve_form_fields_border_color';
-	const MODS_FORM_FIELDS_LABELS_SPACING   = 'neve_label_spacing';
-	const MODS_FORM_FIELDS_TYPEFACE         = 'neve_input_typeface';
-	const MODS_FORM_FIELDS_COLOR            = 'neve_input_text_color';
-	const MODS_FORM_FIELDS_LABELS_TYPEFACE  = 'neve_label_typeface';
+	const MODS_FORM_FIELDS_PADDING          = 'nueve4_form_fields_padding';
+	const MODS_FORM_FIELDS_SPACING          = 'nueve4_form_fields_spacing';
+	const MODS_FORM_FIELDS_BACKGROUND_COLOR = 'nueve4_form_fields_background_color';
+	const MODS_FORM_FIELDS_BORDER_WIDTH     = 'nueve4_form_fields_border_width';
+	const MODS_FORM_FIELDS_BORDER_RADIUS    = 'nueve4_form_fields_border_radius';
+	const MODS_FORM_FIELDS_BORDER_COLOR     = 'nueve4_form_fields_border_color';
+	const MODS_FORM_FIELDS_LABELS_SPACING   = 'nueve4_label_spacing';
+	const MODS_FORM_FIELDS_TYPEFACE         = 'nueve4_input_typeface';
+	const MODS_FORM_FIELDS_COLOR            = 'nueve4_input_text_color';
+	const MODS_FORM_FIELDS_LABELS_TYPEFACE  = 'nueve4_label_typeface';
 
-	const MODS_ARCHIVE_POST_META_AUTHOR_AVATAR_SIZE = 'neve_author_avatar_size';
-	const MODS_SINGLE_POST_META_AUTHOR_AVATAR_SIZE  = 'neve_single_post_avatar_size';
-	const MODS_SINGLE_POST_ELEMENTS_SPACING         = 'neve_single_post_elements_spacing';
+	const MODS_ARCHIVE_POST_META_AUTHOR_AVATAR_SIZE = 'nueve4_author_avatar_size';
+	const MODS_SINGLE_POST_META_AUTHOR_AVATAR_SIZE  = 'nueve4_single_post_avatar_size';
+	const MODS_SINGLE_POST_ELEMENTS_SPACING         = 'nueve4_single_post_elements_spacing';
 
-	const MODS_CONTENT_VSPACING             = 'neve_content_vspacing';
-	const MODS_SINGLE_POST_VSPACING_INHERIT = 'neve_post_inherit_vspacing';
-	const MODS_SINGLE_POST_CONTENT_VSPACING = 'neve_post_content_vspacing';
+	const MODS_CONTENT_VSPACING             = 'nueve4_content_vspacing';
+	const MODS_SINGLE_POST_VSPACING_INHERIT = 'nueve4_post_inherit_vspacing';
+	const MODS_SINGLE_POST_CONTENT_VSPACING = 'nueve4_post_content_vspacing';
 
 	const MODS_POST_TYPE_VSPACING_INHERIT = 'inherit_vspacing';
 	const MODS_POST_TYPE_VSPACING         = 'content_vspacing';
 
 	const OPTION_LOCAL_GOOGLE_FONTS_HOSTING = 'nv_pro_enable_local_fonts';
 
-	const MODS_TPOGRAPHY_FONT_PAIRS = 'neve_font_pairs';
+	const MODS_TPOGRAPHY_FONT_PAIRS = 'nueve4_font_pairs';
 
 	/**
 	 * This is only used in a dynamic context for all allowed post types
@@ -111,12 +111,12 @@ class Config {
 	const MODS_COVER_BOXED_TITLE_PADDING    = 'cover_title_boxed_padding';
 	const MODS_COVER_BOXED_TITLE_BACKGROUND = 'cover_title_boxed_background_color';
 
-	const MODS_POST_COMMENTS_PADDING               = 'neve_comments_boxed_padding';
-	const MODS_POST_COMMENTS_BACKGROUND_COLOR      = 'neve_comments_boxed_background_color';
-	const MODS_POST_COMMENTS_TEXT_COLOR            = 'neve_comments_boxed_text_color';
-	const MODS_POST_COMMENTS_FORM_PADDING          = 'neve_comments_form_boxed_padding';
-	const MODS_POST_COMMENTS_FORM_BACKGROUND_COLOR = 'neve_comments_form_boxed_background_color';
-	const MODS_POST_COMMENTS_FORM_TEXT_COLOR       = 'neve_comments_form_boxed_text_color';
+	const MODS_POST_COMMENTS_PADDING               = 'nueve4_comments_boxed_padding';
+	const MODS_POST_COMMENTS_BACKGROUND_COLOR      = 'nueve4_comments_boxed_background_color';
+	const MODS_POST_COMMENTS_TEXT_COLOR            = 'nueve4_comments_boxed_text_color';
+	const MODS_POST_COMMENTS_FORM_PADDING          = 'nueve4_comments_form_boxed_padding';
+	const MODS_POST_COMMENTS_FORM_BACKGROUND_COLOR = 'nueve4_comments_form_boxed_background_color';
+	const MODS_POST_COMMENTS_FORM_TEXT_COLOR       = 'nueve4_comments_form_boxed_text_color';
 
 	const CSS_PROP_BORDER_COLOR               = 'border-color';
 	const CSS_PROP_BACKGROUND_COLOR           = 'background-color';

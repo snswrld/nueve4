@@ -33,7 +33,7 @@ class Generic {
 	 * @return array
 	 **/
 	public function max_megamenu_theme( $themes ) {
-		$themes['neve_max_mega_menu'] = array(
+		$themes['nueve4_max_mega_menu'] = array(
 			'title'                           => 'Neve',
 			'menu_item_link_height'           => '50px',
 			'menu_item_align'                 => 'right',

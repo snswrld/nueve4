@@ -23,7 +23,7 @@ class Layout_Container extends Base_View {
 	 * @return void
 	 */
 	public function init() {
-		add_filter( 'neve_container_class_filter', array( $this, 'container_layout' ), 10, 2 );
+		add_filter( 'nueve4_container_class_filter', array( $this, 'container_layout' ), 10, 2 );
 	}
 
 	/**
@@ -36,24 +36,24 @@ class Layout_Container extends Base_View {
 	 */
 	public function container_layout( $value, $context = 'single-page' ) {
 		if ( $context === 'blog-archive' ) {
-			return ( $this->get_container_class( 'neve_blog_archive_container_style' ) );
+			return ( $this->get_container_class( 'nueve4_blog_archive_container_style' ) );
 		}
 
 		if ( $context === 'single-post' ) {
-			return apply_filters( 'neve_single_container_style_filter', $this->get_container_class( 'neve_single_post_container_style' ) );
+			return apply_filters( 'nueve4_single_container_style_filter', $this->get_container_class( 'nueve4_single_post_container_style' ) );
 		}
 
 		if ( $context === 'single-page' && class_exists( 'WooCommerce', false ) ) {
 			if ( is_product() ) {
-				return ( $this->get_container_class( 'neve_single_product_container_style' ) );
+				return ( $this->get_container_class( 'nueve4_single_product_container_style' ) );
 			}
 
 			if ( is_shop() || is_product_category() ) {
-				return ( $this->get_container_class( 'neve_shop_archive_container_style' ) );
+				return ( $this->get_container_class( 'nueve4_shop_archive_container_style' ) );
 			}
 		}
 
-		return $this->get_container_class( 'neve_default_container_style' );
+		return $this->get_container_class( 'nueve4_default_container_style' );
 	}
 
 	/**

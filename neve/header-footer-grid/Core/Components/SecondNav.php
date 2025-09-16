@@ -39,7 +39,7 @@ class SecondNav extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Secondary Menu', 'neve' ) );
+		$this->set_property( 'label', __( 'Secondary Menu', 'nueve4' ) );
 		$this->set_property( 'id', $this->get_class_const( 'COMPONENT_ID' ) );
 		$this->set_property( 'width', 6 );
 		$this->set_property( 'section', 'secondary_menu_primary' );
@@ -48,7 +48,7 @@ class SecondNav extends Abstract_Component {
 		$this->set_property( 'has_typeface_control', true );
 		$this->set_property( 'default_typography_selector', $this->default_typography_selector . '.builder-item--' . $this->get_id() . ' .nav-ul li > a' );
 		add_action(
-			'neve_before_render_nav',
+			'nueve4_before_render_nav',
 			function ( $component_id ) {
 				if ( $this->get_id() !== $component_id ) {
 					return;
@@ -57,7 +57,7 @@ class SecondNav extends Abstract_Component {
 			}
 		);
 		add_action(
-			'neve_after_render_nav',
+			'nueve4_after_render_nav',
 			function ( $component_id ) {
 				if ( $this->get_id() !== $component_id ) {
 					return;
@@ -99,7 +99,7 @@ class SecondNav extends Abstract_Component {
 				'sanitize_callback'  => 'wp_filter_nohtml_kses',
 				'default'            => 'style-plain',
 				'conditional_header' => $this->get_builder_id() === 'header',
-				'label'              => __( 'Hover Skin Mode', 'neve' ),
+				'label'              => __( 'Hover Skin Mode', 'nueve4' ),
 				'type'               => '\Neve\Customizer\Controls\React\Radio_Buttons',
 				'section'            => $this->section,
 				'options'            => [
@@ -115,10 +115,10 @@ class SecondNav extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => '',
-				'label'                 => __( 'Items Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Items Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'conditional_header'    => $this->get_builder_id() === 'header',
 				'live_refresh_selector' => true,
@@ -141,10 +141,10 @@ class SecondNav extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => '',
-				'label'                 => __( 'Active Item Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Active Item Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'conditional_header'    => true,
 				'live_refresh_selector' => true,
@@ -162,10 +162,10 @@ class SecondNav extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => 'var(--nv-secondary-accent)',
-				'label'                 => __( 'Items Hover Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Items Hover Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'conditional_header'    => $this->get_builder_id() === 'header',
 				'live_refresh_selector' => true,
@@ -194,10 +194,10 @@ class SecondNav extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => 'var(--nv-text-color)',
-				'label'                 => __( 'Hover Skin Mode', 'neve' ) . ' ' . __( 'Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Hover Skin Mode', 'nueve4' ) . ' ' . __( 'Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'conditional_header'    => true,
 				'live_refresh_selector' => true,
@@ -222,13 +222,13 @@ class SecondNav extends Abstract_Component {
 				'tab'               => SettingsManager::TAB_GENERAL,
 				'transport'         => 'postMessage',
 				'sanitize_callback' => 'esc_attr',
-				'label'             => __( 'Secondary Menu', 'neve' ),
+				'label'             => __( 'Secondary Menu', 'nueve4' ),
 				'type'              => '\Neve\Customizer\Controls\Button',
 				'options'           => [
 					'shortcut'     => true,
 					'button_class' => 'nv-top-bar-menu-shortcut',
 					'icon_class'   => 'menu',
-					'button_text'  => __( 'Select Menu', 'neve' ),
+					'button_text'  => __( 'Select Menu', 'nueve4' ),
 				],
 				'section'           => $this->section,
 			]
@@ -240,7 +240,7 @@ class SecondNav extends Abstract_Component {
 				'group'              => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                => SettingsManager::TAB_LAYOUT,
 				'section'            => $this->section,
-				'label'              => __( 'Items Spacing (px)', 'neve' ),
+				'label'              => __( 'Items Spacing (px)', 'nueve4' ),
 				'type'               => 'Neve\Customizer\Controls\React\Responsive_Range',
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => [ $this, 'sanitize_responsive_int_json' ],
@@ -271,7 +271,7 @@ class SecondNav extends Abstract_Component {
 				'id'                 => self::ITEM_HEIGHT,
 				'group'              => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                => SettingsManager::TAB_LAYOUT,
-				'label'              => __( 'Items Min Height (px)', 'neve' ),
+				'label'              => __( 'Items Min Height (px)', 'nueve4' ),
 				'sanitize_callback'  => [ $this, 'sanitize_responsive_int_json' ],
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'default'            => $this->get_default_for_responsive_from_intval( self::ITEM_HEIGHT, 25 ),
@@ -306,9 +306,9 @@ class SecondNav extends Abstract_Component {
 	 * @access  public
 	 */
 	public function render_component() {
-		do_action( 'neve_before_render_nav', $this->get_id() );
+		do_action( 'nueve4_before_render_nav', $this->get_id() );
 		Main::get_instance()->load( 'components/component-nav-secondary' );
-		do_action( 'neve_after_render_nav', $this->get_id() );
+		do_action( 'nueve4_after_render_nav', $this->get_id() );
 	}
 
 	/**

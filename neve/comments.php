@@ -2,7 +2,7 @@
 /**
  * The template for displaying comments.
  *
- * @package neve
+ * @package nueve4
  */
 if ( post_password_required() ) {
 	return;
@@ -10,6 +10,6 @@ if ( post_password_required() ) {
 
 ?>
 
-<div id="comments" class="<?php echo esc_attr( apply_filters( 'neve_comments_area_class', 'comments-area' ) ); ?>">
-	<?php do_action( 'neve_do_comment_area' ); ?>
+<div id="comments" class="<?php echo esc_attr( apply_filters( 'nueve4_comments_area_class', 'comments-area' ) ); ?>">
+	<?php do_action( 'nueve4_do_comment_area' ); ?>
 </div>

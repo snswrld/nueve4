@@ -18,7 +18,7 @@ class Radio_Buttons extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_radio_buttons_control';
+	public $type = 'nueve4_radio_buttons_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

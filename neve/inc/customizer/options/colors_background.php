@@ -40,10 +40,10 @@ class Colors_Background extends Base_Customizer {
 	private function section_colors_background() {
 		$this->add_section(
 			new Section(
-				'neve_colors_background_section',
+				'nueve4_colors_background_section',
 				array(
 					'priority' => 27,
-					'title'    => esc_html__( 'Colors & Background', 'neve' ),
+					'title'    => esc_html__( 'Colors & Background', 'nueve4' ),
 				)
 			)
 		);
@@ -73,7 +73,7 @@ class Colors_Background extends Base_Customizer {
 		foreach ( $controls_to_move as $control_slug ) {
 			$control           = $this->get_customizer_object( 'control', $control_slug );
 			$control->priority = $priority;
-			$control->section  = 'neve_colors_background_section';
+			$control->section  = 'nueve4_colors_background_section';
 			$priority         += 5;
 		}
 	}
@@ -84,22 +84,22 @@ class Colors_Background extends Base_Customizer {
 	private function add_global_colors() {
 		$this->add_control(
 			new Control(
-				'neve_global_colors',
+				'nueve4_global_colors',
 				[
 					'sanitize_callback' => [ $this, 'sanitize_global_colors' ],
-					'default'           => neve_get_global_colors_default( true ),
+					'default'           => nueve4_get_global_colors_default( true ),
 					'transport'         => 'postMessage',
 				],
 				[
-					'label'                 => __( 'Global Colors', 'neve' ),
+					'label'                 => __( 'Global Colors', 'nueve4' ),
 					'priority'              => 10,
-					'section'               => 'neve_colors_background_section',
-					'type'                  => 'neve_global_colors',
-					'default_values'        => neve_get_global_colors_default(),
+					'section'               => 'nueve4_colors_background_section',
+					'type'                  => 'nueve4_global_colors',
+					'default_values'        => nueve4_get_global_colors_default(),
 					'input_attrs'           => [
 						'link' => [
-							'url'     => esc_url( 'https://docs.themeisle.com/article/1314-global-colors-in-neve' ),
-							'string'  => esc_html__( 'How the color system works', 'neve' ),
+							'url'     => esc_url( 'https://docs.themeisle.com/article/1314-global-colors-in-nueve4' ),
+							'string'  => esc_html__( 'How the color system works', 'nueve4' ),
 							'new_tab' => true,
 						],
 					],
@@ -111,17 +111,17 @@ class Colors_Background extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_global_custom_colors',
+				'nueve4_global_custom_colors',
 				[
 					'sanitize_callback' => [ $this, 'sanitize_global_custom_colors' ],
 					'default'           => [],
 					'transport'         => 'refresh',
 				],
 				[
-					'label'                 => __( 'Custom Colors', 'neve' ),
+					'label'                 => __( 'Custom Colors', 'nueve4' ),
 					'priority'              => 10,
-					'section'               => 'neve_colors_background_section',
-					'type'                  => 'neve_global_custom_colors',
+					'section'               => 'nueve4_colors_background_section',
+					'type'                  => 'nueve4_global_custom_colors',
 					'default_values'        => [],
 					'live_refresh_selector' => true,
 				],
@@ -142,14 +142,14 @@ class Colors_Background extends Base_Customizer {
 			unset( $value['flag'] );
 		}
 
-		$default = neve_get_global_colors_default();
+		$default = nueve4_get_global_colors_default();
 		if ( ! isset( $value['activePalette'] ) || ! isset( $value['palettes'] ) ) {
 			return $default;
 		}
 
 		foreach ( $value['palettes'] as $slug => $args ) {
 			foreach ( $args['colors'] as $key => $color_val ) {
-				$value['palettes'][ $slug ]['colors'][ $key ] = neve_sanitize_colors( $color_val );
+				$value['palettes'][ $slug ]['colors'][ $key ] = nueve4_sanitize_colors( $color_val );
 			}
 		}
 
@@ -173,7 +173,7 @@ class Colors_Background extends Base_Customizer {
 		}
 
 		foreach ( $value as $slug => $options ) {
-			$color = neve_sanitize_colors( $options['val'] );
+			$color = nueve4_sanitize_colors( $options['val'] );
 
 			if ( ! $color ) {
 				unset( $value[ $slug ] );

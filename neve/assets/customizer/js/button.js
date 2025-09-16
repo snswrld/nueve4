@@ -14,7 +14,7 @@
 					}
 			);
 			$( '#customize-theme-controls' ).on(
-					'click', '.neve-control-focus', function(e) {
+					'click', '.nueve4-control-focus', function(e) {
 						wp.customize.control( $( this ).data( 'control-to-focus' ) ).focus();
 						e.preventDefault();
 					}

@@ -18,7 +18,7 @@ class Button_Appearance extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_button_appearance';
+	public $type = 'nueve4_button_appearance';
 	/**
 	 * Additional arguments passed to JS.
 	 * Disables hover controls

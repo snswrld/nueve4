@@ -6,5 +6,5 @@
  * @package Neve
  */
 
-do_action( 'neve_do_single_page' );
+do_action( 'nueve4_do_single_page' );
 

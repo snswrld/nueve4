@@ -18,7 +18,7 @@ class Inline_Select extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_inline_select';
+	public $type = 'nueve4_inline_select';
 
 	/**
 	 * Options.

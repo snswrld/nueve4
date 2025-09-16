@@ -42,7 +42,7 @@ class CartIcon extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Cart Icon', 'neve' ) );
+		$this->set_property( 'label', __( 'Cart Icon', 'nueve4' ) );
 		$this->set_property( 'id', self::COMPONENT_ID );
 		$this->set_property( 'width', 1 );
 		$this->set_property( 'icon', 'store' );
@@ -76,14 +76,14 @@ class CartIcon extends Abstract_Component {
 		);
 
 		if ( function_exists( 'do_blocks' ) ) {
-			add_filter( 'neve_post_content', 'do_blocks' );
+			add_filter( 'nueve4_post_content', 'do_blocks' );
 		}
-		add_filter( 'neve_post_content', 'wptexturize' );
-		add_filter( 'neve_post_content', 'convert_smilies' );
-		add_filter( 'neve_post_content', 'convert_chars' );
-		add_filter( 'neve_post_content', 'wpautop' );
-		add_filter( 'neve_post_content', 'shortcode_unautop' );
-		add_filter( 'neve_post_content', 'do_shortcode' );
+		add_filter( 'nueve4_post_content', 'wptexturize' );
+		add_filter( 'nueve4_post_content', 'convert_smilies' );
+		add_filter( 'nueve4_post_content', 'convert_chars' );
+		add_filter( 'nueve4_post_content', 'wpautop' );
+		add_filter( 'nueve4_post_content', 'shortcode_unautop' );
+		add_filter( 'nueve4_post_content', 'do_shortcode' );
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'load_scripts' ] );
 	}
@@ -95,7 +95,7 @@ class CartIcon extends Abstract_Component {
 	 */
 	public function load_scripts() {
 		if ( $this->is_component_active() ) {
-			wp_add_inline_script( 'neve-script', $this->toggle_cart_is_empty() );
+			wp_add_inline_script( 'nueve4-script', $this->toggle_cart_is_empty() );
 		}
 	}
 
@@ -143,7 +143,7 @@ class CartIcon extends Abstract_Component {
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => 'absint',
 				'default'               => 15,
-				'label'                 => __( 'Icon Size', 'neve' ),
+				'label'                 => __( 'Icon Size', 'nueve4' ),
 				'type'                  => 'Neve\Customizer\Controls\React\Range',
 				'options'               => [
 					'input_attrs' => [
@@ -173,8 +173,8 @@ class CartIcon extends Abstract_Component {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Color', 'neve' ),
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Color', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Color',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
@@ -204,8 +204,8 @@ class CartIcon extends Abstract_Component {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Hover Color', 'neve' ),
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Hover Color', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Color',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,

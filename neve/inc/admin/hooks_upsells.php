@@ -35,14 +35,14 @@ class Hooks_Upsells {
 	 */
 	public function should_load() {
 		$should_load = current_user_can( 'administrator' ) && ! defined( 'NEVE_PRO_VERSION' );
-		return apply_filters( 'neve_hooks_upsell_should_load', $should_load );
+		return apply_filters( 'nueve4_hooks_upsell_should_load', $should_load );
 	}
 
 	/**
 	 * Check if the hooks should be shown.
 	 */
 	private function show_hooks() {
-		return isset( $_GET['neve_preview_hook'] ) && 'show' === $_GET['neve_preview_hook'];
+		return isset( $_GET['nueve4_preview_hook'] ) && 'show' === $_GET['nueve4_preview_hook'];
 	}
 
 	/**
@@ -57,17 +57,17 @@ class Hooks_Upsells {
 			return;
 		}
 
-		$title = __( 'Show Hooks', 'neve' );
-		$href  = add_query_arg( 'neve_preview_hook', 'show' );
+		$title = __( 'Show Hooks', 'nueve4' );
+		$href  = add_query_arg( 'nueve4_preview_hook', 'show' );
 		if ( $this->show_hooks() ) {
-			$title = __( 'Hide Hooks', 'neve' );
-			$href  = remove_query_arg( 'neve_preview_hook' );
+			$title = __( 'Hide Hooks', 'nueve4' );
+			$href  = remove_query_arg( 'nueve4_preview_hook' );
 		}
 
 		$wp_admin_bar->add_menu(
 			array(
 				'title'  => sprintf( '%s <span class="dashicons dashicons-lock" style="font-family: dashicons"></span>', $title ),
-				'id'     => 'neve_preview_hook',
+				'id'     => 'nueve4_preview_hook',
 				'parent' => false,
 				'href'   => $href,
 			)
@@ -82,7 +82,7 @@ class Hooks_Upsells {
 	 * @return string
 	 */
 	public static function beautify_hook( $hook_label ) {
-		$hook_label = str_replace( 'neve_', '', $hook_label );
+		$hook_label = str_replace( 'nueve4_', '', $hook_label );
 		$hook_label = str_replace( '_', ' ', $hook_label );
 		$hook_label = str_replace( 'nv', ' ', $hook_label );
 		$hook_label = str_replace( 'woocommerce', ' ', $hook_label );
@@ -158,11 +158,11 @@ class Hooks_Upsells {
 		if ( ! $this->show_hooks() ) {
 			return;
 		}
-		$hooks = neve_hooks();
+		$hooks = nueve4_hooks();
 		echo '<style>';
 		echo esc_attr( Dynamic_Css::minify_css( $this->get_css() ) );
 		echo '</style>';
-		$upsell_label = __( 'Neve PRO Features', 'neve' ) . ' / ' . __( 'Learn more', 'neve' );
+		$upsell_label = __( 'Neve PRO Features', 'nueve4' ) . ' / ' . __( 'Learn more', 'nueve4' );
 
 		// These hooks have to be removed as to not have nested links that will break the layout.
 		// We don't need them when the hooks are displayed, as the action will be replaced by the displayed hook action.
@@ -179,7 +179,7 @@ class Hooks_Upsells {
 						if ( 'woocommerce_before_shop_loop_item' === $hook_value ) {
 							$style = 'max-width: 200px;';
 						}
-						$upsell_url = tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'viewhooks' );
+						$upsell_url = tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/', 'viewhooks' );
 						echo '<div class="nv-hook-wrapper nv-hook-upsell-wrapper">';
 						echo '<div class="nv-hook-placeholder">';
 						echo '<a href="' . esc_url( $upsell_url ) . '" title="' . esc_attr( $upsell_label ) . '" target="_blank">';

@@ -34,7 +34,7 @@ class Easy_Digital_Downloads {
 	}
 
 	/**
-	 * Add neve easy digital downloads body class.
+	 * Add nueve4 easy digital downloads body class.
 	 *
 	 * @param array $classes Current classes on body.
 	 */
@@ -79,10 +79,10 @@ class Easy_Digital_Downloads {
 		 * see edd_settings_sanitize()
 		 */
 		$settings['main'] = array(
-			'neve_controlled' => array(
-				'id'   => 'neve_controlled',
-				'name' => esc_html__( 'Controlled by Neve', 'neve' ),
-				'desc' => esc_html__( 'Neve Theme controls base style settings of Easy Digital Downloads. Additional settings from other extensions might appear below.', 'neve' ),
+			'nueve4_controlled' => array(
+				'id'   => 'nueve4_controlled',
+				'name' => esc_html__( 'Controlled by Neve', 'nueve4' ),
+				'desc' => esc_html__( 'Neve Theme controls base style settings of Easy Digital Downloads. Additional settings from other extensions might appear below.', 'nueve4' ),
 				'type' => 'descriptive_text',
 			),
 		);

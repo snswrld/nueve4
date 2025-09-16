@@ -71,11 +71,11 @@ namespace HFG;
 	<# if ( data.device != 'desktop' ) { #>
 	<# if ( ! _.isUndefined( data.rows.sidebar ) ) { #>
 	<div class="hfg--cp-sidebar">
-		<h4><?php echo __( 'Mobile menu content', 'neve' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h4>
+		<h4><?php echo __( 'Mobile menu content', 'nueve4' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h4>
 		<div class="hfg--row-bottom hfg--cb-row" data-id="{{ data.id }}_sidebar">
 			<a href="#" class="toggle">
-				<span class="show"><?php echo esc_html__( 'Show', 'neve' ); ?></span>
-				<span class="hide"><?php echo esc_html__( 'Hide', 'neve' ); ?></span>
+				<span class="show"><?php echo esc_html__( 'Show', 'nueve4' ); ?></span>
+				<span class="hide"><?php echo esc_html__( 'Hide', 'nueve4' ); ?></span>
 			</a>
 			<a class="hfg--cb-row-settings" title="{{ data.rows.sidebar.title || data.rows.sidebar }}" data-id="sidebar" href="#"></a>
 			<div class="hfg--row-inner">

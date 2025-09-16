@@ -5,7 +5,7 @@
  * @package Neve
  */
 
-$load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) !== 'default';
+$load_before_after_hooks = get_theme_mod( 'nueve4_blog_archive_layout', 'grid' ) !== 'default';
 ?>
 <article id="<?php echo esc_attr( $args['post_id'] ); ?>" class="<?php echo esc_attr( $args['post_class'] ); ?>">
 
@@ -18,7 +18,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) !
 				 *
 				 * @since 2.11
 				 */
-				do_action( 'neve_loop_entry_before' );
+				do_action( 'nueve4_loop_entry_before' );
 			}
 
 			echo $args['content'];  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -29,7 +29,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) !
 				 *
 				 * @since 2.11
 				 */
-				do_action( 'neve_loop_entry_after' );
+				do_action( 'nueve4_loop_entry_after' );
 			}
 			?>
 		</div>

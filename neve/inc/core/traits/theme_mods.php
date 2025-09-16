@@ -18,6 +18,6 @@ trait Theme_Mods {
 	 * @return string   theme mod key which stores font family of the heading.
 	 */
 	private function get_mod_key_heading_fontfamily( $heading_id ) {
-		return 'neve_headings_' . $heading_id . '_font_family';
+		return 'nueve4_headings_' . $heading_id . '_font_family';
 	}
 }

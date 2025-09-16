@@ -100,7 +100,7 @@ class Font_Manager extends Base_View {
 	 */
 	private function add_body_variants() {
 		$body_font   = self::get_body_font_family();
-		$gfonts_data = neve_get_google_fonts( true );
+		$gfonts_data = nueve4_get_google_fonts( true );
 
 		// Variations are only available for Google fonts.
 		if ( ! in_array( $body_font, array_keys( $gfonts_data ) ) ) {
@@ -184,7 +184,7 @@ class Font_Manager extends Base_View {
 	 */
 	private function enqueue_google_font( $font, $weights = [], $skip_enqueue = false ) {
 		// Get list of all Google Fonts.
-		$google_fonts = neve_get_google_fonts( true );
+		$google_fonts = nueve4_get_google_fonts( true );
 
 		$font = str_replace( '"', '', $font );
 
@@ -248,7 +248,7 @@ class Font_Manager extends Base_View {
 			return $url;
 		}
 
-		wp_enqueue_style( 'neve-google-font-' . str_replace( ' ', '-', strtolower( $font ) ), $url, array(), NEVE_VERSION );
+		wp_enqueue_style( 'nueve4-google-font-' . str_replace( ' ', '-', strtolower( $font ) ), $url, array(), NEVE_VERSION );
 	}
 
 	/**
@@ -269,7 +269,7 @@ class Font_Manager extends Base_View {
 		 *
 		 * @since 2.11
 		 */
-		$should_enqueue_locally = apply_filters( 'neve_load_remote_fonts_locally', $toggle );
+		$should_enqueue_locally = apply_filters( 'nueve4_load_remote_fonts_locally', $toggle );
 
 		if ( ! (bool) $should_enqueue_locally ) {
 			return;
@@ -302,7 +302,7 @@ class Font_Manager extends Base_View {
 		 * The domains provided to this filter should be from services that link directly to a CSS file or else WPTT will not be able to download the fonts.
 		 */
 		$external_font_domains = apply_filters(
-			'neve_font_providers',
+			'nueve4_font_providers',
 			array(
 				'fonts.googleapis.com/css',
 				'use.typekit.net',
@@ -343,7 +343,7 @@ class Font_Manager extends Base_View {
 		require_once $wptt_vendor_file;
 
 		foreach ( $external_fonts as $font_link ) {
-			wp_add_inline_style( 'neve-style', wptt_get_webfont_styles( $font_link ) );
+			wp_add_inline_style( 'nueve4-style', wptt_get_webfont_styles( $font_link ) );
 		}
 
 	}

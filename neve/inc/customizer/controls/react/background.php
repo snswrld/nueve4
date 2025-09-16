@@ -18,7 +18,7 @@ class Background extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_background_control';
+	public $type = 'nueve4_background_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

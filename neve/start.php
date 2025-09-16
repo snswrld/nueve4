@@ -8,7 +8,7 @@
 /**
  * Run theme functionality
  */
-function neve_run() {
+function nueve4_run() {
 	define(
 		'NEVE_COMPATIBILITY_FEATURES',
 		[
@@ -72,4 +72,4 @@ function neve_run() {
 	}
 }
 
-neve_run();
+nueve4_run();

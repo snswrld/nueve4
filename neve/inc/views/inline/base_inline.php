@@ -162,7 +162,7 @@ abstract class Base_Inline {
 				),
 				true
 			) &&
-			! in_array( $style['value'], neve_get_standard_fonts(), true ) ) {
+			! in_array( $style['value'], nueve4_get_standard_fonts(), true ) ) {
 			return esc_attr( $style['css_prop'] ) . ':"' . esc_attr( $style['value'] ) . '"' . esc_attr( $suffix ) . ';';
 		}
 

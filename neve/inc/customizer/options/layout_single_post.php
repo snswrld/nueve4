@@ -65,25 +65,25 @@ class Layout_Single_Post extends Base_Layout_Single {
 
 		$headings = [
 			'page_elements'    => [
-				'title'            => esc_html__( 'Page Elements', 'neve' ),
+				'title'            => esc_html__( 'Page Elements', 'nueve4' ),
 				'priority'         => 95,
 				'controls_to_wrap' => 2,
 				'expanded'         => false,
 			],
 			'page_settings'    => [
-				'title'            => esc_html__( 'Page', 'neve' ) . ' ' . esc_html__( 'Settings', 'neve' ),
+				'title'            => esc_html__( 'Page', 'nueve4' ) . ' ' . esc_html__( 'Settings', 'nueve4' ),
 				'priority'         => 106,
 				'controls_to_wrap' => 2,
 				'expanded'         => false,
 			],
 			'meta'             => [
-				'title'            => esc_html__( 'Post Meta', 'neve' ),
+				'title'            => esc_html__( 'Post Meta', 'nueve4' ),
 				'priority'         => 110,
 				'controls_to_wrap' => 5,
 				'expanded'         => false,
 			],
 			'comments_section' => [
-				'title'           => esc_html__( 'Comments Section', 'neve' ),
+				'title'           => esc_html__( 'Comments Section', 'nueve4' ),
 				'priority'        => 150,
 				'expanded'        => true,
 				'accordion'       => false,
@@ -92,7 +92,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 				},
 			],
 			'comments_form'    => [
-				'title'           => esc_html__( 'Submit Form Section', 'neve' ),
+				'title'           => esc_html__( 'Submit Form Section', 'nueve4' ),
 				'priority'        => 175,
 				'expanded'        => true,
 				'accordion'       => false,
@@ -105,7 +105,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 		foreach ( $headings as $heading_id => $heading_data ) {
 			$this->add_control(
 				new Control(
-					'neve_post_' . $heading_id . '_heading',
+					'nueve4_post_' . $heading_id . '_heading',
 					[
 						'sanitize_callback' => 'sanitize_text_field',
 					],
@@ -131,15 +131,15 @@ class Layout_Single_Post extends Base_Layout_Single {
 	private function header_layout() {
 		$this->add_control(
 			new Control(
-				'neve_post_cover_meta_before_title',
+				'nueve4_post_cover_meta_before_title',
 				[
-					'sanitize_callback' => 'neve_sanitize_checkbox',
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
 					'default'           => false,
 				],
 				[
-					'label'           => esc_html__( 'Display meta before title', 'neve' ),
+					'label'           => esc_html__( 'Display meta before title', 'nueve4' ),
 					'section'         => $this->section,
-					'type'            => 'neve_toggle_control',
+					'type'            => 'nueve4_toggle_control',
 					'priority'        => 40,
 					'active_callback' => [ $this, 'is_cover_layout' ],
 				],
@@ -154,20 +154,20 @@ class Layout_Single_Post extends Base_Layout_Single {
 	private function control_content_order() {
 
 		$all_components = [
-			'title-meta'      => __( 'Title & Meta', 'neve' ),
-			'thumbnail'       => __( 'Thumbnail', 'neve' ),
-			'content'         => __( 'Content', 'neve' ),
-			'tags'            => __( 'Tags', 'neve' ),
-			'post-navigation' => __( 'Post navigation', 'neve' ),
-			'comments'        => __( 'Comments', 'neve' ),
+			'title-meta'      => __( 'Title & Meta', 'nueve4' ),
+			'thumbnail'       => __( 'Thumbnail', 'nueve4' ),
+			'content'         => __( 'Content', 'nueve4' ),
+			'tags'            => __( 'Tags', 'nueve4' ),
+			'post-navigation' => __( 'Post navigation', 'nueve4' ),
+			'comments'        => __( 'Comments', 'nueve4' ),
 		];
 
 		if ( self::is_cover_layout() ) {
 			$all_components = [
-				'content'         => __( 'Content', 'neve' ),
-				'tags'            => __( 'Tags', 'neve' ),
-				'post-navigation' => __( 'Post navigation', 'neve' ),
-				'comments'        => __( 'Comments', 'neve' ),
+				'content'         => __( 'Content', 'nueve4' ),
+				'tags'            => __( 'Tags', 'nueve4' ),
+				'post-navigation' => __( 'Post navigation', 'nueve4' ),
+				'comments'        => __( 'Comments', 'nueve4' ),
 			];
 		}
 
@@ -180,17 +180,17 @@ class Layout_Single_Post extends Base_Layout_Single {
 		 *
 		 * @since 2.11.4
 		 */
-		$components = apply_filters( 'neve_single_post_elements', $all_components );
+		$components = apply_filters( 'nueve4_single_post_elements', $all_components );
 
 		$this->add_control(
 			new Control(
-				'neve_layout_single_post_elements_order',
+				'nueve4_layout_single_post_elements_order',
 				[
 					'sanitize_callback' => [ $this, 'sanitize_post_elements_ordering' ],
 					'default'           => wp_json_encode( $order_default_components ),
 				],
 				[
-					'label'      => esc_html__( 'Elements Order', 'neve' ),
+					'label'      => esc_html__( 'Elements Order', 'nueve4' ),
 					'section'    => $this->section,
 					'components' => $components,
 					'priority'   => 100,
@@ -201,16 +201,16 @@ class Layout_Single_Post extends Base_Layout_Single {
 
 		$this->add_control(
 			new Control(
-				'neve_single_post_elements_spacing',
+				'nueve4_single_post_elements_spacing',
 				[
-					'sanitize_callback' => 'neve_sanitize_range_value',
+					'sanitize_callback' => 'nueve4_sanitize_range_value',
 					'transport'         => $this->selective_refresh,
 					'default'           => '{"desktop":60,"tablet":60,"mobile":60}',
 				],
 				[
-					'label'                 => esc_html__( 'Spacing between elements', 'neve' ),
+					'label'                 => esc_html__( 'Spacing between elements', 'nueve4' ),
 					'section'               => $this->section,
-					'type'                  => 'neve_responsive_range_control',
+					'type'                  => 'nueve4_responsive_range_control',
 					'input_attrs'           => [
 						'max'        => 500,
 						'units'      => [ 'px', 'em', 'rem' ],
@@ -249,26 +249,26 @@ class Layout_Single_Post extends Base_Layout_Single {
 			new Control(
 				Config::MODS_SINGLE_POST_VSPACING_INHERIT,
 				[
-					'sanitize_callback' => 'neve_sanitize_vspace_type',
+					'sanitize_callback' => 'nueve4_sanitize_vspace_type',
 					'default'           => 'inherit',
 				],
 				[
-					'label'              => esc_html__( 'Content Vertical Spacing', 'neve' ),
+					'label'              => esc_html__( 'Content Vertical Spacing', 'nueve4' ),
 					'section'            => $this->section,
 					'priority'           => 107,
 					'choices'            => [
 						'inherit'  => [
-							'tooltip' => esc_html__( 'Inherit', 'neve' ),
+							'tooltip' => esc_html__( 'Inherit', 'nueve4' ),
 							'icon'    => 'text',
 						],
 						'specific' => [
-							'tooltip' => esc_html__( 'Custom', 'neve' ),
+							'tooltip' => esc_html__( 'Custom', 'nueve4' ),
 							'icon'    => 'text',
 						],
 					],
 					'footer_description' => [
 						'inherit' => [
-							'template'         => esc_html__( 'Customize the default vertical spacing <ctaButton>here</ctaButton>.', 'neve' ),
+							'template'         => esc_html__( 'Customize the default vertical spacing <ctaButton>here</ctaButton>.', 'nueve4' ),
 							'control_to_focus' => Config::MODS_CONTENT_VSPACING,
 						],
 					],
@@ -286,7 +286,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 					'transport' => $this->selective_refresh,
 				],
 				[
-					'label'                 => __( 'Custom Value', 'neve' ),
+					'label'                 => __( 'Custom Value', 'nueve4' ),
 					'sanitize_callback'     => [ $this, 'sanitize_spacing_array' ],
 					'section'               => $this->section,
 					'input_attrs'           => [
@@ -300,7 +300,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 					'live_refresh_css_prop' => [
 						'cssVar'      => [
 							'vars'       => '--c-vspace',
-							'selector'   => 'body.single:not(.single-product) .neve-main',
+							'selector'   => 'body.single:not(.single-product) .nueve4-main',
 							'responsive' => true,
 							'fallback'   => '',
 						],
@@ -318,31 +318,31 @@ class Layout_Single_Post extends Base_Layout_Single {
 	private function post_meta() {
 
 		$components = apply_filters(
-			'neve_meta_filter',
+			'nueve4_meta_filter',
 			[
-				'author'   => __( 'Author', 'neve' ),
-				'category' => __( 'Category', 'neve' ),
-				'date'     => __( 'Date', 'neve' ),
-				'comments' => __( 'Comments', 'neve' ),
+				'author'   => __( 'Author', 'nueve4' ),
+				'category' => __( 'Category', 'nueve4' ),
+				'date'     => __( 'Date', 'nueve4' ),
+				'comments' => __( 'Comments', 'nueve4' ),
 			]
 		);
 
-		$default_value = get_theme_mod( 'neve_single_post_meta_fields', self::get_default_single_post_meta_fields() );
+		$default_value = get_theme_mod( 'nueve4_single_post_meta_fields', self::get_default_single_post_meta_fields() );
 
 		$this->add_control(
 			new Control(
-				'neve_single_post_meta_fields',
+				'nueve4_single_post_meta_fields',
 				[
-					'sanitize_callback' => 'neve_sanitize_meta_repeater',
+					'sanitize_callback' => 'nueve4_sanitize_meta_repeater',
 					'default'           => $default_value,
 				],
 				[
-					'label'            => esc_html__( 'Meta Order', 'neve' ),
+					'label'            => esc_html__( 'Meta Order', 'nueve4' ),
 					'section'          => $this->section,
 					'fields'           => [
 						'hide_on_mobile' => [
 							'type'  => 'checkbox',
-							'label' => __( 'Hide on mobile', 'neve' ),
+							'label' => __( 'Hide on mobile', 'nueve4' ),
 						],
 					],
 					'components'       => $components,
@@ -353,10 +353,10 @@ class Layout_Single_Post extends Base_Layout_Single {
 			)
 		);
 
-		$default_separator = get_theme_mod( 'neve_metadata_separator', esc_html( '/' ) );
+		$default_separator = get_theme_mod( 'nueve4_metadata_separator', esc_html( '/' ) );
 		$this->add_control(
 			new Control(
-				'neve_single_post_metadata_separator',
+				'nueve4_single_post_metadata_separator',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 					'default'           => $default_separator,
@@ -364,40 +364,40 @@ class Layout_Single_Post extends Base_Layout_Single {
 				[
 					'priority'    => 120,
 					'section'     => $this->section,
-					'label'       => esc_html__( 'Separator', 'neve' ),
-					'description' => esc_html__( 'For special characters make sure to use Unicode. For example > can be displayed using \003E.', 'neve' ),
+					'label'       => esc_html__( 'Separator', 'nueve4' ),
+					'description' => esc_html__( 'For special characters make sure to use Unicode. For example > can be displayed using \003E.', 'nueve4' ),
 					'type'        => 'text',
 				]
 			)
 		);
 
-		$author_avatar_default = get_theme_mod( 'neve_author_avatar', false );
+		$author_avatar_default = get_theme_mod( 'nueve4_author_avatar', false );
 		$this->add_control(
 			new Control(
-				'neve_single_post_author_avatar',
+				'nueve4_single_post_author_avatar',
 				[
-					'sanitize_callback' => 'neve_sanitize_checkbox',
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
 					'default'           => $author_avatar_default,
 				],
 				[
-					'label'    => esc_html__( 'Show Author Avatar', 'neve' ),
+					'label'    => esc_html__( 'Show Author Avatar', 'nueve4' ),
 					'section'  => $this->section,
-					'type'     => 'neve_toggle_control',
+					'type'     => 'nueve4_toggle_control',
 					'priority' => 125,
 				]
 			)
 		);
 
-		$avatar_size_default = get_theme_mod( 'neve_author_avatar_size', '{ "mobile": 20, "tablet": 20, "desktop": 20 }' );
+		$avatar_size_default = get_theme_mod( 'nueve4_author_avatar_size', '{ "mobile": 20, "tablet": 20, "desktop": 20 }' );
 		$this->add_control(
 			new Control(
-				'neve_single_post_avatar_size',
+				'nueve4_single_post_avatar_size',
 				[
-					'sanitize_callback' => 'neve_sanitize_range_value',
+					'sanitize_callback' => 'nueve4_sanitize_range_value',
 					'default'           => $avatar_size_default,
 				],
 				[
-					'label'           => esc_html__( 'Avatar Size', 'neve' ),
+					'label'           => esc_html__( 'Avatar Size', 'nueve4' ),
 					'section'         => $this->section,
 					'units'           => [ 'px' ],
 					'input_attr'      => [
@@ -437,7 +437,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 					],
 					'priority'        => 130,
 					'active_callback' => function () {
-						return get_theme_mod( 'neve_single_post_author_avatar', false );
+						return get_theme_mod( 'nueve4_single_post_author_avatar', false );
 					},
 					'responsive'      => true,
 				],
@@ -447,15 +447,15 @@ class Layout_Single_Post extends Base_Layout_Single {
 
 		$this->add_control(
 			new Control(
-				'neve_single_post_show_last_updated_date',
+				'nueve4_single_post_show_last_updated_date',
 				[
-					'sanitize_callback' => 'neve_sanitize_checkbox',
-					'default'           => get_theme_mod( 'neve_show_last_updated_date', false ),
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
+					'default'           => get_theme_mod( 'nueve4_show_last_updated_date', false ),
 				],
 				[
-					'label'    => esc_html__( 'Use last updated date instead of the published one', 'neve' ),
+					'label'    => esc_html__( 'Use last updated date instead of the published one', 'nueve4' ),
 					'section'  => $this->section,
-					'type'     => 'neve_toggle_control',
+					'type'     => 'nueve4_toggle_control',
 					'priority' => 135,
 				]
 			)
@@ -469,13 +469,13 @@ class Layout_Single_Post extends Base_Layout_Single {
 
 		$this->add_control(
 			new Control(
-				'neve_post_comment_section_title',
+				'nueve4_post_comment_section_title',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'           => esc_html__( 'Section title', 'neve' ),
-					'description'     => esc_html__( 'The following magic tags are available for this field: {title} and {comments_number}. Leave this field empty for default behavior.', 'neve' ),
+					'label'           => esc_html__( 'Section title', 'nueve4' ),
+					'description'     => esc_html__( 'The following magic tags are available for this field: {title} and {comments_number}. Leave this field empty for default behavior.', 'nueve4' ),
 					'priority'        => 155,
 					'section'         => $this->section,
 					'type'            => 'text',
@@ -501,19 +501,19 @@ class Layout_Single_Post extends Base_Layout_Single {
 					return $this->element_is_enabled( 'comments' );
 				},
 				'active_callback'           => function() {
-					return $this->element_is_enabled( 'comments' ) && get_theme_mod( 'neve_comments_boxed_layout', false );
+					return $this->element_is_enabled( 'comments' ) && get_theme_mod( 'nueve4_comments_boxed_layout', false );
 				},
 			]
 		);
 
 		$this->add_control(
 			new Control(
-				'neve_post_comment_form_title',
+				'nueve4_post_comment_form_title',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'           => esc_html__( 'Section title', 'neve' ),
+					'label'           => esc_html__( 'Section title', 'nueve4' ),
 					'priority'        => 180,
 					'section'         => $this->section,
 					'type'            => 'text',
@@ -526,19 +526,19 @@ class Layout_Single_Post extends Base_Layout_Single {
 
 		$this->add_control(
 			new Control(
-				'neve_post_comment_form_button_style',
+				'nueve4_post_comment_form_button_style',
 				[
 					'default'           => 'primary',
-					'sanitize_callback' => 'neve_sanitize_button_type',
+					'sanitize_callback' => 'nueve4_sanitize_button_type',
 				],
 				[
-					'label'           => esc_html__( 'Button style', 'neve' ),
+					'label'           => esc_html__( 'Button style', 'nueve4' ),
 					'section'         => $this->section,
 					'priority'        => 185,
 					'type'            => 'select',
 					'choices'         => [
-						'primary'   => esc_html__( 'Primary', 'neve' ),
-						'secondary' => esc_html__( 'Secondary', 'neve' ),
+						'primary'   => esc_html__( 'Primary', 'nueve4' ),
+						'secondary' => esc_html__( 'Secondary', 'nueve4' ),
 					],
 					'active_callback' => function() {
 						return $this->element_is_enabled( 'comments' );
@@ -549,12 +549,12 @@ class Layout_Single_Post extends Base_Layout_Single {
 
 		$this->add_control(
 			new Control(
-				'neve_post_comment_form_button_text',
+				'nueve4_post_comment_form_button_text',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'           => esc_html__( 'Button text', 'neve' ),
+					'label'           => esc_html__( 'Button text', 'nueve4' ),
 					'priority'        => 190,
 					'section'         => $this->section,
 					'type'            => 'text',
@@ -580,7 +580,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 					return $this->element_is_enabled( 'comments' );
 				},
 				'active_callback'         => function() {
-					return $this->element_is_enabled( 'comments' ) && get_theme_mod( 'neve_comments_form_boxed_layout', true );
+					return $this->element_is_enabled( 'comments' ) && get_theme_mod( 'nueve4_comments_form_boxed_layout', true );
 				},
 			]
 		);
@@ -590,7 +590,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 	 * Change heading controls properties.
 	 */
 	public function adjust_headings() {
-		$this->change_customizer_object( 'control', 'neve_comments_heading', 'controls_to_wrap', 15 );
+		$this->change_customizer_object( 'control', 'nueve4_comments_heading', 'controls_to_wrap', 15 );
 	}
 
 	/**
@@ -602,7 +602,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 	 */
 	public function element_is_enabled( $element ) {
 		$default_order = apply_filters(
-			'neve_single_post_elements_default_order',
+			'nueve4_single_post_elements_default_order',
 			array(
 				'title-meta',
 				'thumbnail',
@@ -612,7 +612,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 			)
 		);
 
-		$content_order = get_theme_mod( 'neve_layout_single_post_elements_order', wp_json_encode( $default_order ) );
+		$content_order = get_theme_mod( 'nueve4_layout_single_post_elements_order', wp_json_encode( $default_order ) );
 		$content_order = json_decode( $content_order, true );
 		if ( ! in_array( $element, $content_order, true ) ) {
 			return false;
@@ -658,7 +658,7 @@ class Layout_Single_Post extends Base_Layout_Single {
 	 * @return bool
 	 */
 	public static function is_cover_layout() {
-		return get_theme_mod( 'neve_post_header_layout' ) === 'cover';
+		return get_theme_mod( 'nueve4_post_header_layout' ) === 'cover';
 	}
 
 	/**
@@ -670,6 +670,6 @@ class Layout_Single_Post extends Base_Layout_Single {
 		if ( ! self::is_cover_layout() ) {
 			return false;
 		}
-		return get_theme_mod( 'neve_post_cover_title_boxed_layout', false );
+		return get_theme_mod( 'nueve4_post_cover_title_boxed_layout', false );
 	}
 }

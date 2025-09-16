@@ -22,7 +22,7 @@ if ( $style !== 'style-plain' ) {
 ?>
 <div class="component-wrap">
 	<div role="navigation" class="<?php echo esc_attr( join( ' ', $container_classes ) ); ?>"
-		aria-label="<?php esc_attr_e( 'Footer Menu', 'neve' ); ?>">
+		aria-label="<?php esc_attr_e( 'Footer Menu', 'nueve4' ); ?>">
 
 		<?php
 		$locations         = get_nav_menu_locations();

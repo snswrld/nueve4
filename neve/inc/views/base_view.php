@@ -34,7 +34,7 @@ abstract class Base_View {
 			return;
 		}
 
-		$args = apply_filters( 'neve_filter_view_data_' . $view_slug, $vars );
+		$args = apply_filters( 'nueve4_filter_view_data_' . $view_slug, $vars );
 
 		$rest_of_path = 'views/' . $view_slug . '.php';
 

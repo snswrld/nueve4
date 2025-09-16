@@ -7,17 +7,17 @@
 
 return [
 	'post_type'    => 'page',
-	'post_title'   => _x( 'Project Details', 'Theme starter content', 'neve' ),
+	'post_title'   => _x( 'Project Details', 'Theme starter content', 'nueve4' ),
 	'post_content' => '<!-- wp:cover {"overlayColor":"nv-site-bg","minHeight":320,"align":"full"} -->
 <div class="wp-block-cover alignfull has-nv-site-bg-background-color has-background-dim" style="min-height:320px"><div class="wp-block-cover__inner-container"><!-- wp:group -->
 <div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:columns {"verticalAlignment":"center"} -->
 <div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"70%"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:70%"><!-- wp:heading {"level":1,"className":"has-text-align-left","textColor":"neve-text-color"} -->
-<h1 class="has-text-align-left has-neve-text-color-color has-text-color">James Joyce</h1>
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:70%"><!-- wp:heading {"level":1,"className":"has-text-align-left","textColor":"nueve4-text-color"} -->
+<h1 class="has-text-align-left has-nueve4-text-color-color has-text-color">James Joyce</h1>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color","style":{"typography":{"fontSize":22}}} -->
-<p class="has-neve-text-color-color has-text-color" style="font-size:22px">How we helped James Joyce get a brand-consistent website that converts visitors into clients.</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color","style":{"typography":{"fontSize":22}}} -->
+<p class="has-nueve4-text-color-color has-text-color" style="font-size:22px">How we helped James Joyce get a brand-consistent website that converts visitors into clients.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -46,12 +46,12 @@ return [
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"34%"} -->
-<div class="wp-block-column" style="flex-basis:34%"><!-- wp:paragraph {"textColor":"neve-text-color"} -->
-<p class="has-neve-text-color-color has-text-color">Closer to the metal we’ve got to manage that low hanging fruit but quantity and drive awareness to increase engagement post launch.</p>
+<div class="wp-block-column" style="flex-basis:34%"><!-- wp:paragraph {"textColor":"nueve4-text-color"} -->
+<p class="has-nueve4-text-color-color has-text-color">Closer to the metal we’ve got to manage that low hanging fruit but quantity and drive awareness to increase engagement post launch.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color"} -->
-<p class="has-neve-text-color-color has-text-color">Groom the backlog show pony, pipeline put in in a deck for our standup today nor keep it lean.</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color"} -->
+<p class="has-nueve4-text-color-color has-text-color">Groom the backlog show pony, pipeline put in in a deck for our standup today nor keep it lean.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
@@ -60,8 +60,8 @@ return [
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
-<!-- wp:separator {"className":"has-text-color has-neve-text-color-color has-css-opacity has-neve-text-color-background-color has-background is-style-default"} -->
-<hr class="wp-block-separator has-text-color has-neve-text-color-color has-css-opacity has-neve-text-color-background-color has-background is-style-default"/>
+<!-- wp:separator {"className":"has-text-color has-nueve4-text-color-color has-css-opacity has-nueve4-text-color-background-color has-background is-style-default"} -->
+<hr class="wp-block-separator has-text-color has-nueve4-text-color-color has-css-opacity has-nueve4-text-color-background-color has-background is-style-default"/>
 <!-- /wp:separator -->
 
 <!-- wp:image {"width":80,"height":80,"linkDestination":"none","className":"is-style-rounded"} -->
@@ -72,12 +72,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color"} -->
-<p class="has-neve-text-color-color has-text-color">“What is the point of being alive if you don’t at least try to do something remarkable?”</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color"} -->
+<p class="has-nueve4-text-color-color has-text-color">“What is the point of being alive if you don’t at least try to do something remarkable?”</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color"} -->
-<p class="has-neve-text-color-color has-text-color">JANET MORRIS</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color"} -->
+<p class="has-nueve4-text-color-color has-text-color">JANET MORRIS</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -94,8 +94,8 @@ return [
 <div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"textColor":"neve-text-color"} -->
-<h2 class="has-neve-text-color-color has-text-color">Other projects</h2>
+<!-- wp:heading {"textColor":"nueve4-text-color"} -->
+<h2 class="has-nueve4-text-color-color has-text-color">Other projects</h2>
 <!-- /wp:heading -->
 
 <!-- wp:spacer {"height":20} -->

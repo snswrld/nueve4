@@ -143,12 +143,12 @@ class Announcements extends Abstract_Module {
 
 				// Dashboard banners URLs.
 				$announcements[ $announcement ]['feedzy_dashboard_url'] = tsdk_utmify( 'https://themeisle.com/plugins/feedzy-rss-feeds/blackfriday/', 'bfcm24', 'dashboard' );
-				$announcements[ $announcement ]['neve_dashboard_url']   = tsdk_utmify( 'https://themeisle.com/themes/neve/blackfriday/', 'bfcm24', 'dashboard' );
+				$announcements[ $announcement ]['nueve4_dashboard_url']   = tsdk_utmify( 'https://themeisle.com/themes/nueve4/blackfriday/', 'bfcm24', 'dashboard' );
 				$announcements[ $announcement ]['otter_dashboard_url']  = tsdk_utmify( 'https://themeisle.com/plugins/otter-blocks/blackfriday/', 'bfcm24', 'dashboard' );
 
 				// Customizer banners URLs.
 				$announcements[ $announcement ]['hestia_customizer_url'] = tsdk_utmify( 'https://themeisle.com/black-friday/', 'bfcm24', 'hestiacustomizer' );
-				$announcements[ $announcement ]['neve_customizer_url']   = tsdk_utmify( 'https://themeisle.com/black-friday/', 'bfcm24', 'nevecustomizer' );
+				$announcements[ $announcement ]['nueve4_customizer_url']   = tsdk_utmify( 'https://themeisle.com/black-friday/', 'bfcm24', 'nueve4customizer' );
 
 				// Banners urgency text.
 				$remaining_time                                   = $this->get_remaining_time_for_event( $dates['end'] );

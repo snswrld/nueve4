@@ -6,14 +6,14 @@
  */
 
 return array(
-	'title'      => __( 'Testimonial columns', 'neve' ),
+	'title'      => __( 'Testimonial columns', 'nueve4' ),
 	'content'    => '<!-- wp:group -->
 <div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center"} -->
 <h2 class="has-text-align-center">Testimonials</h2>
 <!-- /wp:heading -->
 
-<!-- wp:separator {"color":"neve-button-color","className":"is-style-default"} -->
-<hr class="wp-block-separator has-text-color has-background has-neve-button-color-background-color has-neve-button-color-color is-style-default"/>
+<!-- wp:separator {"color":"nueve4-button-color","className":"is-style-default"} -->
+<hr class="wp-block-separator has-text-color has-background has-nueve4-button-color-background-color has-nueve4-button-color-color is-style-default"/>
 <!-- /wp:separator -->
 
 <!-- wp:columns -->

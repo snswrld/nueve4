@@ -54,42 +54,42 @@ class Header extends Abstract_Builder {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'title', __( 'Header', 'neve' ) );
+		$this->set_property( 'title', __( 'Header', 'nueve4' ) );
 		$this->set_property(
 			'description',
 			apply_filters(
 				'hfg_header_panel_description',
 				sprintf(
 				/* translators: %s link to documentation */
-					esc_html__( 'Design your %1$s by dragging, dropping and resizing all the elements in real-time. %2$s.', 'neve' ),
+					esc_html__( 'Design your %1$s by dragging, dropping and resizing all the elements in real-time. %2$s.', 'nueve4' ),
 					/* translators: %s builder type */
 					$this->get_property( 'title' ),
 					/* translators: %s link text */
 					sprintf(
-						'<br/><a target="_blank" rel="external noopener noreferrer" href="https://docs.themeisle.com/article/946-neve-doc#header"><span class="screen-reader-text">%s</span><svg xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" viewBox="0 0 512 512" width="12" height="12" style="margin-right: 5px;"><path fill="currentColor" d="M432 320H400a16 16 0 0 0-16 16V448H64V128H208a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16H48A48 48 0 0 0 0 112V464a48 48 0 0 0 48 48H400a48 48 0 0 0 48-48V336A16 16 0 0 0 432 320ZM488 0h-128c-21.4 0-32 25.9-17 41l35.7 35.7L135 320.4a24 24 0 0 0 0 34L157.7 377a24 24 0 0 0 34 0L435.3 133.3 471 169c15 15 41 4.5 41-17V24A24 24 0 0 0 488 0Z"/></svg>%s</a>',
-						esc_html__( '(opens in a new tab)', 'neve' ),
-						esc_html__( 'Read full documentation', 'neve' )
+						'<br/><a target="_blank" rel="external noopener noreferrer" href="https://docs.themeisle.com/article/946-nueve4-doc#header"><span class="screen-reader-text">%s</span><svg xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" viewBox="0 0 512 512" width="12" height="12" style="margin-right: 5px;"><path fill="currentColor" d="M432 320H400a16 16 0 0 0-16 16V448H64V128H208a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16H48A48 48 0 0 0 0 112V464a48 48 0 0 0 48 48H400a48 48 0 0 0 48-48V336A16 16 0 0 0 432 320ZM488 0h-128c-21.4 0-32 25.9-17 41l35.7 35.7L135 320.4a24 24 0 0 0 0 34L157.7 377a24 24 0 0 0 34 0L435.3 133.3 471 169c15 15 41 4.5 41-17V24A24 24 0 0 0 488 0Z"/></svg>%s</a>',
+						esc_html__( '(opens in a new tab)', 'nueve4' ),
+						esc_html__( 'Read full documentation', 'nueve4' )
 					)
 				)
 			)
 		);
-		$migrated_hfg = neve_is_new_builder();
+		$migrated_hfg = nueve4_is_new_builder();
 
 		$this->set_property(
 			'instructions_array',
 			array(
-				'description'     => __( 'Build your own header or choose from preset options.', 'neve' ),
+				'description'     => __( 'Build your own header or choose from preset options.', 'nueve4' ),
 				'quickLinks'      => array(
 					'custom_logo'                       => array(
-						'label' => esc_html__( 'Change Logo', 'neve' ),
+						'label' => esc_html__( 'Change Logo', 'nueve4' ),
 						'icon'  => 'dashicons-editor-customchar',
 					),
 					'hfg_header_layout_main_background' => array(
-						'label' => esc_html__( 'Change Header Color', 'neve' ),
+						'label' => esc_html__( 'Change Header Color', 'nueve4' ),
 						'icon'  => 'dashicons-admin-appearance',
 					),
 					'primary-menu_shortcut'             => array(
-						'label' => esc_html__( 'Change Menu', 'neve' ),
+						'label' => esc_html__( 'Change Menu', 'nueve4' ),
 						'icon'  => 'dashicons-menu',
 					),
 				),
@@ -110,38 +110,38 @@ class Header extends Abstract_Builder {
 	 * @access  public
 	 */
 	public function customize_register( WP_Customize_Manager $wp_customize ) {
-		if ( ! neve_is_new_builder() ) {
+		if ( ! nueve4_is_new_builder() ) {
 			return parent::customize_register( $wp_customize );
 		}
 
-		$section = $wp_customize->get_section( 'neve_pro_global_header_settings' );
+		$section = $wp_customize->get_section( 'nueve4_pro_global_header_settings' );
 		if ( ! empty( $section ) ) {
 			$section->priority = 201;
 		}
 
 		$wp_customize->add_section(
-			'neve_header_presets',
+			'nueve4_header_presets',
 			[
-				'title'    => __( 'Header Presets', 'neve' ),
+				'title'    => __( 'Header Presets', 'nueve4' ),
 				'priority' => 200,
 				'panel'    => 'hfg_header',
 			]
 		);
 
 		$wp_customize->add_setting(
-			'hfg_neve_header_presets',
+			'hfg_nueve4_header_presets',
 			[
 				'sanitize_callback' => 'sanitize_text_field',
-				'label'             => __( 'Header Presets', 'neve' ),
+				'label'             => __( 'Header Presets', 'nueve4' ),
 			]
 		);
 
 		$wp_customize->add_control(
 			new Presets_Selector(
 				$wp_customize,
-				'hfg_neve_header_presets',
+				'hfg_nueve4_header_presets',
 				[
-					'section'   => 'neve_header_presets',
+					'section'   => 'nueve4_header_presets',
 					'transport' => 'postMessage',
 					'priority'  => 30,
 					'presets'   => $this->get_header_presets(),
@@ -151,9 +151,9 @@ class Header extends Abstract_Builder {
 		);
 
 		$wp_customize->add_section(
-			'neve_pro_global_header_settings',
+			'nueve4_pro_global_header_settings',
 			[
-				'title'    => __( 'Global Header Settings', 'neve' ),
+				'title'    => __( 'Global Header Settings', 'nueve4' ),
 				'priority' => 200,
 				'panel'    => 'hfg_header',
 			]
@@ -161,9 +161,9 @@ class Header extends Abstract_Builder {
 
 		$this->customize_global_header();
 
-		SettingsManager::get_instance()->load( 'neve_pro_global_header_settings', $wp_customize );
+		SettingsManager::get_instance()->load( 'nueve4_pro_global_header_settings', $wp_customize );
 
-		$tabs = $wp_customize->get_control( 'neve_pro_global_header_settings_tabs' );
+		$tabs = $wp_customize->get_control( 'nueve4_pro_global_header_settings_tabs' );
 		$this->move_pro_controls( $wp_customize, $tabs );
 
 		return parent::customize_register( $wp_customize );
@@ -181,25 +181,25 @@ class Header extends Abstract_Builder {
 			return;
 		}
 
-		if ( $wp_customize->get_control( 'neve_transparent_header' ) !== null ) {
-			$global_settings_tabs->controls['style']['neve_transparent_header'] = [];
+		if ( $wp_customize->get_control( 'nueve4_transparent_header' ) !== null ) {
+			$global_settings_tabs->controls['style']['nueve4_transparent_header'] = [];
 		}
 
-		if ( $wp_customize->get_control( 'neve_transparent_only_on_home' ) !== null ) {
-			$wp_customize->get_control( 'neve_transparent_only_on_home' )->priority   = 10;
-			$global_settings_tabs->controls['style']['neve_transparent_only_on_home'] = [];
+		if ( $wp_customize->get_control( 'nueve4_transparent_only_on_home' ) !== null ) {
+			$wp_customize->get_control( 'nueve4_transparent_only_on_home' )->priority   = 10;
+			$global_settings_tabs->controls['style']['nueve4_transparent_only_on_home'] = [];
 		}
 
-		if ( $wp_customize->get_control( 'neve_global_header' ) !== null ) {
+		if ( $wp_customize->get_control( 'nueve4_global_header' ) !== null ) {
 			$global_settings_tabs->tabs['general']                           = [
-				'label' => esc_html__( 'General', 'neve' ),
+				'label' => esc_html__( 'General', 'nueve4' ),
 				'icon'  => 'admin-generic',
 			];
-			$global_settings_tabs->controls['general']['neve_global_header'] = [];
+			$global_settings_tabs->controls['general']['nueve4_global_header'] = [];
 		}
 
-		if ( $wp_customize->get_control( 'neve_header_conditional_selector' ) !== null ) {
-			$global_settings_tabs->controls['general']['neve_header_conditional_selector'] = [];
+		if ( $wp_customize->get_control( 'nueve4_header_conditional_selector' ) !== null ) {
+			$global_settings_tabs->controls['general']['nueve4_header_conditional_selector'] = [];
 		}
 
 		// sorts the tabs so the general tab is showed first
@@ -210,13 +210,13 @@ class Header extends Abstract_Builder {
 	 * Registers controls for global header background
 	 */
 	private function customize_global_header() {
-		$section_id = 'neve_pro_global_header_settings';
+		$section_id = 'nueve4_pro_global_header_settings';
 
 		SettingsManager::get_instance()->add(
 			[
 				'id'        => self::BACKGROUND_HEADING,
 				'group'     => $section_id,
-				'label'     => esc_html__( 'Background', 'neve' ),
+				'label'     => esc_html__( 'Background', 'nueve4' ),
 				'section'   => $section_id,
 				'tab'       => 'style',
 				'priority'  => 15,
@@ -235,13 +235,13 @@ class Header extends Abstract_Builder {
 			[
 				'id'                 => self::ADVANCED_STYLE,
 				'group'              => $section_id,
-				'label'              => esc_html__( 'Enable Advanced Options', 'neve' ),
+				'label'              => esc_html__( 'Enable Advanced Options', 'nueve4' ),
 				'section'            => $section_id,
 				'tab'                => 'style',
-				'type'               => 'neve_toggle_control',
+				'type'               => 'nueve4_toggle_control',
 				'priority'           => 25,
 				'transport'          => 'refresh',
-				'sanitize_callback'  => 'neve_sanitize_checkbox',
+				'sanitize_callback'  => 'nueve4_sanitize_checkbox',
 				'default'            => true,
 				'conditional_header' => true,
 			]
@@ -253,7 +253,7 @@ class Header extends Abstract_Builder {
 				'group'                 => $section_id,
 				'section'               => $section_id,
 				'tab'                   => 'style',
-				'label'                 => esc_html__( 'Global', 'neve' ),
+				'label'                 => esc_html__( 'Global', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Background',
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
@@ -271,7 +271,7 @@ class Header extends Abstract_Builder {
 					'colorValue' => $this->default_background,
 				],
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_background',
+				'sanitize_callback'     => 'nueve4_sanitize_background',
 				'conditional_header'    => true,
 			]
 		);
@@ -321,7 +321,7 @@ class Header extends Abstract_Builder {
 	 * @return bool
 	 */
 	public function has_global_background() {
-		return ! get_theme_mod( 'neve_pro_global_header_settings_advanced_style', true );
+		return ! get_theme_mod( 'nueve4_pro_global_header_settings_advanced_style', true );
 	}
 
 	/**
@@ -378,7 +378,7 @@ class Header extends Abstract_Builder {
 	 */
 	public function add_style( array $css_array = array() ) {
 		$background = get_theme_mod(
-			'neve_pro_global_header_settings_background',
+			'nueve4_pro_global_header_settings_background',
 			[
 				'type'       => 'color',
 				'colorValue' => 'var(--nv-site-bg)',
@@ -386,7 +386,7 @@ class Header extends Abstract_Builder {
 		);
 
 		$rules         = [];
-		$control_id    = 'neve_pro_global_header_settings_background';
+		$control_id    = 'nueve4_pro_global_header_settings_background';
 		$selector      = '.global-styled';
 		$default_color = 'var(--nv-site-bg)';
 
@@ -471,19 +471,19 @@ class Header extends Abstract_Builder {
 	protected function get_rows() {
 		return [
 			'top'     => array(
-				'title'       => esc_html__( 'Header Top', 'neve' ),
+				'title'       => esc_html__( 'Header Top', 'nueve4' ),
 				'description' => $this->get_property( 'description' ),
 			),
 			'main'    => array(
-				'title'       => esc_html__( 'Header Main', 'neve' ),
+				'title'       => esc_html__( 'Header Main', 'nueve4' ),
 				'description' => $this->get_property( 'description' ),
 			),
 			'bottom'  => array(
-				'title'       => esc_html__( 'Header Bottom', 'neve' ),
+				'title'       => esc_html__( 'Header Bottom', 'nueve4' ),
 				'description' => $this->get_property( 'description' ),
 			),
 			'sidebar' => array(
-				'title'       => esc_html__( 'Mobile Sidebar', 'neve' ),
+				'title'       => esc_html__( 'Mobile Sidebar', 'nueve4' ),
 				'description' => $this->get_property( 'description' ),
 			),
 		];
@@ -534,7 +534,7 @@ class Header extends Abstract_Builder {
 			],
 		];
 
-		return apply_filters( 'neve_header_presets_v2', $presets );
+		return apply_filters( 'nueve4_header_presets_v2', $presets );
 	}
 
 	/**
@@ -550,15 +550,15 @@ class Header extends Abstract_Builder {
 		return [
 			[
 				'icon' => 'welcome-write-blog',
-				'name' => __( 'HTML', 'neve' ) . ' 2',
+				'name' => __( 'HTML', 'nueve4' ) . ' 2',
 			],
 			[
 				'icon' => 'embed-generic',
-				'name' => __( 'Custom Layouts', 'neve' ),
+				'name' => __( 'Custom Layouts', 'nueve4' ),
 			],
 			[
 				'icon' => 'share',
-				'name' => __( 'Social Icons', 'neve' ),
+				'name' => __( 'Social Icons', 'nueve4' ),
 			],
 		];
 	}

@@ -65,7 +65,7 @@ class Tabs extends \WP_Customize_Control {
 		?>
 		<# if ( ! data.tabs ) { return; } #>
 
-		<div class="neve-tabs-control" id="">
+		<div class="nueve4-tabs-control" id="">
 		<# var i = 1;
 			for( tab in data.tabs) { #>
 				<#
@@ -82,7 +82,7 @@ class Tabs extends \WP_Customize_Control {
 					}
 				});
 				#>
-			<div class="neve-customizer-tab <# if( i === 1 ){#> active <#}#>" data-tab="{{tab}}">
+			<div class="nueve4-customizer-tab <# if( i === 1 ){#> active <#}#>" data-tab="{{tab}}">
 				<label class="{{allControlsInTabs}}">
 					<# if(data.tabs[tab]['icon']) { #>
 						<i class="dashicons dashicons-{{data.tabs[tab]['icon']}}"></i>

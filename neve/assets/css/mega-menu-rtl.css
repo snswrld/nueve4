@@ -1,44 +1,44 @@
-.neve-mega-menu > .sub-menu {
+.nueve4-mega-menu > .sub-menu {
   cursor: default;
   width: var(--container);
   max-width: 100%;
 }
 
-.neve-mega-menu .sub-menu .sub-menu {
+.nueve4-mega-menu .sub-menu .sub-menu {
   max-height: none;
   width: 100%;
 }
 
-.neve-mega-menu .neve-mm-col {
+.nueve4-mega-menu .nueve4-mm-col {
   cursor: default;
   flex: 1;
 }
 
-.neve-mega-menu .neve-mm-col .sub-menu .sub-menu {
+.nueve4-mega-menu .nueve4-mm-col .sub-menu .sub-menu {
   right: 0;
   top: 100%;
 }
 
-.neve-mega-menu li.neve-mm-divider {
+.nueve4-mega-menu li.nueve4-mm-divider {
   height: 1px;
   margin: 10px auto;
   width: 100%;
   background-color: currentColor;
 }
 
-.neve-mega-menu .neve-mm-heading > span {
+.nueve4-mega-menu .nueve4-mm-heading > span {
   cursor: default;
 }
 
-.neve-mm-description {
+.nueve4-mm-description {
   padding: 0 0 15px;
   text-transform: none;
   font-size: 0.8em;
   display: flex;
 }
 
-.neve-mm-heading > span,
-.neve-mm-heading > .wrap > a {
+.nueve4-mm-heading > span,
+.nueve4-mm-heading > .wrap > a {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1.1em;
@@ -46,7 +46,7 @@
   align-items: center;
 }
 
-.header-menu-sidebar-inner .neve-mega-menu .neve-mm-col > .sub-menu {
+.header-menu-sidebar-inner .nueve4-mega-menu .nueve4-mm-col > .sub-menu {
   display: block;
 }
 
@@ -55,7 +55,7 @@
 }
 
 @media (min-width: 960px) {
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu > .sub-menu {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu > .sub-menu {
     right: 50% !important;
     left: unset !important;
     transform: translateX(50%) !important;
@@ -63,20 +63,20 @@
     padding: 20px 10px;
     top: auto;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu > .sub-menu:not(.dropdown-open) {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu > .sub-menu:not(.dropdown-open) {
     pointer-events: none;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu:hover > .sub-menu,
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu:focus > .sub-menu {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu:hover > .sub-menu,
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu:focus > .sub-menu {
     display: flex;
     opacity: 1;
     visibility: visible;
     pointer-events: all;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu {
     position: unset;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu .neve-mm-col > .sub-menu {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu .nueve4-mm-col > .sub-menu {
     visibility: visible;
     position: relative;
     right: initial;
@@ -88,25 +88,25 @@
     text-align: right;
     width: 100%;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu .neve-mm-col > .sub-menu a {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu .nueve4-mm-col > .sub-menu a {
     white-space: normal;
     display: flex;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu .neve-mm-col > .sub-menu li:not(.neve-mm-divider) {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu .nueve4-mm-col > .sub-menu li:not(.nueve4-mm-divider) {
     border: 0;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu .neve-mm-col {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu .nueve4-mm-col {
     padding: 0 10px;
     align-items: flex-start;
     border: 0;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mm-heading > span {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mm-heading > span {
     padding: 10px 20px;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mm-description {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mm-description {
     padding: 0 20px 10px;
   }
-  .header--row .nv-nav-wrap .primary-menu-ul .neve-mega-menu .neve-mm-col:not(:last-child) {
+  .header--row .nv-nav-wrap .primary-menu-ul .nueve4-mega-menu .nueve4-mm-col:not(:last-child) {
     border-left: 1px solid currentColor;
   }
 }

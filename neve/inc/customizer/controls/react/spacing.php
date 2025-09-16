@@ -18,7 +18,7 @@ class Spacing extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_spacing';
+	public $type = 'nueve4_spacing';
 	/**
 	 * Additional arguments passed to JS.
 	 *

@@ -7,7 +7,7 @@
 
 $form_classes = [ 'search-form' ];
 
-$placeholder = array_key_exists( 'placeholder', $args ) ? $args['placeholder'] : __( 'Search for...', 'neve' );
+$placeholder = array_key_exists( 'placeholder', $args ) ? $args['placeholder'] : __( 'Search for...', 'nueve4' );
 
 if ( array_key_exists( 'additional_form_classes', $args ) && is_array( $args['additional_form_classes'] ) ) {
 	$form_classes = array_merge( $form_classes, $args['additional_form_classes'] );
@@ -16,7 +16,7 @@ if ( array_key_exists( 'additional_form_classes', $args ) && is_array( $args['ad
 $value = array_key_exists( 'value', $args ) ? $args['value'] : '';
 
 $placeholder = apply_filters( 'nv_search_placeholder', $placeholder );
-$aria_label  = __( 'Search', 'neve' );
+$aria_label  = __( 'Search', 'nueve4' );
 $home_url    = home_url( '/' );
 if ( function_exists( 'PLL' ) ) {
 	$pll_data = PLL();
@@ -34,11 +34,11 @@ $context         = array_key_exists( 'context', $args ) ? $args['context'] : fal
 	class="<?php echo esc_attr( implode( ' ', $form_classes ) ); ?>"
 	action="<?php echo esc_url( $home_url ); ?>">
 	<label>
-		<span class="screen-reader-text"><?php echo esc_html__( 'Search for...', 'neve' ); ?></span>
+		<span class="screen-reader-text"><?php echo esc_html__( 'Search for...', 'nueve4' ); ?></span>
 	</label>
 	<input type="search"
 		class="search-field"
-		aria-label="<?php echo esc_attr__( 'Search', 'neve' ); ?>"
+		aria-label="<?php echo esc_attr__( 'Search', 'nueve4' ); ?>"
 		placeholder="<?php echo esc_attr( $placeholder ); ?>"
 		value="<?php echo esc_attr( $value ); ?>"
 		name="s"/>
@@ -49,7 +49,7 @@ $context         = array_key_exists( 'context', $args ) ? $args['context'] : fal
 			<?php echo esc_html( $args['button_text'] ); ?>
 		<?php } else { ?>
 			<span class="nv-search-icon-wrap">
-				<?php neve_search_icon( false, true, 15, false, $context ); ?>
+				<?php nueve4_search_icon( false, true, 15, false, $context ); ?>
 			</span>
 		<?php } ?>
 	</button>

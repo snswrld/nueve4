@@ -5,4 +5,4 @@
  *
  * @package Neve
  */
-do_action( 'neve_do_content_none' );
+do_action( 'nueve4_do_content_none' );

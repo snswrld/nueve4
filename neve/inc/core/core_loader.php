@@ -44,24 +44,24 @@ class Core_Loader {
 	 * Update content import flag.
 	 */
 	public function update_content_import_flag() {
-		update_option( 'neve_imported_demo', 'yes' );
+		update_option( 'nueve4_imported_demo', 'yes' );
 	}
 
 	/**
 	 * Checks that the user is new.
 	 */
 	public function check_new_user() {
-		$new = get_option( 'neve_new_user' );
+		$new = get_option( 'nueve4_new_user' );
 		if ( $new === 'yes' ) {
 			return;
 		}
 
-		$install_time = get_option( 'neve_install' );
-		$now          = get_option( 'neve_user_check_time' );
+		$install_time = get_option( 'nueve4_install' );
+		$now          = get_option( 'nueve4_user_check_time' );
 
 		if ( empty( $now ) ) {
 			$now = time();
-			update_option( 'neve_user_check_time', $now );
+			update_option( 'nueve4_user_check_time', $now );
 		}
 
 		if ( empty( $install_time ) ) {
@@ -69,12 +69,12 @@ class Core_Loader {
 		}
 
 		if ( ( $now - $install_time ) <= 60 ) {
-			update_option( 'neve_new_user', 'yes' );
+			update_option( 'nueve4_new_user', 'yes' );
 
 			return;
 		}
 
-		update_option( 'neve_new_user', 'no' );
+		update_option( 'nueve4_new_user', 'no' );
 	}
 
 	/**
@@ -136,7 +136,7 @@ class Core_Loader {
 			$features[] = 'Compatibility\Fse';
 		}
 
-		$this->features = apply_filters( 'neve_filter_main_modules', $features );
+		$this->features = apply_filters( 'nueve4_filter_main_modules', $features );
 	}
 
 	/**

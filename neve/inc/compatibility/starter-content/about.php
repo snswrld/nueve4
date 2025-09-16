@@ -7,11 +7,11 @@
 
 return [
 	'post_type'    => 'page',
-	'post_title'   => _x( 'About', 'Theme starter content', 'neve' ),
+	'post_title'   => _x( 'About', 'Theme starter content', 'nueve4' ),
 	'post_content' => '<!-- wp:cover {"overlayColor":"nv-site-bg","minHeight":300,"align":"full"} -->
 <div class="wp-block-cover alignfull has-nv-site-bg-background-color has-background-dim" style="min-height:300px"><div class="wp-block-cover__inner-container"><!-- wp:group -->
-<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"level":1,"className":"has-text-align-left","textColor":"neve-text-color"} -->
-<h1 class="has-text-align-left has-neve-text-color-color has-text-color">About Us</h1>
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"level":1,"className":"has-text-align-left","textColor":"nueve4-text-color"} -->
+<h1 class="has-text-align-left has-nueve4-text-color-color has-text-color">About Us</h1>
 <!-- /wp:heading --></div></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:cover -->
@@ -30,16 +30,16 @@ return [
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center","width":50} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:heading {"textColor":"neve-text-color"} -->
-<h2 class="has-neve-text-color-color has-text-color">Our Story</h2>
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:heading {"textColor":"nueve4-text-color"} -->
+<h2 class="has-nueve4-text-color-color has-text-color">Our Story</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color","fontSize":"medium"} -->
-<p class="has-neve-text-color-color has-text-color has-medium-font-size">Are there any leftovers in the kitchen? what are the expectations but technologically savvy.</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color","fontSize":"medium"} -->
+<p class="has-nueve4-text-color-color has-text-color has-medium-font-size">Are there any leftovers in the kitchen? what are the expectations but technologically savvy.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color"} -->
-<p class="has-neve-text-color-color has-text-color">Quick sync new economy onward and upward, productize the deliverables and focus on the bottom line high touch client we need to have a Come to Jesus meeting with Phil about his attitude, so where the metal hits the meat best.</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color"} -->
+<p class="has-nueve4-text-color-color has-text-color">Quick sync new economy onward and upward, productize the deliverables and focus on the bottom line high touch client we need to have a Come to Jesus meeting with Phil about his attitude, so where the metal hits the meat best.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -110,12 +110,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"align":"left","level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-left has-text-align-center has-neve-text-color-color has-text-color">Super Efficient</h3>
+<!-- wp:heading {"align":"left","level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-left has-text-align-center has-nueve4-text-color-color has-text-color">Super Efficient</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"left","textColor":"neve-text-color","style":{"typography":{"fontSize":15}}} -->
-<p class="has-text-align-left has-neve-text-color-color has-text-color" style="font-size:15px">Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor.</p>
+<!-- wp:paragraph {"align":"left","textColor":"nueve4-text-color","style":{"typography":{"fontSize":15}}} -->
+<p class="has-text-align-left has-nueve4-text-color-color has-text-color" style="font-size:15px">Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":20} -->
@@ -133,12 +133,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"align":"left","level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-left has-text-align-center has-neve-text-color-color has-text-color">Deeply Committed</h3>
+<!-- wp:heading {"align":"left","level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-left has-text-align-center has-nueve4-text-color-color has-text-color">Deeply Committed</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"left","textColor":"neve-text-color","style":{"typography":{"fontSize":15}}} -->
-<p class="has-text-align-left has-neve-text-color-color has-text-color" style="font-size:15px">Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor.</p>
+<!-- wp:paragraph {"align":"left","textColor":"nueve4-text-color","style":{"typography":{"fontSize":15}}} -->
+<p class="has-text-align-left has-nueve4-text-color-color has-text-color" style="font-size:15px">Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":20} -->
@@ -156,12 +156,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"align":"left","level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-left has-text-align-center has-neve-text-color-color has-text-color">Highly Skilled</h3>
+<!-- wp:heading {"align":"left","level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-left has-text-align-center has-nueve4-text-color-color has-text-color">Highly Skilled</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"left","textColor":"neve-text-color","style":{"typography":{"fontSize":15}}} -->
-<p class="has-text-align-left has-neve-text-color-color has-text-color" style="font-size:15px">Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor.</p>
+<!-- wp:paragraph {"align":"left","textColor":"nueve4-text-color","style":{"typography":{"fontSize":15}}} -->
+<p class="has-text-align-left has-nueve4-text-color-color has-text-color" style="font-size:15px">Lorem ipsum dolor sit amet elit do, consectetur adipiscing, sed eiusmod tempor.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":20} -->
@@ -192,12 +192,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"align":"center","level":3,"textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Keith Marshall</h3>
+<!-- wp:heading {"align":"center","level":3,"textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Keith Marshall</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color"} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color">Designer</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color"} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color">Designer</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:social-links {"align":"center"} -->
@@ -223,12 +223,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"align":"center","level":3,"textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">George Williams</h3>
+<!-- wp:heading {"align":"center","level":3,"textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">George Williams</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color"} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color">Developer</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color"} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color">Developer</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:social-links {"align":"center"} -->
@@ -254,12 +254,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"align":"center","level":3,"textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Julia Castillo</h3>
+<!-- wp:heading {"align":"center","level":3,"textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Julia Castillo</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color"} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color">Client Service</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color"} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color">Client Service</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:social-links {"align":"center"} -->

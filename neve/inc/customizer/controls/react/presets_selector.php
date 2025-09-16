@@ -19,7 +19,7 @@ class Presets_Selector extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_presets_selector';
+	public $type = 'nueve4_presets_selector';
 
 	/**
 	 * Presets for the control.

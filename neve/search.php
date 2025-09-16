@@ -6,20 +6,20 @@
  * @package Neve
  */
 
-$container_class = apply_filters( 'neve_container_class_filter', 'container', 'blog-archive' );
+$container_class = apply_filters( 'nueve4_container_class_filter', 'container', 'blog-archive' );
 
 get_header();
 
 $wrapper_classes = [ 'posts-wrapper' ];
-$wrapper_classes = apply_filters( 'neve_posts_wrapper_class', $wrapper_classes );
+$wrapper_classes = apply_filters( 'nueve4_posts_wrapper_class', $wrapper_classes );
 
 ?>
 	<div class="<?php echo esc_attr( $container_class ); ?> archive-container">
 		<div class="row">
-			<?php do_action( 'neve_do_sidebar', 'blog-archive', 'left' ); ?>
+			<?php do_action( 'nueve4_do_sidebar', 'blog-archive', 'left' ); ?>
 			<div class="nv-index-posts search col">
 				<?php
-				do_action( 'neve_page_header', 'search' );
+				do_action( 'nueve4_page_header', 'search' );
 				if ( have_posts() ) {
 					/* Start the Loop. */
 					echo '<div class="' . esc_attr( join( ' ', $wrapper_classes ) ) . '">';
@@ -29,7 +29,7 @@ $wrapper_classes = apply_filters( 'neve_posts_wrapper_class', $wrapper_classes )
 					}
 					echo '</div>';
 					if ( ! is_singular() ) {
-						do_action( 'neve_do_pagination', 'blog-archive' );
+						do_action( 'nueve4_do_pagination', 'blog-archive' );
 					}
 				} else {
 					get_template_part( 'template-parts/content', 'none' );
@@ -37,7 +37,7 @@ $wrapper_classes = apply_filters( 'neve_posts_wrapper_class', $wrapper_classes )
 				?>
 				<div class="w-100"></div>
 			</div>
-			<?php do_action( 'neve_do_sidebar', 'blog-archive', 'right' ); ?>
+			<?php do_action( 'nueve4_do_sidebar', 'blog-archive', 'right' ); ?>
 		</div>
 	</div>
 <?php

@@ -340,7 +340,7 @@ main .nv-shop {
   color: inherit;
 }
 
-.neve-main .wc-block-components-notice-banner {
+.nueve4-main .wc-block-components-notice-banner {
   --btnfs: $text-sm;
   --primarybtnpadding: 10px 15px;
   --primarybtnborderwidth: 3px;
@@ -350,7 +350,7 @@ main .nv-shop {
   --primarybtnbg: transparent;
 }
 
-.neve-main .wc-block-components-notice-banner .wc-block-components-notice-banner__content:has(.wc-forward, .showcoupon) {
+.nueve4-main .wc-block-components-notice-banner .wc-block-components-notice-banner__content:has(.wc-forward, .showcoupon) {
   display: inline-flex;
   flex-basis: 100%;
   flex-wrap: nowrap;
@@ -358,15 +358,15 @@ main .nv-shop {
   align-items: center;
 }
 
-.neve-main .wc-block-components-notice-banner .wc-block-components-notice-banner__content:has(.wc-forward) {
+.nueve4-main .wc-block-components-notice-banner .wc-block-components-notice-banner__content:has(.wc-forward) {
   flex-direction: row-reverse;
 }
 
-.neve-main .wc-block-components-notice-banner .wc-block-components-notice-banner__content:has(.showcoupon) {
+.nueve4-main .wc-block-components-notice-banner .wc-block-components-notice-banner__content:has(.showcoupon) {
   flex-direction: row;
 }
 
-.neve-main .wc-block-components-notice-banner.is-success {
+.nueve4-main .wc-block-components-notice-banner.is-success {
   border-radius: 3px;
   background-color: var(--nv-c-1);
   border: 0;
@@ -376,12 +376,12 @@ main .nv-shop {
   align-items: center;
 }
 
-.neve-main .wc-block-components-notice-banner.is-success svg {
+.nueve4-main .wc-block-components-notice-banner.is-success svg {
   background-color: #fff;
   fill: var(--nv-c-1);
 }
 
-.neve-main .wc-block-components-notice-banner.is-success a:is(.wc-forward, .showcoupon) {
+.nueve4-main .wc-block-components-notice-banner.is-success a:is(.wc-forward, .showcoupon) {
   background: var(--primarybtnbg) !important;
   border: var(--primarybtnborderwidth, 0) solid currentColor !important;
   border-radius: var(--primarybtnborderradius, 3px);
@@ -392,14 +392,14 @@ main .nv-shop {
   float: none;
 }
 
-.neve-main .wc-block-components-notice-banner.is-success a:is(.wc-forward, .showcoupon):hover {
+.nueve4-main .wc-block-components-notice-banner.is-success a:is(.wc-forward, .showcoupon):hover {
   background: var(--primarybtnhoverbg) !important;
   color: var(--primarybtnhovercolor) !important;
   border-color: var(--primarybtnhovercolor) !important;
   opacity: 0.9;
 }
 
-.neve-main .wc-block-components-notice-banner.is-error {
+.nueve4-main .wc-block-components-notice-banner.is-error {
   border-radius: 3px;
   background-color: var(--nv-c-2);
   border: 0;
@@ -409,12 +409,12 @@ main .nv-shop {
   align-items: center;
 }
 
-.neve-main .wc-block-components-notice-banner.is-error svg {
+.nueve4-main .wc-block-components-notice-banner.is-error svg {
   background-color: #fff;
   fill: var(--nv-c-2);
 }
 
-.neve-main .wc-block-components-notice-banner.is-error a:is(.wc-forward, .showcoupon) {
+.nueve4-main .wc-block-components-notice-banner.is-error a:is(.wc-forward, .showcoupon) {
   background: var(--primarybtnbg) !important;
   border: var(--primarybtnborderwidth, 0) solid currentColor !important;
   border-radius: var(--primarybtnborderradius, 3px);
@@ -425,14 +425,14 @@ main .nv-shop {
   float: none;
 }
 
-.neve-main .wc-block-components-notice-banner.is-error a:is(.wc-forward, .showcoupon):hover {
+.nueve4-main .wc-block-components-notice-banner.is-error a:is(.wc-forward, .showcoupon):hover {
   background: var(--primarybtnhoverbg) !important;
   color: var(--primarybtnhovercolor) !important;
   border-color: var(--primarybtnhovercolor) !important;
   opacity: 0.9;
 }
 
-.neve-main .wc-block-components-notice-banner.is-info {
+.nueve4-main .wc-block-components-notice-banner.is-info {
   border-radius: 3px;
   background-color: var(--nv-primary-accent);
   border: 0;
@@ -442,12 +442,12 @@ main .nv-shop {
   align-items: center;
 }
 
-.neve-main .wc-block-components-notice-banner.is-info svg {
+.nueve4-main .wc-block-components-notice-banner.is-info svg {
   background-color: #fff;
   fill: var(--nv-primary-accent);
 }
 
-.neve-main .wc-block-components-notice-banner.is-info a:is(.wc-forward, .showcoupon) {
+.nueve4-main .wc-block-components-notice-banner.is-info a:is(.wc-forward, .showcoupon) {
   background: var(--primarybtnbg) !important;
   border: var(--primarybtnborderwidth, 0) solid currentColor !important;
   border-radius: var(--primarybtnborderradius, 3px);
@@ -458,7 +458,7 @@ main .nv-shop {
   float: none;
 }
 
-.neve-main .wc-block-components-notice-banner.is-info a:is(.wc-forward, .showcoupon):hover {
+.nueve4-main .wc-block-components-notice-banner.is-info a:is(.wc-forward, .showcoupon):hover {
   background: var(--primarybtnhoverbg) !important;
   color: var(--primarybtnhovercolor) !important;
   border-color: var(--primarybtnhovercolor) !important;
@@ -1718,7 +1718,7 @@ body.woocommerce-account table.order_details td {
   .nv-single-product-top .summary {
     margin-left: 4%;
   }
-  body.single-product .neve-main > .container > .row {
+  body.single-product .nueve4-main > .container > .row {
     flex-wrap: wrap;
   }
   .woocommerce.single .entry-summary > form.cart .wc-forward {

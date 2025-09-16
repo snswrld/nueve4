@@ -109,7 +109,7 @@ abstract class Abstract_Module {
 		/**
 		 * $themeisle_sdk_max_path can point to the theme when the theme version is higher.
 		 * hence we also need to check that the path does not point to the theme else this will break the URL.
-		 * References: https://github.com/Codeinwp/neve-pro-addon/issues/2403
+		 * References: https://github.com/Codeinwp/nueve4-pro-addon/issues/2403
 		 */
 		if ( $this->product->is_plugin() && false === strpos( $themeisle_sdk_max_path, get_template_directory() ) ) {
 			return plugins_url( '/', $themeisle_sdk_max_path . '/themeisle-sdk/' );

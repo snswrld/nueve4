@@ -16,7 +16,7 @@ class Heading extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_customizer_heading';
+	public $type = 'nueve4_customizer_heading';
 	/**
 	 * Control class.
 	 *

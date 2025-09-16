@@ -80,7 +80,7 @@ class Simple_Upsell extends \WP_Customize_Control {
 			<?php if ( ! empty( $this->link ) && ! empty( $this->button_text ) ) { ?>
 				<a target="_blank" rel="external noreferrer noopener" href="<?php echo esc_url( $this->link ); ?>" class='button <?php echo esc_attr( $button_class ); ?>'>
 					<?php echo esc_html( $this->button_text ); ?>
-					<span class="components-visually-hidden"><?php echo esc_html__( '(opens in a new tab)', 'neve' ); ?></span>
+					<span class="components-visually-hidden"><?php echo esc_html__( '(opens in a new tab)', 'nueve4' ); ?></span>
 				</a>
 			<?php } ?>
 		</div>

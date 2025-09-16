@@ -5,7 +5,7 @@
  */
 ( function ( $ ) {
 	'use strict';
-	wp.neveOrderControl = {
+	wp.nueve4OrderControl = {
 		init: function () {
 			this.setupSorting();
 			this.handleHide();
@@ -46,7 +46,7 @@
 
 	$( document ).ready(
 		function () {
-			wp.neveOrderControl.init();
+			wp.nueve4OrderControl.init();
 		}
 	);
 } )( jQuery );

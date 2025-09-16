@@ -18,7 +18,7 @@ class Logo_Palette extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_logo_palette_control';
+	public $type = 'nueve4_logo_palette_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

@@ -18,7 +18,7 @@ class Typography extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_typeface_control';
+	public $type = 'nueve4_typeface_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

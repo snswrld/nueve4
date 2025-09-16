@@ -52,7 +52,7 @@ class Beaver extends Page_Builder_Base {
 	 * Load Beaver compatibility style.
 	 */
 	public function load_style() {
-		wp_add_inline_style( 'neve-style', '.fl-builder.bbhf-transparent-header:not(.bhf-sticky-header) #nv-beaver-header .fl-row-content-wrap{background-color:transparent;border:none;transition:background-color .3s ease-in-out}.fl-builder.bbhf-transparent-header .bhf-fixed-header:not(.bhf-fixed) .fl-row-content-wrap{background-color:transparent;border:none;transition:background-color .3s ease-in-out}.fl-builder.bbhf-transparent-header #nv-beaver-header{position:absolute;z-index:10;width:100%}' );
+		wp_add_inline_style( 'nueve4-style', '.fl-builder.bbhf-transparent-header:not(.bhf-sticky-header) #nv-beaver-header .fl-row-content-wrap{background-color:transparent;border:none;transition:background-color .3s ease-in-out}.fl-builder.bbhf-transparent-header .bhf-fixed-header:not(.bhf-fixed) .fl-row-content-wrap{background-color:transparent;border:none;transition:background-color .3s ease-in-out}.fl-builder.bbhf-transparent-header #nv-beaver-header{position:absolute;z-index:10;width:100%}' );
 	}
 
 	/**
@@ -69,9 +69,9 @@ class Beaver extends Page_Builder_Base {
 
 		// If we have a header, remove the theme header and hook in Theme Builder's.
 		if ( ! empty( $header_ids ) ) {
-			remove_all_actions( 'neve_do_top_bar' );
-			remove_all_actions( 'neve_do_header' );
-			add_action( 'neve_do_header', 'FLThemeBuilderLayoutRenderer::render_header' );
+			remove_all_actions( 'nueve4_do_top_bar' );
+			remove_all_actions( 'nueve4_do_header' );
+			add_action( 'nueve4_do_header', 'FLThemeBuilderLayoutRenderer::render_header' );
 		}
 
 		// Get the footer ID.
@@ -79,8 +79,8 @@ class Beaver extends Page_Builder_Base {
 
 		// If we have a footer, remove the theme footer and hook in Theme Builder's.
 		if ( ! empty( $footer_ids ) ) {
-			remove_all_actions( 'neve_do_footer' );
-			add_action( 'neve_do_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
+			remove_all_actions( 'nueve4_do_footer' );
+			add_action( 'nueve4_do_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 		}
 
 	}
@@ -94,16 +94,16 @@ class Beaver extends Page_Builder_Base {
 	 */
 	private function beautify_hook( $hook ) {
 		$hook_label = str_replace( '_', ' ', $hook );
-		$hook_label = str_replace( 'neve', ' ', $hook_label );
+		$hook_label = str_replace( 'nueve4', ' ', $hook_label );
 		$hook_label = str_replace( 'woocommerce', ' ', $hook_label );
 		$hook_label = ucwords( $hook_label );
 		return $hook_label;
 	}
 
 	/**
-	 * Mapping function to move from neve_hooks format to the format required by Beaver Builder.
+	 * Mapping function to move from nueve4_hooks format to the format required by Beaver Builder.
 	 *
-	 * @param string $location Current location, the key of neve_hooks array.
+	 * @param string $location Current location, the key of nueve4_hooks array.
 	 * @param array  $hooks Hooks from that location.
 	 *
 	 * @return array
@@ -124,12 +124,12 @@ class Beaver extends Page_Builder_Base {
 	 * @return array
 	 */
 	public function register_part_hooks() {
-		$hooks = neve_hooks();
+		$hooks = nueve4_hooks();
 		return array_map( array( $this, 'hook_to_part' ), array_keys( $hooks ), $hooks );
 	}
 
 	/**
-	 * Adds global colors from neve to Beaver Builder color presets.
+	 * Adds global colors from nueve4 to Beaver Builder color presets.
 	 *
 	 * @param array $colors Color presets.
 	 *
@@ -137,7 +137,7 @@ class Beaver extends Page_Builder_Base {
 	 */
 	public function global_color_presets( $colors ) {
 
-		$global_colors = get_theme_mod( 'neve_global_colors', neve_get_global_colors_default( true ) );
+		$global_colors = get_theme_mod( 'nueve4_global_colors', nueve4_get_global_colors_default( true ) );
 
 		if ( empty( $global_colors ) ) {
 			return $colors;

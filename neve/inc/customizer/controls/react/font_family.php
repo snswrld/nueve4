@@ -18,7 +18,7 @@ class Font_Family extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_font_family_control';
+	public $type = 'nueve4_font_family_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

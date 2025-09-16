@@ -191,7 +191,7 @@
 		);
 
 		$document.on( 'click', '.navbar-toggle', function( e ) {
-			wp.customize.preview.send( 'neve-toggle-navbar', {status: document.body.classList.contains('is-menu-sidebar')} );
+			wp.customize.preview.send( 'nueve4-toggle-navbar', {status: document.body.classList.contains('is-menu-sidebar')} );
 		} );
 
 		$document.on( 'click', '.builder-item-focus', function(e) {

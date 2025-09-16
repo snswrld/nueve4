@@ -58,7 +58,7 @@ wp.customize.controlConstructor[
 					'DOMNodeInserted',
 					function () {
 						jQuery(
-							'.neve-customizer-tab > label.' +
+							'.nueve4-customizer-tab > label.' +
 								$_GET[ 'autofocus[control]' ]
 						).trigger( 'click' );
 					}
@@ -131,11 +131,11 @@ wp.customize.controlConstructor[
 		const section = control.section();
 		const container = control.container;
 		jQuery( container )
-			.find( '.neve-customizer-tab' )
+			.find( '.nueve4-customizer-tab' )
 			.on( 'click', function () {
 				jQuery( this )
 					.parent()
-					.find( '.neve-customizer-tab' )
+					.find( '.nueve4-customizer-tab' )
 					.removeClass( 'active' );
 				jQuery( this ).addClass( 'active' );
 				control.hideAllControls( section );

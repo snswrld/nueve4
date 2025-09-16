@@ -28,8 +28,8 @@ class Post_Layout extends Base_View {
 	 * @return void
 	 */
 	public function init() {
-		add_action( 'neve_do_single_post', [ $this, 'render_post' ] );
-		add_filter( 'neve_post_has_comments', [ $this, 'post_has_comments' ] );
+		add_action( 'nueve4_do_single_post', [ $this, 'render_post' ] );
+		add_filter( 'nueve4_post_has_comments', [ $this, 'post_has_comments' ] );
 	}
 
 	/**
@@ -39,7 +39,7 @@ class Post_Layout extends Base_View {
 	 */
 	public function post_has_comments() {
 		$post_type              = get_post_type();
-		$supported_post_types   = apply_filters( 'neve_post_type_supported_list', [], 'block_editor' );
+		$supported_post_types   = apply_filters( 'nueve4_post_type_supported_list', [], 'block_editor' );
 		$supported_post_types[] = 'post';
 		if ( ! in_array( $post_type, $supported_post_types, true ) ) {
 			return false;
@@ -78,7 +78,7 @@ class Post_Layout extends Base_View {
 		}
 
 		/** This filter is documented in header-footer-grid/templates/components/component-logo.php */
-		$should_add_skip_lazy = apply_filters( 'neve_skip_lazy', true );
+		$should_add_skip_lazy = apply_filters( 'nueve4_skip_lazy', true );
 		$skip_lazy_class      = '';
 		if ( $should_add_skip_lazy ) {
 			$thumbnail_index = array_search( 'thumbnail', $content_order );
@@ -104,24 +104,24 @@ class Post_Layout extends Base_View {
 					echo '<div class="nv-thumb-wrap">';
 					echo get_the_post_thumbnail(
 						null,
-						'neve-blog',
+						'nueve4-blog',
 						array( 'class' => $skip_lazy_class )
 					);
 					echo '</div>';
 					break;
 				case 'content':
-					do_action( 'neve_before_content', 'single-post' );
+					do_action( 'nueve4_before_content', 'single-post' );
 					echo '<div class="nv-content-wrap entry-content">';
 					the_content();
 					echo '</div>';
-					do_action( 'neve_do_pagination', 'single' );
-					do_action( 'neve_after_content', 'single-post' );
+					do_action( 'nueve4_do_pagination', 'single' );
+					do_action( 'nueve4_after_content', 'single-post' );
 					break;
 				case 'post-navigation':
-					do_action( 'neve_post_navigation' );
+					do_action( 'nueve4_post_navigation' );
 					break;
 				case 'tags':
-					do_action( 'neve_do_tags' );
+					do_action( 'nueve4_do_tags' );
 					break;
 				case 'title':
 					if ( Layout_Single_Post::is_cover_layout() ) {
@@ -143,13 +143,13 @@ class Post_Layout extends Base_View {
 					self::render_post_meta();
 					break;
 				case 'author-biography':
-					do_action( 'neve_layout_single_post_author_biography' );
+					do_action( 'nueve4_layout_single_post_author_biography' );
 					break;
 				case 'related-posts':
-					do_action( 'neve_do_related_posts' );
+					do_action( 'nueve4_do_related_posts' );
 					break;
 				case 'sharing-icons':
-					do_action( 'neve_do_sharing' );
+					do_action( 'nueve4_do_sharing' );
 					break;
 				case 'comments':
 					comments_template();
@@ -172,13 +172,13 @@ class Post_Layout extends Base_View {
 			return false;
 		}
 
-		$meta_order = get_theme_mod( 'neve_single_post_meta_fields', self::get_default_single_post_meta_fields() );
+		$meta_order = get_theme_mod( 'nueve4_single_post_meta_fields', self::get_default_single_post_meta_fields() );
 		$meta_order = is_string( $meta_order ) ? json_decode( $meta_order ) : $meta_order;
 
-		// We take the result and apply the neve_post_meta_ordering_filter that allows us to add values in neve pro
-		$meta_order = apply_filters( 'neve_post_meta_ordering_filter', $meta_order );
+		// We take the result and apply the nueve4_post_meta_ordering_filter that allows us to add values in nueve4 pro
+		$meta_order = apply_filters( 'nueve4_post_meta_ordering_filter', $meta_order );
 
-		do_action( 'neve_post_meta_single', $meta_order, $is_list );
+		do_action( 'nueve4_post_meta_single', $meta_order, $is_list );
 		return true;
 	}
 
@@ -189,14 +189,14 @@ class Post_Layout extends Base_View {
 	 * @return void
 	 */
 	private function render_entry_header( $render_meta = true ) {
-		$normal_style = apply_filters( 'neve_title_alignment_style', '', 'normal' );
+		$normal_style = apply_filters( 'nueve4_title_alignment_style', '', 'normal' );
 		if ( ! empty( $normal_style ) ) {
 			$normal_style = 'style="' . $normal_style . '"';
 		}
 
 		echo '<div class="entry-header" ' . wp_kses_post( $normal_style ) . '>';
 		echo '<div class="nv-title-meta-wrap">';
-		do_action( 'neve_before_post_title' );
+		do_action( 'nueve4_before_post_title' );
 		echo '<h1 class="title entry-title">' . wp_kses_post( get_the_title() ) . '</h1>';
 		if ( $render_meta ) {
 			self::render_post_meta();
@@ -213,25 +213,25 @@ class Post_Layout extends Base_View {
 	private function get_content_order() {
 		$default_order = $this->post_ordering();
 
-		$content_order = get_theme_mod( 'neve_layout_single_post_elements_order', wp_json_encode( $default_order ) );
+		$content_order = get_theme_mod( 'nueve4_layout_single_post_elements_order', wp_json_encode( $default_order ) );
 		if ( ! is_string( $content_order ) ) {
 			$content_order = wp_json_encode( $default_order );
 		}
 		$content_order = json_decode( $content_order, true );
-		if ( apply_filters( 'neve_filter_toggle_content_parts', true, 'title' ) !== true ) {
+		if ( apply_filters( 'nueve4_filter_toggle_content_parts', true, 'title' ) !== true ) {
 			$title_key = array_search( 'title-meta', $content_order, true );
 			if ( $title_key !== false ) {
 				unset( $content_order[ $title_key ] );
 			}
 		}
 
-		if ( apply_filters( 'neve_filter_toggle_content_parts', true, 'featured-image' ) !== true || ! has_post_thumbnail() ) {
+		if ( apply_filters( 'nueve4_filter_toggle_content_parts', true, 'featured-image' ) !== true || ! has_post_thumbnail() ) {
 			$thumb_index = array_search( 'thumbnail', $content_order, true );
 			if ( $thumb_index !== false ) {
 				unset( $content_order[ $thumb_index ] );
 			}
 		}
 
-		return apply_filters( 'neve_layout_single_post_elements_order', $content_order );
+		return apply_filters( 'nueve4_layout_single_post_elements_order', $content_order );
 	}
 }

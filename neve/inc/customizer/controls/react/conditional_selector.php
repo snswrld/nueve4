@@ -18,7 +18,7 @@ class Conditional_Selector extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_context_conditional_selector';
+	public $type = 'nueve4_context_conditional_selector';
 	/**
 	 * Additional arguments passed to JS.
 	 *

@@ -18,7 +18,7 @@ class Responsive_Range extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_responsive_range_control';
+	public $type = 'nueve4_responsive_range_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

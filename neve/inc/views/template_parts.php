@@ -36,8 +36,8 @@ class Template_Parts extends Base_View {
 	public function init() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_featured_post_style' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_vertical_spacing_style' ) );
-		add_action( 'neve_do_featured_post', array( $this, 'render_featured_post' ) );
-		add_action( 'neve_blog_post_template_part_content', array( $this, 'render_post' ) );
+		add_action( 'nueve4_do_featured_post', array( $this, 'render_featured_post' ) );
+		add_action( 'nueve4_blog_post_template_part_content', array( $this, 'render_post' ) );
 		add_filter( 'excerpt_more', array( $this, 'link_excerpt_more' ) );
 		add_filter( 'the_content_more_link', array( $this, 'link_excerpt_more' ) );
 		add_filter( 'render_block_data', array( $this, 'temporary_disable_excerpt_more' ), -99, 3 );
@@ -68,20 +68,20 @@ class Template_Parts extends Base_View {
 		if ( ! get_theme_mod( Config::MODS_CONTENT_VSPACING ) ) {
 			return;
 		}
-		$inline_style = '.page .neve-main, .single:not(.single-product) .neve-main{ margin:var(--c-vspace) }';
-		wp_add_inline_style( 'neve-style', Dynamic_Css::minify_css( $inline_style ) );
+		$inline_style = '.page .nueve4-main, .single:not(.single-product) .nueve4-main{ margin:var(--c-vspace) }';
+		wp_add_inline_style( 'nueve4-style', Dynamic_Css::minify_css( $inline_style ) );
 	}
 
 	/**
 	 * Add inline style for featured post.
 	 */
 	public function add_featured_post_style() {
-		if ( ! get_theme_mod( 'neve_enable_featured_post', false ) ) {
+		if ( ! get_theme_mod( 'nueve4_enable_featured_post', false ) ) {
 			return;
 		}
 
 		wp_add_inline_style(
-			'neve-style',
+			'nueve4-style',
 			'
 			.nv-ft-post {
 				margin-top:60px
@@ -117,7 +117,7 @@ class Template_Parts extends Base_View {
 	 * Render featured posts section.
 	 */
 	public function render_featured_post() {
-		if ( ! get_theme_mod( 'neve_enable_featured_post', false ) ) {
+		if ( ! get_theme_mod( 'nueve4_enable_featured_post', false ) ) {
 			return;
 		}
 
@@ -140,7 +140,7 @@ class Template_Parts extends Base_View {
 		 */
 		$post_number = apply_filters( 'nv_featured_posts_number', 1 );
 
-		$target = get_theme_mod( 'neve_featured_post_target', 'latest' );
+		$target = get_theme_mod( 'nueve4_featured_post_target', 'latest' );
 		if ( $target === 'latest' ) {
 			$posts = wp_get_recent_posts(
 				array(
@@ -156,7 +156,7 @@ class Template_Parts extends Base_View {
 			 *
 			 * @param array $posts Array of posts. The return value can be an array of posts or an array of post IDs.
 			 */
-			$posts = apply_filters( 'neve_filter_featured_posts', $posts );
+			$posts = apply_filters( 'nueve4_filter_featured_posts', $posts );
 		}
 
 		if ( $target === 'sticky' ) {
@@ -167,7 +167,7 @@ class Template_Parts extends Base_View {
 			return;
 		}
 
-		$wrapper_classes  = apply_filters( 'neve_posts_wrapper_class', [] );
+		$wrapper_classes  = apply_filters( 'nueve4_posts_wrapper_class', [] );
 		$posts_to_exclude = [];
 
 		echo '<div class="' . esc_attr( join( ' ', $wrapper_classes ) ) . '">';
@@ -182,7 +182,7 @@ class Template_Parts extends Base_View {
 				}
 			);
 
-			$has_thumbnail_class = apply_filters( 'neve_featured_has_post_thumbnail', '', $post_id );
+			$has_thumbnail_class = apply_filters( 'nueve4_featured_has_post_thumbnail', '', $post_id );
 			$data                = [
 				'post_id'    => 'post-' . $post_id,
 				'post_class' => $this->post_class( $post_id, 'nv-ft-post ' . $has_thumbnail_class ),
@@ -225,7 +225,7 @@ class Template_Parts extends Base_View {
 	protected function post_class( $post_id = null, $additional = '' ) {
 		$class     = join( ' ', get_post_class( '', $post_id ) );
 		$post_type = get_post_type( $post_id );
-		if ( $post_type === 'neve_custom_layouts' ) {
+		if ( $post_type === 'nueve4_custom_layouts' ) {
 			return $class;
 		}
 		$layout = $this->get_layout();
@@ -305,14 +305,14 @@ class Template_Parts extends Base_View {
 			return '';
 		}
 
-		global $neve_thumbnail_skip_lazy_added;
+		global $nueve4_thumbnail_skip_lazy_added;
 
 		/** This filter is documented in header-footer-grid/templates/components/component-logo.php */
-		$should_add_skip_lazy = apply_filters( 'neve_skip_lazy', true );
+		$should_add_skip_lazy = apply_filters( 'nueve4_skip_lazy', true );
 		$image_class          = '';
-		if ( $should_add_skip_lazy && ! isset( $neve_thumbnail_skip_lazy_added ) ) {
+		if ( $should_add_skip_lazy && ! isset( $nueve4_thumbnail_skip_lazy_added ) ) {
 			$image_class                    = 'skip-lazy';
-			$neve_thumbnail_skip_lazy_added = true;
+			$nueve4_thumbnail_skip_lazy_added = true;
 		}
 
 		$image_wrap_classes = $this->get_image_wrap_classes();
@@ -329,7 +329,7 @@ class Template_Parts extends Base_View {
 		$pid     = $post_id ? $post_id : get_the_ID();
 		$markup .= get_the_post_thumbnail(
 			$pid,
-			'neve-blog',
+			'nueve4-blog',
 			array( 'class' => $image_class )
 		);
 		if ( ! $skip_link ) {
@@ -337,7 +337,7 @@ class Template_Parts extends Base_View {
 		}
 		$markup .= '</div>';
 
-		return apply_filters( 'neve_blog_post_thumbnail_markup', $markup );
+		return apply_filters( 'nueve4_blog_post_thumbnail_markup', $markup );
 	}
 
 	/**
@@ -349,7 +349,7 @@ class Template_Parts extends Base_View {
 		$post_classes = [ 'nv-post-thumbnail-wrap', 'img-wrap' ];
 
 		if ( defined( 'NEVE_PRO_VERSION' ) ) {
-			$blog_image_hover = get_theme_mod( 'neve_blog_image_hover', 'none' );
+			$blog_image_hover = get_theme_mod( 'nueve4_blog_image_hover', 'none' );
 			if ( $blog_image_hover !== 'none' ) {
 				$post_classes[] = $blog_image_hover;
 			}
@@ -363,13 +363,13 @@ class Template_Parts extends Base_View {
 	 * @return string
 	 */
 	private function get_layout() {
-		$layout = get_theme_mod( 'neve_blog_archive_layout', 'grid' );
+		$layout = get_theme_mod( 'nueve4_blog_archive_layout', 'grid' );
 
 		if ( $layout !== 'default' ) {
 			return $layout;
 		}
 
-		if ( get_theme_mod( 'neve_blog_list_alternative_layout', false ) === true ) {
+		if ( get_theme_mod( 'nueve4_blog_list_alternative_layout', false ) === true ) {
 			$layout = 'alternative';
 		}
 
@@ -403,8 +403,8 @@ class Template_Parts extends Base_View {
 	 */
 	private function get_meta( $post_id = null ) {
 		$default       = wp_json_encode( [ 'author', 'date', 'comments' ] );
-		$default_value = neve_get_default_meta_value( 'neve_post_meta_ordering', $default );
-		$meta_order    = get_theme_mod( 'neve_blog_post_meta_fields', wp_json_encode( $default_value ) );
+		$default_value = nueve4_get_default_meta_value( 'nueve4_post_meta_ordering', $default );
+		$meta_order    = get_theme_mod( 'nueve4_blog_post_meta_fields', wp_json_encode( $default_value ) );
 
 		if ( ! is_array( $meta_order ) ) {
 			$meta_order = json_decode( $meta_order );
@@ -414,7 +414,7 @@ class Template_Parts extends Base_View {
 		}
 
 		ob_start();
-		do_action( 'neve_post_meta_archive', $meta_order, true, $post_id );
+		do_action( 'nueve4_post_meta_archive', $meta_order, true, $post_id );
 		$meta = ob_get_clean();
 
 		return $meta;
@@ -428,7 +428,7 @@ class Template_Parts extends Base_View {
 	 */
 	private function get_excerpt( $post_id = null ) {
 		ob_start();
-		do_action( 'neve_excerpt_archive', 'index', $post_id );
+		do_action( 'nueve4_excerpt_archive', 'index', $post_id );
 		$excerpt = ob_get_clean();
 
 		return $excerpt;
@@ -456,9 +456,9 @@ class Template_Parts extends Base_View {
 		}
 
 		$read_more_args = apply_filters(
-			'neve_read_more_args',
+			'nueve4_read_more_args',
 			array(
-				'text'    => esc_html__( 'Read More', 'neve' ) . ' &raquo;',
+				'text'    => esc_html__( 'Read More', 'nueve4' ) . ' &raquo;',
 				'classes' => '',
 			)
 		);
@@ -520,7 +520,7 @@ class Template_Parts extends Base_View {
 					$markup .= $this->get_excerpt( $post_id );
 					$markup .= wp_link_pages(
 						array(
-							'before'      => '<div class="post-pages-links"><span>' . apply_filters( 'neve_page_link_before', esc_html__( 'Pages:', 'neve' ) ) . '</span>',
+							'before'      => '<div class="post-pages-links"><span>' . apply_filters( 'nueve4_page_link_before', esc_html__( 'Pages:', 'nueve4' ) ) . '</span>',
 							'after'       => '</div>',
 							'link_before' => '<span class="page-link">',
 							'link_after'  => '</span>',
@@ -550,6 +550,6 @@ class Template_Parts extends Base_View {
 			'excerpt',
 		);
 
-		return json_decode( get_theme_mod( 'neve_post_content_ordering', wp_json_encode( $default_ordered_components ) ), $associative );
+		return json_decode( get_theme_mod( 'nueve4_post_content_ordering', wp_json_encode( $default_ordered_components ) ), $associative );
 	}
 }

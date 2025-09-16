@@ -28,7 +28,7 @@ class Buttons extends Base_Customizer {
 	 *
 	 * @var string
 	 */
-	private $section_id = 'neve_buttons_section';
+	private $section_id = 'nueve4_buttons_section';
 
 	/**
 	 * Function that should be extended to add customizer controls.
@@ -41,19 +41,19 @@ class Buttons extends Base_Customizer {
 				$this->section_id,
 				array(
 					'priority' => 40,
-					'title'    => esc_html__( 'Buttons', 'neve' ),
+					'title'    => esc_html__( 'Buttons', 'nueve4' ),
 				)
 			)
 		);
 
 		$this->add_control(
 			new Control(
-				'neve_buttons_generic_heading',
+				'nueve4_buttons_generic_heading',
 				[
 					'sanitize_callback' => 'sanitize_text_field',
 				],
 				[
-					'label'            => esc_html__( 'General', 'neve' ),
+					'label'            => esc_html__( 'General', 'nueve4' ),
 					'section'          => $this->section_id,
 					'class'            => 'buttons-general-accordion',
 					'accordion'        => true,
@@ -73,7 +73,7 @@ class Buttons extends Base_Customizer {
 					'default' => $defaults,
 				),
 				array(
-					'label'             => __( 'Padding', 'neve' ),
+					'label'             => __( 'Padding', 'nueve4' ),
 					'sanitize_callback' => array( $this, 'sanitize_spacing_array' ),
 					'section'           => $this->section_id,
 					'input_attrs'       => [
@@ -93,7 +93,7 @@ class Buttons extends Base_Customizer {
 					'transport' => $this->selective_refresh,
 				],
 				[
-					'label'                 => esc_html__( 'Button Text', 'neve' ),
+					'label'                 => esc_html__( 'Button Text', 'nueve4' ),
 					'section'               => $this->section_id,
 					'input_attrs'           => array(
 						'size_units'             => [ 'px', 'em', 'rem' ],
@@ -119,8 +119,8 @@ class Buttons extends Base_Customizer {
 							'desktop' => '',
 						),
 					),
-					'type'                  => 'neve_typeface_control',
-					'font_family_control'   => 'neve_body_font_family',
+					'type'                  => 'nueve4_typeface_control',
+					'font_family_control'   => 'nueve4_body_font_family',
 					'live_refresh_selector' => true,
 					'live_refresh_css_prop' => [
 						'cssVar' => [
@@ -156,14 +156,14 @@ class Buttons extends Base_Customizer {
 		);
 
 		$buttons = [
-			'button'           => __( 'Primary Button', 'neve' ),
-			'secondary_button' => __( 'Secondary Button', 'neve' ),
+			'button'           => __( 'Primary Button', 'nueve4' ),
+			'secondary_button' => __( 'Secondary Button', 'nueve4' ),
 		];
 
 		foreach ( $buttons as $button => $heading_text ) {
 			$this->add_control(
 				new Control(
-					'neve_' . $button . '_appearance_heading',
+					'nueve4_' . $button . '_appearance_heading',
 					[
 						'sanitize_callback' => 'sanitize_text_field',
 					],
@@ -179,19 +179,19 @@ class Buttons extends Base_Customizer {
 				)
 			);
 
-			$mod_key  = 'neve_' . $button . '_appearance';
-			$defaults = neve_get_button_appearance_default( $button );
+			$mod_key  = 'nueve4_' . $button . '_appearance';
+			$defaults = nueve4_get_button_appearance_default( $button );
 
 			$this->add_control(
 				new Control(
 					$mod_key,
 					[
-						'sanitize_callback' => 'neve_sanitize_button_appearance',
+						'sanitize_callback' => 'nueve4_sanitize_button_appearance',
 						'default'           => $defaults,
 					],
 					[
 						'default_vals' => $defaults,
-						'label'        => __( 'Button Appearance', 'neve' ),
+						'label'        => __( 'Button Appearance', 'nueve4' ),
 						'section'      => $this->section_id,
 					],
 					'\Neve\Customizer\Controls\React\Button_Appearance'

@@ -16,7 +16,7 @@
  *
  * @return string
  */
-function neve_sanitize_colors( $value ) {
+function nueve4_sanitize_colors( $value ) {
 	$is_var = ( strpos( $value, 'var' ) !== false );
 
 	if ( $is_var ) {
@@ -30,7 +30,7 @@ function neve_sanitize_colors( $value ) {
 	// Is this an rgba color or a hex?
 	$mode = ( false === strpos( $value, 'rgba' ) ) ? 'hex' : 'rgba';
 	if ( 'rgba' === $mode ) {
-		return neve_sanitize_rgba( $value );
+		return nueve4_sanitize_rgba( $value );
 	} else {
 		return sanitize_hex_color( $value );
 	}
@@ -43,7 +43,7 @@ function neve_sanitize_colors( $value ) {
  *
  * @return string
  */
-function neve_sanitize_rgba( $value ) {
+function nueve4_sanitize_rgba( $value ) {
 	$red   = 'rgba(0,0,0,0)';
 	$green = 'rgba(0,0,0,0)';
 	$blue  = 'rgba(0,0,0,0)';
@@ -63,7 +63,7 @@ function neve_sanitize_rgba( $value ) {
  *
  * @return bool
  */
-function neve_sanitize_checkbox( $value ) {
+function nueve4_sanitize_checkbox( $value ) {
 	return true === (bool) $value;
 }
 
@@ -75,7 +75,7 @@ function neve_sanitize_checkbox( $value ) {
  * @return bool
  * @since 1.1.38
  */
-function neve_is_json( $string ) {
+function nueve4_is_json( $string ) {
 	return is_string( $string ) && is_array( json_decode( $string, true ) );
 }
 
@@ -86,8 +86,8 @@ function neve_is_json( $string ) {
  *
  * @return string|float Returns json string or float.
  */
-function neve_sanitize_range_value( $input ) {
-	if ( ! neve_is_json( $input ) ) {
+function nueve4_sanitize_range_value( $input ) {
+	if ( ! nueve4_is_json( $input ) ) {
 		return floatval( $input );
 	}
 	$range_value            = json_decode( $input, true );
@@ -104,7 +104,7 @@ function neve_sanitize_range_value( $input ) {
  *
  * @return string
  */
-function neve_sanitize_font_weight( $value ) {
+function nueve4_sanitize_font_weight( $value ) {
 	$allowed = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
 
 	if ( ! in_array( (string) $value, $allowed, true ) ) {
@@ -121,7 +121,7 @@ function neve_sanitize_font_weight( $value ) {
  *
  * @return string
  */
-function neve_sanitize_text_transform( $value ) {
+function nueve4_sanitize_text_transform( $value ) {
 	$allowed = array( 'none', 'capitalize', 'uppercase', 'lowercase' );
 
 	if ( ! in_array( $value, $allowed, true ) ) {
@@ -138,7 +138,7 @@ function neve_sanitize_text_transform( $value ) {
  *
  * @return WP_Error | array
  */
-function neve_sanitize_background( $value ) {
+function nueve4_sanitize_background( $value ) {
 	if ( ! is_array( $value ) ) {
 		return new WP_Error();
 	}
@@ -166,8 +166,8 @@ function neve_sanitize_background( $value ) {
 
 
 	$value['imageUrl']          = esc_url( $value['imageUrl'] );
-	$value['colorValue']        = neve_sanitize_colors( $value['colorValue'] );
-	$value['overlayColorValue'] = neve_sanitize_colors( $value['overlayColorValue'] );
+	$value['colorValue']        = nueve4_sanitize_colors( $value['colorValue'] );
+	$value['overlayColorValue'] = nueve4_sanitize_colors( $value['overlayColorValue'] );
 
 
 	$value['overlayOpacity'] = (int) $value['overlayOpacity'];
@@ -188,7 +188,7 @@ function neve_sanitize_background( $value ) {
  *
  * @return array
  */
-function neve_sanitize_button_appearance( $value ) {
+function nueve4_sanitize_button_appearance( $value ) {
 	return $value;
 }
 
@@ -199,7 +199,7 @@ function neve_sanitize_button_appearance( $value ) {
  *
  * @return array
  */
-function neve_sanitize_typography_control( $value ) {
+function nueve4_sanitize_typography_control( $value ) {
 	$keys = [
 		'lineHeight',
 		'letterSpacing',
@@ -241,7 +241,7 @@ function neve_sanitize_typography_control( $value ) {
  *
  * @return array
  */
-function neve_sanitize_alignment( $input ) {
+function nueve4_sanitize_alignment( $input ) {
 	$default = [
 		'mobile'  => 'left',
 		'tablet'  => 'left',
@@ -269,7 +269,7 @@ function neve_sanitize_alignment( $input ) {
  *
  * @return array
  */
-function neve_sanitize_position( $input ) {
+function nueve4_sanitize_position( $input ) {
 	$default = [
 		'mobile'  => 'center',
 		'tablet'  => 'center',
@@ -295,7 +295,7 @@ function neve_sanitize_position( $input ) {
  *
  * @param string $value Control input.
  */
-function neve_sanitize_meta_ordering( $value ) {
+function nueve4_sanitize_meta_ordering( $value ) {
 	$allowed = array(
 		'author',
 		'category',
@@ -324,7 +324,7 @@ function neve_sanitize_meta_ordering( $value ) {
  *
  * @param string $value Control input.
  */
-function neve_sanitize_meta_repeater( $value ) {
+function nueve4_sanitize_meta_repeater( $value ) {
 
 	$sanitized_value = [];
 
@@ -379,7 +379,7 @@ function neve_sanitize_meta_repeater( $value ) {
  *
  * @return string
  */
-function neve_sanitize_blend_mode( $input ) {
+function nueve4_sanitize_blend_mode( $input ) {
 	$blend_mode_options = [ 'normal', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'color-dodge', 'saturation', 'color', 'difference', 'exclusion', 'hue', 'luminosity' ];
 	if ( ! in_array( $input, $blend_mode_options, true ) ) {
 		return 'normal';
@@ -394,7 +394,7 @@ function neve_sanitize_blend_mode( $input ) {
  *
  * @return string
  */
-function neve_sanitize_container_layout( $value ) {
+function nueve4_sanitize_container_layout( $value ) {
 	$allowed_values = array( 'contained', 'full-width' );
 	if ( ! in_array( $value, $allowed_values, true ) ) {
 		return 'contained';
@@ -410,7 +410,7 @@ function neve_sanitize_container_layout( $value ) {
  *
  * @return string
  */
-function neve_sanitize_button_type( $value ) {
+function nueve4_sanitize_button_type( $value ) {
 	if ( ! in_array( $value, [ 'primary', 'secondary' ], true ) ) {
 		return 'primary';
 	}
@@ -425,7 +425,7 @@ function neve_sanitize_button_type( $value ) {
  *
  * @return string
  */
-function neve_sanitize_vspace_type( $value ) {
+function nueve4_sanitize_vspace_type( $value ) {
 	return ! in_array( $value, [ 'inherit', 'specific' ], true ) ? 'inherit' : $value;
 }
 
@@ -436,7 +436,7 @@ function neve_sanitize_vspace_type( $value ) {
  *
  * @return string[]
  */
-function neve_sanitize_font_variants( $value ) {
+function nueve4_sanitize_font_variants( $value ) {
 	$allowed = [
 		'100',
 		'200',

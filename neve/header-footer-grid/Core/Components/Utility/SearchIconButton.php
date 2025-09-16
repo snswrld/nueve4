@@ -92,7 +92,7 @@ class SearchIconButton {
 	 * @return string
 	 */
 	public static function get_default_button_text() {
-		return __( 'Search', 'neve' ) . '!';
+		return __( 'Search', 'nueve4' ) . '!';
 	}
 
 	/**
@@ -131,7 +131,7 @@ class SearchIconButton {
 				'group'              => $this->component_id,
 				'tab'                => SettingsManager::TAB_STYLE,
 				'transport'          => 'refresh',
-				'label'              => __( 'Button Appearance', 'neve' ),
+				'label'              => __( 'Button Appearance', 'nueve4' ),
 				'sanitize_callback'  => 'sanitize_key',
 				'default'            => self::DEFAULT_BUTTON_APPEARANCE,
 				'type'               => '\Neve\Customizer\Controls\React\Radio_Buttons',
@@ -140,11 +140,11 @@ class SearchIconButton {
 				'options'            => [
 					'choices'     => [
 						self::DEFAULT_BUTTON_APPEARANCE => [
-							'tooltip' => sprintf( '%s %s', __( 'Icon', 'neve' ), __( 'Button', 'neve' ) ),
+							'tooltip' => sprintf( '%s %s', __( 'Icon', 'nueve4' ), __( 'Button', 'nueve4' ) ),
 							'icon'    => 'text',
 						],
 						'text_button'                   => [
-							'tooltip' => sprintf( '%s %s', __( 'Text', 'neve' ), __( 'Button', 'neve' ) ),
+							'tooltip' => sprintf( '%s %s', __( 'Text', 'nueve4' ), __( 'Button', 'nueve4' ) ),
 							'icon'    => 'text',
 						],
 					],
@@ -167,7 +167,7 @@ class SearchIconButton {
 				'group'              => $this->component_id,
 				'tab'                => SettingsManager::TAB_STYLE,
 				'transport'          => 'refresh',
-				'label'              => __( 'Icon', 'neve' ),
+				'label'              => __( 'Icon', 'nueve4' ),
 				'default'            => self::DEFAULT_ICON,
 				'sanitize_callback'  => 'sanitize_text_field',
 				'type'               => '\Neve\Customizer\Controls\React\Radio_Buttons',
@@ -187,10 +187,10 @@ class SearchIconButton {
 				'group'              => $this->component_id,
 				'tab'                => SettingsManager::TAB_STYLE,
 				'transport'          => 'refresh',
-				'label'              => __( 'Custom SVG', 'neve' ),
+				'label'              => __( 'Custom SVG', 'nueve4' ),
 				'default'            => self::DEFAULT_CUSTOM_ICON_SVG,
 				'type'               => '\Neve\Customizer\Controls\React\Textarea',
-				'sanitize_callback'  => 'neve_kses_svg',
+				'sanitize_callback'  => 'nueve4_kses_svg',
 				'section'            => $this->section,
 				'conditional_header' => true,
 				'options'            => [
@@ -206,7 +206,7 @@ class SearchIconButton {
 			]
 		);
 
-		$new_skin = neve_is_new_skin();
+		$new_skin = nueve4_is_new_skin();
 		$mod_key  = self::BUTTON_STYLE;
 		$default  = $new_skin ? [
 			'type'         => 'outline',
@@ -226,7 +226,7 @@ class SearchIconButton {
 				'tab'                => SettingsManager::TAB_STYLE,
 				'sanitize_callback'  => 'sanitize_text_field',
 				'default'            => self::get_default_button_text(),
-				'label'              => __( 'Text', 'neve' ),
+				'label'              => __( 'Text', 'nueve4' ),
 				'type'               => 'text',
 				'section'            => $this->section,
 				'options'            => [
@@ -242,9 +242,9 @@ class SearchIconButton {
 				'group'                 => $this->component_id,
 				'transport'             => 'postMessage',
 				'tab'                   => SettingsManager::TAB_STYLE,
-				'sanitize_callback'     => 'neve_sanitize_button_appearance',
+				'sanitize_callback'     => 'nueve4_sanitize_button_appearance',
 				'default'               => $default,
-				'label'                 => __( 'Button Appearance', 'neve' ),
+				'label'                 => __( 'Button Appearance', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Button_Appearance',
 				'section'               => $this->section,
 				'options'               => [
@@ -318,7 +318,7 @@ class SearchIconButton {
 	 * @access  public
 	 */
 	public function get_style( array $css_array = array() ) {
-		if ( ! neve_is_new_skin() ) {
+		if ( ! nueve4_is_new_skin() ) {
 			return $css_array; // sub classes returns legacy style already.
 		}
 

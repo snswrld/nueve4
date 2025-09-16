@@ -42,11 +42,11 @@ class Layout_Container extends Base_Customizer {
 	private function section_container() {
 		$this->add_section(
 			new Section(
-				'neve_container',
+				'nueve4_container',
 				array(
 					'priority' => 25,
-					'title'    => esc_html__( 'Container', 'neve' ),
-					'panel'    => 'neve_layout',
+					'title'    => esc_html__( 'Container', 'nueve4' ),
+					'panel'    => 'nueve4_layout',
 				)
 			)
 		);
@@ -58,16 +58,16 @@ class Layout_Container extends Base_Customizer {
 	private function control_container_width() {
 		$this->add_control(
 			new Control(
-				'neve_container_width',
+				'nueve4_container_width',
 				[
-					'sanitize_callback' => 'neve_sanitize_range_value',
+					'sanitize_callback' => 'nueve4_sanitize_range_value',
 					'transport'         => $this->selective_refresh,
 					'default'           => '{ "mobile": 748, "tablet": 992, "desktop": 1170 }',
 				],
 				[
-					'label'                 => esc_html__( 'Container width', 'neve' ),
-					'section'               => 'neve_container',
-					'type'                  => 'neve_responsive_range_control',
+					'label'                 => esc_html__( 'Container width', 'nueve4' ),
+					'section'               => 'nueve4_container',
+					'type'                  => 'nueve4_responsive_range_control',
 					'input_attrs'           => [
 						'min'        => 200,
 						'max'        => 2000,
@@ -111,9 +111,9 @@ class Layout_Container extends Base_Customizer {
 					'transport' => $this->selective_refresh,
 				],
 				[
-					'label'                 => __( 'Content Vertical Spacing', 'neve' ),
+					'label'                 => __( 'Content Vertical Spacing', 'nueve4' ),
 					'sanitize_callback'     => [ $this, 'sanitize_spacing_array' ],
-					'section'               => 'neve_container',
+					'section'               => 'nueve4_container',
 					'input_attrs'           => [
 						'units' => [ 'px', 'vh' ],
 						'axis'  => 'vertical',
@@ -141,17 +141,17 @@ class Layout_Container extends Base_Customizer {
 	 */
 	private function control_container_style() {
 		$container_style_controls = array(
-			'neve_default_container_style'      => array(
+			'nueve4_default_container_style'      => array(
 				'priority' => 30,
-				'label'    => __( 'Default Container Style', 'neve' ),
+				'label'    => __( 'Default Container Style', 'nueve4' ),
 			),
-			'neve_blog_archive_container_style' => array(
+			'nueve4_blog_archive_container_style' => array(
 				'priority' => 35,
-				'label'    => __( 'Blog / Archive Container Style', 'neve' ),
+				'label'    => __( 'Blog / Archive Container Style', 'nueve4' ),
 			),
-			'neve_single_post_container_style'  => array(
+			'nueve4_single_post_container_style'  => array(
 				'priority' => 40,
-				'label'    => __( 'Single Post Container Style', 'neve' ),
+				'label'    => __( 'Single Post Container Style', 'nueve4' ),
 			),
 		);
 
@@ -159,13 +159,13 @@ class Layout_Container extends Base_Customizer {
 			$container_style_controls = array_merge(
 				$container_style_controls,
 				array(
-					'neve_shop_archive_container_style'   => array(
+					'nueve4_shop_archive_container_style'   => array(
 						'priority' => 45,
-						'label'    => __( 'Shop / Archive Container Style', 'neve' ),
+						'label'    => __( 'Shop / Archive Container Style', 'nueve4' ),
 					),
-					'neve_single_product_container_style' => array(
+					'nueve4_single_product_container_style' => array(
 						'priority' => 50,
-						'label'    => __( 'Single Product Container Style', 'neve' ),
+						'label'    => __( 'Single Product Container Style', 'nueve4' ),
 					),
 				)
 			);
@@ -178,25 +178,25 @@ class Layout_Container extends Base_Customizer {
 		 *
 		 * @since 3.1.0
 		 */
-		$container_style_controls = apply_filters( 'neve_container_style_filter', $container_style_controls );
+		$container_style_controls = apply_filters( 'nueve4_container_style_filter', $container_style_controls );
 
 		foreach ( $container_style_controls as $control_id => $control ) {
 			$this->add_control(
 				new Control(
 					$control_id,
 					array(
-						'sanitize_callback' => 'neve_sanitize_container_layout',
+						'sanitize_callback' => 'nueve4_sanitize_container_layout',
 						'transport'         => $this->selective_refresh,
 						'default'           => 'contained',
 					),
 					array(
 						'label'    => $control['label'],
-						'section'  => 'neve_container',
+						'section'  => 'nueve4_container',
 						'type'     => 'select',
 						'priority' => $control['priority'],
 						'choices'  => array(
-							'contained'  => __( 'Contained', 'neve' ),
-							'full-width' => __( 'Full Width', 'neve' ),
+							'contained'  => __( 'Contained', 'nueve4' ),
+							'full-width' => __( 'Full Width', 'nueve4' ),
 						),
 					)
 				)

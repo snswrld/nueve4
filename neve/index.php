@@ -12,14 +12,14 @@
  *
  * @since 1.0.0
  */
-$container_class = apply_filters( 'neve_container_class_filter', 'container', 'blog-archive' );
+$container_class = apply_filters( 'nueve4_container_class_filter', 'container', 'blog-archive' );
 
 get_header();
 
 $wrapper_classes = [ 'posts-wrapper' ];
-$wrapper_classes = apply_filters( 'neve_posts_wrapper_class', $wrapper_classes );
+$wrapper_classes = apply_filters( 'nueve4_posts_wrapper_class', $wrapper_classes );
 
-$load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) === 'default';
+$load_before_after_hooks = get_theme_mod( 'nueve4_blog_archive_layout', 'grid' ) === 'default';
 
 ?>
 	<div class="<?php echo esc_attr( $container_class ); ?> archive-container">
@@ -30,7 +30,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 		 *
 		 * @since 3.2
 		 */
-		do_action( 'neve_do_featured_post', 'index' );
+		do_action( 'nueve4_do_featured_post', 'index' );
 		?>
 
 		<div class="row">
@@ -44,7 +44,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'neve_do_sidebar', 'blog-archive', 'left' );
+			do_action( 'nueve4_do_sidebar', 'blog-archive', 'left' );
 			?>
 			<div class="nv-index-posts blog col">
 				<?php
@@ -53,7 +53,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 				 *
 				 * @since 2.4.0
 				 */
-				do_action( 'neve_before_loop' );
+				do_action( 'nueve4_before_loop' );
 
 				/**
 				 * Executes the rendering function for the page header.
@@ -62,14 +62,14 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 				 *
 				 * @since 2.3.10
 				 */
-				do_action( 'neve_page_header', 'index' );
+				do_action( 'nueve4_page_header', 'index' );
 
 				/**
 				 * Executes actions before the post loop.
 				 *
 				 * @since 2.3.10
 				 */
-				do_action( 'neve_before_posts_loop' );
+				do_action( 'nueve4_before_posts_loop' );
 
 
 				if ( have_posts() ) {
@@ -77,7 +77,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 					echo '<div class="' . esc_attr( join( ' ', $wrapper_classes ) ) . '">';
 
 
-					$pagination_type = get_theme_mod( 'neve_pagination_type', 'number' );
+					$pagination_type = get_theme_mod( 'nueve4_pagination_type', 'number' );
 					if ( $pagination_type !== 'infinite' ) {
 						global $wp_query;
 
@@ -90,7 +90,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 						$post_index = 1;
 					}
 
-					neve_do_loop_hook( 'before' );
+					nueve4_do_loop_hook( 'before' );
 
 					/**
 					 * Exclude posts from the main loop
@@ -108,7 +108,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 							continue;
 						}
 
-						neve_do_loop_hook( 'entry_before' );
+						nueve4_do_loop_hook( 'entry_before' );
 
 						if ( $load_before_after_hooks ) {
 							/**
@@ -116,7 +116,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 							 *
 							 * @since 2.11
 							 */
-							do_action( 'neve_loop_entry_before' );
+							do_action( 'nueve4_loop_entry_before' );
 						}
 
 						get_template_part( 'template-parts/content', get_post_type() );
@@ -127,7 +127,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 							 *
 							 * @since 2.11
 							 */
-							do_action( 'neve_loop_entry_after' );
+							do_action( 'nueve4_loop_entry_after' );
 						}
 
 						if ( $pagination_type !== 'infinite' && $load_before_after_hooks ) {
@@ -139,12 +139,12 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 								 *
 								 * @since 2.3.10
 								 */
-								do_action( 'neve_middle_posts_loop' );
+								do_action( 'nueve4_middle_posts_loop' );
 							}
 							$post_index ++;
 						}
 
-						neve_do_loop_hook( 'entry_after' );
+						nueve4_do_loop_hook( 'entry_after' );
 					}
 					echo '</div>';
 					if ( ! is_singular() ) {
@@ -153,7 +153,7 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 						 *
 						 * @param string $context Pagination location context.
 						 */
-						do_action( 'neve_do_pagination', 'blog-archive' );
+						do_action( 'nueve4_do_pagination', 'blog-archive' );
 					}
 				} else {
 					get_template_part( 'template-parts/content', 'none' );
@@ -166,13 +166,13 @@ $load_before_after_hooks = get_theme_mod( 'neve_blog_archive_layout', 'grid' ) =
 				 *
 				 * @since 2.3.10
 				 */
-				do_action( 'neve_after_posts_loop' );
+				do_action( 'nueve4_after_posts_loop' );
 
-				neve_do_loop_hook( 'after' );
+				nueve4_do_loop_hook( 'after' );
 				?>
 			</div>
 			<?php
-			do_action( 'neve_do_sidebar', 'blog-archive', 'right' );
+			do_action( 'nueve4_do_sidebar', 'blog-archive', 'right' );
 			?>
 		</div>
 	</div>

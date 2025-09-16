@@ -72,7 +72,7 @@ abstract class Control_Base {
 
 		$this->render_label();
 		$this->render_content( $post_id );
-		wp_nonce_field( 'neve_meta_box_nonce', 'neve_meta_box_process' );
+		wp_nonce_field( 'nueve4_meta_box_nonce', 'nueve4_meta_box_process' );
 	}
 
 	/**
@@ -134,10 +134,10 @@ abstract class Control_Base {
 	 * @return void
 	 */
 	final public function save( $post_id ) {
-		if ( ! isset( $_POST['neve_meta_box_process'] ) ) {
+		if ( ! isset( $_POST['nueve4_meta_box_process'] ) ) {
 			return;
 		}
-		if ( ! wp_verify_nonce( sanitize_key( $_POST['neve_meta_box_process'] ), 'neve_meta_box_nonce' ) ) {
+		if ( ! wp_verify_nonce( sanitize_key( $_POST['nueve4_meta_box_process'] ), 'nueve4_meta_box_nonce' ) ) {
 			return;
 		}
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -149,7 +149,7 @@ abstract class Control_Base {
 		if ( isset( $_POST[ $this->id ] ) ) {
 			$value = $this->sanitize_value( wp_unslash( $_POST[ $this->id ] ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 			// Remove post meta on default.
-			if ( $value === $this->settings['default'] && $this->id !== 'neve_meta_content_width' ) {
+			if ( $value === $this->settings['default'] && $this->id !== 'nueve4_meta_content_width' ) {
 				delete_post_meta( $post_id, $this->id );
 
 				return;
@@ -159,8 +159,8 @@ abstract class Control_Base {
 
 			return;
 		} else {
-			if ( $this->id === 'neve_meta_enable_content_width' ) {
-				update_post_meta( $post_id, 'neve_meta_enable_content_width', 'off' );
+			if ( $this->id === 'nueve4_meta_enable_content_width' ) {
+				update_post_meta( $post_id, 'nueve4_meta_enable_content_width', 'off' );
 			} else {
 				delete_post_meta( $post_id, $this->id );
 			}

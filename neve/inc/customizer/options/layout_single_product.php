@@ -46,10 +46,10 @@ class Layout_Single_Product extends Base_Customizer {
 	private function section_single_product() {
 		$this->add_section(
 			new Section(
-				'neve_single_product_layout',
+				'nueve4_single_product_layout',
 				array(
 					'priority' => 65,
-					'title'    => esc_html__( 'Single Product', 'neve' ),
+					'title'    => esc_html__( 'Single Product', 'nueve4' ),
 					'panel'    => 'woocommerce',
 				)
 			)
@@ -62,14 +62,14 @@ class Layout_Single_Product extends Base_Customizer {
 	private function exclusive_products_controls() {
 		$this->add_control(
 			new Control(
-				'neve_exclusive_products_heading',
+				'nueve4_exclusive_products_heading',
 				array(
 					'sanitize_callback' => 'sanitize_text_field',
 					'transport'         => $this->selective_refresh,
 				),
 				array(
-					'label'            => esc_html__( 'Exclusive Products', 'neve' ),
-					'section'          => 'neve_single_product_layout',
+					'label'            => esc_html__( 'Exclusive Products', 'nueve4' ),
+					'section'          => 'nueve4_single_product_layout',
 					'priority'         => 200,
 					'class'            => 'exclusive-products-accordion',
 					'accordion'        => true,
@@ -82,14 +82,14 @@ class Layout_Single_Product extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_exclusive_products_title',
+				'nueve4_exclusive_products_title',
 				array(
 					'sanitize_callback' => 'sanitize_text_field',
 				),
 				array(
 					'priority' => 210,
-					'section'  => 'neve_single_product_layout',
-					'label'    => esc_html__( 'Title', 'neve' ),
+					'section'  => 'nueve4_single_product_layout',
+					'label'    => esc_html__( 'Title', 'nueve4' ),
 					'type'     => 'text',
 				)
 			)
@@ -98,14 +98,14 @@ class Layout_Single_Product extends Base_Customizer {
 		$product_cat = $this->get_shop_categories();
 		$this->add_control(
 			new Control(
-				'neve_exclusive_products_category',
+				'nueve4_exclusive_products_category',
 				array(
 					'default'           => '-',
 					'sanitize_callback' => array( $this, 'sanitize_categories' ),
 				),
 				array(
-					'label'    => esc_html__( 'Category', 'neve' ),
-					'section'  => 'neve_single_product_layout',
+					'label'    => esc_html__( 'Category', 'nueve4' ),
+					'section'  => 'nueve4_single_product_layout',
 					'priority' => 220,
 					'type'     => 'select',
 					'choices'  => $product_cat,
@@ -121,8 +121,8 @@ class Layout_Single_Product extends Base_Customizer {
 	 */
 	private function get_shop_categories() {
 		$categories         = array(
-			'-'   => esc_html__( 'None', 'neve' ),
-			'all' => esc_html__( 'All', 'neve' ),
+			'-'   => esc_html__( 'None', 'nueve4' ),
+			'all' => esc_html__( 'All', 'nueve4' ),
 		);
 		$product_categories = get_categories(
 			array(

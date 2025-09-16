@@ -6,4 +6,4 @@
  * @package Neve
  */
 
-do_action( 'neve_blog_post_template_part_content', 'single' );
+do_action( 'nueve4_blog_post_template_part_content', 'single' );

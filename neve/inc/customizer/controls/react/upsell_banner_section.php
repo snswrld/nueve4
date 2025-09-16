@@ -5,7 +5,7 @@
  * Author:      Bogdan Preda <bogdan.preda@themeisle.com>
  * Created on:  20-12-{2021}
  *
- * @package neve/neve-pro
+ * @package nueve4/nueve4-pro
  */
 namespace Neve\Customizer\Controls\React;
 
@@ -23,7 +23,7 @@ class Upsell_Banner_Section extends \WP_Customize_Section {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_upsell_banner_section';
+	public $type = 'nueve4_upsell_banner_section';
 
 	/**
 	 * Upgrade URL.
@@ -91,7 +91,7 @@ class Upsell_Banner_Section extends \WP_Customize_Section {
 		?>
 		<li id="acordion-section-<?php echo esc_attr( $this->id ); ?>"
 			data-slug="<?php echo esc_attr( $this->id ); ?>"
-			class="control-section control-section-<?php echo esc_attr( $this->type ); ?> neve-upsell-banner">
+			class="control-section control-section-<?php echo esc_attr( $this->type ); ?> nueve4-upsell-banner">
 		</li>
 		<?php
 	}

@@ -8,11 +8,11 @@
 return [
 	'post_type'    => 'page',
 	'post_name'    => 'contact',
-	'post_title'   => _x( 'Contact', 'Theme starter content', 'neve' ),
+	'post_title'   => _x( 'Contact', 'Theme starter content', 'nueve4' ),
 	'post_content' => '<!-- wp:cover {"overlayColor":"nv-site-bg","minHeight":300,"align":"full"} -->
 <div class="wp-block-cover alignfull has-nv-site-bg-background-color has-background-dim" style="min-height:300px"><div class="wp-block-cover__inner-container"><!-- wp:group -->
-<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"level":1,"className":"has-text-align-left","textColor":"neve-text-color"} -->
-<h1 class="has-text-align-left has-neve-text-color-color has-text-color">Get in touch</h1>
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"level":1,"className":"has-text-align-left","textColor":"nueve4-text-color"} -->
+<h1 class="has-text-align-left has-nueve4-text-color-color has-text-color">Get in touch</h1>
 <!-- /wp:heading --></div></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:cover -->
@@ -32,12 +32,12 @@ return [
 <div class="wp-block-image icon-style is-style-rounded"><figure class="aligncenter is-resized"><img src="' . trailingslashit( get_template_directory_uri() ) . 'assets/img/starter-content/icon-05.svg" alt="" width="48" height="48"/></figure></div>
 <!-- /wp:image -->
 
-<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Call us</h3>
+<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Call us</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color","style":{"typography":{"fontSize":15}}} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color" style="font-size:15px">509-728-8632 | Monday - Friday</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color","style":{"typography":{"fontSize":15}}} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color" style="font-size:15px">509-728-8632 | Monday - Friday</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":24} -->
@@ -54,12 +54,12 @@ return [
 <!-- /wp:image -->
 
 
-<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Email</h3>
+<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Email</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color","style":{"typography":{"fontSize":15}}} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color" style="font-size:15px">info@example.com</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color","style":{"typography":{"fontSize":15}}} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color" style="font-size:15px">info@example.com</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":24} -->
@@ -76,12 +76,12 @@ return [
 <!-- /wp:image -->
 
 
-<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Offices</h3>
+<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Offices</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color","style":{"typography":{"fontSize":15}}} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color" style="font-size:15px">2982 Sun Valley Road, Pittsburgh</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color","style":{"typography":{"fontSize":15}}} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color" style="font-size:15px">2982 Sun Valley Road, Pittsburgh</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":24} -->

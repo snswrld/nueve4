@@ -16,11 +16,11 @@
 		 *
 		 * @since 2.3.8
 		 */
-		do_action( 'neve_before_sidebar_content', $args['context'], $args['position'] );
+		do_action( 'nueve4_before_sidebar_content', $args['context'], $args['position'] );
 		?>
 
 		<?php
-		$has_custom_sidebar = apply_filters( 'neve_has_custom_sidebar', false, $args['context'] );
+		$has_custom_sidebar = apply_filters( 'nueve4_has_custom_sidebar', false, $args['context'] );
 		if ( ! $has_custom_sidebar ) {
 			dynamic_sidebar( $args['slug'] );
 		}
@@ -32,7 +32,7 @@
 		 *
 		 * @since 2.3.8
 		 */
-		do_action( 'neve_after_sidebar_content', $args['context'], $args['position'] );
+		do_action( 'nueve4_after_sidebar_content', $args['context'], $args['position'] );
 		?>
 	</aside>
 </div>

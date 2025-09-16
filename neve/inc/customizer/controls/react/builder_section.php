@@ -22,7 +22,7 @@ class Builder_Section extends \WP_Customize_Section {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_header_footer_builder_section';
+	public $type = 'nueve4_header_footer_builder_section';
 	/**
 	 * Default options schema.
 	 *

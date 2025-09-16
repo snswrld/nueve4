@@ -18,7 +18,7 @@ class Global_Custom_Colors extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_global_custom_colors';
+	public $type = 'nueve4_global_custom_colors';
 	/**
 	 * Default values.
 	 *

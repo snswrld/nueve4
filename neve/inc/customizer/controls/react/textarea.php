@@ -18,7 +18,7 @@ class Textarea extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_textarea';
+	public $type = 'nueve4_textarea';
 	/**
 	 * Additional arguments passed to JS.
 	 *

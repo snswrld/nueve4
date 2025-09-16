@@ -25,7 +25,7 @@ class Upsell_Control extends \WP_Customize_Control {
 	 * @since 2.3.10
 	 * @var   string
 	 */
-	public $type = 'neve-control-upsell';
+	public $type = 'nueve4-control-upsell';
 
 	/**
 	 * Button text.
@@ -92,7 +92,7 @@ class Upsell_Control extends \WP_Customize_Control {
 	 */
 	public function __construct( \WP_Customize_Manager $manager, $id, array $args ) {
 		parent::__construct( $manager, $id, $args );
-		$this->pro_label = esc_html__( 'PRO', 'neve' );
+		$this->pro_label = esc_html__( 'PRO', 'nueve4' );
 	}
 
 	/**

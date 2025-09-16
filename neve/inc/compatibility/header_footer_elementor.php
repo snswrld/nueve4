@@ -43,8 +43,8 @@ class Header_Footer_Elementor {
 	 * Replace theme hooks with the one from the plugin.
 	 */
 	private function add_theme_builder_hooks() {
-		add_action( 'neve_do_header', array( $this, 'do_header' ), 0 );
-		add_action( 'neve_do_footer', array( $this, 'do_footer' ), 0 );
+		add_action( 'nueve4_do_header', array( $this, 'do_header' ), 0 );
+		add_action( 'nueve4_do_footer', array( $this, 'do_footer' ), 0 );
 	}
 
 	/**
@@ -55,8 +55,8 @@ class Header_Footer_Elementor {
 			return;
 		}
 		hfe_render_header();
-		remove_all_actions( 'neve_do_top_bar' );
-		remove_all_actions( 'neve_do_header' );
+		remove_all_actions( 'nueve4_do_top_bar' );
+		remove_all_actions( 'nueve4_do_header' );
 	}
 
 	/**
@@ -67,6 +67,6 @@ class Header_Footer_Elementor {
 			return;
 		}
 		hfe_render_footer();
-		remove_all_actions( 'neve_do_footer' );
+		remove_all_actions( 'nueve4_do_footer' );
 	}
 }

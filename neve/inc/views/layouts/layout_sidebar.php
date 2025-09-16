@@ -25,7 +25,7 @@ class Layout_Sidebar extends Base_View {
 	 * @return void
 	 */
 	public function init() {
-		add_action( 'neve_do_sidebar', array( $this, 'sidebar' ), 10, 2 );
+		add_action( 'nueve4_do_sidebar', array( $this, 'sidebar' ), 10, 2 );
 		add_filter( 'body_class', array( $this, 'add_body_class' ) );
 	}
 
@@ -38,11 +38,11 @@ class Layout_Sidebar extends Base_View {
 	public function sidebar( $context, $position ) {
 		$sidebar_setup = $this->get_sidebar_setup( $context );
 		$theme_mod     = $sidebar_setup['theme_mod'];
-		$theme_mod     = apply_filters( 'neve_sidebar_position', get_theme_mod( $theme_mod, $this->sidebar_layout_alignment_default( $theme_mod ) ) );
+		$theme_mod     = apply_filters( 'nueve4_sidebar_position', get_theme_mod( $theme_mod, $this->sidebar_layout_alignment_default( $theme_mod ) ) );
 
 		$content_width = get_theme_mod( $sidebar_setup['content_width'], $this->sidebar_layout_width_default( $sidebar_setup['content_width'] ) );
 
-		$meta_width = apply_filters( 'neve_meta_content_width', false );
+		$meta_width = apply_filters( 'nueve4_meta_content_width', false );
 
 		if ( $meta_width !== false && ! empty( $meta_width ) ) {
 			$content_width = $meta_width;
@@ -68,7 +68,7 @@ class Layout_Sidebar extends Base_View {
 
 		$args = array(
 			'wrap_classes' => 'nv-' . $position . ' ' . $sidebar_setup['sidebar_slug'] . ' ' . $class_hide_sidebar_conditionally,
-			'data_attrs'   => apply_filters( 'neve_sidebar_data_attrs', '', $sidebar_setup['sidebar_slug'] ),
+			'data_attrs'   => apply_filters( 'nueve4_sidebar_data_attrs', '', $sidebar_setup['sidebar_slug'] ),
 			'close_button' => $this->get_sidebar_close( $sidebar_setup['sidebar_slug'] ),
 			'slug'         => $sidebar_setup['sidebar_slug'],
 			'context'      => $context,
@@ -90,9 +90,9 @@ class Layout_Sidebar extends Base_View {
 
 		$sidebar_setup = $this->get_sidebar_setup( $context );
 		$theme_mod     = $sidebar_setup['theme_mod'];
-		$theme_mod     = apply_filters( 'neve_sidebar_position', get_theme_mod( $theme_mod, $this->sidebar_layout_alignment_default( $theme_mod ) ) );
+		$theme_mod     = apply_filters( 'nueve4_sidebar_position', get_theme_mod( $theme_mod, $this->sidebar_layout_alignment_default( $theme_mod ) ) );
 
-		$layout       = get_theme_mod( 'neve_blog_archive_layout', 'grid' );
+		$layout       = get_theme_mod( 'nueve4_blog_archive_layout', 'grid' );
 		$posts_layout = ' nv-blog-' . $layout;
 
 		$classes[] = $posts_layout;
@@ -109,7 +109,7 @@ class Layout_Sidebar extends Base_View {
 	 * @return array
 	 */
 	public function get_sidebar_setup( $context ) {
-		$advanced_options = get_theme_mod( 'neve_advanced_layout_options', true );
+		$advanced_options = get_theme_mod( 'nueve4_advanced_layout_options', true );
 		$sidebar_setup    = [
 			'theme_mod'     => '',
 			'content_width' => '',
@@ -121,53 +121,53 @@ class Layout_Sidebar extends Base_View {
 		}
 
 		if ( $advanced_options === false ) {
-			$sidebar_setup['theme_mod']     = 'neve_default_sidebar_layout';
-			$sidebar_setup['content_width'] = 'neve_sitewide_content_width';
+			$sidebar_setup['theme_mod']     = 'nueve4_default_sidebar_layout';
+			$sidebar_setup['content_width'] = 'nueve4_sitewide_content_width';
 			$sidebar_setup['has_widgets']   = is_active_sidebar( $sidebar_setup['sidebar_slug'] );
 
-			return apply_filters( 'neve_before_returning_sidebar_setup', $sidebar_setup );
+			return apply_filters( 'nueve4_before_returning_sidebar_setup', $sidebar_setup );
 		}
 
 		switch ( $context ) {
 			case 'blog-archive':
-				$sidebar_setup['theme_mod']     = 'neve_blog_archive_sidebar_layout';
-				$sidebar_setup['content_width'] = 'neve_blog_archive_content_width';
+				$sidebar_setup['theme_mod']     = 'nueve4_blog_archive_sidebar_layout';
+				$sidebar_setup['content_width'] = 'nueve4_blog_archive_content_width';
 				break;
 			case 'single-post':
-				$sidebar_setup['theme_mod'] = 'neve_single_post_sidebar_layout';
+				$sidebar_setup['theme_mod'] = 'nueve4_single_post_sidebar_layout';
 				if ( class_exists( 'WooCommerce', false ) && is_product() ) {
-					$sidebar_setup['theme_mod']     = 'neve_single_product_sidebar_layout';
-					$sidebar_setup['content_width'] = 'neve_single_product_content_width';
+					$sidebar_setup['theme_mod']     = 'nueve4_single_product_sidebar_layout';
+					$sidebar_setup['content_width'] = 'nueve4_single_product_content_width';
 				}
 				break;
 			case 'single-page':
-				$sidebar_setup['theme_mod']     = 'neve_other_pages_sidebar_layout';
-				$sidebar_setup['content_width'] = 'neve_other_pages_content_width';
+				$sidebar_setup['theme_mod']     = 'nueve4_other_pages_sidebar_layout';
+				$sidebar_setup['content_width'] = 'nueve4_other_pages_content_width';
 				break;
 			case 'shop':
 				if ( class_exists( 'WooCommerce', false ) ) {
 					$sidebar_setup['sidebar_slug'] = 'shop-sidebar';
 					if ( is_woocommerce() ) {
-						$sidebar_setup['theme_mod']     = 'neve_shop_archive_sidebar_layout';
-						$sidebar_setup['content_width'] = 'neve_shop_archive_content_width';
+						$sidebar_setup['theme_mod']     = 'nueve4_shop_archive_sidebar_layout';
+						$sidebar_setup['content_width'] = 'nueve4_shop_archive_content_width';
 					}
 					if ( is_product() ) {
-						$sidebar_setup['theme_mod']     = 'neve_single_product_sidebar_layout';
-						$sidebar_setup['content_width'] = 'neve_single_product_content_width';
+						$sidebar_setup['theme_mod']     = 'nueve4_single_product_sidebar_layout';
+						$sidebar_setup['content_width'] = 'nueve4_single_product_content_width';
 					}
 				}
 				break;
 			default:
-				$sidebar_setup['theme_mod']     = 'neve_other_pages_sidebar_layout';
-				$sidebar_setup['content_width'] = 'neve_other_pages_content_width';
+				$sidebar_setup['theme_mod']     = 'nueve4_other_pages_sidebar_layout';
+				$sidebar_setup['content_width'] = 'nueve4_other_pages_content_width';
 		}
 
 		$sidebar_setup['has_widgets'] = is_active_sidebar( $sidebar_setup['sidebar_slug'] );
 
-		$sidebar_setup = apply_filters( 'neve_before_returning_sidebar_setup', apply_filters( 'neve_sidebar_setup_filter', $sidebar_setup ) );
+		$sidebar_setup = apply_filters( 'nueve4_before_returning_sidebar_setup', apply_filters( 'nueve4_sidebar_setup_filter', $sidebar_setup ) );
 
 		add_filter(
-			'neve_' . $context . '_sidebar_setup',
+			'nueve4_' . $context . '_sidebar_setup',
 			function () use ( $sidebar_setup ) {
 				return $sidebar_setup;
 			}
@@ -186,8 +186,8 @@ class Layout_Sidebar extends Base_View {
 		if ( $slug !== 'shop-sidebar' ) {
 			return '';
 		}
-		$label        = apply_filters( 'neve_filter_sidebar_close_button_text', __( 'Close', 'neve' ), $slug );
-		$button_attrs = apply_filters( 'neve_filter_sidebar_close_button_data_attrs', '', $slug );
+		$label        = apply_filters( 'nueve4_filter_sidebar_close_button_text', __( 'Close', 'nueve4' ), $slug );
+		$button_attrs = apply_filters( 'nueve4_filter_sidebar_close_button_data_attrs', '', $slug );
 
 		return '<div class="sidebar-header"><a href="#" class="nv-sidebar-toggle in-sidebar button-secondary secondary-default" ' . $button_attrs . '>' . esc_html( $label ) . '</a></div>';
 	}

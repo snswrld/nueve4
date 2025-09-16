@@ -23,9 +23,9 @@ class Pagination extends Base_View {
 	 */
 	public function init() {
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
-		add_filter( 'neve_filter_main_script_localization', array( $this, 'filter_localization' ) );
-		add_action( 'neve_do_pagination', array( $this, 'render_pagination' ) );
-		add_action( 'neve_post_navigation', array( $this, 'render_post_navigation' ) );
+		add_filter( 'nueve4_filter_main_script_localization', array( $this, 'filter_localization' ) );
+		add_action( 'nueve4_do_pagination', array( $this, 'render_pagination' ) );
+		add_action( 'nueve4_post_navigation', array( $this, 'render_post_navigation' ) );
 	}
 
 	/**
@@ -108,7 +108,7 @@ class Pagination extends Base_View {
 				 *
 				 * @since 2.11 in the /index.php
 				 */
-				do_action( 'neve_loop_entry_before' );
+				do_action( 'nueve4_loop_entry_before' );
 
 				get_template_part( 'template-parts/content' );
 
@@ -117,7 +117,7 @@ class Pagination extends Base_View {
 				 *
 				 * @since 2.11 in the /index.php
 				 */
-				do_action( 'neve_loop_entry_after' );
+				do_action( 'nueve4_loop_entry_after' );
 			} // @phpstan-ignore-next-line code is reachable
 			wp_reset_postdata();
 			$output = ob_get_contents();
@@ -184,7 +184,7 @@ class Pagination extends Base_View {
 			 *
 			 * @since 2.3.8
 			 */
-			do_action( 'neve_before_pagination' );
+			do_action( 'nueve4_before_pagination' );
 		}
 
 		$links = str_replace(
@@ -270,7 +270,7 @@ class Pagination extends Base_View {
 	private function render_single_pagination() {
 		wp_link_pages(
 			array(
-				'before'      => '<div class="post-pages-links"><span>' . apply_filters( 'neve_page_link_before', esc_html__( 'Pages:', 'neve' ) ) . '</span>',
+				'before'      => '<div class="post-pages-links"><span>' . apply_filters( 'nueve4_page_link_before', esc_html__( 'Pages:', 'nueve4' ) ) . '</span>',
 				'after'       => '</div>',
 				'link_before' => '<span>',
 				'link_after'  => '</span>',
@@ -287,16 +287,16 @@ class Pagination extends Base_View {
 
 		$prev_link = sprintf(
 			'<span class="nav-direction">%1$s</span><span>%2$s</span>',
-			esc_html__( 'previous', 'neve' ),
+			esc_html__( 'previous', 'nueve4' ),
 			'%title'
 		);
 		$next_link = sprintf(
 			'<span class="nav-direction">%1$s</span><span>%2$s</span>',
-			esc_html__( 'next', 'neve' ),
+			esc_html__( 'next', 'nueve4' ),
 			'%title'
 		);
 
-		echo '<div class="' . esc_attr( apply_filters( 'neve_post_navigation_class', 'nv-post-navigation' ) ) . '">';
+		echo '<div class="' . esc_attr( apply_filters( 'nueve4_post_navigation_class', 'nv-post-navigation' ) ) . '">';
 		previous_post_link( $prev_format, $prev_link );
 		next_post_link( $next_format, $next_link );
 		echo '</div>';
@@ -308,7 +308,7 @@ class Pagination extends Base_View {
 	 * @return bool
 	 */
 	private function has_jump_to() {
-		return get_theme_mod( 'neve_pagination_type', 'number' ) === 'jump-to';
+		return get_theme_mod( 'nueve4_pagination_type', 'number' ) === 'jump-to';
 	}
 
 	/**
@@ -317,14 +317,14 @@ class Pagination extends Base_View {
 	 * @return bool
 	 */
 	private function has_infinite_scroll() {
-		if ( neve_is_amp() ) {
+		if ( nueve4_is_amp() ) {
 			return false;
 		}
 		if ( is_search() ) {
 			return false;
 		}
 
-		$pagination_type = get_theme_mod( 'neve_pagination_type', 'number' );
+		$pagination_type = get_theme_mod( 'nueve4_pagination_type', 'number' );
 		if ( $pagination_type === 'infinite' ) {
 			return true;
 		}

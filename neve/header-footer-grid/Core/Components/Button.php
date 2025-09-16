@@ -78,7 +78,7 @@ class Button extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Button', 'neve' ) );
+		$this->set_property( 'label', __( 'Button', 'nueve4' ) );
 		$this->set_property( 'id', $this->get_class_const( 'COMPONENT_ID' ) );
 		$this->set_property( 'component_slug', 'hfg-button' );
 		$this->set_property( 'width', 2 );
@@ -96,7 +96,7 @@ class Button extends Abstract_Component {
 	 */
 	public function load_scripts() {
 		if ( $this->is_component_active() || is_customize_preview() ) {
-			wp_add_inline_style( 'neve-style', $this->toggle_style() );
+			wp_add_inline_style( 'nueve4-style', $this->toggle_style() );
 		}
 	}
 
@@ -106,7 +106,7 @@ class Button extends Abstract_Component {
 	 * @return string
 	 */
 	public function toggle_style() {
-		$button_values = Mods::get( $this->get_id() . '_' . self::STYLE_ID, neve_get_button_appearance_default() );
+		$button_values = Mods::get( $this->get_id() . '_' . self::STYLE_ID, nueve4_get_button_appearance_default() );
 		$css           = '';
 		if (
 			( isset( $button_values['useShadow'] ) && ! empty( $button_values['useShadow'] ) ) ||
@@ -132,7 +132,7 @@ class Button extends Abstract_Component {
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => 'wp_filter_nohtml_kses',
 				'default'            => '#',
-				'label'              => __( 'Link', 'neve' ),
+				'label'              => __( 'Link', 'nueve4' ),
 				'type'               => 'text',
 				'section'            => $this->section,
 				'use_dynamic_fields' => array( 'url' ),
@@ -147,8 +147,8 @@ class Button extends Abstract_Component {
 				'tab'                => SettingsManager::TAB_GENERAL,
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => 'wp_filter_nohtml_kses',
-				'default'            => __( 'Button', 'neve' ),
-				'label'              => __( 'Text', 'neve' ),
+				'default'            => __( 'Button', 'nueve4' ),
+				'label'              => __( 'Text', 'nueve4' ),
 				'type'               => 'text',
 				'section'            => $this->section,
 				'use_dynamic_fields' => array( 'string' ),
@@ -162,8 +162,8 @@ class Button extends Abstract_Component {
 				'group'              => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                => SettingsManager::TAB_GENERAL,
 				'section'            => $this->section,
-				'label'              => ucfirst( str_replace( [ '(', ')' ], '', __( '(opens in a new tab)', 'neve' ) ) ),
-				'type'               => 'neve_toggle_control',
+				'label'              => ucfirst( str_replace( [ '(', ')' ], '', __( '(opens in a new tab)', 'nueve4' ) ) ),
+				'type'               => 'nueve4_toggle_control',
 				'transport'          => 'postheader',
 				'sanitize_callback'  => 'absint',
 				'default'            => self::DEFAULT_OPEN_NEW_TAB,
@@ -177,8 +177,8 @@ class Button extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
-				'sanitize_callback'     => 'neve_sanitize_button_appearance',
-				'label'                 => __( 'Appearance', 'neve' ),
+				'sanitize_callback'     => 'nueve4_sanitize_button_appearance',
+				'label'                 => __( 'Appearance', 'nueve4' ),
 				'type'                  => '\Neve\Customizer\Controls\React\Button_Appearance',
 				'section'               => $this->section,
 				'conditional_header'    => $this->get_builder_id() === 'header',

@@ -18,7 +18,7 @@ class Group_Select extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_group_select';
+	public $type = 'nueve4_group_select';
 	/**
 	 * Additional arguments passed to JS.
 	 *

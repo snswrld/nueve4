@@ -98,7 +98,7 @@ class Autoloader {
 			$prefix = rtrim( $prefix, '\\' );
 		}
 
-		// never found a mapped file
+		// nueve4r found a mapped file
 		return false;
 	}
 
@@ -133,7 +133,7 @@ class Autoloader {
 			}
 		}
 
-		// never found it
+		// nueve4r found it
 		return false;
 	}
 

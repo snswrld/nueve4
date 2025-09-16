@@ -7,11 +7,11 @@
 
 return [
 	'post_type'    => 'page',
-	'post_title'   => _x( 'Portofolio', 'Theme starter content', 'neve' ),
+	'post_title'   => _x( 'Portofolio', 'Theme starter content', 'nueve4' ),
 	'post_content' => '<!-- wp:cover {"overlayColor":"nv-site-bg","minHeight":300,"align":"full"} -->
 <div class="wp-block-cover alignfull has-nv-site-bg-background-color has-background-dim" style="min-height:300px"><div class="wp-block-cover__inner-container"><!-- wp:group -->
-<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"level":1,"className":"has-text-align-left","textColor":"neve-text-color"} -->
-<h1 class="has-text-align-left has-neve-text-color-color has-text-color">Portfolio</h1>
+<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"level":1,"className":"has-text-align-left","textColor":"nueve4-text-color"} -->
+<h1 class="has-text-align-left has-nueve4-text-color-color has-text-color">Portfolio</h1>
 <!-- /wp:heading --></div></div>
 <!-- /wp:group --></div></div>
 <!-- /wp:cover -->
@@ -33,12 +33,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"textAlign":"center","level":3,"textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Buzz Website</h3>
+<!-- wp:heading {"textAlign":"center","level":3,"textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Buzz Website</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color"} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color"} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"align":"center", "layout":{"type":"flex","justifyContent":"center"}} -->
@@ -62,12 +62,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"textAlign":"center","level":3,"textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Branding for Chatoue</h3>
+<!-- wp:heading {"textAlign":"center","level":3,"textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Branding for Chatoue</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color"} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color"} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"align":"center", "layout":{"type":"flex","justifyContent":"center"}} -->
@@ -105,12 +105,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"textAlign":"center","level":3,"textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">IMB Internal Website</h3>
+<!-- wp:heading {"textAlign":"center","level":3,"textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">IMB Internal Website</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color"} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color"} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"align":"center", "layout":{"type":"flex","justifyContent":"center"}} -->
@@ -134,12 +134,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"textAlign":"center","level":3,"textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Social App</h3>
+<!-- wp:heading {"textAlign":"center","level":3,"textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Social App</h3>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"center","textColor":"neve-text-color"} -->
-<p class="has-text-align-center has-neve-text-color-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+<!-- wp:paragraph {"align":"center","textColor":"nueve4-text-color"} -->
+<p class="has-text-align-center has-nueve4-text-color-color has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"align":"center", "layout":{"type":"flex","justifyContent":"center"}} -->

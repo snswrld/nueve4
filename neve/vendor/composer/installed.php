@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'codeinwp/neve',
+        'name' => 'codeinwp/nueve4',
         'pretty_version' => 'v3.8.7',
         'version' => '3.8.7.0',
         'reference' => 'c7863930e1f73751144afb74ff839cf83f815f7b',
@@ -10,7 +10,7 @@
         'dev' => false,
     ),
     'versions' => array(
-        'codeinwp/neve' => array(
+        'codeinwp/nueve4' => array(
             'pretty_version' => 'v3.8.7',
             'version' => '3.8.7.0',
             'reference' => 'c7863930e1f73751144afb74ff839cf83f815f7b',

@@ -17,7 +17,7 @@
      * Initialize testimonials slider
      */
     function initTestimonialsSlider() {
-        $('.neve-testimonials-block.layout-slider').each(function() {
+        $('.nueve4-testimonials-block.layout-slider').each(function() {
             var $slider = $(this);
             var $items = $slider.find('.testimonial-item');
             var currentIndex = 0;
@@ -151,7 +151,7 @@
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('neve-animate-in');
+                        entry.target.classList.add('nueve4-animate-in');
                         observer.unobserve(entry.target);
                     }
                 });
@@ -161,7 +161,7 @@
             });
 
             // Observe premium blocks
-            document.querySelectorAll('.neve-testimonials-block, .neve-pricing-block, .neve-team-block').forEach(function(block) {
+            document.querySelectorAll('.nueve4-testimonials-block, .nueve4-pricing-block, .nueve4-team-block').forEach(function(block) {
                 observer.observe(block);
             });
         }
@@ -193,16 +193,16 @@
         
         // Adjust pricing table columns on mobile
         if (windowWidth < 768) {
-            $('.neve-pricing-block').addClass('mobile-view');
+            $('.nueve4-pricing-block').addClass('mobile-view');
         } else {
-            $('.neve-pricing-block').removeClass('mobile-view');
+            $('.nueve4-pricing-block').removeClass('mobile-view');
         }
 
         // Adjust team member columns on mobile
         if (windowWidth < 768) {
-            $('.neve-team-block').addClass('mobile-view');
+            $('.nueve4-team-block').addClass('mobile-view');
         } else {
-            $('.neve-team-block').removeClass('mobile-view');
+            $('.nueve4-team-block').removeClass('mobile-view');
         }
     }
 

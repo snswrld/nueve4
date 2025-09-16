@@ -18,7 +18,7 @@ class Builder extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_builder_control';
+	public $type = 'nueve4_builder_control';
 
 	/**
 	 * Builder Type

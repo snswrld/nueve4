@@ -19,7 +19,7 @@ class Ordering extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_ordering_control';
+	public $type = 'nueve4_ordering_control';
 
 	/**
 	 * Additional arguments passed to JS.

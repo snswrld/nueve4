@@ -7,10 +7,10 @@ const { InspectorControls, MediaUpload, RichText } = wp.blockEditor;
 const { PanelBody, Button, RangeControl, TextControl, IconButton } = wp.components;
 const { Fragment } = wp.element;
 
-registerBlockType('neve/team-members', {
+registerBlockType('nueve4/team-members', {
     title: 'Neve Team Members',
     icon: 'groups',
-    category: 'neve-blocks',
+    category: 'nueve4-blocks',
     attributes: {
         members: {
             type: 'array',
@@ -90,7 +90,7 @@ registerBlockType('neve/team-members', {
                     </PanelBody>
                 </InspectorControls>
 
-                <div className={`neve-team-block columns-${columns}`}>
+                <div className={`nueve4-team-block columns-${columns}`}>
                     <h3>Team Members</h3>
                     {members.map((member, memberIndex) => (
                         <div key={memberIndex} className="team-member">

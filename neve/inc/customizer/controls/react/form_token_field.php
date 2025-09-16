@@ -18,7 +18,7 @@ class Form_Token_Field extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_form_token_field';
+	public $type = 'nueve4_form_token_field';
 	/**
 	 * Additional arguments passed to JS.
 	 *

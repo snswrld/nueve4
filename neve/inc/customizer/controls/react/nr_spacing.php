@@ -18,7 +18,7 @@ class Nr_Spacing extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_non_responsive_spacing';
+	public $type = 'nueve4_non_responsive_spacing';
 
 	/**
 	 * Min.

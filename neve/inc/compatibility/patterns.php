@@ -49,7 +49,7 @@ class Patterns {
 		}
 		foreach ( $this->patterns as $pattern ) {
 			register_block_pattern(
-				'neve/' . $pattern,
+				'nueve4/' . $pattern,
 				require __DIR__ . '/block-patterns/' . $pattern . '.php'
 			);
 		}

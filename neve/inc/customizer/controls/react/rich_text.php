@@ -18,7 +18,7 @@ class Rich_Text extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_rich_text';
+	public $type = 'nueve4_rich_text';
 	/**
 	 * Send to JS.
 	 */

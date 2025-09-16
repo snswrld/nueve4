@@ -18,7 +18,7 @@ class Radio_Image extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_radio_image_control';
+	public $type = 'nueve4_radio_image_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

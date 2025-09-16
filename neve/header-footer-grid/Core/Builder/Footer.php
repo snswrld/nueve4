@@ -34,7 +34,7 @@ class Footer extends Abstract_Builder {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'title', __( 'Footer', 'neve' ) );
+		$this->set_property( 'title', __( 'Footer', 'nueve4' ) );
 		$this->set_property( 'columns_layout', true );
 		$this->set_property(
 			'description',
@@ -42,14 +42,14 @@ class Footer extends Abstract_Builder {
 				'hfg_footer_panel_description',
 				sprintf(
 				/* translators: %s link to documentation */
-					esc_html__( 'Design your %1$s by dragging, dropping and resizing all the elements in real-time. %2$s.', 'neve' ),
+					esc_html__( 'Design your %1$s by dragging, dropping and resizing all the elements in real-time. %2$s.', 'nueve4' ),
 					/* translators: %s builder type */
 					$this->get_property( 'title' ),
 					/* translators: %s link text */
 					sprintf(
-						'<br/><a target="_blank" rel="external noopener noreferrer" href="https://docs.themeisle.com/article/946-neve-doc#footer-builder"><span class="screen-reader-text">%s</span><svg xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" viewBox="0 0 512 512" width="12" height="12" style="margin-right: 5px;"><path fill="currentColor" d="M432 320H400a16 16 0 0 0-16 16V448H64V128H208a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16H48A48 48 0 0 0 0 112V464a48 48 0 0 0 48 48H400a48 48 0 0 0 48-48V336A16 16 0 0 0 432 320ZM488 0h-128c-21.4 0-32 25.9-17 41l35.7 35.7L135 320.4a24 24 0 0 0 0 34L157.7 377a24 24 0 0 0 34 0L435.3 133.3 471 169c15 15 41 4.5 41-17V24A24 24 0 0 0 488 0Z"/></svg>%s</a>',
-						esc_html__( '(opens in a new tab)', 'neve' ),
-						esc_html__( 'Read full documentation', 'neve' )
+						'<br/><a target="_blank" rel="external noopener noreferrer" href="https://docs.themeisle.com/article/946-nueve4-doc#footer-builder"><span class="screen-reader-text">%s</span><svg xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" viewBox="0 0 512 512" width="12" height="12" style="margin-right: 5px;"><path fill="currentColor" d="M432 320H400a16 16 0 0 0-16 16V448H64V128H208a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16H48A48 48 0 0 0 0 112V464a48 48 0 0 0 48 48H400a48 48 0 0 0 48-48V336A16 16 0 0 0 432 320ZM488 0h-128c-21.4 0-32 25.9-17 41l35.7 35.7L135 320.4a24 24 0 0 0 0 34L157.7 377a24 24 0 0 0 34 0L435.3 133.3 471 169c15 15 41 4.5 41-17V24A24 24 0 0 0 488 0Z"/></svg>%s</a>',
+						esc_html__( '(opens in a new tab)', 'nueve4' ),
+						esc_html__( 'Read full documentation', 'nueve4' )
 					)
 				)
 			)
@@ -59,26 +59,26 @@ class Footer extends Abstract_Builder {
 			array(
 				'description' => sprintf(
 				/* translators: 1: builder, 2: builder symbol */
-					esc_attr__( 'Welcome to the %1$s builder! Click the %2$s button to add a new component or follow the Quick Links.', 'neve' ),
+					esc_attr__( 'Welcome to the %1$s builder! Click the %2$s button to add a new component or follow the Quick Links.', 'nueve4' ),
 					$this->get_property( 'title' ),
 					'+'
 				),
 				'quickLinks'  => array(
 					'footer_copyright_content'            => array(
-						'label' => esc_html__( 'Change Copyright', 'neve' ),
+						'label' => esc_html__( 'Change Copyright', 'nueve4' ),
 						'icon'  => 'dashicons-nametag',
-						'url'   => $this->has_valid_addons() ? null : tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'copyright' ),
+						'url'   => $this->has_valid_addons() ? null : tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/', 'copyright' ),
 					),
 					'hfg_footer_layout_bottom_background' => array(
-						'label' => esc_html__( 'Change Footer Color', 'neve' ),
+						'label' => esc_html__( 'Change Footer Color', 'nueve4' ),
 						'icon'  => 'dashicons-admin-appearance',
 					),
 				),
 			)
 		);
 		$this->devices = [
-			'desktop' => __( 'Desktop', 'neve' ),
-			'mobile'  => __( 'Mobile', 'neve' ),
+			'desktop' => __( 'Desktop', 'nueve4' ),
+			'mobile'  => __( 'Mobile', 'nueve4' ),
 		];
 
 		/**
@@ -89,11 +89,11 @@ class Footer extends Abstract_Builder {
 			'dynamic_sidebar_params',
 			function ( $params ) {
 				$processed_params        = [];
-				$has_legacy_search_style = apply_filters( 'neve_has_legacy_search_style_filter', false );
+				$has_legacy_search_style = apply_filters( 'nueve4_has_legacy_search_style_filter', false );
 				foreach ( $params as $param ) {
 					if ( isset( $param['before_widget'] ) && strpos( $param['before_widget'], 'widget_search' ) !== false && $has_legacy_search_style === false ) {
 						$param['before_widget'] = '<style type="text/css">.widget_search .search-form .search-submit, .widget_search .search-form .search-field { height: auto; }</style>' . $param['before_widget'];
-						add_filter( 'neve_has_legacy_search_style_filter', '__return_true' );
+						add_filter( 'nueve4_has_legacy_search_style_filter', '__return_true' );
 					}
 					array_push( $processed_params, $param );
 				}
@@ -123,7 +123,7 @@ class Footer extends Abstract_Builder {
 			}
 		);
 
-		add_action( 'neve_after_slot_component', [ $this, 'add_footer_component' ], 10, 3 );
+		add_action( 'nueve4_after_slot_component', [ $this, 'add_footer_component' ], 10, 3 );
 	}
 
 	/**
@@ -155,8 +155,8 @@ class Footer extends Abstract_Builder {
 		$output  = '<div class="builder-item"><div class="item--inner"><div class="component-wrap"><div>';
 		$output .= sprintf(
 		/* translators: %1$s is Theme Name ( Neve ), %2$s is WordPress */
-			esc_html__( '%1$s | Powered by %2$s', 'neve' ),
-			wp_kses_post( '<p><a href="https://themeisle.com/themes/neve/" rel="nofollow">Neve</a>' ),
+			esc_html__( '%1$s | Powered by %2$s', 'nueve4' ),
+			wp_kses_post( '<p><a href="https://themeisle.com/themes/nueve4/" rel="nofollow">Neve</a>' ),
 			wp_kses_post( '<a href="http://wordpress.org" rel="nofollow">WordPress</a></p>' )
 		);
 		$output .= '</div></div></div></div>';
@@ -204,18 +204,18 @@ class Footer extends Abstract_Builder {
 	 * @access  protected
 	 */
 	protected function get_rows() {
-		if ( neve_is_new_builder() ) {
+		if ( nueve4_is_new_builder() ) {
 			return [
 				'top'    => array(
-					'title'       => __( 'Footer Top', 'neve' ),
+					'title'       => __( 'Footer Top', 'nueve4' ),
 					'description' => $this->get_property( 'description' ),
 				),
 				'main'   => array(
-					'title'       => __( 'Footer Main', 'neve' ),
+					'title'       => __( 'Footer Main', 'nueve4' ),
 					'description' => $this->get_property( 'description' ),
 				),
 				'bottom' => array(
-					'title'       => __( 'Footer Bottom', 'neve' ),
+					'title'       => __( 'Footer Bottom', 'nueve4' ),
 					'description' => $this->get_property( 'description' ),
 				),
 			];
@@ -223,11 +223,11 @@ class Footer extends Abstract_Builder {
 
 		return [
 			'top'    => array(
-				'title'       => __( 'Footer Top', 'neve' ),
+				'title'       => __( 'Footer Top', 'nueve4' ),
 				'description' => $this->get_property( 'description' ),
 			),
 			'bottom' => array(
-				'title'       => __( 'Footer Bottom', 'neve' ),
+				'title'       => __( 'Footer Bottom', 'nueve4' ),
 				'description' => $this->get_property( 'description' ),
 			),
 		];

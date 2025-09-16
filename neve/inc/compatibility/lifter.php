@@ -86,7 +86,7 @@ class Lifter {
 		add_action( 'lifterlms_loop', array( $this, 'content_wrapper_close' ), 100 );
 		add_filter( 'lifterlms_show_page_title', '__return_false' );
 
-		add_action( 'neve_llms_content', array( $this, 'content_open' ), 10 );
+		add_action( 'nueve4_llms_content', array( $this, 'content_open' ), 10 );
 		add_action(
 			'lifterlms_loop',
 			function() {
@@ -109,10 +109,10 @@ class Lifter {
 
 		add_filter( 'llms_checkout_error_output', array( $this, 'checkout_error_entry_content_close' ) );
 		add_filter(
-			'neve_lifter_sidebar_setup',
+			'nueve4_lifter_sidebar_setup',
 			function() {
 				return [
-					'theme_mod' => 'neve_default_sidebar_layout',
+					'theme_mod' => 'nueve4_default_sidebar_layout',
 					'side'      => $this->get_sidebar_position(),
 				];
 			}
@@ -124,7 +124,7 @@ class Lifter {
 	 */
 	private function add_inline_selectors() {
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_NORMAL,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_NORMAL,
 			array(
 				$this,
 				'add_primary_btns_normal',
@@ -133,7 +133,7 @@ class Lifter {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_HOVER,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_HOVER,
 			array(
 				$this,
 				'add_primary_btns_hover',
@@ -142,7 +142,7 @@ class Lifter {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_PADDING,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_PADDING,
 			array(
 				$this,
 				'add_primary_btns_padding',
@@ -153,7 +153,7 @@ class Lifter {
 
 
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_NORMAL,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_NORMAL,
 			array(
 				$this,
 				'add_secondary_btns_normal',
@@ -162,7 +162,7 @@ class Lifter {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_HOVER,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_HOVER,
 			array(
 				$this,
 				'add_secondary_btns_hover',
@@ -171,7 +171,7 @@ class Lifter {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_PADDING,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_PADDING,
 			array(
 				$this,
 				'add_secondary_btns_padding',
@@ -257,7 +257,7 @@ class Lifter {
 	public function load_styles() {
 		$path = 'lifter';
 
-		wp_enqueue_style( 'neve-lifter', NEVE_ASSETS_URL . 'css/' . $path . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'neve_version_filter', NEVE_VERSION ) );
+		wp_enqueue_style( 'nueve4-lifter', NEVE_ASSETS_URL . 'css/' . $path . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NEVE_VERSION ) );
 	}
 
 	/**
@@ -266,10 +266,10 @@ class Lifter {
 	 * @return string
 	 */
 	private function get_sidebar_position() {
-		$advanced_sidebar = get_theme_mod( 'neve_advanced_layout_options', false );
-		$sidebar_position = get_theme_mod( 'neve_default_sidebar_layout', 'right' );
+		$advanced_sidebar = get_theme_mod( 'nueve4_advanced_layout_options', false );
+		$sidebar_position = get_theme_mod( 'nueve4_default_sidebar_layout', 'right' );
 		if ( $advanced_sidebar === true ) {
-			$sidebar_position = get_theme_mod( 'neve_other_pages_sidebar_layout', 'right' );
+			$sidebar_position = get_theme_mod( 'nueve4_other_pages_sidebar_layout', 'right' );
 		}
 		return $sidebar_position;
 	}
@@ -280,10 +280,10 @@ class Lifter {
 	public function load_catalog_sidebar() {
 		$sidebar_position = $this->get_sidebar_position();
 		if ( $sidebar_position === 'right' ) {
-			add_action( 'neve_llms_content_after', array( $this, 'render_catalog_sidebar' ), 11 );
+			add_action( 'nueve4_llms_content_after', array( $this, 'render_catalog_sidebar' ), 11 );
 		}
 		if ( $sidebar_position === 'left' ) {
-			add_action( 'neve_llms_content', array( $this, 'render_catalog_sidebar' ), 1 );
+			add_action( 'nueve4_llms_content', array( $this, 'render_catalog_sidebar' ), 1 );
 		}
 	}
 
@@ -302,17 +302,17 @@ class Lifter {
 	 * Add markup before main content.
 	 */
 	public function content_wrapper_open() {
-		$container_class = apply_filters( 'neve_container_class_filter', 'container' );
+		$container_class = apply_filters( 'nueve4_container_class_filter', 'container' );
 		echo '<div class="' . esc_attr( $container_class ) . ' lms-container">';
 		echo '<div class="row">';
-		do_action( 'neve_llms_content' );
+		do_action( 'nueve4_llms_content' );
 	}
 
 	/**
 	 * Close Content Wrapper
 	 */
 	public function content_wrapper_close() {
-		do_action( 'neve_llms_content_after' );
+		do_action( 'nueve4_llms_content_after' );
 		echo '</div>';
 	}
 
@@ -328,7 +328,7 @@ class Lifter {
 		echo '</h1>';
 		echo '</div>';
 		echo '</div>';
-		$class = apply_filters( 'neve_lifter_wrap_classes', 'nv-content-wrap entry-content' );
+		$class = apply_filters( 'nueve4_lifter_wrap_classes', 'nv-content-wrap entry-content' );
 		echo '<div class="' . esc_attr( $class ) . '">';
 	}
 
@@ -338,7 +338,7 @@ class Lifter {
 	public function register_catalog_sidebar() {
 		register_sidebar(
 			array(
-				'name'          => __( 'Catalog Sidebar', 'neve' ),
+				'name'          => __( 'Catalog Sidebar', 'nueve4' ),
 				'id'            => 'llms_shop',
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -359,15 +359,15 @@ class Lifter {
 		$sidebar_position = $this->get_sidebar_position();
 		echo '<div class="nv-sidebar-wrap col-sm-12 nv-' . esc_attr( $sidebar_position ) . ' catalog-sidebar">';
 
-		do_action( 'neve_before_sidebar_content', 'lifter', $sidebar_position );
+		do_action( 'nueve4_before_sidebar_content', 'lifter', $sidebar_position );
 
-		$has_custom_sidebar = apply_filters( 'neve_has_custom_sidebar', false, 'lifter' );
+		$has_custom_sidebar = apply_filters( 'nueve4_has_custom_sidebar', false, 'lifter' );
 
 		if ( ! $has_custom_sidebar ) {
 			dynamic_sidebar( 'llms_shop' );
 		}
 
-		do_action( 'neve_after_sidebar_content', 'lifter', $sidebar_position );
+		do_action( 'nueve4_after_sidebar_content', 'lifter', $sidebar_position );
 
 		echo '</div>';
 	}

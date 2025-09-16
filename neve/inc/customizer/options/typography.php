@@ -53,7 +53,7 @@ class Typography extends Base_Customizer {
 		 *
 		 * @since 3.5.0
 		 */
-		$pairs = apply_filters( 'neve_font_pairings', Mods::get( Config::MODS_TPOGRAPHY_FONT_PAIRS, Config::$typography_default_pairs ) );
+		$pairs = apply_filters( 'nueve4_font_pairings', Mods::get( Config::MODS_TPOGRAPHY_FONT_PAIRS, Config::$typography_default_pairs ) );
 
 		/**
 		 * Font Pairs Control
@@ -70,14 +70,14 @@ class Typography extends Base_Customizer {
 					'input_attrs' => array(
 						'pairs'       => $pairs,
 						'description' => array(
-							'text' => __( 'Choose Font family presets for your Headings and Text.', 'neve' ),
-							'link' => apply_filters( 'neve_external_link', 'https://docs.themeisle.com/article/1340-neve-typography', esc_html__( 'Learn more', 'neve' ) ),
+							'text' => __( 'Choose Font family presets for your Headings and Text.', 'nueve4' ),
+							'link' => apply_filters( 'nueve4_external_link', 'https://docs.themeisle.com/article/1340-nueve4-typography', esc_html__( 'Learn more', 'nueve4' ) ),
 						),
 					),
-					'label'       => esc_html__( 'Font presets', 'neve' ),
+					'label'       => esc_html__( 'Font presets', 'nueve4' ),
 					'section'     => 'typography_font_pair_section',
 					'priority'    => 10,
-					'type'        => 'neve_font_pairings_control',
+					'type'        => 'nueve4_font_pairings_control',
 				),
 				'\Neve\Customizer\Controls\React\Font_Pairings'
 			)
@@ -90,19 +90,19 @@ class Typography extends Base_Customizer {
 	private function sections_typography() {
 		$typography_sections = array(
 			'typography_font_pair_section' => array(
-				'title'    => __( 'Font presets', 'neve' ),
+				'title'    => __( 'Font presets', 'nueve4' ),
 				'priority' => 15,
 			),
-			'neve_typography_general'      => array(
-				'title'    => __( 'General', 'neve' ),
+			'nueve4_typography_general'      => array(
+				'title'    => __( 'General', 'nueve4' ),
 				'priority' => 25,
 			),
-			'neve_typography_headings'     => array(
-				'title'    => __( 'Headings', 'neve' ),
+			'nueve4_typography_headings'     => array(
+				'title'    => __( 'Headings', 'nueve4' ),
 				'priority' => 35,
 			),
-			'neve_typography_blog'         => array(
-				'title'    => __( 'Blog', 'neve' ),
+			'nueve4_typography_blog'         => array(
+				'title'    => __( 'Blog', 'nueve4' ),
 				'priority' => 45,
 			),
 		);
@@ -113,7 +113,7 @@ class Typography extends Base_Customizer {
 					$section_id,
 					array(
 						'title'    => $section_data['title'],
-						'panel'    => 'neve_typography',
+						'panel'    => 'nueve4_typography',
 						'priority' => $section_data['priority'],
 					)
 				)
@@ -142,11 +142,11 @@ class Typography extends Base_Customizer {
 						'default'  => Config::MODS_FONT_GENERAL,
 						'variants' => Config::MODS_FONT_GENERAL_VARIANTS,
 					],
-					'label'                 => esc_html__( 'Body', 'neve' ),
-					'section'               => 'neve_typography_general',
+					'label'                 => esc_html__( 'Body', 'nueve4' ),
+					'section'               => 'nueve4_typography_general',
 					'priority'              => 10,
-					'type'                  => 'neve_font_family_control',
-					'live_refresh_selector' => apply_filters( 'neve_body_font_family_selectors', 'body, .site-title' ),
+					'type'                  => 'nueve4_font_family_control',
+					'live_refresh_selector' => apply_filters( 'nueve4_body_font_family_selectors', 'body, .site-title' ),
 					'live_refresh_css_prop' => [
 						'cssVar' => [
 							'vars'     => '--bodyfontfamily',
@@ -166,7 +166,7 @@ class Typography extends Base_Customizer {
 			Config::MODS_FONT_GENERAL_VARIANTS,
 			[
 				'transport'         => $this->selective_refresh,
-				'sanitize_callback' => 'neve_sanitize_font_variants',
+				'sanitize_callback' => 'nueve4_sanitize_font_variants',
 				'default'           => [],
 			]
 		);
@@ -182,7 +182,7 @@ class Typography extends Base_Customizer {
 				],
 				[
 					'priority'              => 11,
-					'section'               => 'neve_typography_general',
+					'section'               => 'nueve4_typography_general',
 					'input_attrs'           => array(
 						'size_units'             => [ 'px', 'em', 'rem' ],
 						'weight_default'         => 400,
@@ -190,8 +190,8 @@ class Typography extends Base_Customizer {
 						'line_height_default'    => $defaults['lineHeight'],
 						'letter_spacing_default' => $defaults['letterSpacing'],
 					),
-					'type'                  => 'neve_typeface_control',
-					'font_family_control'   => 'neve_body_font_family',
+					'type'                  => 'nueve4_typeface_control',
+					'font_family_control'   => 'nueve4_body_font_family',
 					'live_refresh_selector' => 'body, .site-title',
 					'live_refresh_css_prop' => [
 						'cssVar' => [
@@ -225,21 +225,21 @@ class Typography extends Base_Customizer {
 		 */
 		$this->add_control(
 			new Control(
-				'neve_fallback_font_family',
+				'nueve4_fallback_font_family',
 				[
 					'transport'         => $this->selective_refresh,
 					'sanitize_callback' => 'sanitize_text_field',
 					'default'           => 'Arial, Helvetica, sans-serif',
 				],
 				[
-					'label'                 => esc_html__( 'Fallback Font', 'neve' ),
-					'section'               => 'neve_typography_general',
+					'label'                 => esc_html__( 'Fallback Font', 'nueve4' ),
+					'section'               => 'nueve4_typography_general',
 					'priority'              => 12,
-					'type'                  => 'neve_font_family_control',
+					'type'                  => 'nueve4_font_family_control',
 					'input_attrs'           => [
 						'system' => true,
 						'link'   => [
-							'string'  => __( 'Learn more about fallback fonts', 'neve' ),
+							'string'  => __( 'Learn more about fallback fonts', 'nueve4' ),
 							'url'     => esc_url( 'https://docs.themeisle.com/article/1319-fallback-fonts' ),
 							'new_tab' => true,
 						],
@@ -267,16 +267,16 @@ class Typography extends Base_Customizer {
 		 */
 		$this->add_control(
 			new Control(
-				'neve_headings_font_family',
+				'nueve4_headings_font_family',
 				array(
 					'transport'         => $this->selective_refresh,
 					'sanitize_callback' => 'sanitize_text_field',
 				),
 				array(
-					'section'               => 'neve_typography_headings',
+					'section'               => 'nueve4_typography_headings',
 					'priority'              => 10,
-					'type'                  => 'neve_font_family_control',
-					'live_refresh_selector' => apply_filters( 'neve_headings_font_family_selectors', self::HEADINGS_FONT_FAMILY_SELECTORS ),
+					'type'                  => 'nueve4_font_family_control',
+					'live_refresh_selector' => apply_filters( 'nueve4_headings_font_family_selectors', self::HEADINGS_FONT_FAMILY_SELECTORS ),
 					'live_refresh_css_prop' => [
 						'cssVar' => [
 							'vars'     => '--headingsfontfamily',
@@ -293,19 +293,19 @@ class Typography extends Base_Customizer {
 			)
 		);
 
-		$selectors = neve_get_headings_selectors();
+		$selectors = nueve4_get_headings_selectors();
 		$priority  = 20;
 		foreach ( [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ] as $heading_id ) {
 			$this->add_control(
 				new Control(
-					'neve_' . $heading_id . '_accordion_wrap',
+					'nueve4_' . $heading_id . '_accordion_wrap',
 					array(
 						'sanitize_callback' => 'sanitize_text_field',
 						'transport'         => $this->selective_refresh,
 					),
 					array(
 						'label'            => $heading_id,
-						'section'          => 'neve_typography_headings',
+						'section'          => 'nueve4_typography_headings',
 						'priority'         => $priority += 1,
 						'class'            => esc_attr( 'advanced-sidebar-accordion-' . $heading_id ),
 						'accordion'        => true,
@@ -329,9 +329,9 @@ class Typography extends Base_Customizer {
 						'sanitize_callback' => 'sanitize_text_field',
 					),
 					array(
-						'section'               => 'neve_typography_headings',
+						'section'               => 'nueve4_typography_headings',
 						'priority'              => $priority += 1,
-						'type'                  => 'neve_font_family_control',
+						'type'                  => 'nueve4_font_family_control',
 						'live_refresh_selector' => apply_filters( $mod_key_font_family . '_selectors', self::HEADINGS_FONT_FAMILY_SELECTORS ),
 						'live_refresh_css_prop' => [
 							'cssVar' => [
@@ -349,7 +349,7 @@ class Typography extends Base_Customizer {
 				)
 			);
 
-			$mod_key        = 'neve_' . $heading_id . '_typeface_general';
+			$mod_key        = 'nueve4_' . $heading_id . '_typeface_general';
 			$default_values = Mods::get_alternative_mod_default( $mod_key );
 			$this->add_control(
 				new Control(
@@ -360,7 +360,7 @@ class Typography extends Base_Customizer {
 					],
 					[
 						'priority'              => $priority += 2,
-						'section'               => 'neve_typography_headings',
+						'section'               => 'nueve4_typography_headings',
 						'input_attrs'           => array(
 							'size_units'             => [ 'em', 'px', 'rem' ],
 							'weight_default'         => $default_values['fontWeight'],
@@ -368,7 +368,7 @@ class Typography extends Base_Customizer {
 							'line_height_default'    => $default_values['lineHeight'],
 							'letter_spacing_default' => $default_values['letterSpacing'],
 						),
-						'type'                  => 'neve_typeface_control',
+						'type'                  => 'nueve4_typeface_control',
 						'font_family_control'   => $mod_key_font_family,
 						'live_refresh_selector' => $selectors[ $heading_id ],
 						'live_refresh_css_prop' => [
@@ -405,42 +405,42 @@ class Typography extends Base_Customizer {
 	 */
 	private function controls_typography_blog() {
 		$controls = array(
-			'neve_archive_typography_post_title'         => array(
-				'label'                 => __( 'Post title', 'neve' ),
-				'category_label'        => __( 'Blog Archive', 'neve' ),
+			'nueve4_archive_typography_post_title'         => array(
+				'label'                 => __( 'Post title', 'nueve4' ),
+				'category_label'        => __( 'Blog Archive', 'nueve4' ),
 				'priority'              => 10,
-				'font_family_control'   => 'neve_headings_font_family',
+				'font_family_control'   => 'nueve4_headings_font_family',
 				'live_refresh_selector' => '.blog .blog-entry-title, .archive .blog-entry-title',
 			),
-			'neve_archive_typography_post_excerpt'       => array(
-				'label'                 => __( 'Post excerpt', 'neve' ),
+			'nueve4_archive_typography_post_excerpt'       => array(
+				'label'                 => __( 'Post excerpt', 'nueve4' ),
 				'priority'              => 20,
-				'font_family_control'   => 'neve_body_font_family',
+				'font_family_control'   => 'nueve4_body_font_family',
 				'live_refresh_selector' => '.blog .entry-summary, .archive .entry-summary, .blog .post-pages-links',
 			),
-			'neve_archive_typography_post_meta'          => array(
-				'label'                 => __( 'Post meta', 'neve' ),
+			'nueve4_archive_typography_post_meta'          => array(
+				'label'                 => __( 'Post meta', 'nueve4' ),
 				'priority'              => 30,
-				'font_family_control'   => 'neve_body_font_family',
+				'font_family_control'   => 'nueve4_body_font_family',
 				'live_refresh_selector' => '.blog .nv-meta-list li, .archive .nv-meta-list li',
 			),
-			'neve_single_post_typography_post_title'     => array(
-				'label'                 => __( 'Post title', 'neve' ),
-				'category_label'        => __( 'Single Post', 'neve' ),
+			'nueve4_single_post_typography_post_title'     => array(
+				'label'                 => __( 'Post title', 'nueve4' ),
+				'category_label'        => __( 'Single Post', 'nueve4' ),
 				'priority'              => 40,
-				'font_family_control'   => 'neve_headings_font_family',
+				'font_family_control'   => 'nueve4_headings_font_family',
 				'live_refresh_selector' => '.single h1.entry-title',
 			),
-			'neve_single_post_typography_post_meta'      => array(
-				'label'                 => __( 'Post meta', 'neve' ),
+			'nueve4_single_post_typography_post_meta'      => array(
+				'label'                 => __( 'Post meta', 'nueve4' ),
 				'priority'              => 50,
-				'font_family_control'   => 'neve_body_font_family',
+				'font_family_control'   => 'nueve4_body_font_family',
 				'live_refresh_selector' => '.single .nv-meta-list li',
 			),
-			'neve_single_post_typography_comments_title' => array(
-				'label'                 => __( 'Comments reply title', 'neve' ),
+			'nueve4_single_post_typography_comments_title' => array(
+				'label'                 => __( 'Comments reply title', 'nueve4' ),
 				'priority'              => 60,
-				'font_family_control'   => 'neve_headings_font_family',
+				'font_family_control'   => 'nueve4_headings_font_family',
 				'live_refresh_selector' => '.single .comment-reply-title',
 			),
 		);
@@ -448,7 +448,7 @@ class Typography extends Base_Customizer {
 		foreach ( $controls as $control_id => $control_settings ) {
 			$settings = array(
 				'label'            => $control_settings['label'],
-				'section'          => 'neve_typography_blog',
+				'section'          => 'nueve4_typography_blog',
 				'priority'         => $control_settings['priority'],
 				'class'            => esc_attr( 'typography-blog-' . $control_id ),
 				'accordion'        => true,
@@ -479,8 +479,8 @@ class Typography extends Base_Customizer {
 					],
 					[
 						'priority'              => $control_settings['priority'] += 1,
-						'section'               => 'neve_typography_blog',
-						'type'                  => 'neve_typeface_control',
+						'section'               => 'nueve4_typography_blog',
+						'type'                  => 'nueve4_typeface_control',
 						'font_family_control'   => $control_settings['font_family_control'],
 						'live_refresh_selector' => true,
 						'live_refresh_css_prop' => [
@@ -550,7 +550,7 @@ class Typography extends Base_Customizer {
 				'typography_extra_section',
 				[
 					'priority' => 9999, // upsell priority(10000) - 1
-					'panel'    => 'neve_typography',
+					'panel'    => 'nueve4_typography',
 				]
 			)
 		);

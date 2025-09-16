@@ -9,8 +9,8 @@
 /**
  * Handles migration for skin modes of rows
  */
-function neve_hfg_migrate_skin_to_bg_color() {
-	$flag = 'neve_migrated_hfg_colors';
+function nueve4_hfg_migrate_skin_to_bg_color() {
+	$flag = 'nueve4_migrated_hfg_colors';
 	if ( get_theme_mod( $flag ) ) {
 		return;
 	}
@@ -88,11 +88,11 @@ function neve_hfg_migrate_skin_to_bg_color() {
 }
 
 
-add_action( 'init', 'neve_hfg_migrate_skin_to_bg_color' );
+add_action( 'init', 'nueve4_hfg_migrate_skin_to_bg_color' );
 /**
  * Function to self heal theme mods option, in case of corrupted value.
  */
-function neve_self_heal_mods() {
+function nueve4_self_heal_mods() {
 	/** @var mixed $all_mods */
 	$all_mods = get_theme_mods();
 	if ( $all_mods === false ) {
@@ -105,13 +105,13 @@ function neve_self_heal_mods() {
 	delete_option( "theme_mods_$theme_slug" );
 }
 
-add_action( 'init', 'neve_self_heal_mods', 1 );
+add_action( 'init', 'nueve4_self_heal_mods', 1 );
 /**
  * Define migration logic for footer.
  *
  * @return array Migration schema.
  */
-function neve_hfg_footer_settings() {
+function nueve4_hfg_footer_settings() {
 
 	$empty_row = [
 		'left'    => [],
@@ -145,7 +145,7 @@ function neve_hfg_footer_settings() {
  *
  * @return array Migration schema.
  */
-function neve_hfg_header_settings() {
+function nueve4_hfg_header_settings() {
 	$empty_row = [
 		'left'    => [],
 		'c-left'  => [],
@@ -194,7 +194,7 @@ function neve_hfg_header_settings() {
  *
  * @return array Migration schema.
  */
-function neve_hfg_legacy_header_settings() {
+function nueve4_hfg_legacy_header_settings() {
 	$builder    = [
 		'desktop' => [
 			'top'    => [],
@@ -209,8 +209,8 @@ function neve_hfg_legacy_header_settings() {
 		],
 	];
 	$components = [];
-	if ( (bool) get_theme_mod( 'neve_top_bar_enable', false ) ) {
-		$alignament = get_theme_mod( 'neve_top_bar_layout', 'content-menu' );
+	if ( (bool) get_theme_mod( 'nueve4_top_bar_enable', false ) ) {
+		$alignament = get_theme_mod( 'nueve4_top_bar_layout', 'content-menu' );
 		if ( $alignament === 'content-menu' ) {
 			$builder['desktop']['top']['custom_html']    = [
 				'id'    => 'custom_html',
@@ -243,7 +243,7 @@ function neve_hfg_legacy_header_settings() {
 		}
 	}
 
-	$layout = get_theme_mod( 'neve_navigation_layout', 'left' );
+	$layout = get_theme_mod( 'nueve4_navigation_layout', 'left' );
 
 	if ( $layout === 'left' ) {
 		$builder['desktop']['main']['logo']            = [
@@ -335,14 +335,14 @@ function neve_hfg_legacy_header_settings() {
  *
  * @return array Migration schema.
  */
-function neve_hfg_legacy_footer_settings() {
+function nueve4_hfg_legacy_footer_settings() {
 	$builder  = [
 		'desktop' => [
 			'top'    => [],
 			'bottom' => [],
 		],
 	];
-	$sidebars = (int) get_theme_mod( 'neve_footer_widget_columns', '0' );
+	$sidebars = (int) get_theme_mod( 'nueve4_footer_widget_columns', '0' );
 
 	$sidebars_names = array(
 		'footer-one-widgets',
@@ -358,7 +358,7 @@ function neve_hfg_legacy_footer_settings() {
 		];
 	}
 	$components   = [];
-	$content_type = get_theme_mod( 'neve_footer_content_type', 'text' );
+	$content_type = get_theme_mod( 'nueve4_footer_content_type', 'text' );
 	if ( $content_type === 'text' ) {
 		$builder['desktop']['bottom']['footer_copyright']  = [
 			'id'    => 'footer_copyright',
@@ -389,9 +389,9 @@ function neve_hfg_legacy_footer_settings() {
 add_filter(
 	'hfg_settings_schema',
 	function ( $old_schema ) {
-		$is_new_builder = neve_is_new_builder();
-		$header         = $is_new_builder ? neve_hfg_header_settings() : neve_hfg_legacy_header_settings();
-		$footer         = $is_new_builder ? neve_hfg_footer_settings() : neve_hfg_legacy_footer_settings();
+		$is_new_builder = nueve4_is_new_builder();
+		$header         = $is_new_builder ? nueve4_hfg_header_settings() : nueve4_hfg_legacy_header_settings();
+		$footer         = $is_new_builder ? nueve4_hfg_footer_settings() : nueve4_hfg_legacy_footer_settings();
 
 		$empty_row   = [
 			'left'    => [],
@@ -463,7 +463,7 @@ add_filter(
  *
  * @return array
  */
-function neve_add_page_header_menu_classes( $args ) {
+function nueve4_add_page_header_menu_classes( $args ) {
 	if ( $args['theme_location'] !== 'page-header' ) {
 		return $args;
 	}
@@ -473,4 +473,4 @@ function neve_add_page_header_menu_classes( $args ) {
 	return $args;
 }
 
-add_filter( 'wp_nav_menu_args', 'neve_add_page_header_menu_classes', 10, 1 );
+add_filter( 'wp_nav_menu_args', 'nueve4_add_page_header_menu_classes', 10, 1 );

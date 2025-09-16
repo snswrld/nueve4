@@ -34,7 +34,7 @@ class Tracker {
 		try {
 			$payload = array();
 
-			$license = apply_filters( 'product_neve_license_key', 'free' );
+			$license = apply_filters( 'product_nueve4_license_key', 'free' );
 
 			if ( 'free' !== $license ) {
 				$license = wp_hash( $license );
@@ -42,7 +42,7 @@ class Tracker {
 
 			foreach ( $events as $event ) {
 				$payload[] = array(
-					'slug'    => 'neve',
+					'slug'    => 'nueve4',
 					'site'    => get_site_url(),
 					'license' => $license,
 					'data'    => $event,
@@ -68,6 +68,6 @@ class Tracker {
 	 * @return bool
 	 */
 	public static function has_consent() {
-		return (bool) get_option( 'neve_logger_flag', false );
+		return (bool) get_option( 'nueve4_logger_flag', false );
 	}
 }
