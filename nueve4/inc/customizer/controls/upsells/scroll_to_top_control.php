@@ -2,16 +2,16 @@
 /**
  * The upsell customize control for Scroll To Top extends the WP_Customize_Control class.
  *
- * @package    Neve\Customizer\Controls
+ * @package    Nueve4\Customizer\Controls
  * @since      3.8.0
  * @copyright  Copyright (c) 2017, Themeisle
  * @link       http://themeisle.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-namespace Neve\Customizer\Controls\Upsells;
+namespace Nueve4\Customizer\Controls\Upsells;
 
-use Neve\Core\Dynamic_Css;
+use Nueve4\Core\Dynamic_Css;
 
 /**
  * Scroll to top upsell customize control.
@@ -23,7 +23,7 @@ class Scroll_To_Top_Control extends \WP_Customize_Control {
 	 * @since 2.3.10
 	 * @var   string
 	 */
-	public $type = 'neve-scroll-to-top-upsell';
+	public $type = 'nueve4-scroll-to-top-upsell';
 
 	/**
 	 * Underscore JS template to handle the control's output.
@@ -68,7 +68,7 @@ class Scroll_To_Top_Control extends \WP_Customize_Control {
 				height: auto;
 			}
 
-			.customize-control-neve-scroll-to-top-upsell .components-range-control__root {
+			.customize-control-nueve4-scroll-to-top-upsell .components-range-control__root {
 				-webkit-tap-highlight-color: transparent;
 				-webkit-box-align: center;
 				align-items: center;
@@ -82,7 +82,7 @@ class Scroll_To_Top_Control extends \WP_Customize_Control {
 				min-height: 30px;
 				gap: 16px;
 			}
-			.customize-control-neve-scroll-to-top-upsell .components-range-control__wrapper {
+			.customize-control-nueve4-scroll-to-top-upsell .components-range-control__wrapper {
 				display: block;
 				flex: 1 1 0%;
 				position: relative;
@@ -91,7 +91,7 @@ class Scroll_To_Top_Control extends \WP_Customize_Control {
 				height: 30px;
 				min-height: 30px;
 			}
-			.customize-control-neve-scroll-to-top-upsell .components-range-control__track_bg {
+			.customize-control-nueve4-scroll-to-top-upsell .components-range-control__track_bg {
 				background-color: rgb(221, 221, 221);
 				left: 0px;
 				pointer-events: none;
@@ -103,7 +103,7 @@ class Scroll_To_Top_Control extends \WP_Customize_Control {
 				top: 0px;
 				border-radius: 4px;
 			}
-			.customize-control-neve-scroll-to-top-upsell .components-range-control__track {
+			.customize-control-nueve4-scroll-to-top-upsell .components-range-control__track {
 				border-radius: 4px;
 				height: 4px;
 				pointer-events: none;
@@ -113,7 +113,7 @@ class Scroll_To_Top_Control extends \WP_Customize_Control {
 				top: 0px;
 				background: currentcolor;
 			}
-			.customize-control-neve-scroll-to-top-upsell .components-range-control__thumb-wrapper {
+			.customize-control-nueve4-scroll-to-top-upsell .components-range-control__thumb-wrapper {
 				-webkit-box-align: center;
 				align-items: center;
 				display: flex;
@@ -132,7 +132,7 @@ class Scroll_To_Top_Control extends \WP_Customize_Control {
 				margin-left: -10px;
 				transform: translateX(4.5px);
 			}
-			.customize-control-neve-scroll-to-top-upsell .components-range-control__thumb-wrapper span {
+			.customize-control-nueve4-scroll-to-top-upsell .components-range-control__thumb-wrapper span {
 				-webkit-box-align: center;
 				align-items: center;
 				border-radius: 50%;
@@ -154,8 +154,8 @@ SVG;
 		<style>
 			<?php echo $css; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</style>
-		<div class="neve-white-background-control upsell-control-spacing">
-			<div class="components-base-control components-toggle-control neve-toggle-control">
+		<div class="nueve4-white-background-control upsell-control-spacing">
+			<div class="components-base-control components-toggle-control nueve4-toggle-control">
 				<div class="components-base-control__field">
 					<div class="components-flex components-h-stack">
 						<span class="dashicons dashicons-lock"></span>
@@ -165,11 +165,11 @@ SVG;
 			</div>
 		</div>
 		<div class="upsell-control-spacing">
-			<div role="button" class="neve-customizer-heading upsell-accordion-header" onclick="(function () { document.getElementById('neve-stt-general-content')?.classList?.toggle('expanded'); })();">
+			<div role="button" class="nueve4-customizer-heading upsell-accordion-header" onclick="(function () { document.getElementById('nueve4-stt-general-content')?.classList?.toggle('expanded'); })();">
 				<span class="accordion-heading">General</span>
 				<span class="accordion-expand-button"></span>
 			</div>
-			<div id="neve-stt-general-content" class="upsell-accordion-content">
+			<div id="nueve4-stt-general-content" class="upsell-accordion-content">
 				<div class="upsell-control-spacing">
 					<label class="customize-control-title">Choose Side</label>
 					<select disabled>
@@ -184,9 +184,9 @@ SVG;
 						<option value="image">Image</option>
 					</select>
 				</div>
-				<div class="neve-white-background-control upsell-control-spacing">
+				<div class="nueve4-white-background-control upsell-control-spacing">
 					<span class="customize-control-title">Scroll to Top Icon</span>
-					<div class="neve-radio-icons"><span>
+					<div class="nueve4-radio-icons"><span>
 					<button type="button" aria-label="Icon Style 1" class="components-button active has-icon" disabled>
 						<svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 15 15" focusable="false">
 							<rect width="15" height="15" fill="none"></rect>
@@ -240,8 +240,8 @@ SVG;
 					<input type="text" value="" disabled>
 				</div>
 
-				<div class="neve-white-background-control neve-range-control">
-					<div class="neve-control-header">
+				<div class="nueve4-white-background-control nueve4-range-control">
+					<div class="nueve4-control-header">
 						<span class="customize-control-title">Offset (px)</span>
 					</div>
 					<div class="range-wrap">
@@ -275,8 +275,8 @@ SVG;
 			</div>
 		</div>
 
-		<div class="neve-white-background-control upsell-control-spacing">
-			<div class="components-base-control components-toggle-control neve-toggle-control ">
+		<div class="nueve4-white-background-control upsell-control-spacing">
+			<div class="components-base-control components-toggle-control nueve4-toggle-control ">
 				<div class="components-base-control__field">
 					<div class="components-flex components-h-stack">
 						<span class="dashicons dashicons-lock"></span>
@@ -287,15 +287,15 @@ SVG;
 		</div>
 
 		<div class="upsell-control-spacing">
-			<div role="button" class="neve-customizer-heading upsell-accordion-header" onclick="(function () { document.getElementById('neve-stt-style-content')?.classList?.toggle('expanded'); })();">
+			<div role="button" class="nueve4-customizer-heading upsell-accordion-header" onclick="(function () { document.getElementById('nueve4-stt-style-content')?.classList?.toggle('expanded'); })();">
 				<span class="accordion-heading">Style</span>
 				<span class="accordion-expand-button"></span>
 			</div>
-			<div id="neve-stt-style-content" class="upsell-accordion-content">
-				<div class="neve-white-background-control neve-sizing upsell-control-spacing">
-					<div class="neve-control-header">
+			<div id="nueve4-stt-style-content" class="upsell-accordion-content">
+				<div class="nueve4-white-background-control nueve4-sizing upsell-control-spacing">
+					<div class="nueve4-control-header">
 						<span class="customize-control-title">Padding</span>
-						<div class="neve-responsive-control-bar">
+						<div class="nueve4-responsive-control-bar">
 							<div class="floating-controls">
 								<div role="group" class="components-button-group">
 									<button type="button" aria-label="Desktop" class="components-button desktop has-icon">
@@ -310,13 +310,13 @@ SVG;
 								</div>
 							</div>
 						</div>
-						<div class="neve-units">
+						<div class="nueve4-units">
 							<button type="button" class="components-button active is-small">px</button>
 							<button type="button" class="components-button is-small">em</button>
 							<button type="button" class="components-button is-small">rem</button>
 						</div>
 					</div>
-					<div class="neve-responsive-sizing">
+					<div class="nueve4-responsive-sizing">
 						<button type="button" aria-label="Link values" class="components-button link has-icon">
 							<span class="dashicon dashicons dashicons-editor-unlink"></span>
 						</button><div class="nv-sizing-item">
@@ -336,9 +336,9 @@ SVG;
 						</div>
 					</div>
 				</div>
-				<div class="neve-white-background-control neve-range-control upsell-control-spacing">
-					<div class="neve-control-header"><span class="customize-control-title">Icon Size</span>
-						<div class="neve-responsive-control-bar">
+				<div class="nueve4-white-background-control nueve4-range-control upsell-control-spacing">
+					<div class="nueve4-control-header"><span class="customize-control-title">Icon Size</span>
+						<div class="nueve4-responsive-control-bar">
 							<div class="floating-controls">
 								<div role="group" class="components-button-group">
 									<button type="button" aria-label="Desktop" class="components-button desktop has-icon">
@@ -353,7 +353,7 @@ SVG;
 								</div>
 							</div>
 						</div>
-						<div class="neve-units">
+						<div class="nueve4-units">
 							<button type="button" class="components-button active is-small">px</button>
 							<button type="button" class="components-button is-small">em</button>
 							<button type="button" class="components-button is-small">rem</button>
@@ -387,8 +387,8 @@ SVG;
 						</div>
 					</div>
 				</div>
-				<div class="neve-white-background-control neve-range-control">
-					<div class="neve-control-header">
+				<div class="nueve4-white-background-control nueve4-range-control">
+					<div class="nueve4-control-header">
 						<span class="customize-control-title">Border Radius</span>
 					</div>
 					<div class="range-wrap">
@@ -423,14 +423,14 @@ SVG;
 		</div>
 
 		<div class="upsell-control-spacing">
-			<div role="button" class="neve-customizer-heading upsell-accordion-header" onclick="(function () { document.getElementById('neve-stt-colors-content')?.classList?.toggle('expanded'); })();">
+			<div role="button" class="nueve4-customizer-heading upsell-accordion-header" onclick="(function () { document.getElementById('nueve4-stt-colors-content')?.classList?.toggle('expanded'); })();">
 				<span class="accordion-heading">Colors</span>
 				<span class="accordion-expand-button"></span>
 			</div>
 
-			<div id="neve-stt-colors-content" class="upsell-accordion-content">
-				<div class="neve-white-background-control neve-color-control upsell-control-spacing">
-					<div class="neve-control-header neve-color-component allows-global">
+			<div id="nueve4-stt-colors-content" class="upsell-accordion-content">
+				<div class="nueve4-white-background-control nueve4-color-control upsell-control-spacing">
+					<div class="nueve4-control-header nueve4-color-component allows-global">
 						<span class="customize-control-title">Color</span>
 						<div class="components-dropdown" tabindex="-1">
 							<button type="button" aria-expanded="false" aria-label="Global Colors" role="button" class="components-button global-color-picker active">
@@ -445,8 +445,8 @@ SVG;
 						</div>
 					</div>
 				</div>
-				<div class="neve-white-background-control neve-color-control upsell-control-spacing">
-					<div class="neve-control-header neve-color-component allows-global">
+				<div class="nueve4-white-background-control nueve4-color-control upsell-control-spacing">
+					<div class="nueve4-control-header nueve4-color-component allows-global">
 						<span class="customize-control-title">Hover Color</span>
 						<div class="components-dropdown" tabindex="-1">
 							<button type="button" aria-expanded="false" aria-label="Global Colors" role="button" class="components-button global-color-picker active">
@@ -461,8 +461,8 @@ SVG;
 						</div>
 					</div>
 				</div>
-				<div class="neve-white-background-control neve-color-control upsell-control-spacing">
-					<div class="neve-control-header neve-color-component allows-global">
+				<div class="nueve4-white-background-control nueve4-color-control upsell-control-spacing">
+					<div class="nueve4-control-header nueve4-color-component allows-global">
 						<span class="customize-control-title">Background Color</span>
 						<div class="components-dropdown" tabindex="-1">
 							<button type="button" aria-expanded="false" aria-label="Global Colors" role="button" class="components-button global-color-picker active">
@@ -477,8 +477,8 @@ SVG;
 						</div>
 					</div>
 				</div>
-				<div class="neve-white-background-control neve-color-control upsell-control-spacing">
-					<div class="neve-control-header neve-color-component allows-global">
+				<div class="nueve4-white-background-control nueve4-color-control upsell-control-spacing">
+					<div class="nueve4-control-header nueve4-color-component allows-global">
 						<span class="customize-control-title">Background Hover Color</span>
 						<div class="components-dropdown" tabindex="-1">
 							<button type="button" aria-expanded="false" aria-label="Global Colors" role="button" class="components-button global-color-picker active">

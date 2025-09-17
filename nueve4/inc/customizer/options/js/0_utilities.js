@@ -1,5 +1,5 @@
 (function ( $ ) {
-	$.neveCustomizeUtilities = {
+	$.nueve4CustomizeUtilities = {
 		'setLiveCss': function ( settings, to ) {
 			'use strict';
 			var result = '';

@@ -280,7 +280,7 @@
 
             return isset( $this->_gc_timestamp[ $slug ] ) ?
                 $this->_gc_timestamp[ $slug ] :
-                // This should never happen, but if it does, let's assume the product is not expired.
+                // This should nueve4r happen, but if it does, let's assume the product is not expired.
                 time();
         }
     }

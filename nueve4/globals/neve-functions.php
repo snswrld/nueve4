@@ -1,6 +1,6 @@
 <?php
 /**
- * Additional Neve compatibility functions
+ * Additional Nueve4 compatibility functions
  *
  * @package Nueve4
  */
@@ -17,8 +17,8 @@ if (!function_exists('nueve4_is_new_widget_editor')) {
     }
 }
 
-if (!function_exists('neve_is_new_widget_editor')) {
-    function neve_is_new_widget_editor() {
+if (!function_exists('nueve4_is_new_widget_editor')) {
+    function nueve4_is_new_widget_editor() {
         return nueve4_is_new_widget_editor();
     }
 }
@@ -43,13 +43,13 @@ if (!function_exists('tsdk_utmify')) {
     }
 }
 
-if (!function_exists('neve_get_google_fonts')) {
+if (!function_exists('nueve4_get_google_fonts')) {
     /**
      * Get Google Fonts list
      *
      * @return array
      */
-    function neve_get_google_fonts() {
+    function nueve4_get_google_fonts() {
         return array(
             'System Stack' => array(
                 'family' => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',

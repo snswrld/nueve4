@@ -2,18 +2,18 @@
 /**
  * Style generator based on settings.
  *
- * @package Neve\Core\Styles
+ * @package Nueve4\Core\Styles
  */
 
-namespace Neve\Core\Styles;
+namespace Nueve4\Core\Styles;
 
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
 
 /**
  * Class Generator
  *
- * @package Neve\Core\Styles
+ * @package Nueve4\Core\Styles
  */
 class Generator {
 	/**
@@ -50,7 +50,7 @@ class Generator {
 		}
 
 		/**
-		 * Neve try to build the CSS as mobile first.
+		 * Nueve4 try to build the CSS as mobile first.
 		 * Based on this fact, the general CSS is considered the mobile one.
 		 */
 		$dynamic_selectors = new Dynamic_Selector( $this->_subscribers, $this->context );

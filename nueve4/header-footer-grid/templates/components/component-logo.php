@@ -58,7 +58,7 @@ if ( $is_not_link ) {
 do_action( 'hfg_before_wp_get_attachment_image', $custom_logo_id );
 
 $logo_settings = array(
-	'class'        => 'neve-site-logo',
+	'class'        => 'nueve4-site-logo',
 	'data-variant' => $_id,
 );
 
@@ -69,7 +69,7 @@ $logo_settings = array(
  *
  * @since 2.11
  */
-$should_add_skip_lazy = apply_filters( 'neve_skip_lazy', true );
+$should_add_skip_lazy = apply_filters( 'nueve4_skip_lazy', true );
 if ( $should_add_skip_lazy ) {
 	$logo_settings['class'] = isset( $logo_settings['class'] ) ? $logo_settings['class'] . ' skip-lazy' : 'skip-lazy';
 }

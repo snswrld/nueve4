@@ -6,12 +6,12 @@
  * @package Ordering.php
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * Class Ordering
  *
- * @package Neve\Customizer\Controls
+ * @package Nueve4\Customizer\Controls
  */
 class Ordering extends \WP_Customize_Control {
 

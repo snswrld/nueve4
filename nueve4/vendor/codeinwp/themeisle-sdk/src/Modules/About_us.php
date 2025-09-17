@@ -96,8 +96,8 @@ class About_Us extends Abstract_Module {
 
 		add_submenu_page(
 			$this->about_data['location'],
-			__( 'About Us', 'neve' ),
-			__( 'About Us', 'neve' ),
+			__( 'About Us', 'nueve4' ),
+			__( 'About Us', 'nueve4' ),
 			'manage_options',
 			$this->get_about_page_slug(),
 			array( $this, 'render_about_us_page' ),
@@ -188,20 +188,20 @@ class About_Us extends Abstract_Module {
 			],
 			'teamImage'          => $this->get_sdk_uri() . 'assets/images/team.jpg',
 			'strings'            => [
-				'aboutUs'          => __( 'About us', 'neve' ),
-				'heroHeader'       => __( 'Our Story', 'neve' ),
-				'heroTextFirst'    => __( 'Themeisle was founded in 2012 by a group of passionate developers who wanted to create beautiful and functional WordPress themes and plugins. Since then, we have grown into a team of over 20 dedicated professionals who are committed to delivering the best possible products to our customers.', 'neve' ),
-				'heroTextSecond'   => __( 'At Themeisle, we offer a wide range of WordPress themes and plugins that are designed to meet the needs of both beginners and advanced users. Our products are feature-rich, easy to use, and are designed to help you create beautiful and functional websites.', 'neve' ),
-				'teamImageCaption' => __( 'Our team in WCEU2022 in Portugal', 'neve' ),
-				'newsHeading'      => __( 'Stay connected for news & updates!', 'neve' ),
-				'emailPlaceholder' => __( 'Your email address', 'neve' ),
-				'signMeUp'         => __( 'Sign me up', 'neve' ),
-				'installNow'       => __( 'Install Now', 'neve' ),
-				'activate'         => __( 'Activate', 'neve' ),
-				'learnMore'        => __( 'Learn More', 'neve' ),
-				'installed'        => __( 'Installed', 'neve' ),
-				'notInstalled'     => __( 'Not Installed', 'neve' ),
-				'active'           => __( 'Active', 'neve' ),
+				'aboutUs'          => __( 'About us', 'nueve4' ),
+				'heroHeader'       => __( 'Our Story', 'nueve4' ),
+				'heroTextFirst'    => __( 'Themeisle was founded in 2012 by a group of passionate developers who wanted to create beautiful and functional WordPress themes and plugins. Since then, we have grown into a team of over 20 dedicated professionals who are committed to delivering the best possible products to our customers.', 'nueve4' ),
+				'heroTextSecond'   => __( 'At Themeisle, we offer a wide range of WordPress themes and plugins that are designed to meet the needs of both beginners and advanced users. Our products are feature-rich, easy to use, and are designed to help you create beautiful and functional websites.', 'nueve4' ),
+				'teamImageCaption' => __( 'Our team in WCEU2022 in Portugal', 'nueve4' ),
+				'newsHeading'      => __( 'Stay connected for news & updates!', 'nueve4' ),
+				'emailPlaceholder' => __( 'Your email address', 'nueve4' ),
+				'signMeUp'         => __( 'Sign me up', 'nueve4' ),
+				'installNow'       => __( 'Install Now', 'nueve4' ),
+				'activate'         => __( 'Activate', 'nueve4' ),
+				'learnMore'        => __( 'Learn More', 'nueve4' ),
+				'installed'        => __( 'Installed', 'nueve4' ),
+				'notInstalled'     => __( 'Not Installed', 'nueve4' ),
+				'active'           => __( 'Active', 'nueve4' ),
 			],
 			'canInstallPlugins'  => current_user_can( 'install_plugins' ),
 			'canActivatePlugins' => current_user_can( 'activate_plugins' ),
@@ -232,35 +232,35 @@ class About_Us extends Abstract_Module {
 				'product' => $otter_slug,
 				'plugin'  => $otter_plugin,
 				'strings' => [
-					'heading'      => __( 'Build innovative layouts with Otter Blocks and Gutenberg', 'neve' ),
-					'text'         => __( 'Otter is a lightweight, dynamic collection of page building blocks and templates for the WordPress block editor.', 'neve' ),
+					'heading'      => __( 'Build innovative layouts with Otter Blocks and Gutenberg', 'nueve4' ),
+					'text'         => __( 'Otter is a lightweight, dynamic collection of page building blocks and templates for the WordPress block editor.', 'nueve4' ),
 					'buttons'      => [
-						'install_otter_free' => __( "Install Otter - It's free!", 'neve' ),
-						'install_now'        => __( 'Install Now', 'neve' ),
-						'learn_more'         => __( 'Learn More', 'neve' ),
+						'install_otter_free' => __( "Install Otter - It's free!", 'nueve4' ),
+						'install_now'        => __( 'Install Now', 'nueve4' ),
+						'learn_more'         => __( 'Learn More', 'nueve4' ),
 						'learn_more_link'    => tsdk_utmify( 'https://themeisle.com/plugins/otter-blocks/', 'otter-page', 'about-us' ),
 					],
 					'features'     => [
-						'advancedTitle' => __( 'Advanced Features', 'neve' ),
-						'advancedDesc'  => __( 'Add features such as Custom CSS, Animations & Visibility Conditions to all blocks.', 'neve' ),
-						'fastTitle'     => __( 'Lightweight and Fast', 'neve' ),
-						'fastDesc'      => __( 'Otter enhances WordPress site building experience without impacting site speed.', 'neve' ),
-						'mobileTitle'   => __( 'Mobile-Friendly', 'neve' ),
-						'mobileDesc'    => __( 'Each block can be tweaked to provide a consistent experience across all devices.', 'neve' ),
+						'advancedTitle' => __( 'Advanced Features', 'nueve4' ),
+						'advancedDesc'  => __( 'Add features such as Custom CSS, Animations & Visibility Conditions to all blocks.', 'nueve4' ),
+						'fastTitle'     => __( 'Lightweight and Fast', 'nueve4' ),
+						'fastDesc'      => __( 'Otter enhances WordPress site building experience without impacting site speed.', 'nueve4' ),
+						'mobileTitle'   => __( 'Mobile-Friendly', 'nueve4' ),
+						'mobileDesc'    => __( 'Each block can be tweaked to provide a consistent experience across all devices.', 'nueve4' ),
 					],
 					'details'      => [
 						's1Image' => $this->get_sdk_uri() . 'assets/images/otter/otter-builder.png',
-						's1Title' => __( 'A Better Page Building Experience', 'neve' ),
-						's1Text'  => __( 'Otter can be used to build everything from a personal blog to an e-commerce site without losing the personal touch. Otter’s ease of use transforms basic blocks into expressive layouts in seconds.', 'neve' ),
+						's1Title' => __( 'A Better Page Building Experience', 'nueve4' ),
+						's1Text'  => __( 'Otter can be used to build everything from a personal blog to an e-commerce site without losing the personal touch. Otter’s ease of use transforms basic blocks into expressive layouts in seconds.', 'nueve4' ),
 						's2Image' => $this->get_sdk_uri() . 'assets/images/otter/otter-patterns.png',
-						's2Title' => __( 'A New Collection of Patterns', 'neve' ),
-						's2Text'  => __( 'A New Patterns Library, containing a range of different elements in a variety of styles to help you build great pages. All of your website’s most important areas are covered: headers, testimonials, pricing tables, sections and more.', 'neve' ),
+						's2Title' => __( 'A New Collection of Patterns', 'nueve4' ),
+						's2Text'  => __( 'A New Patterns Library, containing a range of different elements in a variety of styles to help you build great pages. All of your website’s most important areas are covered: headers, testimonials, pricing tables, sections and more.', 'nueve4' ),
 						's3Image' => $this->get_sdk_uri() . 'assets/images/otter/otter-library.png',
-						's3Title' => __( 'Advanced Blocks', 'neve' ),
-						's3Text'  => __( 'Enhance your website’s design with powerful blocks, like the Add to Cart, Business Hours, Review Comparison, and dozens of WooCommerce blocks.', 'neve' ),
+						's3Title' => __( 'Advanced Blocks', 'nueve4' ),
+						's3Text'  => __( 'Enhance your website’s design with powerful blocks, like the Add to Cart, Business Hours, Review Comparison, and dozens of WooCommerce blocks.', 'nueve4' ),
 					],
 					'testimonials' => [
-						'heading' => __( 'Trusted by more than 300K website owners', 'neve' ),
+						'heading' => __( 'Trusted by more than 300K website owners', 'nueve4' ),
 						'users'   => [
 							[
 								'avatar' => 'https://mllj2j8xvfl0.i.optimole.com/cb:3970~373ad/w:80/h:80/q:mauto/https://themeisle.com/wp-content/uploads/2021/05/avatar-03.png',
@@ -305,11 +305,11 @@ class About_Us extends Abstract_Module {
 				'name'        => 'Optimole',
 				'description' => 'Optimole is an image optimization service that automatically optimizes your images and serves them to your visitors via a global CDN, making your website lighter, faster and helping you reduce your bandwidth usage.',
 			],
-			'neve'                                => [
+			'nueve4'                                => [
 				'skip_api'    => true,
-				'name'        => 'Neve',
-				'description' => __( 'A fast, lightweight, customizable WordPress theme offering responsive design, speed, and flexibility for various website types.', 'neve' ),
-				'icon'        => $this->get_sdk_uri() . 'assets/images/neve.png',
+				'name'        => 'Nueve4',
+				'description' => __( 'A fast, lightweight, customizable WordPress theme offering responsive design, speed, and flexibility for various website types.', 'nueve4' ),
+				'icon'        => $this->get_sdk_uri() . 'assets/images/nueve4.png',
 			],
 			'otter-blocks'                        => [
 				'name' => 'Otter',
@@ -331,7 +331,7 @@ class About_Us extends Abstract_Module {
 				'skip_api'    => true,
 				'premiumUrl'  => tsdk_utmify( 'https://themeisle.com/plugins/wp-landing-kit', $this->get_about_page_slug() ),
 				'name'        => 'WP Landing Kit',
-				'description' => __( 'Turn WordPress into a landing page powerhouse with Landing Kit, map domains to pages or any other published resource.', 'neve' ),
+				'description' => __( 'Turn WordPress into a landing page powerhouse with Landing Kit, map domains to pages or any other published resource.', 'nueve4' ),
 				'icon'        => $this->get_sdk_uri() . 'assets/images/wplk.png',
 			],
 			'multiple-pages-generator-by-porthas' => [
@@ -341,13 +341,13 @@ class About_Us extends Abstract_Module {
 				'skip_api'    => true,
 				'premiumUrl'  => tsdk_utmify( 'https://themeisle.com/plugins/sparks-for-woocommerce', $this->get_about_page_slug() ),
 				'name'        => 'Sparks',
-				'description' => __( 'Extend your store functionality with 8 ultra-performant features like product comparisons, variation swatches, wishlist, and more.', 'neve' ),
+				'description' => __( 'Extend your store functionality with 8 ultra-performant features like product comparisons, variation swatches, wishlist, and more.', 'nueve4' ),
 				'icon'        => $this->get_sdk_uri() . 'assets/images/sparks.png',
 				'condition'   => class_exists( 'WooCommerce', false ),
 			],
 			'templates-patterns-collection'       => [
 				'name'        => 'Templates Cloud',
-				'description' => __( 'Design, save, and revisit your templates anytime with your personal vault on Templates Cloud.', 'neve' ),
+				'description' => __( 'Design, save, and revisit your templates anytime with your personal vault on Templates Cloud.', 'nueve4' ),
 			],
 		];
 
@@ -357,18 +357,18 @@ class About_Us extends Abstract_Module {
 				continue;
 			}
 
-			if ( $slug === 'neve' ) {
+			if ( $slug === 'nueve4' ) {
 				$theme  = get_template();
 				$themes = wp_get_themes();
 
-				$products[ $slug ]['status'] = isset( $themes['neve'] ) ? 'installed' : 'not-installed';
-				$products[ $slug ]['status'] = $theme === 'neve' ? 'active' : $products[ $slug ]['status'];
+				$products[ $slug ]['status'] = isset( $themes['nueve4'] ) ? 'installed' : 'not-installed';
+				$products[ $slug ]['status'] = $theme === 'nueve4' ? 'active' : $products[ $slug ]['status'];
 
 				$products[ $slug ]['activationLink'] = add_query_arg(
 					[
-						'stylesheet' => 'neve',
+						'stylesheet' => 'nueve4',
 						'action'     => 'activate',
-						'_wpnonce'   => wp_create_nonce( 'switch-theme_neve' ),
+						'_wpnonce'   => wp_create_nonce( 'switch-theme_nueve4' ),
 					],
 					admin_url( 'themes.php' )
 				);

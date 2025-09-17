@@ -134,8 +134,8 @@ if ( ! function_exists( 'nueve4_get_google_fonts' ) ) {
 }
 
 // Legacy compatibility
-if ( ! function_exists( 'neve_run' ) ) {
-	function neve_run() {
+if ( ! function_exists( 'nueve4_run' ) ) {
+	function nueve4_run() {
 		return nueve4_run();
 	}
 }
@@ -190,7 +190,7 @@ add_filter(
 			'is_enabled' => false,
 			'pro_name'   => 'Nueve4 Pro Addon',
 			'logo'       => get_template_directory_uri() . '/assets/img/dashboard/logo.svg',
-			'cta_link'   => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/?discount=LOYALUSER582&dvalue=50', 'nueve4-welcome', 'notice' ),
+			'cta_link'   => tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/?discount=LOYALUSER582&dvalue=50', 'nueve4-welcome', 'notice' ),
 		];
 	}
 );

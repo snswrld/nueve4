@@ -2,13 +2,13 @@
 /**
  * FSE Compatibility.
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
-use Neve\Core\Dynamic_Css;
-use Neve\Customizer\Loader;
+use Nueve4\Core\Dynamic_Css;
+use Nueve4\Customizer\Loader;
 use WP_Admin_Bar;
 use WP_Customize_Manager;
 
@@ -19,7 +19,7 @@ class Fse {
 	/**
 	 * Theme mod used for main flag.
 	 */
-	const FSE_ENABLED_SLUG = 'neve_enable_fse_templates';
+	const FSE_ENABLED_SLUG = 'nueve4_enable_fse_templates';
 
 	const CUSTOMIZER_NOTIFICATION = 'site_editor_block_theme_notice';
 
@@ -35,20 +35,20 @@ class Fse {
 	 *
 	 * @var string
 	 */
-	private $customize_section = 'neve_fse';
+	private $customize_section = 'nueve4_fse';
 
 	/**
 	 * Fse constructor.
 	 */
 	public function __construct() {
 		$this->templates = [
-			'index'      => __( 'Blog', 'neve' ),
-			'front-page' => __( 'Front Page', 'neve' ),
-			'archive'    => __( 'Archive', 'neve' ),
+			'index'      => __( 'Blog', 'nueve4' ),
+			'front-page' => __( 'Front Page', 'nueve4' ),
+			'archive'    => __( 'Archive', 'nueve4' ),
 			'404'        => '404',
-			'search'     => __( 'Search', 'neve' ),
-			'page'       => __( 'Page', 'neve' ),
-			'single'     => __( 'Single Post', 'neve' ),
+			'search'     => __( 'Search', 'nueve4' ),
+			'page'       => __( 'Page', 'nueve4' ),
+			'single'     => __( 'Single Post', 'nueve4' ),
 		];
 	}
 
@@ -184,30 +184,30 @@ class Fse {
 		?>
 
 		<div class="wrapper">
-		<?php do_action( 'neve_before_header_wrapper_hook' ); ?>
+		<?php do_action( 'nueve4_before_header_wrapper_hook' ); ?>
 
-		<header class="<?php echo esc_attr( $header_classes ); ?>" <?php echo ( neve_is_amp() ) ? 'next-page-hide' : ''; ?> >
-			<a class="neve-skip-link show-on-focus" href="#content">
-				<?php echo __( 'Skip to content', 'neve' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<header class="<?php echo esc_attr( $header_classes ); ?>" <?php echo ( nueve4_is_amp() ) ? 'next-page-hide' : ''; ?> >
+			<a class="nueve4-skip-link show-on-focus" href="#content">
+				<?php echo __( 'Skip to content', 'nueve4' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</a>
 			<?php
-			do_action( 'neve_before_header_hook' );
+			do_action( 'nueve4_before_header_hook' );
 
-			if ( apply_filters( 'neve_filter_toggle_content_parts', true, 'header' ) === true ) {
+			if ( apply_filters( 'nueve4_filter_toggle_content_parts', true, 'header' ) === true ) {
 				$this->handle_theme_part( 'header', $template );
 			}
 
-			do_action( 'neve_after_header_hook' );
+			do_action( 'nueve4_after_header_hook' );
 			?>
 		</header>
 
 		<?php
-		do_action( 'neve_after_header_wrapper_hook' );
-		do_action( 'neve_before_primary' );
+		do_action( 'nueve4_after_header_wrapper_hook' );
+		do_action( 'nueve4_before_primary' );
 		?>
-		<main id="content" class="neve-main">
+		<main id="content" class="nueve4-main">
 		<?php
-		do_action( 'neve_after_primary_start' );
+		do_action( 'nueve4_after_primary_start' );
 	}
 
 	/**
@@ -222,16 +222,16 @@ class Fse {
 			return;
 		}
 
-		do_action( 'neve_before_primary_end' );
+		do_action( 'nueve4_before_primary_end' );
 		?>
-		</main><!--/.neve-main-->
+		</main><!--/.nueve4-main-->
 		<?php
-		do_action( 'neve_after_primary' );
+		do_action( 'nueve4_after_primary' );
 
-		if ( apply_filters( 'neve_filter_toggle_content_parts', true, 'footer' ) === true ) {
-			do_action( 'neve_before_footer_hook' );
+		if ( apply_filters( 'nueve4_filter_toggle_content_parts', true, 'footer' ) === true ) {
+			do_action( 'nueve4_before_footer_hook' );
 			$this->handle_theme_part( 'footer', $template );
-			do_action( 'neve_after_footer_hook' );
+			do_action( 'nueve4_after_footer_hook' );
 		}
 		?>
 		</div><!--/.wrapper-->
@@ -261,7 +261,7 @@ class Fse {
 			return;
 		}
 
-		do_action( 'neve_do_' . $part );
+		do_action( 'nueve4_do_' . $part );
 	}
 
 	/**
@@ -327,7 +327,7 @@ class Fse {
 		$wp_customize->add_section(
 			$this->customize_section,
 			array(
-				'title'    => __( 'Full Site Editing', 'neve' ),
+				'title'    => __( 'Full Site Editing', 'nueve4' ),
 				'priority' => 1000,
 			)
 		);
@@ -336,16 +336,16 @@ class Fse {
 			self::FSE_ENABLED_SLUG,
 			array(
 				'default'           => false,
-				'sanitize_callback' => 'neve_sanitize_checkbox',
+				'sanitize_callback' => 'nueve4_sanitize_checkbox',
 			)
 		);
 
 		$wp_customize->add_control(
 			self::FSE_ENABLED_SLUG,
 			array(
-				'label'   => __( 'Full Site Editing', 'neve' ),
+				'label'   => __( 'Full Site Editing', 'nueve4' ),
 				'section' => $this->customize_section,
-				'type'    => 'neve_toggle_control',
+				'type'    => 'nueve4_toggle_control',
 			)
 		);
 
@@ -353,15 +353,15 @@ class Fse {
 
 		foreach ( $this->templates as $slug => $label ) {
 			$wp_customize->add_setting(
-				'neve_fse_heading_' . $slug,
+				'nueve4_fse_heading_' . $slug,
 				array(
 					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);
 			$wp_customize->add_control(
-				new \Neve\Customizer\Controls\React\Heading(
+				new \Nueve4\Customizer\Controls\React\Heading(
 					$wp_customize,
-					'neve_fse_heading_' . $slug,
+					'nueve4_fse_heading_' . $slug,
 					array(
 						'section'         => $this->customize_section,
 						'active_callback' => [ $this, 'is_enabled' ],
@@ -377,7 +377,7 @@ class Fse {
 				$this->get_option_slug_for_template( $slug ),
 				array(
 					'default'           => false,
-					'sanitize_callback' => 'neve_sanitize_checkbox',
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
 				)
 			);
 
@@ -387,8 +387,8 @@ class Fse {
 					'active_callback' => [ $this, 'is_enabled' ],
 					'section'         => $this->customize_section,
 					'priority'        => $priority,
-					'label'           => __( 'Yes', 'neve' ),
-					'type'            => 'neve_toggle_control',
+					'label'           => __( 'Yes', 'nueve4' ),
+					'type'            => 'nueve4_toggle_control',
 				)
 			);
 
@@ -398,7 +398,7 @@ class Fse {
 				$this->get_option_slug_for_header( $slug ),
 				array(
 					'default'           => true,
-					'sanitize_callback' => 'neve_sanitize_checkbox',
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
 				)
 			);
 
@@ -410,8 +410,8 @@ class Fse {
 					},
 					'section'         => $this->customize_section,
 					'priority'        => $priority,
-					'label'           => __( 'Header', 'neve' ),
-					'type'            => 'neve_toggle_control',
+					'label'           => __( 'Header', 'nueve4' ),
+					'type'            => 'nueve4_toggle_control',
 				)
 			);
 
@@ -421,7 +421,7 @@ class Fse {
 				$this->get_option_slug_for_footer( $slug ),
 				array(
 					'default'           => true,
-					'sanitize_callback' => 'neve_sanitize_checkbox',
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
 				)
 			);
 
@@ -433,8 +433,8 @@ class Fse {
 					},
 					'section'         => $this->customize_section,
 					'priority'        => $priority,
-					'label'           => __( 'Footer', 'neve' ),
-					'type'            => 'neve_toggle_control',
+					'label'           => __( 'Footer', 'nueve4' ),
+					'type'            => 'nueve4_toggle_control',
 				)
 			);
 
@@ -514,7 +514,7 @@ class Fse {
 	 * @return string
 	 */
 	private function get_option_slug_for_template( $template ) {
-		return 'neve_fse_' . $template;
+		return 'nueve4_fse_' . $template;
 	}
 
 	/**
@@ -525,7 +525,7 @@ class Fse {
 	 * @return string
 	 */
 	private function get_option_slug_for_header( $template ) {
-		return 'neve_fse_header_' . $template;
+		return 'nueve4_fse_header_' . $template;
 	}
 
 	/**
@@ -536,7 +536,7 @@ class Fse {
 	 * @return string
 	 */
 	private function get_option_slug_for_footer( $template ) {
-		return 'neve_fse_footer_' . $template;
+		return 'nueve4_fse_footer_' . $template;
 	}
 
 	/**
@@ -590,13 +590,13 @@ class Fse {
 	 */
 	public function add_styles() {
 		$css = '
-			#sub-accordion-section-neve_fse .customize-control-neve_toggle_control,
-			#sub-accordion-section-neve_fse .customize-control-neve_customizer_heading { margin: 0; }
-			#sub-accordion-section-neve_fse .customize-control-neve_customizer_heading  {margin-top: 10px;}
-			#sub-accordion-section-neve_fse [id*="neve_fse_header"] .neve-white-background-control,
-			#sub-accordion-section-neve_fse [id*="neve_fse_footer"] .neve-white-background-control {padding-left: 30px;}
+			#sub-accordion-section-nueve4_fse .customize-control-nueve4_toggle_control,
+			#sub-accordion-section-nueve4_fse .customize-control-nueve4_customizer_heading { margin: 0; }
+			#sub-accordion-section-nueve4_fse .customize-control-nueve4_customizer_heading  {margin-top: 10px;}
+			#sub-accordion-section-nueve4_fse [id*="nueve4_fse_header"] .nueve4-white-background-control,
+			#sub-accordion-section-nueve4_fse [id*="nueve4_fse_footer"] .nueve4-white-background-control {padding-left: 30px;}
 
-			#accordion-section-neve_fse h3:before {
+			#accordion-section-nueve4_fse h3:before {
 				content: "BETA";
 				background-color: #0065a6;
 				display: inline-flex;

@@ -2,19 +2,19 @@
 /**
  * Customizer checkout controls.
  *
- * @package Neve\Customizer\Options
+ * @package Nueve4\Customizer\Options
  */
 
-namespace Neve\Customizer\Options;
+namespace Nueve4\Customizer\Options;
 
-use Neve\Customizer\Base_Customizer;
-use Neve\Customizer\Types\Section;
-use Neve\Customizer\Types\Control;
+use Nueve4\Customizer\Base_Customizer;
+use Nueve4\Customizer\Types\Section;
+use Nueve4\Customizer\Types\Control;
 
 /**
  * Class Checkout
  *
- * @package Neve\Customizer\Options
+ * @package Nueve4\Customizer\Options
  */
 class Checkout extends Base_Customizer {
 
@@ -50,7 +50,7 @@ class Checkout extends Base_Customizer {
 			'woocommerce_checkout_phone_field'         => [ 'priority' => 130 ],
 			'woocommerce_checkout_highlight_required_fields' => [
 				'priority' => 140,
-				'type'     => 'neve_toggle_control',
+				'type'     => 'nueve4_toggle_control',
 			],
 			'wp_page_for_privacy_policy'               => [ 'priority' => 190 ],
 			'woocommerce_terms_page_id'                => [ 'priority' => 200 ],
@@ -76,33 +76,33 @@ class Checkout extends Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_checkout_settings_heading',
+				'nueve4_checkout_settings_heading',
 				array(
 					'sanitize_callback' => 'sanitize_text_field',
 					'transport'         => $this->selective_refresh,
 				),
 				array(
-					'label'            => esc_html__( 'Checkout Style', 'neve' ),
+					'label'            => esc_html__( 'Checkout Style', 'nueve4' ),
 					'section'          => 'woocommerce_checkout',
 					'priority'         => 0,
-					'class'            => 'neve-checkout-accordion',
+					'class'            => 'nueve4-checkout-accordion',
 					'accordion'        => true,
 					'controls_to_wrap' => 1,
 					'expanded'         => true,
 				),
-				'Neve\Customizer\Controls\Heading'
+				'Nueve4\Customizer\Controls\Heading'
 			)
 		);
 
 		$this->add_control(
 			new Control(
-				'neve_woo_checkout_settings_heading',
+				'nueve4_woo_checkout_settings_heading',
 				array(
 					'sanitize_callback' => 'sanitize_text_field',
 					'transport'         => $this->selective_refresh,
 				),
 				array(
-					'label'            => esc_html__( 'General', 'neve' ),
+					'label'            => esc_html__( 'General', 'nueve4' ),
 					'section'          => 'woocommerce_checkout',
 					'priority'         => 100,
 					'class'            => 'woo-checkout-accordion',
@@ -110,7 +110,7 @@ class Checkout extends Base_Customizer {
 					'controls_to_wrap' => 7,
 					'expanded'         => true,
 				),
-				'Neve\Customizer\Controls\Heading'
+				'Nueve4\Customizer\Controls\Heading'
 			)
 		);
 	}

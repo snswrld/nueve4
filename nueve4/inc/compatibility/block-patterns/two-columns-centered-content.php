@@ -2,23 +2,23 @@
 /**
  * Two columns with centered content pattern.
  *
- * @package Neve
+ * @package Nueve4
  */
 
 return array(
-	'title'      => __( 'Two columns with centered content', 'neve' ),
+	'title'      => __( 'Two columns with centered content', 'nueve4' ),
 	'content'    => '<!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:image {} -->
-<figure class="wp-block-image"><img src="' . trailingslashit( get_template_directory_uri() ) . 'assets/img/patterns/neve-patterns-16.jpg" alt=""/></figure>
+<figure class="wp-block-image"><img src="' . trailingslashit( get_template_directory_uri() ) . 'assets/img/patterns/nueve4-patterns-16.jpg" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"align":"center","level":3} -->
 <h3 class="has-text-align-center">Heading three</h3>
 <!-- /wp:heading -->
 
-<!-- wp:separator {"color":"neve-button-color","className":"is-style-default"} -->
-<hr class="wp-block-separator has-text-color has-background has-neve-button-color-background-color has-neve-button-color-color is-style-default"/>
+<!-- wp:separator {"color":"nueve4-button-color","className":"is-style-default"} -->
+<hr class="wp-block-separator has-text-color has-background has-nueve4-button-color-background-color has-nueve4-button-color-color is-style-default"/>
 <!-- /wp:separator -->
 
 <!-- wp:paragraph {"align":"center"} -->
@@ -28,15 +28,15 @@ return array(
 
 <!-- wp:column -->
 <div class="wp-block-column"><!-- wp:image {} -->
-<figure class="wp-block-image"><img src="' . trailingslashit( get_template_directory_uri() ) . 'assets/img/patterns/neve-patterns-15.jpg" alt="" /></figure>
+<figure class="wp-block-image"><img src="' . trailingslashit( get_template_directory_uri() ) . 'assets/img/patterns/nueve4-patterns-15.jpg" alt="" /></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"align":"center","level":3} -->
 <h3 class="has-text-align-center">Heading three</h3>
 <!-- /wp:heading -->
 
-<!-- wp:separator {"color":"neve-button-color","className":"is-style-default"} -->
-<hr class="wp-block-separator has-text-color has-background has-neve-button-color-background-color has-neve-button-color-color is-style-default"/>
+<!-- wp:separator {"color":"nueve4-button-color","className":"is-style-default"} -->
+<hr class="wp-block-separator has-text-color has-background has-nueve4-button-color-background-color has-nueve4-button-color-color is-style-default"/>
 <!-- /wp:separator -->
 
 <!-- wp:paragraph {"align":"center"} -->

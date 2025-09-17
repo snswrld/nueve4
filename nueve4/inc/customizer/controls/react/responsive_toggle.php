@@ -2,15 +2,15 @@
 /**
  * Responsive Toggle. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Button_Appearance
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Responsive_Toggle extends \WP_Customize_Control {
 	/**
@@ -18,7 +18,7 @@ class Responsive_Toggle extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_responsive_toggle_control';
+	public $type = 'nueve4_responsive_toggle_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

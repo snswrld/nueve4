@@ -1,20 +1,20 @@
 <?php
 /**
- * Main class of the Neve Dashboard
+ * Main class of the Nueve4 Dashboard
  *
- * @package neve
+ * @package nueve4
  */
 
-namespace Neve\Admin\Dashboard;
+namespace Nueve4\Admin\Dashboard;
 
-use Neve\Core\Limited_Offers;
-use Neve\Core\Theme_Info;
-use Neve\Core\Tracker;
+use Nueve4\Core\Limited_Offers;
+use Nueve4\Core\Theme_Info;
+use Nueve4\Core\Tracker;
 
 /**
  * Class Main
  *
- * @package Neve\Admin\Dashboard
+ * @package Nueve4\Admin\Dashboard
  */
 class Main {
 
@@ -59,14 +59,14 @@ class Main {
 	 *
 	 * @var string
 	 */
-	private $plugins_cache_key = 'neve_dash_useful_plugins';
+	private $plugins_cache_key = 'nueve4_dash_useful_plugins';
 
 	/**
 	 * Plugins Cache Hash key.
 	 *
 	 * @var string
 	 */
-	private $plugins_cache_hash_key = 'neve_dash_useful_plugins_hash';
+	private $plugins_cache_hash_key = 'nueve4_dash_useful_plugins_hash';
 
 	/**
 	 * Main constructor.
@@ -111,12 +111,12 @@ class Main {
 		}
 
 		add_filter(
-			'neve_about_us_metadata',
+			'nueve4_about_us_metadata',
 			function () use ( $filtered_name ) {
 
 				return [
 					// Top-level page in the dashboard sidebar
-					'location'         => 'neve-welcome',
+					'location'         => 'nueve4-welcome',
 					// Logo to display on the page
 					'logo'             => get_template_directory_uri() . '/assets/img/dashboard/logo.svg',
 					// Condition to show or hide the upgrade menu in the sidebar
@@ -124,8 +124,8 @@ class Main {
 					// Add predefined product pages to the about page.
 					'product_pages'    => [ 'otter-page' ],
 					// Upgrade menu item link & text
-					'upgrade_link'     => tsdk_utmify( esc_url( 'https://themeisle.com/themes/neve/upgrade/' ), 'aboutfilter', 'nevedashboard' ),
-					'upgrade_text'     => __( 'Upgrade', 'neve' ) . ' ' . $filtered_name,
+					'upgrade_link'     => tsdk_utmify( esc_url( 'https://themeisle.com/themes/nueve4/upgrade/' ), 'aboutfilter', 'nueve4dashboard' ),
+					'upgrade_text'     => __( 'Upgrade', 'nueve4' ) . ' ' . $filtered_name,
 				];
 			}
 		);
@@ -136,8 +136,8 @@ class Main {
 	 */
 	public function register_settings() {
 		register_setting(
-			'neve_settings',
-			'neve_logger_flag',
+			'nueve4_settings',
+			'nueve4_logger_flag',
 			[
 				'type'         => 'string',
 				'show_in_rest' => true,
@@ -174,25 +174,25 @@ class Main {
 		$theme_page = ! empty( $theme['template'] ) ? $theme['template'] . '-welcome' : $theme['slug'] . '-welcome';
 
 		$icon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjQuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAzMiAzMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzIgMzI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojRkZGRkZGO30KPC9zdHlsZT4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTAsMS42QzAsMC43LDAuNywwLDEuNiwwaDI4LjhDMzEuMywwLDMyLDAuNywzMiwxLjZWMzBjMCwwLjktMC43LDEuNi0xLjYsMS42SDEuNkMwLjcsMzEuNSwwLDMwLjgsMCwzMFYxLjZ6CgkgTTEzLDE1Ljh2Ny41SDkuMVY4YzAtMC4xLDAtMC4xLDAuMS0wLjJjMCwwLDAuMSwwLDAuMiwwLjFsOS42LDcuOFY4LjJoMy44djE1LjJjMCwwLjEsMCwwLjEtMC4xLDAuMmMwLDAtMC4xLDAtMC4yLTAuMUwxMywxNS44egoJIE0yMi44LDI1LjdIOS4xVjI3aDEzLjdWMjUuN3oiLz4KPC9zdmc+Cg==';
-		if ( $theme['name'] !== 'Neve' ) {
+		if ( $theme['name'] !== 'Nueve4' ) {
 			$icon = 'dashicons-admin-appearance';
 		}
-		$neve_icon  = apply_filters( 'neve_menu_icon', $icon );
-		$priority   = apply_filters( 'neve_menu_priority', 59 );  // The position of the menu item, 60 is the position of the Appearance menu.
+		$nueve4_icon  = apply_filters( 'nueve4_menu_icon', $icon );
+		$priority   = apply_filters( 'nueve4_menu_priority', 59 );  // The position of the menu item, 60 is the position of the Appearance menu.
 		$capability = 'manage_options';
 
-		// Place a theme page in the Appearance menu, for older versions of Neve Pro or TPC. to maintain backwards compatibility.
+		// Place a theme page in the Appearance menu, for older versions of Nueve4 Pro or TPC. to maintain backwards compatibility.
 		if (
 			( defined( 'NEVE_PRO_VERSION' ) && version_compare( NEVE_PRO_VERSION, '2.6.1', '<=' ) ) ||
 			( defined( 'TIOB_VERSION' ) && version_compare( TIOB_VERSION, '1.1.38', '<=' ) )
 		) {
 			add_theme_page(
 				/* translators: %s - Theme name */
-				sprintf( __( '%s Options', 'neve' ), wp_kses_post( $theme['name'] ) ),
+				sprintf( __( '%s Options', 'nueve4' ), wp_kses_post( $theme['name'] ) ),
 				/* translators: %s - Theme name */
-				sprintf( __( '%s Options', 'neve' ), wp_kses_post( $theme['name'] ) ),
+				sprintf( __( '%s Options', 'nueve4' ), wp_kses_post( $theme['name'] ) ),
 				$capability,
-				'admin.php?page=neve-welcome'
+				'admin.php?page=nueve4-welcome'
 			);
 		}
 
@@ -202,7 +202,7 @@ class Main {
 			$capability,
 			$theme_page,
 			[ $this, 'render' ],
-			$neve_icon, // The URL to the icon to be used for this menu
+			$nueve4_icon, // The URL to the icon to be used for this menu
 			$priority
 		);
 
@@ -210,9 +210,9 @@ class Main {
 		add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page
 			$theme_page,
 			/* translators: %s - Theme name */
-			sprintf( __( '%s Options', 'neve' ), wp_kses_post( $theme['name'] ) ),
+			sprintf( __( '%s Options', 'nueve4' ), wp_kses_post( $theme['name'] ) ),
 			/* translators: %s - Theme name */
-			sprintf( __( '%s Options', 'neve' ), wp_kses_post( $theme['name'] ) ),
+			sprintf( __( '%s Options', 'nueve4' ), wp_kses_post( $theme['name'] ) ),
 			$capability,
 			$theme_page,
 			[ $this, 'render' ]
@@ -220,14 +220,14 @@ class Main {
 
 		$this->copy_customizer_page( $theme_page );
 
-		if ( ! defined( 'NEVE_PRO_VERSION' ) || 'valid' !== apply_filters( 'product_neve_license_status', false ) ) {
+		if ( ! defined( 'NEVE_PRO_VERSION' ) || 'valid' !== apply_filters( 'product_nueve4_license_status', false ) ) {
 			// Add Custom Layout submenu for upsell.
 			add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page
 				$theme_page,
-				__( 'Custom Layouts', 'neve' ),
-				__( 'Custom Layouts', 'neve' ),
+				__( 'Custom Layouts', 'nueve4' ),
+				__( 'Custom Layouts', 'nueve4' ),
 				$capability,
-				'admin.php?page=neve-welcome#custom-layouts'
+				'admin.php?page=nueve4-welcome#custom-layouts'
 			);
 		}
 	}
@@ -278,7 +278,7 @@ class Main {
 	 * @return void
 	 */
 	public function render() {
-		echo '<div id="neve-dashboard"></div>';
+		echo '<div id="nueve4-dashboard"></div>';
 	}
 
 	/**
@@ -300,15 +300,15 @@ class Main {
 		$build_path   = get_template_directory_uri() . '/assets/apps/dashboard/build/';
 		$dependencies = ( include get_template_directory() . '/assets/apps/dashboard/build/dashboard.asset.php' );
 		
-		wp_register_style( 'neve-dash-style', $build_path . 'style-dashboard.css', [ 'wp-components', 'neve-components' ], $dependencies['version'] );
-		wp_style_add_data( 'neve-dash-style', 'rtl', 'replace' );
-		wp_enqueue_style( 'neve-dash-style' );
-		wp_register_script( 'neve-dash-script', $build_path . 'dashboard.js', array_merge( $dependencies['dependencies'], [ 'updates' ] ), $dependencies['version'], true );
-		wp_localize_script( 'neve-dash-script', 'neveDash', apply_filters( 'neve_dashboard_page_data', $this->get_localization() ) );
-		wp_enqueue_script( 'neve-dash-script' );
+		wp_register_style( 'nueve4-dash-style', $build_path . 'style-dashboard.css', [ 'wp-components', 'nueve4-components' ], $dependencies['version'] );
+		wp_style_add_data( 'nueve4-dash-style', 'rtl', 'replace' );
+		wp_enqueue_style( 'nueve4-dash-style' );
+		wp_register_script( 'nueve4-dash-script', $build_path . 'dashboard.js', array_merge( $dependencies['dependencies'], [ 'updates' ] ), $dependencies['version'], true );
+		wp_localize_script( 'nueve4-dash-script', 'nueve4Dash', apply_filters( 'nueve4_dashboard_page_data', $this->get_localization() ) );
+		wp_enqueue_script( 'nueve4-dash-script' );
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'neve-dash-script', 'neve' );
+			wp_set_script_translations( 'nueve4-dash-script', 'nueve4' );
 		}
 
 		do_action( 'themeisle_sdk_dependency_enqueue_script', 'survey' );
@@ -325,8 +325,8 @@ class Main {
 
 		$old_about_config  = apply_filters( 'ti_about_config_filter', [ 'useful_plugins' => true ] );
 		$theme_name        = apply_filters( 'ti_wl_theme_name', $this->theme_args['name'] );
-		$plugin_name       = apply_filters( 'ti_wl_plugin_name', 'Neve Pro' );
-		$plugin_name_addon = apply_filters( 'ti_wl_plugin_name', 'Neve Pro Addon' );
+		$plugin_name       = apply_filters( 'ti_wl_plugin_name', 'Nueve4 Pro' );
+		$plugin_name_addon = apply_filters( 'ti_wl_plugin_name', 'Nueve4 Pro Addon' );
 		$data              = [
 			'nonce'                   => wp_create_nonce( 'wp_rest' ),
 			'version'                 => 'v' . NEVE_VERSION,
@@ -339,45 +339,45 @@ class Main {
 			'plugins'                 => $this->get_useful_plugins(),
 			'featureData'             => $this->get_free_pro_features(),
 			'showFeedbackNotice'      => $this->should_show_feedback_notice(),
-			'allfeaturesNeveProURL'   => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'seeallfeatures', 'freevspropage' ),
-			'startSitesgetNeveProURL' => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'welcomestartersitescard', 'nevedashboard' ),
-			'customLayoutsNeveProURL' => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'customlayoutscard', 'nevedashboard' ),
-			'upgradeURL'              => apply_filters( 'neve_upgrade_link_from_child_theme_filter', tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'getpronow', 'freevspropage' ) ),
-			'supportURL'              => esc_url( 'https://wordpress.org/support/theme/neve/' ),
-			'docsURL'                 => esc_url( 'https://docs.themeisle.com/article/946-neve-doc' ),
-			'codexURL'                => esc_url( 'https://codex.nevewp.com/' ),
+			'allfeaturesNueve4ProURL'   => tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/', 'seeallfeatures', 'freevspropage' ),
+			'startSitesgetNueve4ProURL' => tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/', 'welcomestartersitescard', 'nueve4dashboard' ),
+			'customLayoutsNueve4ProURL' => tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/', 'customlayoutscard', 'nueve4dashboard' ),
+			'upgradeURL'              => apply_filters( 'nueve4_upgrade_link_from_child_theme_filter', tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/', 'getpronow', 'freevspropage' ) ),
+			'supportURL'              => esc_url( 'https://wordpress.org/support/theme/nueve4/' ),
+			'docsURL'                 => esc_url( 'https://docs.themeisle.com/article/946-nueve4-doc' ),
+			'codexURL'                => esc_url( 'https://codex.nueve4wp.com/' ),
 			'strings'                 => [
 				'proTabTitle'                   => wp_kses_post( $plugin_name ),
 				/* translators: %s - Theme name */
-				'header'                        => sprintf( __( '%s Options', 'neve' ), wp_kses_post( $theme_name ) ),
+				'header'                        => sprintf( __( '%s Options', 'nueve4' ), wp_kses_post( $theme_name ) ),
 				/* translators: %s - Theme name */
-				'starterSitesCardDescription'   => sprintf( __( '%s now comes with a sites library with various designs to pick from. Visit our collection of demos that are constantly being added.', 'neve' ), wp_kses_post( $theme_name ) ),
-				'starterSitesCardUpsellMessage' => esc_html__( 'Upgrade to the Pro version and get instant access to all Premium Starter Sites — including Expert Sites — and much more.', 'neve' ),
+				'starterSitesCardDescription'   => sprintf( __( '%s now comes with a sites library with various designs to pick from. Visit our collection of demos that are constantly being added.', 'nueve4' ), wp_kses_post( $theme_name ) ),
+				'starterSitesCardUpsellMessage' => esc_html__( 'Upgrade to the Pro version and get instant access to all Premium Starter Sites — including Expert Sites — and much more.', 'nueve4' ),
 				/* translators: %s - Theme name */
-				'starterSitesTabDescription'    => sprintf( __( 'With %s, you can choose from multiple unique demos, specially designed for you, that can be installed with a single click. You just need to choose your favorite, and we will take care of everything else.', 'neve' ), wp_kses_post( $theme_name ) ),
+				'starterSitesTabDescription'    => sprintf( __( 'With %s, you can choose from multiple unique demos, specially designed for you, that can be installed with a single click. You just need to choose your favorite, and we will take care of everything else.', 'nueve4' ), wp_kses_post( $theme_name ) ),
 				/* translators: 1 - Theme name, 2 - Cloud Templates & Patterns Collection */
-				'starterSitesUnavailableActive' => sprintf( __( 'In order to be able to import any starter sites for %1$s you would need to have the %2$s plugin active.', 'neve' ), wp_kses_post( $theme_name ), 'Cloud Templates & Patterns Collection' ),
+				'starterSitesUnavailableActive' => sprintf( __( 'In order to be able to import any starter sites for %1$s you would need to have the %2$s plugin active.', 'nueve4' ), wp_kses_post( $theme_name ), 'Cloud Templates & Patterns Collection' ),
 				/* translators: %s - Theme name */
-				'starterSitesUnavailableUpdate' => sprintf( __( 'In order to be able to import any starter sites for %1$s you would need to have the %2$s plugin updated to the latest version.', 'neve' ), wp_kses_post( $theme_name ), 'Cloud Templates & Patterns Collection' ),
+				'starterSitesUnavailableUpdate' => sprintf( __( 'In order to be able to import any starter sites for %1$s you would need to have the %2$s plugin updated to the latest version.', 'nueve4' ), wp_kses_post( $theme_name ), 'Cloud Templates & Patterns Collection' ),
 				/* translators: %s - Theme name */
-				'supportCardDescription'        => sprintf( __( 'We want to make sure you have the best experience using %1$s, and that is why we have gathered all the necessary information here for you. We hope you will enjoy using %1$s as much as we enjoy creating great products.', 'neve' ), wp_kses_post( $theme_name ) ),
+				'supportCardDescription'        => sprintf( __( 'We want to make sure you have the best experience using %1$s, and that is why we have gathered all the necessary information here for you. We hope you will enjoy using %1$s as much as we enjoy creating great products.', 'nueve4' ), wp_kses_post( $theme_name ) ),
 				/* translators: %s - Theme name */
-				'docsCardDescription'           => sprintf( __( 'Need more details? Please check our full documentation for detailed information on how to use %s.', 'neve' ), wp_kses_post( $theme_name ) ),
-				/* translators: %s - "Neve Pro Addon" */
-				'licenseCardHeading'            => sprintf( __( '%s license', 'neve' ), wp_kses_post( $plugin_name_addon ) ),
-				/* translators: %s - "Neve Pro Addon" */
-				'updateOldPro'                  => sprintf( __( 'Please update %s to the latest version and then refresh this page to have access to the options.', 'neve' ), wp_kses_post( $plugin_name_addon ) ),
+				'docsCardDescription'           => sprintf( __( 'Need more details? Please check our full documentation for detailed information on how to use %s.', 'nueve4' ), wp_kses_post( $theme_name ) ),
+				/* translators: %s - "Nueve4 Pro Addon" */
+				'licenseCardHeading'            => sprintf( __( '%s license', 'nueve4' ), wp_kses_post( $plugin_name_addon ) ),
+				/* translators: %s - "Nueve4 Pro Addon" */
+				'updateOldPro'                  => sprintf( __( 'Please update %s to the latest version and then refresh this page to have access to the options.', 'nueve4' ), wp_kses_post( $plugin_name_addon ) ),
 				/* translators: %1$s - Author link - Themeisle */
 				'licenseCardDescription'        => sprintf(
 				// translators: store name (Themeisle)
-					__( 'Enter your license from %1$s purchase history in order to get plugin updates', 'neve' ),
-					'<a target="_blank" rel="external noreferrer noopener" href="https://store.themeisle.com/">ThemeIsle<span class="components-visually-hidden">' . esc_html__( '(opens in a new tab)', 'neve' ) . '</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="components-external-link__icon" role="img" aria-hidden="true" focusable="false" style="fill: #0073AA"><path d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"></path></svg></a>'
+					__( 'Enter your license from %1$s purchase history in order to get plugin updates', 'nueve4' ),
+					'<a target="_blank" rel="external noreferrer noopener" href="https://store.themeisle.com/">ThemeIsle<span class="components-visually-hidden">' . esc_html__( '(opens in a new tab)', 'nueve4' ) . '</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" class="components-external-link__icon" role="img" aria-hidden="true" focusable="false" style="fill: #0073AA"><path d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"></path></svg></a>'
 				),
 			],
 			'changelog'               => $this->cl_handler->get_changelog( get_template_directory() . '/CHANGELOG.md' ),
 			'onboarding'              => [],
 			'hasFileSystem'           => WP_Filesystem(),
-			'hidePluginsTab'          => apply_filters( 'neve_hide_useful_plugins', ! array_key_exists( 'useful_plugins', $old_about_config ) ),
+			'hidePluginsTab'          => apply_filters( 'nueve4_hide_useful_plugins', ! array_key_exists( 'useful_plugins', $old_about_config ) ),
 			'tpcPath'                 => defined( 'TIOB_PATH' ) ? TIOB_PATH . 'template-patterns-collection.php' : 'template-patterns-collection/template-patterns-collection.php',
 			'tpcAdminURL'             => admin_url( 'admin.php?page=tiob-starter-sites' ),
 			'pluginsURL'              => esc_url( admin_url( 'plugins.php' ) ),
@@ -386,7 +386,7 @@ class Main {
 			'canActivatePlugins'      => current_user_can( 'activate_plugins' ),
 			'deal'                    => ! defined( 'NEVE_PRO_VERSION' ) ? $offer->get_localized_data() : array(),
 			'rootUrl'                 => get_site_url(),
-			'daysSinceInstall'        => round( ( time() - get_option( 'neve_install', 0 ) ) / DAY_IN_SECONDS ),
+			'daysSinceInstall'        => round( ( time() - get_option( 'nueve4_install', 0 ) ) / DAY_IN_SECONDS ),
 			'proPluginVersion'        => defined( 'NEVE_PRO_VERSION' ) ? NEVE_PRO_VERSION : '',
 		];
 
@@ -400,8 +400,8 @@ class Main {
 			$data['sparksInstallActivateEndpoint'] = $is_sparks_installed ? esc_url( wp_nonce_url( admin_url( 'plugins.php?action=activate&plugin=sparks-for-woocommerce%2Fsparks-for-woocommerce.php&plugin_status=all&paged=1&s' ), 'activate-plugin_sparks-for-woocommerce/sparks-for-woocommerce.php' ) ) : esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=install_sparks' ), 'install_sparks' ) );
 			$data['moduleObserver']                = array(
 				'customLayouts' => array(
-					'labelSubMenu' => __( 'Custom Layouts', 'neve' ),
-					'linkSubMenu'  => 'edit.php?post_type=neve_custom_layouts',
+					'labelSubMenu' => __( 'Custom Layouts', 'nueve4' ),
+					'linkSubMenu'  => 'edit.php?post_type=nueve4_custom_layouts',
 				),
 			);
 
@@ -421,22 +421,22 @@ class Main {
 	 */
 	public function get_notifications() {
 		$notifications = [];
-		$slug          = 'neve';
+		$slug          = 'nueve4';
 		$themes_update = get_site_transient( 'update_themes' );
 
 		$plugin_folder = defined( 'NEVE_PRO_BASEFILE' ) ? basename( dirname( NEVE_PRO_BASEFILE ) ) : null;
-		$plugin_path   = $plugin_folder ? $plugin_folder . '/neve-pro-addon.php' : null;
+		$plugin_path   = $plugin_folder ? $plugin_folder . '/nueve4-pro-addon.php' : null;
 
 		if ( isset( $themes_update->response[ $slug ] ) ) {
 			$update                = $themes_update->response[ $slug ];
-			$notifications['neve'] = [
-				// translators: s - theme name (Neve).
-				'text'   => sprintf( __( 'New theme update for %1$s! Please update to %2$s.', 'neve' ), wp_kses_post( $this->theme_args['name'] ), wp_kses_post( $update['new_version'] ) ),
+			$notifications['nueve4'] = [
+				// translators: s - theme name (Nueve4).
+				'text'   => sprintf( __( 'New theme update for %1$s! Please update to %2$s.', 'nueve4' ), wp_kses_post( $this->theme_args['name'] ), wp_kses_post( $update['new_version'] ) ),
 				'update' => [
 					'type' => 'theme',
 					'slug' => $slug,
 				],
-				'cta'    => __( 'Update Now', 'neve' ),
+				'cta'    => __( 'Update Now', 'nueve4' ),
 				'type'   => ( $plugin_path && is_plugin_active( $plugin_path ) ) ? 'warning' : null,
 			];
 		}
@@ -445,19 +445,19 @@ class Main {
 			$plugins_update = get_site_transient( 'update_plugins' );
 			if ( is_plugin_active( $plugin_path ) && isset( $plugins_update->response[ $plugin_path ] ) ) {
 				$update                          = $plugins_update->response[ $plugin_path ];
-				$notifications['neve-pro-addon'] = [
+				$notifications['nueve4-pro-addon'] = [
 					'text'   => sprintf(
-					// translators: s - Pro plugin name (Neve Pro)
-						__( 'New plugin update for %1$s! Please update to %2$s.', 'neve' ),
-						wp_kses_post( apply_filters( 'ti_wl_plugin_name', 'Neve Pro' ) ),
+					// translators: s - Pro plugin name (Nueve4 Pro)
+						__( 'New plugin update for %1$s! Please update to %2$s.', 'nueve4' ),
+						wp_kses_post( apply_filters( 'ti_wl_plugin_name', 'Nueve4 Pro' ) ),
 						wp_kses_post( $update->new_version )
 					),
 					'update' => [
 						'type' => 'plugin',
-						'slug' => 'neve-pro-addon',
+						'slug' => 'nueve4-pro-addon',
 						'path' => $plugin_path,
 					],
-					'cta'    => __( 'Update Now', 'neve' ),
+					'cta'    => __( 'Update Now', 'nueve4' ),
 					'type'   => 'warning',
 				];
 			}
@@ -467,23 +467,23 @@ class Main {
 			$notifications['branding-discount'] = [
 				'text'        => sprintf(
 				// translators: s - Discount Code
-					__( 'From 3.3.0 we decided to remove the copyright component from the free version. You can continue using it if you rollback to 3.2.x or you can upgrade to pro, using a one time 50%% discount: %s', 'neve' ),
+					__( 'From 3.3.0 we decided to remove the copyright component from the free version. You can continue using it if you rollback to 3.2.x or you can upgrade to pro, using a one time 50%% discount: %s', 'nueve4' ),
 					wp_kses_post( '<code>NEVEBRANDING50</code>' )
 				),
-				'url'         => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'copyrightnotice', 'nevedashboard' ),
+				'url'         => tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/', 'copyrightnotice', 'nueve4dashboard' ),
 				'targetBlank' => true,
-				'cta'         => __( 'Upgrade', 'neve' ),
+				'cta'         => __( 'Upgrade', 'nueve4' ),
 			];
 		}
 
 		if ( count( $notifications ) === 1 && is_plugin_active( $plugin_path ) ) {
 			foreach ( $notifications as $key => $notification ) {
-				/* translators: 1 - Theme Name (Neve), 2 - Plugin Name (Neve Pro) */
-				$notifications[ $key ]['text'] = sprintf( __( 'We recommend that both %1$s and %2$s are updated to the latest version to ensure optimal intercompatibility.', 'neve' ), wp_kses_post( $this->theme_args['name'] ), apply_filters( 'ti_wl_plugin_name', 'Neve Pro' ) );
+				/* translators: 1 - Theme Name (Nueve4), 2 - Plugin Name (Nueve4 Pro) */
+				$notifications[ $key ]['text'] = sprintf( __( 'We recommend that both %1$s and %2$s are updated to the latest version to ensure optimal intercompatibility.', 'nueve4' ), wp_kses_post( $this->theme_args['name'] ), apply_filters( 'ti_wl_plugin_name', 'Nueve4 Pro' ) );
 			}
 		}
 
-		$notifications = apply_filters( 'neve_dashboard_notifications', $notifications );
+		$notifications = apply_filters( 'nueve4_dashboard_notifications', $notifications );
 
 		return $notifications;
 	}
@@ -509,36 +509,36 @@ class Main {
 	private function get_customizer_shortcuts() {
 		return [
 			[
-				'text' => __( 'Upload Logo', 'neve' ),
+				'text' => __( 'Upload Logo', 'nueve4' ),
 				'link' => add_query_arg( [ 'autofocus[control]' => 'custom_logo' ], admin_url( 'customize.php' ) ),
 			],
 			[
-				'text' => __( 'Set Colors', 'neve' ),
-				'link' => add_query_arg( [ 'autofocus[section]' => 'neve_colors_background_section' ], admin_url( 'customize.php' ) ),
+				'text' => __( 'Set Colors', 'nueve4' ),
+				'link' => add_query_arg( [ 'autofocus[section]' => 'nueve4_colors_background_section' ], admin_url( 'customize.php' ) ),
 			],
 			[
-				'text' => __( 'Customize Fonts', 'neve' ),
-				'link' => add_query_arg( [ 'autofocus[control]' => 'neve_headings_font_family' ], admin_url( 'customize.php' ) ),
+				'text' => __( 'Customize Fonts', 'nueve4' ),
+				'link' => add_query_arg( [ 'autofocus[control]' => 'nueve4_headings_font_family' ], admin_url( 'customize.php' ) ),
 			],
 			[
-				'text' => __( 'Layout Options', 'neve' ),
-				'link' => add_query_arg( [ 'autofocus[panel]' => 'neve_layout' ], admin_url( 'customize.php' ) ),
+				'text' => __( 'Layout Options', 'nueve4' ),
+				'link' => add_query_arg( [ 'autofocus[panel]' => 'nueve4_layout' ], admin_url( 'customize.php' ) ),
 			],
 			[
-				'text' => __( 'Header Options', 'neve' ),
+				'text' => __( 'Header Options', 'nueve4' ),
 				'link' => add_query_arg( [ 'autofocus[panel]' => 'hfg_header' ], admin_url( 'customize.php' ) ),
 			],
 			[
-				'text' => __( 'Blog Layouts', 'neve' ),
-				'link' => add_query_arg( [ 'autofocus[section]' => 'neve_blog_archive_layout' ], admin_url( 'customize.php' ) ),
+				'text' => __( 'Blog Layouts', 'nueve4' ),
+				'link' => add_query_arg( [ 'autofocus[section]' => 'nueve4_blog_archive_layout' ], admin_url( 'customize.php' ) ),
 			],
 			[
-				'text' => __( 'Footer Options', 'neve' ),
+				'text' => __( 'Footer Options', 'nueve4' ),
 				'link' => add_query_arg( [ 'autofocus[panel]' => 'hfg_footer' ], admin_url( 'customize.php' ) ),
 			],
 			[
-				'text' => __( 'Content / Sidebar', 'neve' ),
-				'link' => add_query_arg( [ 'autofocus[section]' => 'neve_sidebar' ], admin_url( 'customize.php' ) ),
+				'text' => __( 'Content / Sidebar', 'nueve4' ),
+				'link' => add_query_arg( [ 'autofocus[section]' => 'nueve4_sidebar' ], admin_url( 'customize.php' ) ),
 			],
 		];
 	}
@@ -563,79 +563,79 @@ class Main {
 	private function get_free_pro_features() {
 		return [
 			[
-				'title'       => __( 'Header/Footer builder', 'neve' ),
-				'description' => __( 'Easily build your header and footer by dragging and dropping all the important elements in the real-time WordPress Customizer. More advanced options are available in PRO.', 'neve' ),
+				'title'       => __( 'Header/Footer builder', 'nueve4' ),
+				'description' => __( 'Easily build your header and footer by dragging and dropping all the important elements in the real-time WordPress Customizer. More advanced options are available in PRO.', 'nueve4' ),
 				'inLite'      => true,
-				'docsLink'    => $this->get_doc_link( 'Header/Footer builder', 'https://docs.themeisle.com/category/1251-neve-header-builder' ),
+				'docsLink'    => $this->get_doc_link( 'Header/Footer builder', 'https://docs.themeisle.com/category/1251-nueve4-header-builder' ),
 			],
 			[
-				'title'       => __( 'Page Builder Compatibility', 'neve' ),
-				'description' => __( 'Neve is fully compatible with Gutenberg, the new WordPress editor and for all of you page builder fans, Neve has full compatibility with Elementor, Beaver Builder, and all the other popular page builders.', 'neve' ),
+				'title'       => __( 'Page Builder Compatibility', 'nueve4' ),
+				'description' => __( 'Nueve4 is fully compatible with Gutenberg, the new WordPress editor and for all of you page builder fans, Nueve4 has full compatibility with Elementor, Beaver Builder, and all the other popular page builders.', 'nueve4' ),
 				'inLite'      => true,
-				'docsLink'    => $this->get_doc_link( 'Page Builder Compatibility', 'https://docs.themeisle.com/article/946-neve-doc#pagebuilders' ),
+				'docsLink'    => $this->get_doc_link( 'Page Builder Compatibility', 'https://docs.themeisle.com/article/946-nueve4-doc#pagebuilders' ),
 			],
 			[
-				'title'       => __( 'Header Booster', 'neve' ),
-				'description' => __( 'Take the header builder to a new level with new awesome components: socials, contact, breadcrumbs, language switcher, multiple HTML, sticky and transparent menu, page header builder and many more.', 'neve' ),
+				'title'       => __( 'Header Booster', 'nueve4' ),
+				'description' => __( 'Take the header builder to a new level with new awesome components: socials, contact, breadcrumbs, language switcher, multiple HTML, sticky and transparent menu, page header builder and many more.', 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'Header Booster', 'https://docs.themeisle.com/article/1057-header-booster-documentation' ),
 			],
 			[
-				'title'       => __( 'Page Header Builder', 'neve' ),
-				'description' => __( 'The Page Header is the horizontal area that sits directly below the header and contains the page/post title. Easily design an attractive Page Header area using our dedicated builder.', 'neve' ),
+				'title'       => __( 'Page Header Builder', 'nueve4' ),
+				'description' => __( 'The Page Header is the horizontal area that sits directly below the header and contains the page/post title. Easily design an attractive Page Header area using our dedicated builder.', 'nueve4' ),
 				'inLite'      => false,
-				'docsLink'    => $this->get_doc_link( 'Page Header Builder', 'https://docs.themeisle.com/article/1262-neve-page-header' ),
+				'docsLink'    => $this->get_doc_link( 'Page Header Builder', 'https://docs.themeisle.com/article/1262-nueve4-page-header' ),
 			],
 			[
-				'title'       => __( 'Custom Layouts', 'neve' ),
-				'description' => __( 'Powerful Custom Layouts builder which allows you to easily create your own header, footer or custom content on any of the hook locations available in the theme.', 'neve' ),
+				'title'       => __( 'Custom Layouts', 'nueve4' ),
+				'description' => __( 'Powerful Custom Layouts builder which allows you to easily create your own header, footer or custom content on any of the hook locations available in the theme.', 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'Custom Layouts', 'https://docs.themeisle.com/article/1062-custom-layouts-module' ),
 			],
 			[
-				'title'       => __( 'Blog Booster', 'neve' ),
-				'description' => __( 'Give a huge boost to your entire blogging experience with features specially designed for increased user experience.', 'neve' ) . ' ' . __( 'Sharing, custom article sorting, comments integrations, number of minutes needed to read an article and many more.', 'neve' ),
+				'title'       => __( 'Blog Booster', 'nueve4' ),
+				'description' => __( 'Give a huge boost to your entire blogging experience with features specially designed for increased user experience.', 'nueve4' ) . ' ' . __( 'Sharing, custom article sorting, comments integrations, number of minutes needed to read an article and many more.', 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'Blog Booster', 'https://docs.themeisle.com/article/1059-blog-booster-documentation' ),
 			],
 			[
-				'title'       => __( 'Elementor Booster', 'neve' ),
-				'description' => __( 'Leverage the true flexibility of Elementor with powerful addons and templates that you can import with just one click.', 'neve' ),
+				'title'       => __( 'Elementor Booster', 'nueve4' ),
+				'description' => __( 'Leverage the true flexibility of Elementor with powerful addons and templates that you can import with just one click.', 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'Elementor Booster', 'https://docs.themeisle.com/article/1063-elementor-booster-module-documentation' ),
 			],
 			[
-				'title'       => __( 'WooCommerce Booster', 'neve' ),
-				'description' => __( 'Empower your online store with awesome new features, specially designed for a smooth WooCommerce integration.', 'neve' ) . ' ' . __( 'Wishlist, quick view, video products, advanced reviews, multiple dedicated layouts and many more.', 'neve' ),
+				'title'       => __( 'WooCommerce Booster', 'nueve4' ),
+				'description' => __( 'Empower your online store with awesome new features, specially designed for a smooth WooCommerce integration.', 'nueve4' ) . ' ' . __( 'Wishlist, quick view, video products, advanced reviews, multiple dedicated layouts and many more.', 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'WooCommerce Booster', 'https://docs.themeisle.com/article/1058-woocommerce-booster-documentation' ),
 			],
 			[
-				'title'       => __( 'LifterLMS Booster', 'neve' ),
-				'description' => __( 'Make your LifterLMS pages look stunning with our PRO design options. Specially created to help you set up your online courses with minimum customizations.', 'neve' ),
+				'title'       => __( 'LifterLMS Booster', 'nueve4' ),
+				'description' => __( 'Make your LifterLMS pages look stunning with our PRO design options. Specially created to help you set up your online courses with minimum customizations.', 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'LifterLMS Booster', 'https://docs.themeisle.com/article/1084-lifterlms-booster-documentation' ),
 			],
 			[
-				'title'       => __( 'Typekit(Adobe) Fonts', 'neve' ),
-				'description' => __( "The module allows for an easy way of enabling new awesome Adobe (previous Typekit) Fonts in Neve's Typography options.", 'neve' ),
+				'title'       => __( 'Typekit(Adobe) Fonts', 'nueve4' ),
+				'description' => __( "The module allows for an easy way of enabling new awesome Adobe (previous Typekit) Fonts in Nueve4's Typography options.", 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'Typekit(Adobe) Fonts', 'https://docs.themeisle.com/article/1085-typekit-fonts-documentation' ),
 			],
 			[
-				'title'       => __( 'White Label', 'neve' ),
-				'description' => __( "For any developer or agency out there building websites for their own clients, we've made it easy to present the theme as your own.", 'neve' ),
+				'title'       => __( 'White Label', 'nueve4' ),
+				'description' => __( "For any developer or agency out there building websites for their own clients, we've made it easy to present the theme as your own.", 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'White Label', 'https://docs.themeisle.com/article/1061-white-label-module-documentation' ),
 			],
 			[
-				'title'       => __( 'Scroll To Top', 'neve' ),
-				'description' => __( 'Simple but effective module to help you navigate back to the top of the really long pages.', 'neve' ),
+				'title'       => __( 'Scroll To Top', 'nueve4' ),
+				'description' => __( 'Simple but effective module to help you navigate back to the top of the really long pages.', 'nueve4' ),
 				'inLite'      => false,
 				'docsLink'    => $this->get_doc_link( 'Scroll To Top', 'https://docs.themeisle.com/article/1060-scroll-to-top-module-documentation' ),
 			],
 			[
-				'title'          => __( 'See all PRO features', 'neve' ),
+				'title'          => __( 'See all PRO features', 'nueve4' ),
 				'presentational' => true,
 			],
 		];
@@ -703,7 +703,7 @@ class Main {
 	 * @return bool
 	 */
 	private function should_show_feedback_notice() {
-		$activated_time = get_option( 'neve_install' );
+		$activated_time = get_option( 'nueve4_install' );
 		if ( ! empty( $activated_time ) ) {
 			if ( time() - intval( $activated_time ) > 14 * DAY_IN_SECONDS ) {
 				return true;
@@ -726,7 +726,7 @@ class Main {
 				'description' => 'Turn WordPress into a landing page powerhouse with Landing Kit. Map domains to pages or any other published resource.',
 				'author'      => 'Themeisle',
 				'cta'         => 'external',
-				'url'         => tsdk_utmify( 'https://wplandingkit.com/', 'recommendedplugins', 'nevedashboard' ),
+				'url'         => tsdk_utmify( 'https://wplandingkit.com/', 'recommendedplugins', 'nueve4dashboard' ),
 				'premium'     => true,
 			),
 

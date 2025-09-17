@@ -2,10 +2,10 @@
 /**
  * Header Footer Builder Section.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Customizer section.
@@ -22,7 +22,7 @@ class Builder_Section extends \WP_Customize_Section {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_header_footer_builder_section';
+	public $type = 'nueve4_header_footer_builder_section';
 	/**
 	 * Default options schema.
 	 *

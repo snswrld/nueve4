@@ -721,7 +721,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				'options' => [
 					'hover'         => __('On Hover', 'master-addons' ),
 					'always'        => __('Always', 'master-addons' ),
-					'never'         => __('Never', 'master-addons' ),
+					'nueve4r'         => __('Nueve4r', 'master-addons' ),
 					'hide-on-hover' => __('Hide on Hover', 'master-addons' )
 				],
 				'default'      => 'hover',
@@ -741,7 +741,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				'return_value' => 'yes',
 				'condition'    =>
 				[
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				]
 			]
 		);
@@ -762,7 +762,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				'prefix_class' => 'jltma-icon-view-',
 				'condition'    => [
 					'icon!'                             => '',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 			]
 		);
@@ -1243,7 +1243,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				'label'     => __('Overlay', 'master-addons' ),
 				'tab'       => Controls_Manager::TAB_STYLE,
 				'condition' => [
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 			]
 		);
@@ -1255,7 +1255,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				'type'      => Controls_Manager::HEADING,
 				'separator' => 'before',
 				'condition' => [
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				]
 			]
 
@@ -1269,7 +1269,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				'types'     => ['none', 'classic', 'gradient'],
 				'selector'  => '{{WRAPPER}} .jltma-image-hover-content ',
 				'condition' => [
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 			]
 		);
@@ -1347,7 +1347,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				'types'     => ['none', 'classic', 'gradient'],
 				'selector'  => '{{WRAPPER}} .jltma-image-hover-item-info .ma-el-image-filter-cat',
 				'condition' => [
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 			]
 		);
@@ -1399,7 +1399,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				],
 				'condition' => [
 					'ma_el_image_gallery_view!'         => 'default',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 
 			]
@@ -1421,7 +1421,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				],
 				'condition' => [
 					'ma_el_image_gallery_view!'         => 'default',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 
 			]
@@ -1441,7 +1441,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				],
 				'condition' => [
 					'ma_el_image_gallery_popup_icon!'   => '',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 			]
 		);
@@ -1466,7 +1466,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				],
 				'condition' => [
 					'ma_el_image_gallery_view!'         => 'default',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 			]
 		);
@@ -1480,7 +1480,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				'separator' => 'before',
 				'condition' => [
 					'ma_el_image_gallery_popup_icon!'   => '',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 
 			]
@@ -1502,7 +1502,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				],
 				'condition' => [
 					'ma_el_image_gallery_popup_icon!'   => '',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 
 				],
 			]
@@ -1520,7 +1520,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				],
 				'condition' => [
 					'ma_el_image_gallery_popup_icon!'   => '',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 
 			]
@@ -1547,7 +1547,7 @@ class JLTMA_Filterable_Image_Gallery extends Widget_Base
 				],
 				'condition' => [
 					'ma_el_image_gallery_popup_icon!'   => '',
-					'ma_el_image_gallery_show_overlay!' => 'never',
+					'ma_el_image_gallery_show_overlay!' => 'nueve4r',
 				],
 			]
 		);

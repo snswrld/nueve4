@@ -2,10 +2,10 @@
 /**
  * Responsive number input control.
  *
- * @package    Neve\Customizer\Controls
+ * @package    Nueve4\Customizer\Controls
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * A text control with validation for CSS units.

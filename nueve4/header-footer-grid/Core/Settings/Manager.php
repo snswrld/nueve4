@@ -10,8 +10,8 @@
 
 namespace HFG\Core\Settings;
 
-use Neve\Customizer\Controls\Tabs;
-use Neve\Core\Settings\Mods;
+use Nueve4\Customizer\Controls\Tabs;
+use Nueve4\Core\Settings\Mods;
 
 /**
  * Class Manager
@@ -199,15 +199,15 @@ class Manager {
 			'section'  => $section,
 			'tabs'     => array(
 				self::TAB_GENERAL => array(
-					'label' => esc_html__( 'General', 'neve' ),
+					'label' => esc_html__( 'General', 'nueve4' ),
 					'icon'  => 'admin-generic',
 				),
 				self::TAB_LAYOUT  => array(
-					'label' => esc_html__( 'Layout', 'neve' ),
+					'label' => esc_html__( 'Layout', 'nueve4' ),
 					'icon'  => 'layout',
 				),
 				self::TAB_STYLE   => array(
-					'label' => esc_html__( 'Style', 'neve' ),
+					'label' => esc_html__( 'Style', 'nueve4' ),
 					'icon'  => 'admin-customizer',
 				),
 			),
@@ -376,7 +376,7 @@ class Manager {
 		}
 		if ( isset( $arguments['use_dynamic_fields'] ) ) {
 			add_filter(
-				'neve_react_controls_localization',
+				'nueve4_react_controls_localization',
 				function ( $array ) use ( $arguments ) {
 					$array['dynamicTags']['controls'][ $arguments['group'] . '_' . $arguments['id'] ] = $arguments['use_dynamic_fields'];
 
@@ -386,7 +386,7 @@ class Manager {
 		}
 		if ( isset( $arguments['live_refresh_selector'] ) && $arguments['live_refresh_selector'] !== false ) {
 			add_filter(
-				'neve_customize_preview_localization',
+				'nueve4_customize_preview_localization',
 				function ( $array ) use ( $arguments ) {
 					$args = [];
 
@@ -409,7 +409,7 @@ class Manager {
 
 		if ( isset( $arguments['conditional_header'] ) && $arguments['conditional_header'] === true ) {
 			add_filter(
-				'neve_react_controls_localization',
+				'nueve4_react_controls_localization',
 				function ( $array ) use ( $id, $default ) {
 					$array['headerControls'][ $id ] = $default;
 
@@ -418,7 +418,7 @@ class Manager {
 			);
 			if ( defined( 'NEVE_PRO_VERSION' ) ) {
 				add_filter(
-					'neve_pro_react_controls_localization',
+					'nueve4_pro_react_controls_localization',
 					function ( $array ) use ( $id ) {
 						$array['headerControls'][] = $id;
 

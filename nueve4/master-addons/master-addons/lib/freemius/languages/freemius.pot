@@ -1543,7 +1543,7 @@ msgid "Thank you for updating to %1$s v%2$s!"
 msgstr ""
 
 #: templates/connect.php:177
-msgid "Never miss an important update"
+msgid "Nueve4r miss an important update"
 msgstr ""
 
 #: templates/connect.php:195
@@ -1552,7 +1552,7 @@ msgstr ""
 
 #. translators: %s: module type (plugin, theme, or add-on)
 #: templates/connect.php:235
-msgid "We have introduced this opt-in so you never miss an important update and help us make the %s more compatible with your site and better at doing what you need it to."
+msgid "We have introduced this opt-in so you nueve4r miss an important update and help us make the %s more compatible with your site and better at doing what you need it to."
 msgstr ""
 
 #: templates/connect.php:237
@@ -2161,7 +2161,7 @@ msgid "Your WordPress user's: first & last name, and email address"
 msgstr ""
 
 #: includes/managers/class-fs-permission-manager.php:384
-msgid "Never miss important updates, get security warnings before they become public knowledge, and receive notifications about special offers and awesome new features."
+msgid "Nueve4r miss important updates, get security warnings before they become public knowledge, and receive notifications about special offers and awesome new features."
 msgstr ""
 
 #: includes/managers/class-fs-permission-manager.php:405

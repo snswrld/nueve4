@@ -2,18 +2,18 @@
 /**
  * Handles Magic Tags
  *
- * @package Neve
+ * @package Nueve4
  */
 
 namespace HFG\Core;
 
-use Neve\Views\Partials\Post_Meta;
-use Neve\Views\Post_Layout;
+use Nueve4\Views\Partials\Post_Meta;
+use Nueve4\Views\Post_Layout;
 
 /**
  * Class Short_Codes
  *
- * @package Neve\Views\Pluggable
+ * @package Nueve4\Views\Pluggable
  */
 class Magic_Tags {
 	/**
@@ -206,7 +206,7 @@ class Magic_Tags {
 	 * @return string.
 	 */
 	public function meta_author() {
-		return '<span class="nv-dynamic-author-meta">' . Post_Meta::neve_get_author_meta() . '</span>';
+		return '<span class="nv-dynamic-author-meta">' . Post_Meta::nueve4_get_author_meta() . '</span>';
 	}
 
 	/**
@@ -216,7 +216,7 @@ class Magic_Tags {
 	 */
 	public function meta_date() {
 		ob_start();
-		do_action( 'neve_post_meta_single', array( 'date' ), false );
+		do_action( 'nueve4_post_meta_single', array( 'date' ), false );
 		$meta = ob_get_contents();
 		ob_end_clean();
 
@@ -248,7 +248,7 @@ class Magic_Tags {
 	 * @return string.
 	 */
 	public function meta_time_to_read() {
-		return apply_filters( 'neve_do_read_time', '' );
+		return apply_filters( 'nueve4_do_read_time', '' );
 	}
 
 	/**
@@ -580,135 +580,135 @@ class Magic_Tags {
 	private function setup_config() {
 		$this->options = [
 			[
-				'label'    => __( 'Single', 'neve' ),
+				'label'    => __( 'Single', 'nueve4' ),
 				'controls' => [
 					'current_single_title'   => [
-						'label' => __( 'Current Single Title', 'neve' ),
+						'label' => __( 'Current Single Title', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'current_single_excerpt' => [
-						'label' => __( 'Current Single Excerpt', 'neve' ),
+						'label' => __( 'Current Single Excerpt', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'current_single_url'     => [
-						'label' => __( 'Current Single URL', 'neve' ),
+						'label' => __( 'Current Single URL', 'nueve4' ),
 						'type'  => 'url',
 					],
 					'current_post_meta'      => [
-						'label' => __( 'Current Post Meta', 'neve' ),
+						'label' => __( 'Current Post Meta', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'meta_author'            => [
-						'label' => __( 'Author meta', 'neve' ),
+						'label' => __( 'Author meta', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'meta_date'              => [
-						'label' => __( 'Date meta', 'neve' ),
+						'label' => __( 'Date meta', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'meta_category'          => [
-						'label' => __( 'Category meta', 'neve' ),
+						'label' => __( 'Category meta', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'meta_comments'          => [
-						'label' => __( 'Comments meta', 'neve' ),
+						'label' => __( 'Comments meta', 'nueve4' ),
 						'type'  => 'string',
 					],
 				],
 			],
 			[
-				'label'    => __( 'Archive', 'neve' ),
+				'label'    => __( 'Archive', 'nueve4' ),
 				'controls' => [
 					'archive_description' => [
-						'label' => __( 'Archive Description', 'neve' ),
+						'label' => __( 'Archive Description', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'archive_title'       => [
-						'label' => __( 'Archive Title', 'neve' ),
+						'label' => __( 'Archive Title', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'archive_url'         => [
-						'label' => __( 'Archive URL', 'neve' ),
+						'label' => __( 'Archive URL', 'nueve4' ),
 						'type'  => 'url',
 					],
 				],
 			],
 			[
-				'label'    => __( 'Author', 'neve' ),
+				'label'    => __( 'Author', 'nueve4' ),
 				'controls' => [
 					'author_bio'  => [
-						'label' => __( 'Author Bio', 'neve' ),
+						'label' => __( 'Author Bio', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'author_name' => [
-						'label' => __( 'Author Name', 'neve' ),
+						'label' => __( 'Author Name', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'author_url'  => [
-						'label' => __( 'Author URL', 'neve' ),
+						'label' => __( 'Author URL', 'nueve4' ),
 						'type'  => 'url',
 					],
 				],
 			],
 			[
-				'label'    => __( 'Current User', 'neve' ),
+				'label'    => __( 'Current User', 'nueve4' ),
 				'controls' => [
 					'user_nicename' => [
-						'label' => __( 'User Nice Name', 'neve' ),
+						'label' => __( 'User Nice Name', 'nueve4' ),
 						'type'  => 'custom_user',
 					],
 					'display_name'  => [
-						'label' => __( 'Display Name', 'neve' ),
+						'label' => __( 'Display Name', 'nueve4' ),
 						'type'  => 'custom_user',
 					],
 					'user_email'    => [
-						'label' => __( 'User Email', 'neve' ),
+						'label' => __( 'User Email', 'nueve4' ),
 						'type'  => 'custom_user',
 					],
 				],
 			],
 			[
-				'label'    => __( 'Global', 'neve' ),
+				'label'    => __( 'Global', 'nueve4' ),
 				'controls' => [
 					'site_title'          => [
-						'label' => __( 'Site Title', 'neve' ),
+						'label' => __( 'Site Title', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'site_tagline'        => [
-						'label' => __( 'Site Tagline', 'neve' ),
+						'label' => __( 'Site Tagline', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'current_query_title' => [
-						'label' => __( 'Current Page Title', 'neve' ),
+						'label' => __( 'Current Page Title', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'home_url'            => [
-						'label' => __( 'Home URL', 'neve' ),
+						'label' => __( 'Home URL', 'nueve4' ),
 						'type'  => 'url',
 					],
 					'current_year'        => [
-						'label' => __( 'Current Year', 'neve' ),
+						'label' => __( 'Current Year', 'nueve4' ),
 						'type'  => 'string',
 					],
 				],
 			],
 			[
-				'label'    => __( 'Cart', 'neve' ),
+				'label'    => __( 'Cart', 'nueve4' ),
 				'controls' => [
 					'cart_total_currency_symbol' => [
-						'label' => __( 'Total + Currency Symbol', 'neve' ),
+						'label' => __( 'Total + Currency Symbol', 'nueve4' ),
 						'type'  => 'custom_cart',
 					],
 					'cart_total'                 => [
-						'label' => __( 'Total', 'neve' ),
+						'label' => __( 'Total', 'nueve4' ),
 						'type'  => 'custom_cart',
 					],
 					'currency_name'              => [
-						'label' => __( 'Currency Name', 'neve' ),
+						'label' => __( 'Currency Name', 'nueve4' ),
 						'type'  => 'custom_cart',
 					],
 					'currency_symbol'            => [
-						'label' => __( 'Currency Symbol', 'neve' ),
+						'label' => __( 'Currency Symbol', 'nueve4' ),
 						'type'  => 'custom_cart',
 					],
 				],
@@ -717,22 +717,22 @@ class Magic_Tags {
 
 		if ( class_exists( 'Easy_Digital_Downloads', false ) ) {
 			$this->options[] = [
-				'label'    => __( 'EDD Cart', 'neve' ),
+				'label'    => __( 'EDD Cart', 'nueve4' ),
 				'controls' => [
 					'edd_cart_total_currency_symbol' => [
-						'label' => __( 'Total + Currency Symbol', 'neve' ),
+						'label' => __( 'Total + Currency Symbol', 'nueve4' ),
 						'type'  => 'edd_custom_cart',
 					],
 					'edd_cart_total'                 => [
-						'label' => __( 'Total', 'neve' ),
+						'label' => __( 'Total', 'nueve4' ),
 						'type'  => 'edd_custom_cart',
 					],
 					'edd_currency_name'              => [
-						'label' => __( 'Currency Name', 'neve' ),
+						'label' => __( 'Currency Name', 'nueve4' ),
 						'type'  => 'edd_custom_cart',
 					],
 					'edd_currency_symbol'            => [
-						'label' => __( 'Currency Symbol', 'neve' ),
+						'label' => __( 'Currency Symbol', 'nueve4' ),
 						'type'  => 'edd_custom_cart',
 					],
 				],
@@ -741,29 +741,29 @@ class Magic_Tags {
 
 		if ( class_exists( 'WooCommerce', false ) ) {
 			$this->options[] = [
-				'label'    => __( 'WooCommerce', 'neve' ),
+				'label'    => __( 'WooCommerce', 'nueve4' ),
 				'controls' => [
 					'product_price' => [
-						'label' => __( 'Product Price', 'neve' ),
+						'label' => __( 'Product Price', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'product_title' => [
-						'label' => __( 'Product Title', 'neve' ),
+						'label' => __( 'Product Title', 'nueve4' ),
 						'type'  => 'string',
 					],
 					'cart_link'     => [
-						'label' => __( 'Cart URL', 'neve' ),
+						'label' => __( 'Cart URL', 'nueve4' ),
 						'type'  => 'url',
 					],
 					'checkout_link' => [
-						'label' => __( 'Checkout URL', 'neve' ),
+						'label' => __( 'Checkout URL', 'nueve4' ),
 						'type'  => 'url',
 					],
 				],
 			];
 		}
 
-		$this->options = apply_filters( 'neve_magic_tags_config', $this->options );
+		$this->options = apply_filters( 'nueve4_magic_tags_config', $this->options );
 
 		foreach ( $this->options as $magic_tag_group => $args ) {
 			foreach ( $args['controls'] as $tag => $tag_args ) {

@@ -3,25 +3,25 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      04/09/2018
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 use HFG\Core\Components\CartIcon;
 use HFG\Core\Magic_Tags;
-use Neve\Core\Dynamic_Css;
-use Neve\Core\Settings\Config;
-use Neve\Customizer\Defaults\Layout;
-use Neve\Views\Breadcrumbs;
-use Neve\Views\Layouts\Layout_Sidebar;
+use Nueve4\Core\Dynamic_Css;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Customizer\Defaults\Layout;
+use Nueve4\Views\Breadcrumbs;
+use Nueve4\Views\Layouts\Layout_Sidebar;
 use RankMath\Helper;
 use WC_Payment_Gateways;
 
 /**
  * Class Woocommerce
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class Woocommerce {
 
@@ -77,27 +77,27 @@ class Woocommerce {
 	private $secondary_buttons_selectors = array(
 		'default' => '
 			,.woocommerce-cart table.cart td.actions .coupon > .input-text + .button,
-			.woocommerce-checkout #neve-checkout-coupon .woocommerce-form-coupon .form-row-last button,
+			.woocommerce-checkout #nueve4-checkout-coupon .woocommerce-form-coupon .form-row-last button,
 			.woocommerce button.button:not(.single_add_to_cart_button),
 			.woocommerce a.added_to_cart,
 			.woocommerce .checkout_coupon button.button,
 			.woocommerce .price_slider_amount button.button,
 			.woocommerce .button.button-secondary.more-details,
-			.woocommerce-checkout #neve-checkout-coupon .woocommerce-form-coupon .form-row-last button.button',
+			.woocommerce-checkout #nueve4-checkout-coupon .woocommerce-form-coupon .form-row-last button.button',
 		'hover'   => '
 			,.woocommerce-cart table.cart td.actions .coupon > .input-text + .button:hover,
-			.woocommerce-checkout #neve-checkout-coupon .woocommerce-form-coupon .form-row-last button:hover,
+			.woocommerce-checkout #nueve4-checkout-coupon .woocommerce-form-coupon .form-row-last button:hover,
 			.woocommerce button.button:not(.single_add_to_cart_button):hover,
 			.woocommerce a.added_to_cart:hover,
 			.woocommerce .checkout_coupon button.button:hover,
 			.woocommerce .price_slider_amount button.button:hover,
 			.woocommerce .button.button-secondary.more-details:hover,
-			.woocommerce-checkout #neve-checkout-coupon .woocommerce-form-coupon .form-row-last button.button:hover',
+			.woocommerce-checkout #nueve4-checkout-coupon .woocommerce-form-coupon .form-row-last button.button:hover',
 	);
 	/**
 	 * Sidebar manager.
 	 *
-	 * @var \Neve\Views\Layouts\Layout_Sidebar
+	 * @var \Nueve4\Views\Layouts\Layout_Sidebar
 	 */
 	private $sidebar_manager;
 
@@ -107,7 +107,7 @@ class Woocommerce {
 	public function init() {
 		add_filter( 'body_class', array( $this, 'add_payment_method_class' ) );
 		add_action( 'wp', array( $this, 'register_hooks' ), 11 );
-		add_filter( 'neve_react_controls_localization', array( $this, 'add_customizer_options' ) );
+		add_filter( 'nueve4_react_controls_localization', array( $this, 'add_customizer_options' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'payment_style' ), 100 );
 	}
 
@@ -193,7 +193,7 @@ class Woocommerce {
 		}
 
 		$css = Dynamic_Css::minify_css( $css );
-		wp_add_inline_style( 'neve-woocommerce', $css );
+		wp_add_inline_style( 'nueve4-woocommerce', $css );
 	}
 
 	/**
@@ -284,8 +284,8 @@ class Woocommerce {
 		add_action( 'admin_footer', array( $this, 'update_woo_width' ) );
 
 		// Wrap content.
-		add_action( 'neve_after_primary_start', array( $this, 'wrap_pages_start' ) );
-		add_action( 'neve_before_primary_end', array( $this, 'wrap_pages_end' ) );
+		add_action( 'nueve4_after_primary_start', array( $this, 'wrap_pages_start' ) );
+		add_action( 'nueve4_before_primary_end', array( $this, 'wrap_pages_end' ) );
 
 		add_action( 'woocommerce_before_main_content', array( $this, 'wrap_main_content_start' ), 15 );
 		add_action( 'woocommerce_after_main_content', array( $this, 'close_div' ), 15 );
@@ -299,7 +299,7 @@ class Woocommerce {
 		 * Change product page sidebar default position
 		 * Priority 9 to allow meta control to override this value
 		 */
-		// add_filter( 'neve_sidebar_position', array( $this, 'product_page_sidebar_default_position' ), 9 );
+		// add_filter( 'nueve4_sidebar_position', array( $this, 'product_page_sidebar_default_position' ), 9 );
 
 		// Remove WooCommerce wrap.
 		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
@@ -307,7 +307,7 @@ class Woocommerce {
 
 		add_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 
-		add_filter( 'neve_post_meta_filters_post_id', array( $this, 'adapt_meta_for_shop_page' ) );
+		add_filter( 'nueve4_post_meta_filters_post_id', array( $this, 'adapt_meta_for_shop_page' ) );
 
 		/**
 		 * Ensure cart contents update when products are added to the cart via AJAX
@@ -322,8 +322,8 @@ class Woocommerce {
 		add_filter( 'woocommerce_cart_item_price', array( $this, 'show_crossed_regular_price_on_cart' ), 10, 3 );
 
 		// Add breadcrumbs and results count
-		add_action( 'neve_bc_count', [ $this, 'render_breadcrumbs' ] );
-		add_action( 'neve_bc_count', 'woocommerce_result_count' );
+		add_action( 'nueve4_bc_count', [ $this, 'render_breadcrumbs' ] );
+		add_action( 'nueve4_bc_count', 'woocommerce_result_count' );
 
 		$this->edit_woocommerce_header();
 		$this->move_checkout_coupon();
@@ -353,7 +353,7 @@ class Woocommerce {
 			},
 			11
 		);
-		// here the priority should always be to close earlier than the Neve PRO performance module opening div
+		// here the priority should always be to close earlier than the Nueve4 PRO performance module opening div
 		add_action( 'woocommerce_after_single_product_summary', [ $this, 'close_div' ], -100 );
 		// Change default for shop columns WooCommerce option.
 		add_filter( 'default_option_woocommerce_catalog_columns', [ $this, 'change_default_shop_cols' ] );
@@ -407,7 +407,7 @@ class Woocommerce {
 			return;
 		}
 
-		update_option( 'neve_update_woo_width', 'yes' );
+		update_option( 'nueve4_update_woo_width', 'yes' );
 		set_transient( 'woocommerce_shop_page_id', 'executed', 10 * MINUTE_IN_SECONDS );
 	}
 
@@ -415,7 +415,7 @@ class Woocommerce {
 	 * Update WooCommerce pages after the pages were created from their tool,
 	 */
 	public function update_woo_width() {
-		if ( get_option( 'neve_update_woo_width' ) !== 'yes' ) {
+		if ( get_option( 'nueve4_update_woo_width' ) !== 'yes' ) {
 			return;
 		}
 
@@ -427,11 +427,11 @@ class Woocommerce {
 			if ( empty( $page_id ) ) {
 				continue;
 			}
-			update_post_meta( $page_id, 'neve_meta_sidebar', 'full-width' );
-			update_post_meta( $page_id, 'neve_meta_enable_content_width', 'on' );
-			update_post_meta( $page_id, 'neve_meta_content_width', 100 );
+			update_post_meta( $page_id, 'nueve4_meta_sidebar', 'full-width' );
+			update_post_meta( $page_id, 'nueve4_meta_enable_content_width', 'on' );
+			update_post_meta( $page_id, 'nueve4_meta_content_width', 100 );
 		}
-		update_option( 'neve_update_woo_width', false );
+		update_option( 'nueve4_update_woo_width', false );
 	}
 
 	/**
@@ -457,7 +457,7 @@ class Woocommerce {
 	public function product_page_sidebar_default_position( $input ) {
 
 		if ( is_product() ) {
-			return get_theme_mod( 'neve_single_product_sidebar_layout', 'full-width' );
+			return get_theme_mod( 'nueve4_single_product_sidebar_layout', 'full-width' );
 		}
 
 		return $input;
@@ -472,7 +472,7 @@ class Woocommerce {
 		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 		add_action( 'nv_woo_header_bits', 'woocommerce_catalog_ordering', 30 );
 		add_filter( 'woocommerce_show_page_title', '__return_false' );
-		add_action( 'neve_before_shop_loop_content', array( $this, 'add_header_bits' ), 0 );
+		add_action( 'nueve4_before_shop_loop_content', array( $this, 'add_header_bits' ), 0 );
 
 		// Change breadcrumbs.
 		add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumbs_delimiter' ) );
@@ -488,7 +488,7 @@ class Woocommerce {
 		}
 
 		echo '<div class="nv-bc-count-wrap">';
-		do_action( 'neve_bc_count' );
+		do_action( 'nueve4_bc_count' );
 		echo '</div>';
 
 		if ( is_product() ) {
@@ -526,9 +526,9 @@ class Woocommerce {
 	 * Wrap main content start.
 	 */
 	public function wrap_main_content_start() {
-		$before_shop_classes = apply_filters( 'neve_before_shop_classes', 'nv-index-posts nv-shop col' );
+		$before_shop_classes = apply_filters( 'nueve4_before_shop_classes', 'nv-index-posts nv-shop col' );
 		echo '<div class="' . esc_attr( $before_shop_classes ) . '">';
-		do_action( 'neve_before_shop_loop_content' );
+		do_action( 'nueve4_before_shop_loop_content' );
 	}
 
 	/**
@@ -538,7 +538,7 @@ class Woocommerce {
 		if ( ! is_woocommerce() ) {
 			return;
 		}
-		echo '<div class="' . esc_attr( apply_filters( 'neve_container_class_filter', 'container' ) ) . ' shop-container">';
+		echo '<div class="' . esc_attr( apply_filters( 'nueve4_container_class_filter', 'container' ) ) . ' shop-container">';
 		echo '<div class="row">';
 	}
 
@@ -562,7 +562,7 @@ class Woocommerce {
 			return;
 		}
 
-		$button_attrs = apply_filters( 'neve_woocommerce_sidebar_filter_btn_data_attrs', '' );
+		$button_attrs = apply_filters( 'nueve4_woocommerce_sidebar_filter_btn_data_attrs', '' );
 
 		echo '<a href="#" class="nv-sidebar-toggle" ' . wp_kses_post( $button_attrs ) . '>';
 		echo '<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M25 21.6667V1.66667C25 0.75 24.25 0 23.3333 0H1.66667C0.75 0 0 0.75 0 1.66667V21.6667C0 22.5833 0.75 23.3333 1.66667 23.3333H23.3333C24.25 23.3333 25 22.5833 25 21.6667ZM8.33333 13.3333H10C10.9167 13.3333 11.6667 14.0833 11.6667 15C11.6667 15.9167 10.9167 16.6667 10 16.6667H8.33333V19.1667C8.33333 19.6333 7.96667 20 7.5 20C7.03333 20 6.66667 19.6333 6.66667 19.1667V16.6667H5C4.08333 16.6667 3.33333 15.9167 3.33333 15C3.33333 14.0833 4.08333 13.3333 5 13.3333H6.66667V4.16667C6.66667 3.7 7.03333 3.33333 7.5 3.33333C7.96667 3.33333 8.33333 3.7 8.33333 4.16667V13.3333ZM15 10H16.6667V19.1667C16.6667 19.6333 17.0333 20 17.5 20C17.9667 20 18.3333 19.6333 18.3333 19.1667V10H20C20.9167 10 21.6667 9.25 21.6667 8.33333C21.6667 7.41667 20.9167 6.66667 20 6.66667H18.3333V4.16667C18.3333 3.7 17.9667 3.33333 17.5 3.33333C17.0333 3.33333 16.6667 3.7 16.6667 4.16667V6.66667H15C14.0833 6.66667 13.3333 7.41667 13.3333 8.33333C13.3333 9.25 14.0833 10 15 10Z" fill="currentColor"/></svg>';
@@ -575,7 +575,7 @@ class Woocommerce {
 	private function add_inline_selectors() {
 
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_NORMAL,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_NORMAL,
 			array(
 				$this,
 				'add_primary_btns_normal',
@@ -584,7 +584,7 @@ class Woocommerce {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_HOVER,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_HOVER,
 			array(
 				$this,
 				'add_primary_btns_hover',
@@ -593,7 +593,7 @@ class Woocommerce {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_PADDING,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_PRIMARY_PADDING,
 			array(
 				$this,
 				'add_primary_btns_padding',
@@ -604,7 +604,7 @@ class Woocommerce {
 
 
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_NORMAL,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_NORMAL,
 			array(
 				$this,
 				'add_secondary_btns_normal',
@@ -613,7 +613,7 @@ class Woocommerce {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_HOVER,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_HOVER,
 			array(
 				$this,
 				'add_secondary_btns_hover',
@@ -622,7 +622,7 @@ class Woocommerce {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_PADDING,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_BTN_SECONDARY_PADDING,
 			array(
 				$this,
 				'add_secondary_btns_padding',
@@ -632,7 +632,7 @@ class Woocommerce {
 		);
 
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_FORM_INPUTS,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_FORM_INPUTS,
 			array(
 				$this,
 				'add_inputs_selectors',
@@ -642,7 +642,7 @@ class Woocommerce {
 		);
 
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_FORM_INPUTS_WITH_SPACING,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_FORM_INPUTS_WITH_SPACING,
 			array(
 				$this,
 				'add_inputs_spacing_selectors',
@@ -653,7 +653,7 @@ class Woocommerce {
 
 
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_FORM_INPUTS_LABELS,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_FORM_INPUTS_LABELS,
 			array(
 				$this,
 				'add_labels_selectors',
@@ -663,7 +663,7 @@ class Woocommerce {
 		);
 
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_FORM_SEARCH_INPUTS,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_FORM_SEARCH_INPUTS,
 			array(
 				$this,
 				'add_search_inputs_selector',
@@ -672,8 +672,8 @@ class Woocommerce {
 			1
 		);
 
-		add_filter( 'neve_body_font_family_selectors', array( $this, 'add_font_families' ) );
-		add_filter( 'neve_headings_typeface_selectors', array( $this, 'add_typeface_selectors' ) );
+		add_filter( 'nueve4_body_font_family_selectors', array( $this, 'add_font_families' ) );
+		add_filter( 'nueve4_headings_typeface_selectors', array( $this, 'add_typeface_selectors' ) );
 	}
 
 	/**
@@ -864,18 +864,18 @@ class Woocommerce {
 			return false;
 		}
 
-		$advanced_options = get_theme_mod( 'neve_advanced_layout_options', true );
+		$advanced_options = get_theme_mod( 'nueve4_advanced_layout_options', true );
 
-		$mod = 'neve_default_sidebar_layout';
+		$mod = 'nueve4_default_sidebar_layout';
 		if ( $advanced_options === true ) {
-			$mod = 'neve_shop_archive_sidebar_layout';
+			$mod = 'nueve4_shop_archive_sidebar_layout';
 			if ( is_product() ) {
-				$mod = 'neve_single_product_sidebar_layout';
+				$mod = 'nueve4_single_product_sidebar_layout';
 			}
 		}
 
 		$default   = $this->sidebar_layout_alignment_default( $mod );
-		$theme_mod = apply_filters( 'neve_sidebar_position', get_theme_mod( $mod, $default ) );
+		$theme_mod = apply_filters( 'nueve4_sidebar_position', get_theme_mod( $mod, $default ) );
 		if ( $theme_mod !== 'right' && $theme_mod !== 'left' ) {
 			return false;
 		}
@@ -902,15 +902,15 @@ class Woocommerce {
 	 * Move the coupon field and message info after the order table.
 	 */
 	public function move_coupon() {
-		wc_enqueue_js( '$( $( ".woocommerce-checkout div.woocommerce-info, .checkout_coupon, .woocommerce-form-login" ).detach() ).appendTo( "#neve-checkout-coupon" );' );
+		wc_enqueue_js( '$( $( ".woocommerce-checkout div.woocommerce-info, .checkout_coupon, .woocommerce-form-login" ).detach() ).appendTo( "#nueve4-checkout-coupon" );' );
 	}
 
 	/**
 	 * Checkout page
-	 * Add the id neve-checkout-coupon to be able to Move the coupon field and message info after the order table.
+	 * Add the id nueve4-checkout-coupon to be able to Move the coupon field and message info after the order table.
 	 */
 	public function clear_coupon() {
-		echo '<div id="neve-checkout-coupon"></div><div style="clear:both"></div>';
+		echo '<div id="nueve4-checkout-coupon"></div><div style="clear:both"></div>';
 	}
 
 	/**
@@ -943,7 +943,7 @@ class Woocommerce {
 		 * @param bool $status Whether the breadcrumbs should be displayed or not.
 		 * @since 3.1
 		 */
-		$should_display_breadcrumbs = apply_filters( 'neve_breadcrumbs_toggle', true );
+		$should_display_breadcrumbs = apply_filters( 'nueve4_breadcrumbs_toggle', true );
 		if ( ! $should_display_breadcrumbs ) {
 			return;
 		}
@@ -954,7 +954,7 @@ class Woocommerce {
 		 * @param bool $status Whether the breadcrumbs should be loaded from 3rd parties or not.
 		 * @since 3.1
 		 */
-		$enable_3rd_party_breadcrumbs = apply_filters( 'neve_woo_3rd_party_breadcrumbs', false );
+		$enable_3rd_party_breadcrumbs = apply_filters( 'nueve4_woo_3rd_party_breadcrumbs', false );
 		if ( ! $enable_3rd_party_breadcrumbs ) {
 			woocommerce_breadcrumb();
 			return;
@@ -1012,7 +1012,7 @@ class Woocommerce {
 	 */
 	public function setup_form_buttons() {
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_FORM_BUTTON,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_FORM_BUTTON,
 			function ( $selectors ) {
 				return $selectors . '
 				,#review_form #respond input#submit,
@@ -1024,7 +1024,7 @@ class Woocommerce {
 			1
 		);
 		add_filter(
-			'neve_selectors_' . Config::CSS_SELECTOR_FORM_BUTTON_HOVER,
+			'nueve4_selectors_' . Config::CSS_SELECTOR_FORM_BUTTON_HOVER,
 			function ( $selectors ) {
 				return $selectors . '
 				,#review_form #respond input#submit:hover,

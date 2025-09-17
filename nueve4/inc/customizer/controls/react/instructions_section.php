@@ -3,9 +3,9 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      2019-10-16
  *
- * @package Neve
+ * @package Nueve4
  */
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Customizer section.
@@ -57,7 +57,7 @@ class Instructions_Section extends \WP_Customize_Section {
 		?>
 		<li id="accordion-section-{{ data.id }}"
 			data-slug="{{data.id}}"
-			class="control-section control-section-{{ data.type }} neve-quick-links">
+			class="control-section control-section-{{ data.type }} nueve4-quick-links">
 		</li>
 		<?php
 	}

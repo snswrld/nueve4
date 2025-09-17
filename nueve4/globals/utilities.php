@@ -65,34 +65,34 @@ if (!function_exists('nueve4_is_using_wp_version')) {
 }
 
 // Legacy compatibility functions
-if (!function_exists('neve_was_auto_migrated_to_new')) {
-    function neve_was_auto_migrated_to_new() {
+if (!function_exists('nueve4_was_auto_migrated_to_new')) {
+    function nueve4_was_auto_migrated_to_new() {
         return nueve4_was_auto_migrated_to_new();
     }
 }
 
-if (!function_exists('neve_had_old_hfb')) {
-    function neve_had_old_hfb() {
+if (!function_exists('nueve4_had_old_hfb')) {
+    function nueve4_had_old_hfb() {
         return nueve4_had_old_hfb();
     }
 }
 
-if (!function_exists('neve_is_new_skin')) {
-    function neve_is_new_skin() {
+if (!function_exists('nueve4_is_new_skin')) {
+    function nueve4_is_new_skin() {
         return nueve4_is_new_skin();
     }
 }
 
-if (!function_exists('neve_is_new_builder')) {
-    function neve_is_new_builder() {
+if (!function_exists('nueve4_is_new_builder')) {
+    function nueve4_is_new_builder() {
         return nueve4_is_new_builder();
     }
 }
 
 
 
-if (!function_exists('neve_is_using_wp_version')) {
-    function neve_is_using_wp_version($version) {
+if (!function_exists('nueve4_is_using_wp_version')) {
+    function nueve4_is_using_wp_version($version) {
         return nueve4_is_using_wp_version($version);
     }
 }

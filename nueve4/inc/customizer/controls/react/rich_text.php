@@ -2,15 +2,15 @@
 /**
  * Rich_Text Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Rich_Text
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Rich_Text extends \WP_Customize_Control {
 	/**
@@ -18,7 +18,7 @@ class Rich_Text extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_rich_text';
+	public $type = 'nueve4_rich_text';
 	/**
 	 * Send to JS.
 	 */

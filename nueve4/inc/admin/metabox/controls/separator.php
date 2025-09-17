@@ -2,15 +2,15 @@
 /**
  * Metabox separator.
  *
- * @package Neve\Admin\Metabox\Controls
+ * @package Nueve4\Admin\Metabox\Controls
  */
 
-namespace Neve\Admin\Metabox\Controls;
+namespace Nueve4\Admin\Metabox\Controls;
 
 /**
  * Class Separator
  *
- * @package Neve\Admin\Metabox\Controls
+ * @package Nueve4\Admin\Metabox\Controls
  */
 class Separator extends Control_Base {
 	/**

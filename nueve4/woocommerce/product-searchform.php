@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$placeholder = apply_filters( 'nv_woo_search_placeholder', __( 'Search products&hellip;', 'neve' ) );
+$placeholder = apply_filters( 'nv_woo_search_placeholder', __( 'Search products&hellip;', 'nueve4' ) );
 
 $form_options = [
 	'echo'                    => true,

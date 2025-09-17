@@ -179,18 +179,18 @@
 	-webkit-flex-direction: row;
 	-ms-flex-direction: row;
 }
-.customize-control-neve-dimensions > ul {
+.customize-control-nueve4-dimensions > ul {
 	width: 100%;
 }
 
-.customize-control-neve-dimensions .dimension-wrap {
+.customize-control-nueve4-dimensions .dimension-wrap {
 	float: left;
 	width: 17%;
 	margin: 0;
 }
 
-.customize-control-neve-dimensions .dimension-wrap input,
-.customize-control-neve-dimensions .dimension-wrap button {
+.customize-control-nueve4-dimensions .dimension-wrap input,
+.customize-control-nueve4-dimensions .dimension-wrap button {
 	display: block;
 	width: 100%;
 	height: 28px;
@@ -203,12 +203,12 @@
 	text-align: center;
 }
 
-.customize-control-neve-dimensions .dimension-wrap:first-child input {
+.customize-control-nueve4-dimensions .dimension-wrap:first-child input {
 	border-left-width: 1px;
 	border-radius: 3px 0 0 3px;
 }
 
-.customize-control-neve-dimensions .dimension-wrap .dimension-label {
+.customize-control-nueve4-dimensions .dimension-wrap .dimension-label {
 	display: block;
 	padding-top: 5px;
 	color: #949698;
@@ -218,11 +218,11 @@
 	text-transform: uppercase;
 }
 
-.customize-control-neve-dimensions .dimension-wrap input:focus + .dimension-label {
+.customize-control-nueve4-dimensions .dimension-wrap input:focus + .dimension-label {
 	color: #42474a;
 }
 
-.customize-control-neve-dimensions .dimension-wrap .link-dimensions {
+.customize-control-nueve4-dimensions .dimension-wrap .link-dimensions {
 	padding: 0;
 	border: 1px solid #a4afb7;
 	border-left-width: 0;
@@ -232,7 +232,7 @@
 	cursor: pointer;
 }
 
-.customize-control-neve-dimensions .dimension-wrap .link-dimensions span {
+.customize-control-nueve4-dimensions .dimension-wrap .link-dimensions span {
 	display: block;
 	width: 100%;
 	height: 26px;
@@ -240,20 +240,20 @@
 	line-height: 26px;
 }
 
-.customize-control-neve-dimensions .dimension-wrap .link-dimensions .neve-linked {
+.customize-control-nueve4-dimensions .dimension-wrap .link-dimensions .nueve4-linked {
 	color: #fff;
 	background-color: #a4afb7;
 }
 
-.customize-control-neve-dimensions .dimension-wrap .link-dimensions.unlinked .neve-unlinked {
+.customize-control-nueve4-dimensions .dimension-wrap .link-dimensions.unlinked .nueve4-unlinked {
 	display: none;
 }
 
-.customize-control-neve-dimensions .dimension-wrap .link-dimensions.unlinked .neve-linked {
+.customize-control-nueve4-dimensions .dimension-wrap .link-dimensions.unlinked .nueve4-linked {
 	display: block;
 }
 
-.customize-control-neve-dimensions .dimension-wrap .link-dimensions .neve-linked {
+.customize-control-nueve4-dimensions .dimension-wrap .link-dimensions .nueve4-linked {
 	display: none;
 }
 
@@ -275,22 +275,22 @@
 .customize-control span.reset-dimensions:hover {
 	color: #fe5252;
 }
-#customize-theme-controls #sub-accordion-section-neve_typography.customize-pane-child.open {
+#customize-theme-controls #sub-accordion-section-nueve4_typography.customize-pane-child.open {
 	height: 100%;
 }
 
-.neve-ss-wrap {
+.nueve4-ss-wrap {
 	position: relative;
 	box-sizing: border-box;
 	border: 1px solid #ddd;
 }
 
-.neve-ss-wrap.active {
+.nueve4-ss-wrap.active {
 	border: 1px solid #5897fb;
 	box-shadow: 0 0 2px rgba(30, 140, 190, 0.8);
 }
 
-.customize-control input.neve-fs-main-input {
+.customize-control input.nueve4-fs-main-input {
 	display: block;
 	float: left;
 	box-sizing: border-box;
@@ -302,11 +302,11 @@
 	cursor: pointer;
 }
 
-.customize-control input.neve-fs-main-input:focus {
+.customize-control input.nueve4-fs-main-input:focus {
 	border-color: #ddd;
 }
 
-.neve-fs-input-addon {
+.nueve4-fs-input-addon {
 	display: inline-block;
 	box-sizing: border-box;
 	width: 10%;
@@ -319,57 +319,57 @@
 	text-align: center;
 }
 
-.neve-fs-options-wrapper {
+.nueve4-fs-options-wrapper {
 	overflow-y: scroll;
 	max-height: 300px;
 }
 
-.neve-fs-options-group {
+.nueve4-fs-options-group {
 	display: block;
 }
 
-.neve-fs-search {
+.nueve4-fs-search {
 	display: block;
 	padding: 7px;
 	border-bottom: 1px solid #ddd;
 }
 
-.neve-fs-option,
-.neve-fs-options-heading {
+.nueve4-fs-option,
+.nueve4-fs-options-heading {
 	display: block;
 	padding: 3px 5px;
 	line-height: 18px;
 }
 
-.neve-fs-option {
+.nueve4-fs-option {
 	cursor: pointer;
 }
 
-.neve-fs-options-heading {
+.nueve4-fs-options-heading {
 	color: #777;
 	background: #eee;
 	font-weight: 600;
 }
 
-.neve-fs-option:hover {
+.nueve4-fs-option:hover {
 	color: #fff;
 	background: #5897fb;
 }
 
-.neve-ss-wrap.active .neve-fs-dropdown {
+.nueve4-ss-wrap.active .nueve4-fs-dropdown {
 	display: block;
 	z-index: 1000;
 	width: 100%;
 }
 
-.neve-fs-dropdown {
+.nueve4-fs-dropdown {
 	display: none;
 	position: absolute;
 	border: 1px solid #ddd;
 	border-top: 0;
 	background: #fff;
 }
-.neve-customizer-heading {
+.nueve4-customizer-heading {
 	color: #555d66;
 	background-color: #fff;
 	border-bottom: 1px solid #ddd;
@@ -388,12 +388,12 @@
 	letter-spacing: .5px;
 }
 
-.customize-control.accordion .neve-customizer-heading {
+.customize-control.accordion .nueve4-customizer-heading {
 	cursor: pointer;
 	text-transform: uppercase;
 	font-size: 13px;
 }
-.customize-control.accordion .neve-customizer-heading:hover {
+.customize-control.accordion .nueve4-customizer-heading:hover {
 	color: #0073aa;
 	background: #f3f3f5;
 	border-left-color: #0073aa;
@@ -884,7 +884,7 @@ input::-moz-focus-outer {
 	display: list-item !important;
 }
 
-.neve-tabs-control {
+.nueve4-tabs-control {
 	display: table;
 	width: -webkit-calc(100% + 28px);
 	width: calc(100% + 28px);
@@ -893,18 +893,18 @@ input::-moz-focus-outer {
 	table-layout: fixed;
 }
 
-.neve-tabs-control .neve-customizer-tab {
+.nueve4-tabs-control .nueve4-customizer-tab {
 	display: table-cell;
 	width: 100%;
 	border-right: 1px solid #ddd;
 	text-align: center;
 }
 
-.neve-tabs-control .neve-customizer-tab:last-child {
+.nueve4-tabs-control .nueve4-customizer-tab:last-child {
 	border-right: none;
 }
 
-.neve-tabs-control .neve-customizer-tab label {
+.nueve4-tabs-control .nueve4-customizer-tab label {
 	display: block;
 	width: 100%;
 	padding: 10px 0;
@@ -918,27 +918,27 @@ input::-moz-focus-outer {
 	transition: all 0.3s ease;
 }
 
-.neve-tabs-control .neve-customizer-tab label i {
+.nueve4-tabs-control .nueve4-customizer-tab label i {
 	margin-right: 4px;
 	color: #333;
 }
 
-.neve-tabs-control .neve-customizer-tab label:hover {
+.nueve4-tabs-control .nueve4-customizer-tab label:hover {
 	color: #0085ba;
 	background: #f3f3f5;
 }
 
-.neve-tabs-control .neve-customizer-tab label:hover i {
+.nueve4-tabs-control .nueve4-customizer-tab label:hover i {
 	color: #333;
 }
 
-.neve-tabs-control .neve-customizer-tab.active label {
+.nueve4-tabs-control .nueve4-customizer-tab.active label {
 	color: #0085ba;
 	background-color: #fff;
 	box-shadow: inset 0 -3px 0 0 #0085ba;
 }
 
-.neve-tabs-control input[type="radio"] {
+.nueve4-tabs-control input[type="radio"] {
 	display: none !important;
 }
 .nv-upsell {
@@ -1005,12 +1005,12 @@ input::-moz-focus-outer {
     margin-bottom: 10px;
 }
 
-#customize-controls #accordion-section-neve_upsells_section.control-section .accordion-section-title:hover {
+#customize-controls #accordion-section-nueve4_upsells_section.control-section .accordion-section-title:hover {
     background-color: #0073aa;
     color: #fff;
 }
 
-#customize-controls #accordion-section-neve_upsells_section.control-section .accordion-section-title:hover:after {
+#customize-controls #accordion-section-nueve4_upsells_section.control-section .accordion-section-title:hover:after {
     color: #fff;
 }
 
@@ -1060,23 +1060,23 @@ input::-moz-focus-outer {
 	padding: 12px 15px;
 }
 
-li.customize-control-neve_radio_image_control .option.upsell {
+li.customize-control-nueve4_radio_image_control .option.upsell {
     position: relative;
 }
 
-li.customize-control-neve_radio_image_control .option.upsell label {
+li.customize-control-nueve4_radio_image_control .option.upsell label {
     pointer-events: none;
 }
 
-li.customize-control-neve_radio_image_control .option.upsell button {
+li.customize-control-nueve4_radio_image_control .option.upsell button {
     filter: saturate(0);
 }
 
-li.customize-control-neve_radio_image_control .option.upsell:hover .upsell-btn {
+li.customize-control-nueve4_radio_image_control .option.upsell:hover .upsell-btn {
     display:block;
 }
 
-li.customize-control-neve_radio_image_control .upsell-btn {
+li.customize-control-nueve4_radio_image_control .upsell-btn {
     pointer-events: all;
     position: absolute;
     top: 40%;
@@ -1103,7 +1103,7 @@ li.customize-control-neve_radio_image_control .upsell-btn {
     margin:0;
 }
 
-li.customize-control-neve_radio_image_control .option.upsell .dashicons-lock {
+li.customize-control-nueve4_radio_image_control .option.upsell .dashicons-lock {
     font-size:14px;
     position: absolute;
     top: 0;

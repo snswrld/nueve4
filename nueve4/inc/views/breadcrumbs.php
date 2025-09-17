@@ -2,10 +2,10 @@
 /**
  * Breadcrumbs integration file.
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views;
+namespace Nueve4\Views;
 
 use RankMath\Helpers\Api;
 use WPSEO_Options;
@@ -14,7 +14,7 @@ use WPSEO_Options;
 /**
  * Class Yoast
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class Breadcrumbs extends Base_View {
 
@@ -22,7 +22,7 @@ class Breadcrumbs extends Base_View {
 	 * Module init.
 	 */
 	public function init() {
-		add_action( 'neve_pro_hfg_breadcrumb', array( $this, 'render_breadcrumbs' ), 10, 2 );
+		add_action( 'nueve4_pro_hfg_breadcrumb', array( $this, 'render_breadcrumbs' ), 10, 2 );
 		$this->load_theme_breadcrumbs();
 	}
 
@@ -32,10 +32,10 @@ class Breadcrumbs extends Base_View {
 	private function load_theme_breadcrumbs() {
 
 		$breadcrumbs_hooks = apply_filters(
-			'neve_breadcrumbs_locations',
+			'nueve4_breadcrumbs_locations',
 			array(
-				'neve_before_page_title',
-				'neve_before_post_title',
+				'nueve4_before_page_title',
+				'nueve4_before_post_title',
 			)
 		);
 
@@ -45,7 +45,7 @@ class Breadcrumbs extends Base_View {
 	}
 
 	/**
-	 * Render breadcrumbs in Neve theme.
+	 * Render breadcrumbs in Nueve4 theme.
 	 *
 	 * @return bool | void
 	 */
@@ -63,7 +63,7 @@ class Breadcrumbs extends Base_View {
 	 */
 	public function is_breadcrumb_enabled() {
 
-		if ( ! apply_filters( 'neve_show_breadcrumbs', true ) ) {
+		if ( ! apply_filters( 'nueve4_show_breadcrumbs', true ) ) {
 			return false;
 		}
 
@@ -123,7 +123,7 @@ class Breadcrumbs extends Base_View {
 				$yoast_breadcrumbs_enabled = WPSEO_Options::get( 'breadcrumbs-enable', false );
 			}
 			if ( $yoast_breadcrumbs_enabled ) {
-				yoast_breadcrumb( '<' . esc_html( $html_tag ) . ' class="nv--yoast-breadcrumb neve-breadcrumbs-wrapper">', '</' . esc_html( $html_tag ) . '>' );
+				yoast_breadcrumb( '<' . esc_html( $html_tag ) . ' class="nv--yoast-breadcrumb nueve4-breadcrumbs-wrapper">', '</' . esc_html( $html_tag ) . '>' );
 				return true;
 			}
 		}
@@ -135,7 +135,7 @@ class Breadcrumbs extends Base_View {
 				$seopress_breadcrumbs_enabled = get_option( 'seopress_toggle' );
 			}
 			if ( $seopress_breadcrumbs_enabled ) {
-				echo '<' . esc_html( $html_tag ) . ' class="neve-breadcrumbs-wrapper">';
+				echo '<' . esc_html( $html_tag ) . ' class="nueve4-breadcrumbs-wrapper">';
 				seopress_display_breadcrumbs();
 				echo '</' . esc_html( $html_tag ) . '>';
 				return true;
@@ -150,7 +150,7 @@ class Breadcrumbs extends Base_View {
 			}
 
 			if ( $rankmath_breadcrumbs_enabled ) {
-				echo '<' . esc_html( $html_tag ) . ' class="neve-breadcrumbs-wrapper">';
+				echo '<' . esc_html( $html_tag ) . ' class="nueve4-breadcrumbs-wrapper">';
 				rank_math_the_breadcrumbs(
 					[
 						'wrap_before' => '<nav aria-label="breadcrumbs" class="rank-math-breadcrumb">',

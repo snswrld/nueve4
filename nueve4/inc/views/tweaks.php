@@ -2,10 +2,10 @@
 /**
  * Generic Tweaks
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views;
+namespace Nueve4\Views;
 
 /**
  * Class Tweaks

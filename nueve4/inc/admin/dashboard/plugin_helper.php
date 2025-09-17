@@ -2,15 +2,15 @@
 /**
  * Plugin Action Helper
  *
- * @package Neve\Admin\Dashboard
+ * @package Nueve4\Admin\Dashboard
  */
 
-namespace Neve\Admin\Dashboard;
+namespace Nueve4\Admin\Dashboard;
 
 /**
  * Class Plugin_Helper
  *
- * @package Neve\Admin\Dashboard
+ * @package Nueve4\Admin\Dashboard
  */
 class Plugin_Helper {
 	/**

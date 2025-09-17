@@ -12,13 +12,13 @@ namespace HFG\Core\Components;
 
 use HFG\Main;
 use HFG\Core\Settings\Manager as SettingsManager;
-use Neve\Core\Styles\Dynamic_Selector;
+use Nueve4\Core\Styles\Dynamic_Selector;
 
 
 /**
  * Class Yoast_Breadcrumbs
  *
- * @package Neve_Pro\Modules\Header_Footer_Grid\Components
+ * @package Nueve4_Pro\Modules\Header_Footer_Grid\Components
  */
 class EddCartIcon extends Abstract_Component {
 
@@ -38,7 +38,7 @@ class EddCartIcon extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Easy Digital Downloads Cart', 'neve' ) );
+		$this->set_property( 'label', __( 'Easy Digital Downloads Cart', 'nueve4' ) );
 		$this->set_property( 'id', self::COMPONENT_ID );
 		$this->set_property( 'width', 1 );
 		$this->set_property( 'default_selector', '.builder-item--' . $this->get_id() );
@@ -60,8 +60,8 @@ class EddCartIcon extends Abstract_Component {
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => 'absint',
 				'default'               => 15,
-				'label'                 => __( 'Icon Size', 'neve' ),
-				'type'                  => 'Neve\Customizer\Controls\React\Range',
+				'label'                 => __( 'Icon Size', 'nueve4' ),
+				'type'                  => 'Nueve4\Customizer\Controls\React\Range',
 				'options'               => [
 					'input_attrs' => [
 						'min'        => 10,
@@ -90,9 +90,9 @@ class EddCartIcon extends Abstract_Component {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
@@ -110,9 +110,9 @@ class EddCartIcon extends Abstract_Component {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Hover Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Hover Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
@@ -181,7 +181,7 @@ class EddCartIcon extends Abstract_Component {
 	 * @return bool
 	 */
 	public static function should_load_pro_features() {
-		if ( ! class_exists( '\Neve_Pro\Modules\Easy_Digital_Downloads\Customizer\Cart_Icon' ) ) {
+		if ( ! class_exists( '\Nueve4_Pro\Modules\Easy_Digital_Downloads\Customizer\Cart_Icon' ) ) {
 			return false;
 		}
 

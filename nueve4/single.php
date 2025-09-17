@@ -3,17 +3,17 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      28/08/2018
  *
- * @package Neve
+ * @package Nueve4
  */
 
-$container_class = apply_filters( 'neve_container_class_filter', 'container', 'single-post' );
+$container_class = apply_filters( 'nueve4_container_class_filter', 'container', 'single-post' );
 
 get_header();
 
 ?>
 	<div class="<?php echo esc_attr( $container_class ); ?> single-post-container">
 		<div class="row">
-			<?php do_action( 'neve_do_sidebar', 'single-post', 'left' ); ?>
+			<?php do_action( 'nueve4_do_sidebar', 'single-post', 'left' ); ?>
 			<article id="post-<?php echo esc_attr( get_the_ID() ); ?>"
 					class="<?php echo esc_attr( join( ' ', get_post_class( 'nv-single-post-wrap col' ) ) ); ?>">
 				<?php
@@ -22,7 +22,7 @@ get_header();
 				 *
 				 * @since 2.3.8
 				 */
-				do_action( 'neve_before_post_content' );
+				do_action( 'nueve4_before_post_content' );
 
 				if ( have_posts() ) {
 					while ( have_posts() ) {
@@ -38,10 +38,10 @@ get_header();
 				 *
 				 * @since 2.3.8
 				 */
-				do_action( 'neve_after_post_content' );
+				do_action( 'nueve4_after_post_content' );
 				?>
 			</article>
-			<?php do_action( 'neve_do_sidebar', 'single-post', 'right' ); ?>
+			<?php do_action( 'nueve4_do_sidebar', 'single-post', 'right' ); ?>
 		</div>
 	</div>
 <?php

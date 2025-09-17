@@ -3,17 +3,17 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      28/08/2018
  *
- * @package Neve\Views\Partials
+ * @package Nueve4\Views\Partials
  */
 
-namespace Neve\Views\Partials;
+namespace Nueve4\Views\Partials;
 
-use Neve\Views\Base_View;
+use Nueve4\Views\Base_View;
 
 /**
  * Class Excerpt
  *
- * @package Neve\Views\Partials
+ * @package Nueve4\Views\Partials
  */
 class Excerpt extends Base_View {
 	/**
@@ -22,7 +22,7 @@ class Excerpt extends Base_View {
 	 * @return void
 	 */
 	public function init() {
-		add_action( 'neve_excerpt_archive', array( $this, 'render_post_excerpt' ), 10, 2 );
+		add_action( 'nueve4_excerpt_archive', array( $this, 'render_post_excerpt' ), 10, 2 );
 	}
 
 	/**
@@ -90,7 +90,7 @@ class Excerpt extends Base_View {
 	 * @return int
 	 */
 	private function get_excerpt_length() {
-		return absint( round( get_theme_mod( 'neve_post_excerpt_length', '25' ) ) );
+		return absint( round( get_theme_mod( 'nueve4_post_excerpt_length', '25' ) ) );
 	}
 
 	/**

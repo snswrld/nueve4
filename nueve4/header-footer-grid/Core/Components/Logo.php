@@ -15,9 +15,9 @@ use HFG\Core\Script_Register;
 use HFG\Core\Settings\Config;
 use HFG\Core\Settings\Manager as SettingsManager;
 use HFG\Main;
-use Neve\Core\Dynamic_Css;
-use Neve\Core\Settings\Mods;
-use Neve\Core\Styles\Dynamic_Selector;
+use Nueve4\Core\Dynamic_Css;
+use Nueve4\Core\Settings\Mods;
+use Nueve4\Core\Styles\Dynamic_Selector;
 use WP_Post;
 
 /**
@@ -77,8 +77,8 @@ class Logo extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Logo & Site Identity', 'neve' ) );
-		$this->set_property( 'description', __( 'Display your company logo here or simply use words to describe your business.', 'neve' ) );
+		$this->set_property( 'label', __( 'Logo & Site Identity', 'nueve4' ) );
+		$this->set_property( 'description', __( 'Display your company logo here or simply use words to describe your business.', 'nueve4' ) );
 		$this->set_property( 'id', $this->get_class_const( 'COMPONENT_ID' ) );
 		$this->set_property( 'component_slug', 'hfg-logo' );
 		$this->set_property( 'width', 3 );
@@ -199,7 +199,7 @@ class Logo extends Abstract_Component {
 	 */
 	public function load_scripts() {
 		if ( $this->is_component_active() || is_customize_preview() ) {
-			wp_add_inline_script( 'neve-script', $this->toggle_script() );
+			wp_add_inline_script( 'nueve4-script', $this->toggle_script() );
 		}
 	}
 
@@ -249,11 +249,11 @@ class Logo extends Abstract_Component {
 
 		$script = <<<JS
 	var html = document.documentElement;
-	var theme = html.getAttribute('data-neve-theme') || 'light';
+	var theme = html.getAttribute('data-nueve4-theme') || 'light';
 	var variants = {$variants_json};
 
 	function setCurrentTheme( theme ) {
-		var pictures = document.getElementsByClassName( 'neve-site-logo' );
+		var pictures = document.getElementsByClassName( 'nueve4-site-logo' );
 		for(var i = 0; i<pictures.length; i++) {
 			var picture = pictures.item(i);
 			if( ! picture ) {
@@ -284,7 +284,7 @@ class Logo extends Abstract_Component {
 	var observer = new MutationObserver(function(mutations) {
 		mutations.forEach(function(mutation) {
 			if (mutation.type == 'attributes') {
-				theme = html.getAttribute('data-neve-theme');
+				theme = html.getAttribute('data-nueve4-theme');
 				setCurrentTheme(theme);
 			};
 		});
@@ -355,13 +355,13 @@ JS;
 				'transport'         => 'refresh',
 				'sanitize_callback' => array( $this, 'sanitize_logo_json' ),
 				'default'           => wp_json_encode( $default ),
-				'type'              => '\Neve\Customizer\Controls\React\Logo_Palette',
+				'type'              => '\Nueve4\Customizer\Controls\React\Logo_Palette',
 				'options'           => [
 					'priority'    => 0,
 					'input_attrs' => [
-						'builderListen' => 'hfg_header_layout' . ( neve_is_new_builder() ? '_v2' : '' ),
+						'builderListen' => 'hfg_header_layout' . ( nueve4_is_new_builder() ? '_v2' : '' ),
 						'compChange'    => PaletteSwitch::COMPONENT_ID,
-						'sameLabel'     => __( 'Use one logo for both modes', 'neve' ),
+						'sameLabel'     => __( 'Use one logo for both modes', 'nueve4' ),
 						'height'        => isset( $custom_logo_args[0]['height'] ) ? $custom_logo_args[0]['height'] : null,
 						'width'         => isset( $custom_logo_args[0]['width'] ) ? $custom_logo_args[0]['width'] : null,
 						'flexHeight'    => isset( $custom_logo_args[0]['flex-height'] ) ? $custom_logo_args[0]['flex-height'] : true,
@@ -380,8 +380,8 @@ JS;
 				'transport'          => 'post' . $this->get_builder_id(),
 				'sanitize_callback'  => 'wp_filter_nohtml_kses',
 				'default'            => 'default',
-				'label'              => __( 'Display', 'neve' ),
-				'type'               => '\Neve\Customizer\Controls\React\Radio_Buttons',
+				'label'              => __( 'Display', 'nueve4' ),
+				'type'               => '\Nueve4\Customizer\Controls\React\Radio_Buttons',
 				'options'            => [
 					'priority'      => - 1,
 					'is_for'        => 'logo',
@@ -400,8 +400,8 @@ JS;
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => 'absint',
 				'default'            => 1,
-				'label'              => __( 'Show Site Tagline', 'neve' ),
-				'type'               => 'neve_toggle_control',
+				'label'              => __( 'Show Site Tagline', 'nueve4' ),
+				'type'               => 'nueve4_toggle_control',
 				'section'            => $this->section,
 				'conditional_header' => true,
 			]
@@ -415,8 +415,8 @@ JS;
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => 'absint',
 				'default'            => 1,
-				'label'              => __( 'Show Site Title', 'neve' ),
-				'type'               => 'neve_toggle_control',
+				'label'              => __( 'Show Site Title', 'nueve4' ),
+				'type'               => 'nueve4_toggle_control',
 				'section'            => $this->section,
 				'conditional_header' => true,
 			]
@@ -428,10 +428,10 @@ JS;
 				'group'             => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'               => SettingsManager::TAB_GENERAL,
 				'transport'         => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
-				'sanitize_callback' => 'neve_sanitize_range_value',
+				'sanitize_callback' => 'nueve4_sanitize_range_value',
 				'default'           => '{ "mobile": "120", "tablet": "120", "desktop": "120" }',
-				'label'             => __( 'Logo max width', 'neve' ),
-				'type'              => '\Neve\Customizer\Controls\React\Responsive_Range',
+				'label'             => __( 'Logo max width', 'nueve4' ),
+				'type'              => '\Nueve4\Customizer\Controls\React\Responsive_Range',
 				'options'           => [
 					'priority'                 => 12,
 					'hide_responsive_switches' => true,
@@ -465,8 +465,8 @@ JS;
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => 'absint',
 				'default'            => false,
-				'label'              => __( 'Disable Homepage Link', 'neve' ),
-				'type'               => 'neve_toggle_control',
+				'label'              => __( 'Disable Homepage Link', 'nueve4' ),
+				'type'               => 'nueve4_toggle_control',
 				'section'            => $this->section,
 				'conditional_header' => true,
 			]
@@ -478,10 +478,10 @@ JS;
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
-				'sanitize_callback'     => 'neve_sanitize_range_value',
+				'sanitize_callback'     => 'nueve4_sanitize_range_value',
 				'default'               => '{ "mobile": "24", "tablet": "24", "desktop": "24" }',
-				'label'                 => __( 'Site Title', 'neve' ) . ' ' . __( 'Font Size', 'neve' ),
-				'type'                  => '\Neve\Customizer\Controls\React\Responsive_Range',
+				'label'                 => __( 'Site Title', 'nueve4' ) . ' ' . __( 'Font Size', 'nueve4' ),
+				'type'                  => '\Nueve4\Customizer\Controls\React\Responsive_Range',
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
 					'cssVar' => [
@@ -522,9 +522,9 @@ JS;
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Text Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Text Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [

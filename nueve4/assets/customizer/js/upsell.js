@@ -1,7 +1,7 @@
 /* global upsellConfig */
 wp.customize.bind( 'ready', function () {
 	const hasBanner = document.getElementById(
-		'acordion-section-neve_hfg_header_upsell_section'
+		'acordion-section-nueve4_hfg_header_upsell_section'
 	);
 	if (typeof upsellConfig !== 'undefined' && !hasBanner) {
 		const markup =

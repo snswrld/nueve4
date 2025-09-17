@@ -29,13 +29,13 @@ class FooterWidgetTwo extends Abstract_FooterWidget {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Footer Two', 'neve' ) );
+		$this->set_property( 'label', __( 'Footer Two', 'nueve4' ) );
 		$this->set_property( 'id', self::COMPONENT_ID );
 		$this->set_property( 'width', 3 );
 		$this->set_property( 'section', 'sidebar-widgets-footer-two-widgets' );
-		if ( neve_is_new_widget_editor() ) {
+		if ( nueve4_is_new_widget_editor() ) {
 			if ( strpos( $this->section, 'widgets-footer' ) !== false ) {
-				$this->set_property( 'section', 'neve_' . $this->section );
+				$this->set_property( 'section', 'nueve4_' . $this->section );
 			}
 		}
 
@@ -49,7 +49,7 @@ class FooterWidgetTwo extends Abstract_FooterWidget {
 	 * @access  public
 	 */
 	public function add_settings() {
-		if ( ! neve_is_new_widget_editor() ) {
+		if ( ! nueve4_is_new_widget_editor() ) {
 			SettingsManager::get_instance()->add_controls_to_tabs(
 				self::COMPONENT_ID,
 				array(

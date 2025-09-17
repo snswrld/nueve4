@@ -10,7 +10,7 @@
  * Handles migration for skin modes of rows
  */
 function nueve4_hfg_migrate_skin_to_bg_color() {
-	$flag = 'neve_migrated_hfg_colors';
+	$flag = 'nueve4_migrated_hfg_colors';
 	if ( get_theme_mod( $flag ) ) {
 		return;
 	}
@@ -209,8 +209,8 @@ function nueve4_hfg_legacy_header_settings() {
 		],
 	];
 	$components = [];
-	if ( (bool) get_theme_mod( 'neve_top_bar_enable', false ) ) {
-		$alignament = get_theme_mod( 'neve_top_bar_layout', 'content-menu' );
+	if ( (bool) get_theme_mod( 'nueve4_top_bar_enable', false ) ) {
+		$alignament = get_theme_mod( 'nueve4_top_bar_layout', 'content-menu' );
 		if ( $alignament === 'content-menu' ) {
 			$builder['desktop']['top']['custom_html']    = [
 				'id'    => 'custom_html',
@@ -243,7 +243,7 @@ function nueve4_hfg_legacy_header_settings() {
 		}
 	}
 
-	$layout = get_theme_mod( 'neve_navigation_layout', 'left' );
+	$layout = get_theme_mod( 'nueve4_navigation_layout', 'left' );
 
 	if ( $layout === 'left' ) {
 		$builder['desktop']['main']['logo']            = [
@@ -342,7 +342,7 @@ function nueve4_hfg_legacy_footer_settings() {
 			'bottom' => [],
 		],
 	];
-	$sidebars = (int) get_theme_mod( 'neve_footer_widget_columns', '0' );
+	$sidebars = (int) get_theme_mod( 'nueve4_footer_widget_columns', '0' );
 
 	$sidebars_names = array(
 		'footer-one-widgets',
@@ -358,7 +358,7 @@ function nueve4_hfg_legacy_footer_settings() {
 		];
 	}
 	$components   = [];
-	$content_type = get_theme_mod( 'neve_footer_content_type', 'text' );
+	$content_type = get_theme_mod( 'nueve4_footer_content_type', 'text' );
 	if ( $content_type === 'text' ) {
 		$builder['desktop']['bottom']['footer_copyright']  = [
 			'id'    => 'footer_copyright',

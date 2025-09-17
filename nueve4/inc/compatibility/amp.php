@@ -8,12 +8,12 @@
  * @package Amp.php
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 /**
  * Class Amp
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class Amp {
 
@@ -21,19 +21,19 @@ class Amp {
 	 * Run the hooks and filters.
 	 */
 	public function register_hooks() {
-		if ( ! neve_is_amp() ) {
+		if ( ! nueve4_is_amp() ) {
 			return;
 		}
-		add_filter( 'neve_caret_wrap_filter', array( $this, 'amp_dropdowns' ), 10, 2 );
+		add_filter( 'nueve4_caret_wrap_filter', array( $this, 'amp_dropdowns' ), 10, 2 );
 		add_filter(
-			'neve_woocommerce_sidebar_filter_btn_data_attrs',
+			'nueve4_woocommerce_sidebar_filter_btn_data_attrs',
 			array(
 				$this,
 				'add_woo_sidebar_filter_btn_attrs',
 			)
 		);
 		add_filter(
-			'neve_filter_sidebar_close_button_data_attrs',
+			'nueve4_filter_sidebar_close_button_data_attrs',
 			array(
 				$this,
 				'sidebar_close_button_attrs',
@@ -42,10 +42,10 @@ class Amp {
 			2
 		);
 		add_filter( 'walker_nav_menu_start_el', array( $this, 'wrap_content' ), 10, 4 );
-		add_filter( 'neve_sidebar_data_attrs', array( $this, 'add_woo_sidebar_attrs' ), 10, 2 );
-		add_filter( 'neve_search_menu_item_filter', array( $this, 'add_search_menu_item_attrs' ), 10, 2 );
-		add_action( 'neve_after_header_hook', array( $this, 'render_amp_states' ) );
-		add_filter( 'neve_nav_toggle_data_attrs', array( $this, 'add_nav_toggle_attrs' ) );
+		add_filter( 'nueve4_sidebar_data_attrs', array( $this, 'add_woo_sidebar_attrs' ), 10, 2 );
+		add_filter( 'nueve4_search_menu_item_filter', array( $this, 'add_search_menu_item_attrs' ), 10, 2 );
+		add_action( 'nueve4_after_header_hook', array( $this, 'render_amp_states' ) );
+		add_filter( 'nueve4_nav_toggle_data_attrs', array( $this, 'add_nav_toggle_attrs' ) );
 		add_action( 'wp_head', array( $this, 'inline_styles' ) );
 
 
@@ -128,7 +128,7 @@ class Amp {
 	 * @return string
 	 */
 	public function wrap_content( $item_output, $item, $depth, $args ) {
-		if ( ! neve_is_amp() ) {
+		if ( ! nueve4_is_amp() ) {
 			return $item_output;
 		}
 
@@ -150,7 +150,7 @@ class Amp {
 
 		$item_output = '<div class="has-caret amp">' . $item_output . $caret . '</div>';
 		// Filter that is used for AMP proper event integration.
-		$item_output = apply_filters( 'neve_caret_wrap_filter', $item_output, $item->menu_order );
+		$item_output = apply_filters( 'nueve4_caret_wrap_filter', $item_output, $item->menu_order );
 
 		return $item_output;
 	}
@@ -186,7 +186,7 @@ class Amp {
 	 * @return string
 	 */
 	public function add_nav_toggle_attrs( $input = '' ) {
-		$input  = ' on="tap:neve_body.toggleClass(class=\'is-menu-sidebar\'),AMP.setState( { nvAmpMenuExpanded: ! nvAmpMenuExpanded } )" ';
+		$input  = ' on="tap:nueve4_body.toggleClass(class=\'is-menu-sidebar\'),AMP.setState( { nvAmpMenuExpanded: ! nvAmpMenuExpanded } )" ';
 		$input .= ' role="button" ';
 		$input .= ' aria-expanded="false" ';
 		$input .= ' [aria-expanded]="nvAmpMenuExpanded ? \'true\' : \'false\'" ';
@@ -259,7 +259,7 @@ class Amp {
 	public function amp_dropdowns( $output, $id ) {
 
 		// Generate a unique id for drop-down items.
-		$state = 'neveMenuItemExpanded' . $id;
+		$state = 'nueve4MenuItemExpanded' . $id;
 
 		$attrs     = '';
 		$amp_caret = '';
@@ -294,9 +294,9 @@ class Amp {
 
 		add_action( 'wp_head', [ $this, 'add_amp_experiments' ], 1 );
 
-		remove_all_actions( 'neve_do_pagination' );
-		add_action( 'neve_before_footer_hook', [ $this, 'wrap_footer_before' ] );
-		add_action( 'neve_after_footer_hook', [ $this, 'wrap_footer_after' ] );
+		remove_all_actions( 'nueve4_do_pagination' );
+		add_action( 'nueve4_before_footer_hook', [ $this, 'wrap_footer_before' ] );
+		add_action( 'nueve4_after_footer_hook', [ $this, 'wrap_footer_after' ] );
 
 		return true;
 	}
@@ -328,7 +328,7 @@ class Amp {
 			return false;
 		}
 
-		$pagination_type = get_theme_mod( 'neve_pagination_type', 'number' );
+		$pagination_type = get_theme_mod( 'nueve4_pagination_type', 'number' );
 		if ( $pagination_type !== 'infinite' ) {
 			return false;
 		}
@@ -354,13 +354,13 @@ class Amp {
 	 * @return bool
 	 */
 	public function blog_has_sidebar() {
-		$option           = 'neve_default_sidebar_layout';
-		$advanced_options = get_theme_mod( 'neve_advanced_layout_options', false );
+		$option           = 'nueve4_default_sidebar_layout';
+		$advanced_options = get_theme_mod( 'nueve4_advanced_layout_options', false );
 		if ( $advanced_options !== false ) {
-			$option = 'neve_blog_archive_sidebar_layout';
+			$option = 'nueve4_blog_archive_sidebar_layout';
 		}
 
-		return apply_filters( 'neve_sidebar_position', get_theme_mod( $option, 'right' ) ) !== 'full-width';
+		return apply_filters( 'nueve4_sidebar_position', get_theme_mod( $option, 'right' ) ) !== 'full-width';
 	}
 
 	/**
@@ -430,7 +430,7 @@ class Amp {
 
 			$amp_pagination[] = [
 				'url'   => $url,
-				'title' => get_bloginfo( 'name' ) . ' - ' . __( 'Page', 'neve' ) . ' ' . $page . ' - ' . get_bloginfo( 'description' ),
+				'title' => get_bloginfo( 'name' ) . ' - ' . __( 'Page', 'nueve4' ) . ' ' . $page . ' - ' . get_bloginfo( 'description' ),
 				'image' => $image,
 			];
 

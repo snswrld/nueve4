@@ -1,5 +1,5 @@
 /**
- * Testimonials Block for Neve Theme
+ * Testimonials Block for Nueve4 Theme
  */
 
 const { registerBlockType } = wp.blocks;
@@ -7,10 +7,10 @@ const { InspectorControls, MediaUpload, RichText } = wp.blockEditor;
 const { PanelBody, Button, SelectControl, IconButton } = wp.components;
 const { Fragment } = wp.element;
 
-registerBlockType('neve/testimonials', {
-    title: 'Neve Testimonials',
+registerBlockType('nueve4/testimonials', {
+    title: 'Nueve4 Testimonials',
     icon: 'format-quote',
-    category: 'neve-blocks',
+    category: 'nueve4-blocks',
     attributes: {
         testimonials: {
             type: 'array',
@@ -69,7 +69,7 @@ registerBlockType('neve/testimonials', {
                     </PanelBody>
                 </InspectorControls>
 
-                <div className={`neve-testimonials-block layout-${layout}`}>
+                <div className={`nueve4-testimonials-block layout-${layout}`}>
                     <h3>Testimonials</h3>
                     {testimonials.map((testimonial, index) => (
                         <div key={index} className="testimonial-item">

@@ -8,10 +8,10 @@
  *  $value => array( 'url' => $image_url, 'label' => $text_label ),
  * )`
  *
- * @package    Neve\Customizer\Controls
+ * @package    Nueve4\Customizer\Controls
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * Class Radio_Image

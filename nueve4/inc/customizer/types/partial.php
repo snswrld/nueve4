@@ -2,15 +2,15 @@
 /**
  * Customizer partial type enforcing.
  *
- * @package Neve\Customizer\Types
+ * @package Nueve4\Customizer\Types
  */
 
-namespace Neve\Customizer\Types;
+namespace Nueve4\Customizer\Types;
 
 /**
  * Class Partial
  *
- * @package Neve\Customizer\Types
+ * @package Nueve4\Customizer\Types
  */
 class Partial {
 	/**

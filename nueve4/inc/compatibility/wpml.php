@@ -5,15 +5,15 @@
  * Author:          Bogdan Preda <friends@themeisle.com>
  * Created on:      17/03/2023
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 /**
  * Class WPML
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class WPML {
 
@@ -35,7 +35,7 @@ class WPML {
 	 * Load hooks.
 	 */
 	public function load_hooks() {
-		add_filter( 'neve_filter_featured_posts', array( $this, 'filter_posts_and_return_original' ), 10, 1 );
+		add_filter( 'nueve4_filter_featured_posts', array( $this, 'filter_posts_and_return_original' ), 10, 1 );
 	}
 
 	/**
@@ -49,7 +49,7 @@ class WPML {
 
 	/**
 	 * This will return the original language posts.
-	 * This hooks into `neve_filter_featured_posts` filter.
+	 * This hooks into `nueve4_filter_featured_posts` filter.
 	 * We ensure that returned posts are in the original language.
 	 *
 	 * @param array $posts The posts to filter.

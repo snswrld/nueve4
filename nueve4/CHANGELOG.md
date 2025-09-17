@@ -1,21 +1,21 @@
-##### [Version 3.8.7](https://github.com/Codeinwp/neve/compare/v3.8.6...v3.8.7) (2024-04-27)
+##### [Version 3.8.7](https://github.com/Codeinwp/nueve4/compare/v3.8.6...v3.8.7) (2024-04-27)
 
 - Updated assets
 
-##### [Version 3.8.6](https://github.com/Codeinwp/neve/compare/v3.8.5...v3.8.6) (2024-04-05)
+##### [Version 3.8.6](https://github.com/Codeinwp/nueve4/compare/v3.8.5...v3.8.6) (2024-04-05)
 
 ### Bug Fixes
 - **Fixed menu items** where long item names with a dropdown on the mobile were overlapping with the dropdown button.
 ### Improvements
 - **Updated internal dependencies**
 
-##### [Version 3.8.5](https://github.com/Codeinwp/neve/compare/v3.8.4...v3.8.5) (2024-04-01)
+##### [Version 3.8.5](https://github.com/Codeinwp/nueve4/compare/v3.8.4...v3.8.5) (2024-04-01)
 
 ### Improvements
 - **Updated internal dependencies**
 - **Update Google Fonts**​:​ Get the newest Google fonts from the public font library.
 
-##### [Version 3.8.4](https://github.com/Codeinwp/neve/compare/v3.8.3...v3.8.4) (2024-03-29)
+##### [Version 3.8.4](https://github.com/Codeinwp/nueve4/compare/v3.8.3...v3.8.4) (2024-03-29)
 
 ### Bug Fixes
 - Fix an issue with footer element IDs not being unique.
@@ -24,7 +24,7 @@
 - Improved Formbricks
 - Updated internal dependencies
 
-##### [Version 3.8.3](https://github.com/Codeinwp/neve/compare/v3.8.2...v3.8.3) (2024-03-12)
+##### [Version 3.8.3](https://github.com/Codeinwp/nueve4/compare/v3.8.2...v3.8.3) (2024-03-12)
 
 ### Bug Fixes:
 - **Fix excerpt more** filter interaction inside the Gutenberg when excerpt block is used.
@@ -35,7 +35,7 @@
 -  **Update Google Fonts**​:​ Get the newest Google fonts from the public font library.
 - **Feature usage tracking improvements** for Header/Footer Builder in the Customizer.
 
-##### [Version 3.8.2](https://github.com/Codeinwp/neve/compare/v3.8.1...v3.8.2) (2024-02-22)
+##### [Version 3.8.2](https://github.com/Codeinwp/nueve4/compare/v3.8.1...v3.8.2) (2024-02-22)
 
 ### Bug Fixes:
 - **Improved Frombricks survey**
@@ -47,12 +47,12 @@
 - **Improved Upsell messaging**: Information should be more clear on what each features provides and where it can be found.
 - Updated support for future Black Friday campaigns.
 
-##### [Version 3.8.1](https://github.com/Codeinwp/neve/compare/v3.8.0...v3.8.1) (2024-01-30)
+##### [Version 3.8.1](https://github.com/Codeinwp/nueve4/compare/v3.8.0...v3.8.1) (2024-01-30)
 
 ### Improvements
 - **Updated internal dependencies**
 
-#### [Version 3.8.0](https://github.com/Codeinwp/neve/compare/v3.7.5...v3.8.0) (2024-01-30)
+#### [Version 3.8.0](https://github.com/Codeinwp/nueve4/compare/v3.7.5...v3.8.0) (2024-01-30)
 
 ### New Features
 - **Enable full HTML5 theme support**: All HTML5 theme support features are now enabled. 
@@ -77,7 +77,7 @@
 - **Add integration for Formbricks survey** inside the Dashboard.
 - **Update Google Fonts**:​ Get the newest Google fonts from the public font library.
 
-##### [Version 3.7.5](https://github.com/Codeinwp/neve/compare/v3.7.4...v3.7.5) (2023-12-22)
+##### [Version 3.7.5](https://github.com/Codeinwp/nueve4/compare/v3.7.4...v3.7.5) (2023-12-22)
 
 ### Bug Fixes
 - **Secondary menu** alignment on mobile
@@ -88,7 +88,7 @@
 - **Update Google Fonts:** Get the newest Google fonts from the public font library.
 - **Updated dependencies** using the latest dependencies.
 
-##### [Version 3.7.4](https://github.com/Codeinwp/neve/compare/v3.7.3...v3.7.4) (2023-11-29)
+##### [Version 3.7.4](https://github.com/Codeinwp/nueve4/compare/v3.7.3...v3.7.4) (2023-11-29)
 
 ### Bug Fixes
 **Header Footer Builder Layout Fix:** We updated the builder to work with the latest version of WordPress 6.4.
@@ -103,7 +103,7 @@
 **E2E testing:** Improved end-to-end testing.
 **SDK update:** The latest SDK is now available.
 
-##### [Version 3.7.3](https://github.com/Codeinwp/neve/compare/v3.7.2...v3.7.3) (2023-10-23)
+##### [Version 3.7.3](https://github.com/Codeinwp/nueve4/compare/v3.7.2...v3.7.3) (2023-10-23)
 
 ### New Features
 - **Black Friday Preparations**: Get ready for exciting Black Friday updates and offers!
@@ -111,12 +111,12 @@
 ### Improvements
 - **Update Google Fonts**: Get the freshest updates from the public font library from Google.
 
-##### [Version 3.7.2](https://github.com/Codeinwp/neve/compare/v3.7.1...v3.7.2) (2023-10-05)
+##### [Version 3.7.2](https://github.com/Codeinwp/nueve4/compare/v3.7.1...v3.7.2) (2023-10-05)
 
 ### Bug Fixes
 - **Changelog Formatting**: Addressed PHP dashboard notices caused by the updated changelog format
 
-##### [Version 3.7.1](https://github.com/Codeinwp/neve/compare/v3.7.0...v3.7.1) (2023-10-05)
+##### [Version 3.7.1](https://github.com/Codeinwp/nueve4/compare/v3.7.0...v3.7.1) (2023-10-05)
 
 ### Improvements
 - **Google Fonts**: Updated the Google Fonts library
@@ -129,9 +129,9 @@
 - **Light Mode Logo Correction**: Fixed the issue of the dark-mode logo being displayed inappropriately during the first visit in light mode.
 - **Onboarding redirection**: Fixed the issue where users got redirected to the old onboarding if they were installing the Cloud Templates & Patterns collection plugin from the dashboard
 
-#### [Version 3.7.0](https://github.com/Codeinwp/neve/compare/v3.6.7...v3.7.0) (2023-09-25)
+#### [Version 3.7.0](https://github.com/Codeinwp/nueve4/compare/v3.6.7...v3.7.0) (2023-09-25)
 
-- [Feat] Improve the UX by decreasing the opacity of the Editor Title if the disabled title toggle from Neve Options inside the editor is active
+- [Feat] Improve the UX by decreasing the opacity of the Editor Title if the disabled title toggle from Nueve4 Options inside the editor is active
 - [Feat] New option for the Logo component to control the font size
 - [Fix] Images not loading in the mega menu with AMP enabled
 - [Fix] Missing text domain for a string
@@ -139,7 +139,7 @@
 - [Fix] Access in the dashboard for admin users on multisite environments
 - Remove any remaining legacy skin code
 
-##### [Version 3.6.7](https://github.com/Codeinwp/neve/compare/v3.6.6...v3.6.7) (2023-08-22)
+##### [Version 3.6.7](https://github.com/Codeinwp/nueve4/compare/v3.6.6...v3.6.7) (2023-08-22)
 
 - [Fix] Addressed a json_decode issue in utilities.php that could potentially arise depending on the value from the database
 - [Fix] Fixed the way error messages are displayed within the error notice on the WooCommerce My Account page
@@ -149,15 +149,15 @@
 - Increase WordPress minimum required version to 5.5
 - Update Google Fonts
 
-##### [Version 3.6.6](https://github.com/Codeinwp/neve/compare/v3.6.5...v3.6.6) (2023-08-03)
+##### [Version 3.6.6](https://github.com/Codeinwp/nueve4/compare/v3.6.5...v3.6.6) (2023-08-03)
 
 - [Fix] Solve customizer permissions on multisite
 - [Fix] Add aria-label on the dropdown of the sidebar menu
 - [Fix] Incorrect author displayed on sticky posts with Feedzy Pro plugin
-- Introducing a new presentational tab dedicated to Otter within the About Us page of Neve Dashboard
+- Introducing a new presentational tab dedicated to Otter within the About Us page of Nueve4 Dashboard
 - Improve compatibility with WPML
 
-##### [Version 3.6.5](https://github.com/Codeinwp/neve/compare/v3.6.4...v3.6.5) (2023-07-17)
+##### [Version 3.6.5](https://github.com/Codeinwp/nueve4/compare/v3.6.4...v3.6.5) (2023-07-17)
 
 - [Fix] Deprecated notice in HFG Footer
 - [Fix] About page display when using Whitelabel
@@ -166,15 +166,15 @@
 - Update Google Fonts
 - Update SDK
 
-##### [Version 3.6.4](https://github.com/Codeinwp/neve/compare/v3.6.3...v3.6.4) (2023-06-16)
+##### [Version 3.6.4](https://github.com/Codeinwp/nueve4/compare/v3.6.3...v3.6.4) (2023-06-16)
 
 - [Fix] reported error for non-admin
 
-##### [Version 3.6.3](https://github.com/Codeinwp/neve/compare/v3.6.2...v3.6.3) (2023-06-15)
+##### [Version 3.6.3](https://github.com/Codeinwp/nueve4/compare/v3.6.2...v3.6.3) (2023-06-15)
 
 - [Fix] Customizer link location
 
-##### [Version 3.6.2](https://github.com/Codeinwp/neve/compare/v3.6.1...v3.6.2) (2023-06-15)
+##### [Version 3.6.2](https://github.com/Codeinwp/nueve4/compare/v3.6.1...v3.6.2) (2023-06-15)
 
 - [Feat] Dedicated Settings page
 - [Fix] Header cart icon color with multiple headers
@@ -185,12 +185,12 @@
 - Update Visual Regression base images
 - Update Google Fonts
 
-##### [Version 3.6.1](https://github.com/Codeinwp/neve/compare/v3.6.0...v3.6.1) (2023-05-30)
+##### [Version 3.6.1](https://github.com/Codeinwp/nueve4/compare/v3.6.0...v3.6.1) (2023-05-30)
 
 - [Fix] Solve compatibility check
 - Update SDK
 
-#### [Version 3.6.0](https://github.com/Codeinwp/neve/compare/v3.5.8...v3.6.0) (2023-05-29)
+#### [Version 3.6.0](https://github.com/Codeinwp/nueve4/compare/v3.5.8...v3.6.0) (2023-05-29)
 
 - [Feat] Add relative CSS unit support for font size controls in the customizer
 - [Feat] Granular Heading Font Family Controls
@@ -210,39 +210,39 @@
 - Update Google Fonts
 - Update Cloud Templates and Patterns collection banner image
 
-##### [Version 3.5.8](https://github.com/Codeinwp/neve/compare/v3.5.7...v3.5.8) (2023-04-19)
+##### [Version 3.5.8](https://github.com/Codeinwp/nueve4/compare/v3.5.7...v3.5.8) (2023-04-19)
 
 - [Fix] Tag cloud style when using classic widgets was different than the tag cloud block
 - [Fix] Visual issue for the color picker
 - Update Google Fonts
-- Support chages for Neve Pro
+- Support chages for Nueve4 Pro
 
-##### [Version 3.5.7](https://github.com/Codeinwp/neve/compare/v3.5.6...v3.5.7) (2023-04-06)
+##### [Version 3.5.7](https://github.com/Codeinwp/nueve4/compare/v3.5.6...v3.5.7) (2023-04-06)
 
 - [Feat] Dynamic Icon Selection and Optional Button for HFG Search Components
 - [Fix] Dot style separator not visible inside the editor
-- [Fix] Improve compatibility with WPML and Neve
+- [Fix] Improve compatibility with WPML and Nueve4
 - [Fix] Gradient issue in WordPress 6.2
 - [Fix] Path for the logo inside the dashboard
 - [Fix] Active and hover colors of the secondary menu items
 - [Fix] Hover skin options for the secondary menu
 - Improve the compatibility with PPOM plugin
 
-##### [Version 3.5.6](https://github.com/Codeinwp/neve/compare/v3.5.5...v3.5.6) (2023-03-22)
+##### [Version 3.5.6](https://github.com/Codeinwp/nueve4/compare/v3.5.5...v3.5.6) (2023-03-22)
 
 - [Feat] Add Open in new tab option for HFG button components
 - [Fix] Page title appears twice on WooCommerce pages
 - [Fix] The menu closing icon is duplicated with the slide-down style
 - [Fix] Incompatibility issue with Gutenberg plugin 15.2.0
 - [Fix] Reply button in comments not aligned correctly for short comments
-- Improve the presentation of Neve Pro Custom Layout module
+- Improve the presentation of Nueve4 Pro Custom Layout module
 - Improve the development process
 
-##### [Version 3.5.5](https://github.com/Codeinwp/neve/compare/v3.5.4...v3.5.5) (2023-03-13)
+##### [Version 3.5.5](https://github.com/Codeinwp/nueve4/compare/v3.5.4...v3.5.5) (2023-03-13)
 
 - Removed legacy skin
 
-##### [Version 3.5.4](https://github.com/Codeinwp/neve/compare/v3.5.3...v3.5.4) (2023-03-01)
+##### [Version 3.5.4](https://github.com/Codeinwp/nueve4/compare/v3.5.3...v3.5.4) (2023-03-01)
 
 - [Feat] Allow custom colors to be selected inside the customizer
 - [Fix] Proper indentation for comments
@@ -250,13 +250,13 @@
 - [Fix] Add margin-bottom for images with no caption
 - Update Google Fonts
 
-##### [Version 3.5.3](https://github.com/Codeinwp/neve/compare/v3.5.2...v3.5.3) (2023-02-16)
+##### [Version 3.5.3](https://github.com/Codeinwp/nueve4/compare/v3.5.2...v3.5.3) (2023-02-16)
 
 - [Fix] Alternative Layout control not visible inside the customizer
 - [Fix] Menu item not aligned with caret
-- Better inform about the features for WooCommerce available in Neve PRO
+- Better inform about the features for WooCommerce available in Nueve4 PRO
 
-##### [Version 3.5.2](https://github.com/Codeinwp/neve/compare/v3.5.1...v3.5.2) (2023-02-15)
+##### [Version 3.5.2](https://github.com/Codeinwp/nueve4/compare/v3.5.1...v3.5.2) (2023-02-15)
 
 - [Feat] Add a filter for the author post meta
 - [Feat] Improve Accessibility. Use the tab switch to submenu items only if the arrow is clicked on focus 
@@ -269,52 +269,52 @@
 - Improve the development process
 - Improve performance by moving the menu sidebar opening behavior to inline styles
 
-##### [Version 3.5.1](https://github.com/Codeinwp/neve/compare/v3.5.0...v3.5.1) (2023-01-30)
+##### [Version 3.5.1](https://github.com/Codeinwp/nueve4/compare/v3.5.0...v3.5.1) (2023-01-30)
 
-- Update the tested up to version for Neve Pro
+- Update the tested up to version for Nueve4 Pro
 
-#### [Version 3.5.0](https://github.com/Codeinwp/neve/compare/v3.4.10...v3.5.0) (2023-01-30)
+#### [Version 3.5.0](https://github.com/Codeinwp/nueve4/compare/v3.4.10...v3.5.0) (2023-01-30)
 
-- [Feat] Custom global colors - [Learn more](https://docs.themeisle.com/article/1314-global-colors-in-neve#custom-color)
-- [Feat] Font pairs inside the typography section - [Learn more](https://docs.themeisle.com/article/1340-neve-typography#font-presets)
-- [Feat] Full Site Editing for Neve - [Learn more](https://docs.themeisle.com/article/1774-neve-fse)
+- [Feat] Custom global colors - [Learn more](https://docs.themeisle.com/article/1314-global-colors-in-nueve4#custom-color)
+- [Feat] Font pairs inside the typography section - [Learn more](https://docs.themeisle.com/article/1340-nueve4-typography#font-presets)
+- [Feat] Full Site Editing for Nueve4 - [Learn more](https://docs.themeisle.com/article/1774-nueve4-fse)
 - [Fix] Display featured post only on the first page
 - [Fix] Issue with specific customizer settings imported
 - [Fix] Color picker issue on small screens
 - Update Google Fonts
 
-##### [Version 3.4.10](https://github.com/Codeinwp/neve/compare/v3.4.9...v3.4.10) (2023-01-09)
+##### [Version 3.4.10](https://github.com/Codeinwp/nueve4/compare/v3.4.9...v3.4.10) (2023-01-09)
 
 - [Fix] Installation of Super Page Cache for Cloudflare recommended plugin not working
 - [Fix] Make body_class hook signature similar to WP core one; props [@mi5t4n](https://github.com/mi5t4n) for contribution
 - [Fix] One click install for Cloud Templates & Patterns collection
 
-##### [Version 3.4.9](https://github.com/Codeinwp/neve/compare/v3.4.8...v3.4.9) (2022-12-15)
+##### [Version 3.4.9](https://github.com/Codeinwp/nueve4/compare/v3.4.8...v3.4.9) (2022-12-15)
 
 - [Fix] Revert menu changes to fix regressions
 
-##### [Version 3.4.8](https://github.com/Codeinwp/neve/compare/v3.4.7...v3.4.8) (2022-12-14)
+##### [Version 3.4.8](https://github.com/Codeinwp/nueve4/compare/v3.4.7...v3.4.8) (2022-12-14)
 
 - [Feat] Add better support for keyboard menu navigation
 - [Feat] Improve performance by conditionally loading the CSS for sidebar animation
 - [Fix] Change patterns registration hook
 - Update Google Fonts
 
-##### [Version 3.4.7](https://github.com/Codeinwp/neve/compare/v3.4.6...v3.4.7) (2022-12-01)
+##### [Version 3.4.7](https://github.com/Codeinwp/nueve4/compare/v3.4.6...v3.4.7) (2022-12-01)
 
 - [Fix] Customizer not working in some specific cases.
 
-##### [Version 3.4.6](https://github.com/Codeinwp/neve/compare/v3.4.5...v3.4.6) (2022-11-29)
+##### [Version 3.4.6](https://github.com/Codeinwp/nueve4/compare/v3.4.5...v3.4.6) (2022-11-29)
 
 - [Feat] Add toggle to enable local hosting for Google fonts
 - [Fix] PHP Warnings related to HFG Row BG on Legacy Skin
 - [Fix] Text color not configurable with menu skin mode 2
-- [Fix] Missing space on the Neve menu HTML
+- [Fix] Missing space on the Nueve4 menu HTML
 - [Fix] Full Canvas Mobile Menu Overlaps Some HTML Content
 - Autoactivate TPC from the welcome notice
 - Change the dashboard link from Nolt to GitHub discussion
 
-##### [Version 3.4.5](https://github.com/Codeinwp/neve/compare/v3.4.4...v3.4.5) (2022-11-16)
+##### [Version 3.4.5](https://github.com/Codeinwp/nueve4/compare/v3.4.4...v3.4.5) (2022-11-16)
 
 - [Fix] Typography breaks when switching viewports in Gutenberg Editor
 - [Fix] Gradient color option with WP 6.1
@@ -322,7 +322,7 @@
 - [Fix] VoiceOver accessibility issue on iPhone
 - Update Google Fonts
 
-##### [Version 3.4.4](https://github.com/Codeinwp/neve/compare/v3.4.3...v3.4.4) (2022-11-03)
+##### [Version 3.4.4](https://github.com/Codeinwp/nueve4/compare/v3.4.3...v3.4.4) (2022-11-03)
 
 - [Fix] Fix possible warning message from nav_walker.php
 - [Fix] Speaker Deck block not responsive
@@ -333,28 +333,28 @@
 - Update starter content theme mods & theme screenshot
 - Update Google Fonts
 
-##### [Version 3.4.3](https://github.com/Codeinwp/neve/compare/v3.4.2...v3.4.3) (2022-10-12)
+##### [Version 3.4.3](https://github.com/Codeinwp/nueve4/compare/v3.4.2...v3.4.3) (2022-10-12)
 
 - [Fix] Caret for select dropdown not appearing
 - [Fix] Adjusted the breadcrumbs and the text for the results display on mobile for WooCommerce
 - [Fix] Compatibility with WooCommerce Stripe Gateway plugin
-- Prepare Neve for WordPress 6.1
+- Prepare Nueve4 for WordPress 6.1
 - Update Google Fonts
 
-##### [Version 3.4.2](https://github.com/Codeinwp/neve/compare/v3.4.1...v3.4.2) (2022-09-27)
+##### [Version 3.4.2](https://github.com/Codeinwp/nueve4/compare/v3.4.1...v3.4.2) (2022-09-27)
 
 - [Fix] Starter content hero image
 - [Fix] Upside down menu caret in Safari
 - [Fix] Customizer search prevents settings expand when using the pencil buttons from the preview
 - [Fix] Search icon component input height not applying on submit button
 
-##### [Version 3.4.1](https://github.com/Codeinwp/neve/compare/v3.4.0...v3.4.1) (2022-09-19)
+##### [Version 3.4.1](https://github.com/Codeinwp/nueve4/compare/v3.4.0...v3.4.1) (2022-09-19)
 
 - [Fix] Missing variable notice
 - [Fix] Compatibility with PHP editor from custom layouts
-- [Fix] Customizer error when Neve Pro is installed but not updated
+- [Fix] Customizer error when Nueve4 Pro is installed but not updated
 
-#### [Version 3.4.0](https://github.com/Codeinwp/neve/compare/v3.3.7...v3.4.0) (2022-09-19)
+#### [Version 3.4.0](https://github.com/Codeinwp/nueve4/compare/v3.3.7...v3.4.0) (2022-09-19)
 
 - [Feat] Add the possibility to search for options in Customizer - [Learn more](https://docs.themeisle.com/article/1716-how-to-search-for-settings-in-the-customizer)
 - [Feat] Show comments but hide reply form if the "allow comments" setting is unchecked
@@ -363,7 +363,7 @@
 - [Fix] Expand the first level of the submenu option
 - Update Google Fonts
 
-##### [Version 3.3.7](https://github.com/Codeinwp/neve/compare/v3.3.6...v3.3.7) (2022-08-31)
+##### [Version 3.3.7](https://github.com/Codeinwp/nueve4/compare/v3.3.6...v3.3.7) (2022-08-31)
 
 - [Feat] Add margin control for menu label
 - Remove redundant class import
@@ -372,13 +372,13 @@
 - [Fix] Improve compatibility with Sparks
 - [Fix] Items alignment on the sidebar
 
-##### [Version 3.3.6](https://github.com/Codeinwp/neve/compare/v3.3.5...v3.3.6) (2022-08-18)
+##### [Version 3.3.6](https://github.com/Codeinwp/nueve4/compare/v3.3.5...v3.3.6) (2022-08-18)
 
 - [Fix] Border radius on buttons cannot be removed
 - [Fix] Default text color for primary buttons
 - Update Google Fonts
 
-##### [Version 3.3.5](https://github.com/Codeinwp/neve/compare/v3.3.4...v3.3.5) (2022-08-03)
+##### [Version 3.3.5](https://github.com/Codeinwp/nueve4/compare/v3.3.4...v3.3.5) (2022-08-03)
 
 - [Fix] Indentation for nested replies
 - [Fix] Sticky footer overlapping elements on the shop page
@@ -389,23 +389,23 @@
 - [Fix] Starter content header button issue
 - Update Google Fonts
 
-##### [Version 3.3.4](https://github.com/Codeinwp/neve/compare/v3.3.3...v3.3.4) (2022-07-26)
+##### [Version 3.3.4](https://github.com/Codeinwp/nueve4/compare/v3.3.3...v3.3.4) (2022-07-26)
 
 - [Feat] Add a new control to hide the title on archive pages
 - [Fix] Remove the theme.json file as it adds lots of other issues
 - Update Google Fonts
 
-##### [Version 3.3.3](https://github.com/Codeinwp/neve/compare/v3.3.2...v3.3.3) (2022-07-20)
+##### [Version 3.3.3](https://github.com/Codeinwp/nueve4/compare/v3.3.2...v3.3.3) (2022-07-20)
 
 - [Feat] Adds theme.json & enable "appearanceTools" - [Documentation](https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/#opt-in-into-ui-controls)
 - [Fix] Placement of the loop entry before/after hook
 - Update Google fonts
 
-##### [Version 3.3.2](https://github.com/Codeinwp/neve/compare/v3.3.1...v3.3.2) (2022-07-11)
+##### [Version 3.3.2](https://github.com/Codeinwp/nueve4/compare/v3.3.1...v3.3.2) (2022-07-11)
 
 - [Feat] Add active menu item color for the secondary navigation header component
 - [Fix] Featured post section enabled makes page titles disappear
-- [Fix] Neve sidebar breaks editor layout when opened
+- [Fix] Nueve4 sidebar breaks editor layout when opened
 - [Fix] Tag cloud block styling
 - [Fix] Hover modes for HFG navigation components.
 - Update Google Fonts
@@ -413,13 +413,13 @@
 - Improve performance by preventing AMP-related style for loading everywhere
 - Improve performance by requiring comment-reply.js only when is needed
 
-##### [Version 3.3.1](https://github.com/Codeinwp/neve/compare/v3.3.0...v3.3.1) (2022-06-27)
+##### [Version 3.3.1](https://github.com/Codeinwp/nueve4/compare/v3.3.0...v3.3.1) (2022-06-27)
 
 - [Fix] Both posted date and updated date are displayed
 - [Fix] {current_query_title} magic tag can't be displayed inline with other text
 - From 3.3.0 we decided to remove the copyright component from the free version. You can continue using it if you roll back to 3.2.x or you can upgrade to pro, using a one-time 50% discount by using NEVEBRANDING50 discount code. The promotion is available until the 5th of July 2022.
 
-#### [Version 3.3.0](https://github.com/Codeinwp/neve/compare/v3.2.5...v3.3.0) (2022-06-23)
+#### [Version 3.3.0](https://github.com/Codeinwp/nueve4/compare/v3.2.5...v3.3.0) (2022-06-23)
 
 - [Feat] Add an option to hide post meta on mobile
 - [Feat] Add shadow controls for primary / secondary buttons
@@ -430,14 +430,14 @@
 - Accessibility improvements: Replace dropdown links with buttons
 - We have started to add a new generation of starter sites called Expert Sites, which are more complex and cover a more variety of sections and integrations for each niche. Furthermore, we have started to review and convert some of the older ones to Expert Sites and you will see them available soon. To support this change, you will see a lighter starter site collection than we had in the past as we want to focus on a smaller but more powerful collection of ready-to-use sites which we can constantly update. You will still be able to access the legacy starter sites by [following this doc](https://docs.themeisle.com/article/1613-where-do-i-find-the-legacy-the-starter-sites), but keep in mind that those will no longer receive updates or be tested with the latest versions.
 
-##### [Version 3.2.5](https://github.com/Codeinwp/neve/compare/v3.2.4...v3.2.5) (2022-05-12)
+##### [Version 3.2.5](https://github.com/Codeinwp/nueve4/compare/v3.2.4...v3.2.5) (2022-05-12)
 
 - [Fix] Sidebar toggle disappears on the shop on mobile
-- [Fix] External link in Neve Pro Addon license card
+- [Fix] External link in Nueve4 Pro Addon license card
 - [Fix] PageSpeed module enabled on servers transforms CSS variables to lowercase
 - [Fix] Rollback button does not appear in some cases
 
-##### [Version 3.2.4](https://github.com/Codeinwp/neve/compare/v3.2.3...v3.2.4) (2022-05-05)
+##### [Version 3.2.4](https://github.com/Codeinwp/nueve4/compare/v3.2.3...v3.2.4) (2022-05-05)
 
 - [Feat] Gradient support for color controls
 - [Fix] Missing top margin for the featured post when the title is disabled
@@ -446,7 +446,7 @@
 - [Fix] Add padding for submenu items in the sidebar menu
 - [Fix] Shop sidebar with the off-canvas layout not working when content width is above 95%
 
-##### [Version 3.2.3](https://github.com/Codeinwp/neve/compare/v3.2.2...v3.2.3) (2022-04-20)
+##### [Version 3.2.3](https://github.com/Codeinwp/nueve4/compare/v3.2.2...v3.2.3) (2022-04-20)
 
 - [Feat] Add Xing to the icon list
 - [Fix] Hide title meta setting not working on the blog page
@@ -455,33 +455,33 @@
 - [Fix] Compatibility issues with Klarna payments
 - [Fix] Mini cart issues with Elementor templates
 
-##### [Version 3.2.2](https://github.com/Codeinwp/neve/compare/v3.2.1...v3.2.2) (2022-04-06)
+##### [Version 3.2.2](https://github.com/Codeinwp/nueve4/compare/v3.2.1...v3.2.2) (2022-04-06)
 
-- [Fix] Fatal error produced by abs function on servers with PHP 8, and Neve Pro installed.
+- [Fix] Fatal error produced by abs function on servers with PHP 8, and Nueve4 Pro installed.
 
-##### [Version 3.2.1](https://github.com/Codeinwp/neve/compare/v3.2.0...v3.2.1) (2022-04-05)
+##### [Version 3.2.1](https://github.com/Codeinwp/nueve4/compare/v3.2.0...v3.2.1) (2022-04-05)
 
 - [Feat] Add an option to have unitless line-height for typography controls.
 - [Fix] Allow values lower than 1 for em unit.
 - [Fix] Custom layout made with Elementor when masonry is enabled.
 - [Fix] PHP warning due to React controls.
 - [Fix] Compatibility with Booking Activities plugin.
-- [Fix] Edge case where some plugins are not defined in the neveDash constant inside the dashboard.
+- [Fix] Edge case where some plugins are not defined in the nueve4Dash constant inside the dashboard.
 - Update Google Fonts.
 - Add antialiasing on text.
 
-#### [Version 3.2.0](https://github.com/Codeinwp/neve/compare/v3.1.6...v3.2.0) (2022-03-23)
+#### [Version 3.2.0](https://github.com/Codeinwp/nueve4/compare/v3.1.6...v3.2.0) (2022-03-23)
 
 - [Feat] Add more menu icon options for the Menu Icon component. - [Learn more]( https://docs.themeisle.com/article/1230-menu-icon#style )
-- [Feat] Blog featured post. - [Learn more]( https://docs.themeisle.com/article/1306-neve-blog-archive-options#latestposts )
+- [Feat] Blog featured post. - [Learn more]( https://docs.themeisle.com/article/1306-nueve4-blog-archive-options#latestposts )
 - [Feat] Add compatibility with Easy Digital Downloads.
-- [Fix] Integration between LifterLMS and the pallet switcher from Neve.
+- [Fix] Integration between LifterLMS and the pallet switcher from Nueve4.
 - [Fix] Alignment conflict with WooCommerce Product Add-ons.
 - [Fix] Off-canvas cart menu stays open.
 - Improve UX when customizing the sidebar by resetting the post's custom content width when the sidebar position changed.
 - Updated the recommended plugins.
 
-##### [Version 3.1.6](https://github.com/Codeinwp/neve/compare/v3.1.5...v3.1.6) (2022-02-23)
+##### [Version 3.1.6](https://github.com/Codeinwp/nueve4/compare/v3.1.5...v3.1.6) (2022-02-23)
 
 - [Fix] Jquery failure when elementor header is enabled and adding a product to cart
 - [Fix] Custom HTML component behavior on empty tags
@@ -490,7 +490,7 @@
 - [Fix] Input focus on Safari browser
 - Improve support for SVG, allow crop skipping
 
-##### [Version 3.1.5](https://github.com/Codeinwp/neve/compare/v3.1.4...v3.1.5) (2022-02-07)
+##### [Version 3.1.5](https://github.com/Codeinwp/nueve4/compare/v3.1.4...v3.1.5) (2022-02-07)
 
 - [Fix] Inconsistent colors of links in the dashboard
 - [Fix] WooCommerce product variations alignment when there are multiple variations
@@ -506,7 +506,7 @@
 - Add dashboard information cards
 - Update Google Fonts
 
-##### [Version 3.1.4](https://github.com/Codeinwp/neve/compare/v3.1.3...v3.1.4) (2022-01-20)
+##### [Version 3.1.4](https://github.com/Codeinwp/nueve4/compare/v3.1.3...v3.1.4) (2022-01-20)
 
 - [Feat] Support for different logos with color palette switcher
 - [Feat] Open extra features when dashboard module is activated
@@ -516,22 +516,22 @@
 - [Fix] Root CSS custom properties are outputted twice when using dark mode toggle in the header
 - [Fix] Secondary button style inconsistency in dashboard
 - [Fix] Accessibility label for the button in the header search component
-- [Fix] Show local version of installed plugins in the Neve options page
+- [Fix] Show local version of installed plugins in the Nueve4 options page
 - [Fix] Post meta date element layout when post width is narrow
 - [Fix] Allow additional classes on mega menu column, divider & heading items
 - [Fix] Single post section not displayed inside the customizer on the old skin
 
-##### [Version 3.1.3](https://github.com/Codeinwp/neve/compare/v3.1.2...v3.1.3) (2022-01-06)
+##### [Version 3.1.3](https://github.com/Codeinwp/nueve4/compare/v3.1.2...v3.1.3) (2022-01-06)
 
 - [Fix] Sidebar positioning on the shop page
 - [Fix] Hide the whole page cover when hiding title in page meta
-- [Fix] Conflict between Neve, Relevanssi Premium, and Elementor Pro
+- [Fix] Conflict between Nueve4, Relevanssi Premium, and Elementor Pro
 - [Fix] Radio-image customizer control console errors
 - Improve the font-weight control to display only the weights that are available for the selected font
 
-##### [Version 3.1.2](https://github.com/Codeinwp/neve/compare/v3.1.1...v3.1.2) (2021-12-23)
+##### [Version 3.1.2](https://github.com/Codeinwp/nueve4/compare/v3.1.1...v3.1.2) (2021-12-23)
 
-- [Fix] 'neve_before_pagination' not working on the first page 
+- [Fix] 'nueve4_before_pagination' not working on the first page 
 - [Fix] Mega menu issue on mobile
 - [Fix] Primary navigation menu links to in-page sections have active color
 - [Fix] Adds left and right border when a user is editing table contents
@@ -541,7 +541,7 @@
 - Keep upsells when the license is invalid
 - Update Google Fonts
 
-##### [Version 3.1.1](https://github.com/Codeinwp/neve/compare/v3.1.0...v3.1.1) (2021-12-09)
+##### [Version 3.1.1](https://github.com/Codeinwp/nueve4/compare/v3.1.0...v3.1.1) (2021-12-09)
 
 - [Fix] Remove text-decoration on links that are not part of the page content
 - [Fix] Added value attribute for close button on menu and alt attribute on the search form
@@ -552,15 +552,15 @@
 - Add information about components in pro in header's popup
 - Update Google Fonts
 
-#### [Version 3.1.0](https://github.com/Codeinwp/neve/compare/v3.0.11...v3.1.0) (2021-11-24)
+#### [Version 3.1.0](https://github.com/Codeinwp/nueve4/compare/v3.0.11...v3.1.0) (2021-11-24)
 
-- [Feat] Global options for page - [Learn more](https://docs.themeisle.com/article/1491-neve-page-options)
+- [Feat] Global options for page - [Learn more](https://docs.themeisle.com/article/1491-nueve4-page-options)
 - [Feat] Global header background
 - [Fix] Starter content buttons alignment with and without the Gutenberg plugin
 
-##### [Version 3.0.11](https://github.com/Codeinwp/neve/compare/v3.0.10...v3.0.11) (2021-11-10)
+##### [Version 3.0.11](https://github.com/Codeinwp/nueve4/compare/v3.0.10...v3.0.11) (2021-11-10)
 
-- [Feat] Add the possibility to replace WooCommerce Breadcrumbs with the ones from Yoast, SeoPress Pro, or RankMath - [Learn more](https://docs.themeisle.com/article/1123-breadcrumbs-in-neve#woo)
+- [Feat] Add the possibility to replace WooCommerce Breadcrumbs with the ones from Yoast, SeoPress Pro, or RankMath - [Learn more](https://docs.themeisle.com/article/1123-breadcrumbs-in-nueve4#woo)
 - [Fix] Infinite scroll not working in some specific context
 - [Fix] Compatibility of palette switcher with Elementor global colors
 - [Fix] Archive featured image as background works only with all taxonomies enabled
@@ -578,23 +578,23 @@
 - [Fix] Inconsistent console error inside the customizer preview  
 - Update Google Fonts
 
-##### [Version 3.0.10](https://github.com/Codeinwp/neve/compare/v3.0.9...v3.0.10) (2021-10-27)
+##### [Version 3.0.10](https://github.com/Codeinwp/nueve4/compare/v3.0.9...v3.0.10) (2021-10-27)
 
 - [Fix] header rows background images not applying on legacy skin
 
-##### [Version 3.0.9](https://github.com/Codeinwp/neve/compare/v3.0.8...v3.0.9) (2021-10-26)
+##### [Version 3.0.9](https://github.com/Codeinwp/nueve4/compare/v3.0.8...v3.0.9) (2021-10-26)
 
 - [Fix] editor in HTML header component
 
-##### [Version 3.0.8](https://github.com/Codeinwp/neve/compare/v3.0.7...v3.0.8) (2021-10-26)
+##### [Version 3.0.8](https://github.com/Codeinwp/nueve4/compare/v3.0.7...v3.0.8) (2021-10-26)
 
 - [Fix] Ordering control when header layout is changed on the single post
 - [Fix] Customizer controls not loading properly due to browser caching issue in some instances
 
-##### [Version 3.0.7](https://github.com/Codeinwp/neve/compare/v3.0.6...v3.0.7) (2021-10-26)
+##### [Version 3.0.7](https://github.com/Codeinwp/nueve4/compare/v3.0.6...v3.0.7) (2021-10-26)
 
 - [Feat] Header row border control - [Learn more](https://docs.themeisle.com/article/1245-header-rows-settings#border)
-- [Feat] Jump to page blog pagination type - [Learn more](https://docs.themeisle.com/article/1306-neve-blog-archive-options#ordering)
+- [Feat] Jump to page blog pagination type - [Learn more](https://docs.themeisle.com/article/1306-nueve4-blog-archive-options#ordering)
 - [Feat] Support for the named text sizes inside the editor 
 - [Feat] TinyMCE field inside header HTML Component
 - [Feat] Add Painter starter site - [Elementor](https://demosites.io/painter/)
@@ -602,12 +602,12 @@
 - Replace react-sortable-hoc with sortablejs already used in the header
 - Update Google Fonts
 
-##### [Version 3.0.6](https://github.com/Codeinwp/neve/compare/v3.0.5...v3.0.6) (2021-10-11)
+##### [Version 3.0.6](https://github.com/Codeinwp/nueve4/compare/v3.0.5...v3.0.6) (2021-10-11)
 
 - [Feat] Adds alignment option to the mobile sidebar row setting;
 - [Feat] Adds vertical alignment option for each footer row
 - [Fix] Conflict with the global header from Elementor Pro
-- [Fix] Cannot update a page: Updating failed. Can not update the value of 'neve_meta_sidebar' in the database
+- [Fix] Cannot update a page: Updating failed. Can not update the value of 'nueve4_meta_sidebar' in the database
 - [Fix] Missing default value for vertical-align on the single post cover layout
 - [Fix] Builder rows with columns controls execute sync too soon on some environments
 - [Fix] The available items aren't properly updated when adding a component to the mobile sidebar
@@ -617,7 +617,7 @@
 - [Fix] Letter-spacing inline-style not applying for headings
 - Updated Google Fonts
 
-##### [Version 3.0.5](https://github.com/Codeinwp/neve/compare/v3.0.4...v3.0.5) (2021-09-29)
+##### [Version 3.0.5](https://github.com/Codeinwp/nueve4/compare/v3.0.4...v3.0.5) (2021-09-29)
 
 - [Feat] Add additional font variants control for body font family used on the body
 - [Fix] Remove hardcoded concatenation for menu item and page title
@@ -635,7 +635,7 @@
 - Refreshed design for the Architecture starter site - [Gutenberg](https://demosites.io/architecture-gb/) | [Elementor](https://demosites.io/architecture/)
 - Remove some unused CSS
 
-##### [Version 3.0.4](https://github.com/Codeinwp/neve/compare/v3.0.3...v3.0.4) (2021-09-15)
+##### [Version 3.0.4](https://github.com/Codeinwp/nueve4/compare/v3.0.3...v3.0.4) (2021-09-15)
 
 - fix customizer loading when elementor pro is active
 - fix exclusive products category restriction
@@ -646,7 +646,7 @@
 - Fix footer being hidden after we add one component
 - Fix font family saving issue on the Header Nav widget
 
-##### [Version 3.0.3](https://github.com/Codeinwp/neve/compare/v3.0.2...v3.0.3) (2021-09-06)
+##### [Version 3.0.3](https://github.com/Codeinwp/nueve4/compare/v3.0.2...v3.0.3) (2021-09-06)
 
 - [Fix] Cart icon component is vertically misaligned when it has a label
 - [Fix] Fix notice with legacy values on padding for buttons when values are empty
@@ -663,7 +663,7 @@
 - Removes mobile dropdown outline on tap
 - Update Google Fonts
 
-##### [Version 3.0.2](https://github.com/Codeinwp/neve/compare/v3.0.1...v3.0.2) (2021-08-23)
+##### [Version 3.0.2](https://github.com/Codeinwp/nueve4/compare/v3.0.1...v3.0.2) (2021-08-23)
 
 - [Fix] issue with some hosting environments not loading JS files that contained ~ in the file name
 - [Fix] items in customizer panel don't adjust when changing presets 
@@ -678,10 +678,10 @@
 - [Fix] Autoscroll in customizer when opening Header/Footer builder
 - [Fix] Comment reply HTML markup
 - [Feat] Adds AMP infinite scroll
-- [Feat] Adds section for Neve troubleshooting info
+- [Feat] Adds section for Nueve4 troubleshooting info
 - [Feat] Enhanced repeater control for Customizer settings
 
-##### [Version 3.0.1](https://github.com/Codeinwp/neve/compare/v3.0.0...v3.0.1) (2021-08-06)
+##### [Version 3.0.1](https://github.com/Codeinwp/nueve4/compare/v3.0.0...v3.0.1) (2021-08-06)
 
 - [Fix] bring back custom-background theme support
 - [Fix] input type reset on new skin
@@ -690,10 +690,10 @@
 - [Fix] single product top wrap priority
 - [Fix] builder breaking in specific edge-case when using the pro version
 
-#### [Version 3.0.0](https://github.com/Codeinwp/neve/compare/v2.11.6...v3.0.0) (2021-08-04)
+#### [Version 3.0.0](https://github.com/Codeinwp/nueve4/compare/v2.11.6...v3.0.0) (2021-08-04)
 
 - [Feat] New Header & Footer builder experience
-- [Feat] New default skin for frontend with better performance and page weight - [Learn more](https://docs.themeisle.com/article/1388-neve-3-0-core-design)
+- [Feat] New default skin for frontend with better performance and page weight - [Learn more](https://docs.themeisle.com/article/1388-nueve4-3-0-core-design)
 - [Feat] Color palette switcher header component (dark mode toggle) - [Learn more](https://docs.themeisle.com/article/1358-header-palette-switch-dark-light-theme)
 - [Feat] New single post layout and customization options
 - [Fix] Improve accessibility for the search form
@@ -703,52 +703,52 @@
 - [Fix] Wishlist button looking distorted on the product page with sticky add to cart enabled
 - [Fix] magic tag for {meta_author} not rendering the author avatar
 - [Fix] Modified the check for the sidebar so that it does not conflict with the individual post settings
-- [Fix] Disable Neve Styles on Custom Single Product and Products Archive Elementor Templates
+- [Fix] Disable Nueve4 Styles on Custom Single Product and Products Archive Elementor Templates
 - [Fix] Compatibility for Gutenberg widgets editor inside the customizer
 - Add ability to self-heal theme mods in case of corrupted value
 - Remove Otter compatibility for Gutenberg Templates
 
-##### [Version 2.11.6](https://github.com/Codeinwp/neve/compare/v2.11.5...v2.11.6) (2021-06-01)
+##### [Version 2.11.6](https://github.com/Codeinwp/nueve4/compare/v2.11.5...v2.11.6) (2021-06-01)
 
 - [Fix] wishlist button on single product pages
 
-##### [Version 2.11.5](https://github.com/Codeinwp/neve/compare/v2.11.4...v2.11.5) (2021-05-31)
+##### [Version 2.11.5](https://github.com/Codeinwp/nueve4/compare/v2.11.4...v2.11.5) (2021-05-31)
 
 - [Fix] Header cart doesn't show a dropdown when adding a new product to the cart
 - [Fix] Replace current implementation to update meta with Data API
 - [Fix] Image width of archive products are not wide enough
 - [Fix] External links behavior on the changelog page
 
-##### [Version 2.11.4](https://github.com/Codeinwp/neve/compare/v2.11.3...v2.11.4) (2021-05-14)
+##### [Version 2.11.4](https://github.com/Codeinwp/nueve4/compare/v2.11.3...v2.11.4) (2021-05-14)
 
 - [Fix] font weights not getting properly enqueued when some font families are set to inherit
 - [Fix] CSS error causing padding issues on some Gutenberg blocks
 
-##### [Version 2.11.3](https://github.com/Codeinwp/neve/compare/v2.11.2...v2.11.3) (2021-05-12)
+##### [Version 2.11.3](https://github.com/Codeinwp/nueve4/compare/v2.11.2...v2.11.3) (2021-05-12)
 
 - [Fix] Editor text color not working as expected
 - [Fix] Editor group block and columns block child blocks not inheriting text color
 - Restyle post date styling inside latest posts widget
 
-##### [Version 2.11.2](https://github.com/Codeinwp/neve/compare/v2.11.1...v2.11.2) (2021-04-28)
+##### [Version 2.11.2](https://github.com/Codeinwp/nueve4/compare/v2.11.1...v2.11.2) (2021-04-28)
 
 - [Fix] Dropdowns (input select) in specific widgets do not respect global form styles
 - [Fix] Wrong text color inheritance in group blocks with color settings
 - [Fix] Cart icon opening behavior when positioned on the left side of header
-- [Fix] Improve accessibility for external links in the Neve page and customizer
+- [Fix] Improve accessibility for external links in the Nueve4 page and customizer
 - [Fix] Color Picker Modal remains open even after switching Color Palettes
-- [Fix] Increase Templates Cloud visibility on Neve options page
+- [Fix] Increase Templates Cloud visibility on Nueve4 options page
 - [Fix] Infinite scroll loads posts of incorrect language
 - [Feat] Add global color as presets in beaver builder
 - [Feat] Ignore lazyload on above the fold images 
 - [Feat] implement next page links for infinite scroll
-- [Feat] Adds compatibility for meta association on template import/export for Neve Cloud
+- [Feat] Adds compatibility for meta association on template import/export for Nueve4 Cloud
 
-##### [Version 2.11.1](https://github.com/Codeinwp/neve/compare/v2.11.0...v2.11.1) (2021-04-13)
+##### [Version 2.11.1](https://github.com/Codeinwp/nueve4/compare/v2.11.0...v2.11.1) (2021-04-13)
 
 - [Fix] Fatal error caused by the removal of some global functions
 
-#### [Version 2.11.0](https://github.com/Codeinwp/neve/compare/v2.10.4...v2.11.0) (2021-04-12)
+#### [Version 2.11.0](https://github.com/Codeinwp/nueve4/compare/v2.10.4...v2.11.0) (2021-04-12)
 
 - [Fix] Masonry on the blog
 - [Fix] Sync theme mods on child themes
@@ -763,29 +763,29 @@
 - Show last updated date on posts
 - New developer hooks
 
-##### [Version 2.10.4](https://github.com/Codeinwp/neve/compare/v2.10.3...v2.10.4) (2021-03-16)
+##### [Version 2.10.4](https://github.com/Codeinwp/nueve4/compare/v2.10.3...v2.10.4) (2021-03-16)
 
 - [Fix] customizer responsive switches not working
 
-##### [Version 2.10.3](https://github.com/Codeinwp/neve/compare/v2.10.2...v2.10.3) (2021-03-16)
+##### [Version 2.10.3](https://github.com/Codeinwp/nueve4/compare/v2.10.2...v2.10.3) (2021-03-16)
 
 - [Fix] utilize wp_get_attachment_image for responsive logo image in header
 - [Fix] add compatibility with PHP 8
 - [Fix] apply font-family for inputs
 - [Fix] button styles not applying to form buttons properly
 
-##### [Version 2.10.2](https://github.com/Codeinwp/neve/compare/v2.10.1...v2.10.2) (2021-03-01)
+##### [Version 2.10.2](https://github.com/Codeinwp/nueve4/compare/v2.10.1...v2.10.2) (2021-03-01)
 
 - [Feat] Add compatibility with Google Web Stories
 - [Fix] meta_comments and current_post_meta magic tags
 - [Fix] add to cart notice when product template is made with Elementor
-- [Fix] changelog parsing in the Neve Options dashboard page
+- [Fix] changelog parsing in the Nueve4 Options dashboard page
 - [Fix] global colors palette selector not showing swatches in safari
 - [Fix] visual hierarchy for the Cart Totals
 - [Fix] subtotal prices squished on checkout pages for products with large titles
 - [Fix] street address textbox was too narrow in Woocommerce
 
-##### [Version 2.10.1](https://github.com/Codeinwp/neve/compare/v2.10.0...v2.10.1) (2021-02-10)
+##### [Version 2.10.1](https://github.com/Codeinwp/nueve4/compare/v2.10.0...v2.10.1) (2021-02-10)
 
 - [Feat] Compatibility with Beaver Themer parts location
 - [Feat] Out of stock badge
@@ -799,26 +799,26 @@
 - [Fix] Allow HTML markup inside the comments heading
 - [Fix] Remove some redundant classes from the Header / Footer
 
-#### [Version 2.10.0](https://github.com/Codeinwp/neve/compare/v2.9.5...v2.10.0) (2021-01-18)
+#### [Version 2.10.0](https://github.com/Codeinwp/nueve4/compare/v2.9.5...v2.10.0) (2021-01-18)
 
 - [Feat] Form fields styling controls
 - [Feat] Redesign global colors list
 - [Fix] Infinite scroll on the Blog page with masonry enabled
 
-##### [Version 2.9.5](https://github.com/Codeinwp/neve/compare/v2.9.4...v2.9.5) (2020-12-28)
+##### [Version 2.9.5](https://github.com/Codeinwp/nueve4/compare/v2.9.4...v2.9.5) (2020-12-28)
 
 - [Feat] Update starter content
 
-##### [Version 2.9.4](https://github.com/Codeinwp/neve/compare/v2.9.3...v2.9.4) (2020-12-25)
+##### [Version 2.9.4](https://github.com/Codeinwp/nueve4/compare/v2.9.3...v2.9.4) (2020-12-25)
 
 - [Feat] Starter content support
 
-##### [Version 2.9.3](https://github.com/Codeinwp/neve/compare/v2.9.2...v2.9.3) (2020-12-17)
+##### [Version 2.9.3](https://github.com/Codeinwp/nueve4/compare/v2.9.2...v2.9.3) (2020-12-17)
 
 - [Fix] Cart menu component layout on mobile devices
 - [Fix] Dynamic tags list not inserted for header/footer builder components
 
-##### [Version 2.9.2](https://github.com/Codeinwp/neve/compare/v2.9.1...v2.9.2) (2020-12-15)
+##### [Version 2.9.2](https://github.com/Codeinwp/nueve4/compare/v2.9.1...v2.9.2) (2020-12-15)
 
 - [Fix] Customizer tabs not opening in Windows browsers
 - [Fix] Syntax error causing errors
@@ -826,7 +826,7 @@
 - [Fix] Individual page settings not applying to the Shop page
 - [Fix] Composer requiring PHP greater than 7.1.0
 
-##### [Version 2.9.1](https://github.com/Codeinwp/neve/compare/v2.9.0...v2.9.1) (2020-12-07)
+##### [Version 2.9.1](https://github.com/Codeinwp/nueve4/compare/v2.9.0...v2.9.1) (2020-12-07)
 
 - [Feat] New Fallback Font option
 - [Fix] Compatibility with WP 5.6
@@ -834,7 +834,7 @@
 - [Fix] Cart Icon component layout revision
 - [Fix] Not translatable strings in the Options page
 
-#### [Version 2.9.0](https://github.com/Codeinwp/neve/compare/v2.8.4...v2.9.0) (2020-11-24)
+#### [Version 2.9.0](https://github.com/Codeinwp/nueve4/compare/v2.8.4...v2.9.0) (2020-11-24)
 
 - [Feat] Globally linked Color Palettes
 - [Feat] Compatibility with Template Cloud and single page templates import
@@ -842,7 +842,7 @@
 - [Fix] Compatibility with the Visualizer plugin
 - New Gutenberg Starter Sites
 
-##### [Version 2.8.4](https://github.com/Codeinwp/neve/compare/v2.8.3...v2.8.4) (2020-11-02)
+##### [Version 2.8.4](https://github.com/Codeinwp/nueve4/compare/v2.8.3...v2.8.4) (2020-11-02)
 
 - [Fix] Warning jQuery .load() function is deprecated
 - [Fix] Header builder responsive instructions notifications
@@ -851,7 +851,7 @@
 - [Fix] Button styling for WooCommerce blocks
 - [Fix] Move Customizer homepage settings to the Layout panel
 
-##### [Version 2.8.3](https://github.com/Codeinwp/neve/compare/v2.8.2...v2.8.3) (2020-10-19)
+##### [Version 2.8.3](https://github.com/Codeinwp/nueve4/compare/v2.8.2...v2.8.3) (2020-10-19)
 
 - [Fix] Exclusive products section in RTL mode
 - [Fix] Font Family dropdown layout in RTL mode
@@ -861,19 +861,19 @@
 - [Fix] Search icon color in the mobile header builder
 - New Gutenberg Starter Sites
 
-##### [Version 2.8.2](https://github.com/Codeinwp/neve/compare/v2.8.1...v2.8.2) (2020-10-01)
+##### [Version 2.8.2](https://github.com/Codeinwp/nueve4/compare/v2.8.1...v2.8.2) (2020-10-01)
 
 - [Feat] New Blog Layout options
 - [Feat] New Header Builder presets
 - [Feat] Support for Alpha RGBa Color Picker
-- [Feat] Enhancements to the Neve Options page
+- [Feat] Enhancements to the Nueve4 Options page
 - [Fix] Updated date layout in magic tags {current_post_meta} {meta_date}
 - [Fix] Compatibility with Elementor PRO 404 templates pages
 - [Fix] Style captions
 - [Fix] Button component style options overlapping with general button options
 - [Fix] Default meta elements order
 
-##### [Version 2.8.1](https://github.com/Codeinwp/neve/compare/v2.8.0...v2.8.1) (2020-09-17)
+##### [Version 2.8.1](https://github.com/Codeinwp/nueve4/compare/v2.8.0...v2.8.1) (2020-09-17)
 
 - [Feat] New options for styling buttons ( text-transform, weight, font size, line height, and letter spacing )
 - [Feat] New block patterns
@@ -889,7 +889,7 @@
 - [Fix] Inputs text color on a dark background
 - New Gutenberg Starter Sites
 
-#### [Version 2.8.0](https://github.com/Codeinwp/neve/compare/v2.7.7...v2.8.0) (2020-09-03)
+#### [Version 2.8.0](https://github.com/Codeinwp/nueve4/compare/v2.7.7...v2.8.0) (2020-09-03)
 
 - [Feat] Compatibility with AMP 2.0
 - [Feat] New opening behaviors for the mobile menu (Slide from Left/Right, Pull from Left/Right, Full Canvas, Slide Down)
@@ -900,7 +900,7 @@
 - [Fix] Items spacing for Primary Menu on mobile
 - [Fix] Range controls lagging
 
-##### [Version 2.7.7](https://github.com/Codeinwp/neve/compare/v2.7.6...v2.7.7) (2020-08-19)
+##### [Version 2.7.7](https://github.com/Codeinwp/nueve4/compare/v2.7.6...v2.7.7) (2020-08-19)
 
 - [Fix] Permissions callback for REST route in WP 5.5
 - [Fix] Color not working for the Cart Icon component
@@ -911,18 +911,18 @@
 - [Fix] Inline text-color not applying in the editor
 - New Gutenberg Starter Sites
 
-##### [Version 2.7.6](https://github.com/Codeinwp/neve/compare/v2.7.5...v2.7.6) (2020-08-04)
+##### [Version 2.7.6](https://github.com/Codeinwp/nueve4/compare/v2.7.5...v2.7.6) (2020-08-04)
 
 - [Feat] New magic tags for single post pages
 - [Feat] Move Starter Sites library and import process in the Cloud Templates & Patterns collection plugin
 - [Fix] Compatibility with WP 5.5
 - [Fix] Starter sites tab layout on smaller resolutions
 
-##### [Version 2.7.5](https://github.com/Codeinwp/neve/compare/v2.7.4...v2.7.5) (2020-07-10)
+##### [Version 2.7.5](https://github.com/Codeinwp/nueve4/compare/v2.7.4...v2.7.5) (2020-07-10)
 
 - [Fix] Move Starter Sites library and import process in OrbitFox companion plugin
 
-##### [Version 2.7.4](https://github.com/Codeinwp/neve/compare/v2.7.3...v2.7.4) (2020-07-08)
+##### [Version 2.7.4](https://github.com/Codeinwp/nueve4/compare/v2.7.3...v2.7.4) (2020-07-08)
 
 - [Feat] Improved Starter Sites library layout
 - [Feat] Use display:swap for Google Fonts
@@ -930,43 +930,43 @@
 - [Fix] Canvas mode for the search icon in AMP on mobile
 - New Gutenberg Starter Sites
 
-##### [Version 2.7.3](https://github.com/Codeinwp/neve/compare/v2.7.2...v2.7.3) (2020-06-23)
+##### [Version 2.7.3](https://github.com/Codeinwp/nueve4/compare/v2.7.2...v2.7.3) (2020-06-23)
 
 - [Feat] New typography controls for the Blog and Single Post pages
 - [Feat] New vertical alignment controls for the footer builder components
-- [Fix] Neve Options page in RTL mode
+- [Fix] Nueve4 Options page in RTL mode
 - [Fix] Optimize screenshots in Starter Sites library
 - [Fix] Make sure all keys in values are defined for the Spacing Component
 - [Fix] Add back single product name in breadcrumbs
 - New Brizy Starter Sites
 
-##### [Version 2.7.2](https://github.com/Codeinwp/neve/compare/v2.7.1...v2.7.2) (2020-06-04)
+##### [Version 2.7.2](https://github.com/Codeinwp/nueve4/compare/v2.7.1...v2.7.2) (2020-06-04)
 
 - [Feat] Three layouts for the header builder Search Icon component ( Canvas, Minimal and Float above Header )
 - [Feat] Styling controls for the header builder Search Icon and Search Form components
-- [Feat] New neve_before_header_wrapper_hook and neve_after_header_wrapper_hook hooks
-- [Fix] Dismissable notice for contributing to Neve
+- [Feat] New nueve4_before_header_wrapper_hook and nueve4_after_header_wrapper_hook hooks
+- [Fix] Dismissable notice for contributing to Nueve4
 - [Fix] Support for Main image width and Thumbnail width options in WooCommerce ( to fix blurred images on the Shop page )
 - [Fix] Wrong default padding for buttons
 - [Fix] Wrong content width for grouped blocks
-- [Fix] Neve Options page not loading in Microsoft Edge v18
+- [Fix] Nueve4 Options page not loading in Microsoft Edge v18
 - [Fix] Update list of Google Fonts
 - [Fix] Google lighthouse reports not unique ID attribute
 - [Fix] Live refresh with the Primary Menu hover skin option
 
-##### [Version 2.7.1](https://github.com/Codeinwp/neve/compare/v2.7.0...v2.7.1) (2020-05-21)
+##### [Version 2.7.1](https://github.com/Codeinwp/nueve4/compare/v2.7.0...v2.7.1) (2020-05-21)
 
 - [Feat] Replaced Skin Mode control with a Text Color control in the header builder rows
 - [Fix] Apply row background color to menu dropdowns
 - [Fix] Filter by price widget button default background-color
 - [Fix] Make the alignment classes more generic to allow overwriting from block specific settings
 - [Fix] Clickable links in the Changelog area
-- [Fix] Neve Options page on lower resolutions
+- [Fix] Nueve4 Options page on lower resolutions
 - [Fix] Check for the Rest API endpoint before allowing users to start an import
 
-#### [Version 2.7.0](https://github.com/Codeinwp/neve/compare/v2.6.6...v2.7.0) (2020-05-13)
+#### [Version 2.7.0](https://github.com/Codeinwp/nueve4/compare/v2.6.6...v2.7.0) (2020-05-13)
 
-- [Feat] Improved Neve Options page and onboarding experience
+- [Feat] Improved Nueve4 Options page and onboarding experience
 - [Feat] Integration with the Toolset plugin
 - [Feat] Improved dynamic CSS generation & Gutenberg integration
 - [Fix] Yellow background on the number of products in categories on the Shop page
@@ -983,12 +983,12 @@
 - [Music Band](https://themeisle.com/demo/?theme=Music%20Band%202)
 - [Fitness Trainer](https://themeisle.com/demo/?theme=Fitness%20Trainer)
 
-##### [Version 2.6.6](https://github.com/Codeinwp/neve/compare/v2.6.5...v2.6.6) (2020-04-07)
+##### [Version 2.6.6](https://github.com/Codeinwp/nueve4/compare/v2.6.5...v2.6.6) (2020-04-07)
 
 - [Fix] Background color for mobile menu
 - [Fix] Last Menu Search icon in AMP
 
-##### [Version 2.6.5](https://github.com/Codeinwp/neve/compare/v2.6.4...v2.6.5) (2020-04-06)
+##### [Version 2.6.5](https://github.com/Codeinwp/nueve4/compare/v2.6.4...v2.6.5) (2020-04-06)
 
 - [Fix] Infinite scroll with masonry scrolling to the top of page
 - [Fix] Variations product select height on iPhone
@@ -1000,12 +1000,12 @@
 - [Fix] Small performance tweaks and optimizations
 - New Gutenberg Starter Sites
 
-##### [Version 2.6.4](https://github.com/Codeinwp/neve/compare/v2.6.3...v2.6.4) (2020-03-23)
+##### [Version 2.6.4](https://github.com/Codeinwp/nueve4/compare/v2.6.3...v2.6.4) (2020-03-23)
 
 - [Fix] Disable admin notice
 - New Gutenberg Starter Sites
 
-##### [Version 2.6.3](https://github.com/Codeinwp/neve/compare/v2.6.2...v2.6.3) (2020-03-19)
+##### [Version 2.6.3](https://github.com/Codeinwp/nueve4/compare/v2.6.2...v2.6.3) (2020-03-19)
 
  * [Feat] Refactor customizer UI
 * [Fix] Compatibility issues with WP 5.4
@@ -1069,7 +1069,7 @@
 * [Fix] Removed list styling from the All Products block in the WooCommerce Block plugin
 * [Fix] Content width live preview on mobile devices
 * [Fix] Replaced the Last menu item option with dedicated components for new users
-* [Fix] Removed Neve Visual Integration causing issues in the editor
+* [Fix] Removed Nueve4 Visual Integration causing issues in the editor
 * [Fix] Copyright component striping spaces before and after links
 * [Fix] Replaced buttons old padding control with a new version
 * [Fix] Padding for the Menu Icon component

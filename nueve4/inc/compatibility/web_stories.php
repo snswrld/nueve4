@@ -2,10 +2,10 @@
 /**
  * Web_Stories compatibility.
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 /**
  * Class PWA

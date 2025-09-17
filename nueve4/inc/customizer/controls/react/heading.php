@@ -2,10 +2,10 @@
 /**
  * Heading Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Heading control for react
@@ -16,7 +16,7 @@ class Heading extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_customizer_heading';
+	public $type = 'nueve4_customizer_heading';
 	/**
 	 * Control class.
 	 *

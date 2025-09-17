@@ -181,7 +181,7 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 		public function get_styles() {
 
 			//If the content path changed delete local fonts
-			if ( get_site_option( 'wptt_neve_last_content_path' , false ) !== $this->get_base_path() ) {
+			if ( get_site_option( 'wptt_nueve4_last_content_path' , false ) !== $this->get_base_path() ) {
 				delete_site_option( 'downloaded_font_files' );
 				$this->delete_fonts_folder();
 			} else {
@@ -379,7 +379,7 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 					}
 				}
 				update_site_option( 'downloaded_font_files', $stored );
-				update_site_option( 'wptt_neve_last_content_path', $this->get_base_path() );
+				update_site_option( 'wptt_nueve4_last_content_path', $this->get_base_path() );
 			}
 
 			return $stored;

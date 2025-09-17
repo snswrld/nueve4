@@ -2,15 +2,15 @@
 /**
  * Form Token Field Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Form_Token_Field
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Form_Token_Field extends \WP_Customize_Control {
 	/**
@@ -18,7 +18,7 @@ class Form_Token_Field extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_form_token_field';
+	public $type = 'nueve4_form_token_field';
 	/**
 	 * Additional arguments passed to JS.
 	 *

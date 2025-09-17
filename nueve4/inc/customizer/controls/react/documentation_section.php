@@ -5,9 +5,9 @@
  * Author:      Bogdan Preda <bogdan.preda@themeisle.com>
  * Created on:  22-12-{2021}
  *
- * @package neve/neve-pro
+ * @package nueve4/nueve4-pro
  */
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Customizer section.
@@ -23,7 +23,7 @@ class Documentation_Section extends \WP_Customize_Section {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_documentation';
+	public $type = 'nueve4_documentation';
 
 	/**
 	 * Documentation URL.
@@ -51,7 +51,7 @@ class Documentation_Section extends \WP_Customize_Section {
 		?>
 		<li id="accordion-section-{{ data.id }}"
 			data-slug="{{data.id}}"
-			class="control-section control-section-{{ data.type }} neve-documentation">
+			class="control-section control-section-{{ data.type }} nueve4-documentation">
 		</li>
 		<?php
 	}

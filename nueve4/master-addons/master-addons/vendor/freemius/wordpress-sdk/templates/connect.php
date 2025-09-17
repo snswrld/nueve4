@@ -174,7 +174,7 @@
                     if ( ! $fs->is_plugin_update() ) {
                         echo $fs->apply_filters( 'connect-header', sprintf(
                             '<h2 style="text-align: center">%s</h2>',
-                            esc_html( fs_text_inline( 'Never miss an important update', 'connect-header' ) )
+                            esc_html( fs_text_inline( 'Nueve4r miss an important update', 'connect-header' ) )
                         ) );
                     } else {
                         echo $fs->apply_filters( 'connect-header_on-update', sprintf(
@@ -232,7 +232,7 @@
 							// opt-in message.
 
                             /* translators: %s: module type (plugin, theme, or add-on) */
-                            $default_optin_message = esc_html( sprintf( fs_text_inline( 'We have introduced this opt-in so you never miss an important update and help us make the %s more compatible with your site and better at doing what you need it to.', 'connect-message_on-update_why' ), $fs->get_module_label( true ) ) );
+                            $default_optin_message = esc_html( sprintf( fs_text_inline( 'We have introduced this opt-in so you nueve4r miss an important update and help us make the %s more compatible with your site and better at doing what you need it to.', 'connect-message_on-update_why' ), $fs->get_module_label( true ) ) );
 
                             $default_optin_message .= '<br><br>' . esc_html( fs_text_inline( 'Opt in to get email notifications for security & feature updates, educational content, and occasional offers, and to share some basic WordPress environment info.', 'connect-message_on-update', $slug ) );
 

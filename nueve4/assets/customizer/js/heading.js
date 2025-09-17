@@ -1,16 +1,16 @@
 /**
  * Customizer order control.
  *
- * @package Neve\Customizer\Controls
+ * @package Nueve4\Customizer\Controls
  */
 ( function ( $ ) {
 	'use strict';
-	wp.neveHeadingAccordion = {
+	wp.nueve4HeadingAccordion = {
 		init: function () {
 			this.handleToggle();
 		},
 		handleToggle: function () {
-			$( '.customize-control-customizer-heading.accordion .neve-customizer-heading' ).on( 'click', function () {
+			$( '.customize-control-customizer-heading.accordion .nueve4-customizer-heading' ).on( 'click', function () {
 				var accordion = $( this ).closest( '.accordion' );
 				$( accordion ).toggleClass( 'expanded' );
 				return false;
@@ -20,7 +20,7 @@
 
 	$( document ).ready(
 		function () {
-			wp.neveHeadingAccordion.init();
+			wp.nueve4HeadingAccordion.init();
 		}
 	);
 } )( jQuery );

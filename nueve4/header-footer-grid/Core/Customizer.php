@@ -66,7 +66,7 @@ class Customizer {
 			}
 		}
 
-		if ( ! neve_is_new_builder() ) {
+		if ( ! nueve4_is_new_builder() ) {
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'scripts' ) );
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'template' ) );
 		}
@@ -77,7 +77,7 @@ class Customizer {
 		}
 
 		add_filter( 'body_class', array( $this, 'hfg_body_classes' ) );
-		add_filter( 'neve_react_controls_localization', array( $this, 'add_builders_and_dynamic_tags' ) );
+		add_filter( 'nueve4_react_controls_localization', array( $this, 'add_builders_and_dynamic_tags' ) );
 	}
 
 	/**
@@ -242,13 +242,13 @@ class Customizer {
 		foreach ( $this->builders as $builder ) {
 			$builder->customize_register( $wp_customize );
 		}
-		$is_whitelabel = apply_filters( 'neve_is_theme_whitelabeled', false ) || apply_filters( 'neve_is_plugin_whitelabeled', false );
+		$is_whitelabel = apply_filters( 'nueve4_is_theme_whitelabeled', false ) || apply_filters( 'nueve4_is_plugin_whitelabeled', false );
 		if ( ! $is_whitelabel ) {
-			$wp_customize->register_section_type( '\Neve\Customizer\Controls\React\Documentation_Section' );
+			$wp_customize->register_section_type( '\Nueve4\Customizer\Controls\React\Documentation_Section' );
 		}
-		$wp_customize->register_section_type( '\Neve\Customizer\Controls\React\Instructions_Section' );
-		$wp_customize->register_section_type( '\Neve\Customizer\Controls\React\Typography_Extra_Section' );
-		$wp_customize->register_section_type( '\Neve\Customizer\Controls\React\Upsell_Section' );
+		$wp_customize->register_section_type( '\Nueve4\Customizer\Controls\React\Instructions_Section' );
+		$wp_customize->register_section_type( '\Nueve4\Customizer\Controls\React\Typography_Extra_Section' );
+		$wp_customize->register_section_type( '\Nueve4\Customizer\Controls\React\Upsell_Section' );
 
 	}
 
@@ -274,7 +274,7 @@ class Customizer {
 							<p>
 								<?php
 								/* translators: %s is the header name */
-								echo wp_kses_post( sprintf( __( 'You are customizing the %s Header', 'neve' ), ' <a>' . __( 'Default', 'neve' ) . '</a> ' ) );
+								echo wp_kses_post( sprintf( __( 'You are customizing the %s Header', 'nueve4' ), ' <a>' . __( 'Default', 'nueve4' ) . '</a> ' ) );
 								?>
 							</p>
 						</div>
@@ -282,10 +282,10 @@ class Customizer {
 						<div class="hfg--cb-notice welcome-notice {{data.id}} hidden">
 							<p>
 								<?php /* translators: %s is the type of builder */ ?>
-								<span><?php echo sprintf( esc_html__( '%s Builder:', 'neve' ), '{{data.title}}' ); ?></span>
+								<span><?php echo sprintf( esc_html__( '%s Builder:', 'nueve4' ), '{{data.title}}' ); ?></span>
 								<?php
 								/* translators: %s is the header name */
-								echo esc_html__( 'Click on any empty space to add components, or existing components to adjust settings.', 'neve' );
+								echo esc_html__( 'Click on any empty space to add components, or existing components to adjust settings.', 'nueve4' );
 								?>
 								<a href="#" data-open-nv-modal="hfg-instructional"><i class="dashicons dashicons-info"></i></a>
 							</p>
@@ -294,7 +294,7 @@ class Customizer {
 							<?php do_action( 'hfg_builder_panel_actions_buttons' ); ?>
 							<a class="button button-secondary hfg--panel-close" href="#">
 								<span class="close-text"><i class="dashicons dashicons-arrow-down-alt2"
-															style="margin-top: 4px;"></i> <?php esc_html_e( 'Close', 'neve' ); ?></span>
+															style="margin-top: 4px;"></i> <?php esc_html_e( 'Close', 'nueve4' ); ?></span>
 								<span class="panel-name-text">
 									<i class="dashicons dashicons-arrow-up-alt2" style="margin-top: 4px;"></i>
 									{{ data.title }}
@@ -325,7 +325,7 @@ class Customizer {
 					<div class="hfg--sidebar-visible icon"><i class="dashicons dashicons-{{data.icon}}"></i></div>
 					<span class="hfg--cb-item-name" data-section="{{ data.section }}">{{ data.name }}</span>
 					<span class="hfg--cb-item-remove hfg-cb-icon"></span>
-					<# if(data.section.indexOf('neve_') !== -1) { #>
+					<# if(data.section.indexOf('nueve4_') !== -1) { #>
 					<span class="hfg--cb-item-admin-setting hfg-cb-icon" data-widget="{{ data.section }}"></span>
 					<# } #>
 					<span class="hfg--cb-item-setting hfg-cb-icon" data-section="{{ data.section }}"></span>
@@ -339,7 +339,7 @@ class Customizer {
 					<div class="hfg-component-search">
 						<i class="dashicons dashicons-search"></i>
 						<input class="component-search" type="search"
-								placeholder="<?php esc_attr_e( 'Search Components', 'neve' ); ?>..."/>
+								placeholder="<?php esc_attr_e( 'Search Components', 'nueve4' ); ?>..."/>
 					</div>
 					<button class="close button button-link">
 						<i class="dashicons dashicons-no"></i>

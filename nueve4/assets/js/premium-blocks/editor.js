@@ -1,5 +1,5 @@
 /**
- * Block Editor JavaScript for Neve Premium Blocks
+ * Block Editor JavaScript for Nueve4 Premium Blocks
  */
 
 (function() {
@@ -22,14 +22,14 @@
      */
     function addEditorStyles() {
         var editorStyles = `
-            .neve-testimonials-block .testimonial-item {
+            .nueve4-testimonials-block .testimonial-item {
                 border: 1px solid #e0e0e0;
                 padding: 20px;
                 margin-bottom: 20px;
                 border-radius: 8px;
             }
             
-            .neve-pricing-block .pricing-plan {
+            .nueve4-pricing-block .pricing-plan {
                 border: 2px solid #e0e0e0;
                 padding: 20px;
                 margin-bottom: 20px;
@@ -37,12 +37,12 @@
                 text-align: center;
             }
             
-            .neve-pricing-block .pricing-plan.featured {
+            .nueve4-pricing-block .pricing-plan.featured {
                 border-color: #0073aa;
                 background: #f0f8ff;
             }
             
-            .neve-team-block .team-member {
+            .nueve4-team-block .team-member {
                 border: 1px solid #e0e0e0;
                 padding: 20px;
                 margin-bottom: 20px;
@@ -50,7 +50,7 @@
                 text-align: center;
             }
             
-            .neve-team-block .member-image img {
+            .nueve4-team-block .member-image img {
                 max-width: 100px;
                 border-radius: 50%;
             }
@@ -80,7 +80,7 @@
      */
     function initBlockVariations() {
         // Testimonials variations
-        wp.blocks.registerBlockVariation('neve/testimonials', {
+        wp.blocks.registerBlockVariation('nueve4/testimonials', {
             name: 'testimonials-grid',
             title: 'Testimonials Grid',
             description: 'Display testimonials in a grid layout',
@@ -90,7 +90,7 @@
             isDefault: true
         });
 
-        wp.blocks.registerBlockVariation('neve/testimonials', {
+        wp.blocks.registerBlockVariation('nueve4/testimonials', {
             name: 'testimonials-slider',
             title: 'Testimonials Slider',
             description: 'Display testimonials in a slider',
@@ -100,7 +100,7 @@
         });
 
         // Pricing table variations
-        wp.blocks.registerBlockVariation('neve/pricing-table', {
+        wp.blocks.registerBlockVariation('nueve4/pricing-table', {
             name: 'pricing-3-columns',
             title: '3 Column Pricing',
             description: 'Three column pricing table',
@@ -110,7 +110,7 @@
             isDefault: true
         });
 
-        wp.blocks.registerBlockVariation('neve/pricing-table', {
+        wp.blocks.registerBlockVariation('nueve4/pricing-table', {
             name: 'pricing-2-columns',
             title: '2 Column Pricing',
             description: 'Two column pricing table',
@@ -120,7 +120,7 @@
         });
 
         // Team members variations
-        wp.blocks.registerBlockVariation('neve/team-members', {
+        wp.blocks.registerBlockVariation('nueve4/team-members', {
             name: 'team-3-columns',
             title: '3 Column Team',
             description: 'Three column team layout',
@@ -130,7 +130,7 @@
             isDefault: true
         });
 
-        wp.blocks.registerBlockVariation('neve/team-members', {
+        wp.blocks.registerBlockVariation('nueve4/team-members', {
             name: 'team-4-columns',
             title: '4 Column Team',
             description: 'Four column team layout',
@@ -144,12 +144,12 @@
      * Add block transforms
      */
     function addBlockTransforms() {
-        // Transform core/quote to neve/testimonials
-        wp.blocks.registerBlockTransform('from', 'neve/testimonials', {
+        // Transform core/quote to nueve4/testimonials
+        wp.blocks.registerBlockTransform('from', 'nueve4/testimonials', {
             type: 'block',
             blocks: ['core/quote'],
             transform: function(attributes) {
-                return wp.blocks.createBlock('neve/testimonials', {
+                return wp.blocks.createBlock('nueve4/testimonials', {
                     testimonials: [{
                         content: attributes.value,
                         name: attributes.citation || 'Anonymous',
@@ -160,8 +160,8 @@
             }
         });
 
-        // Transform core/columns to neve/pricing-table
-        wp.blocks.registerBlockTransform('from', 'neve/pricing-table', {
+        // Transform core/columns to nueve4/pricing-table
+        wp.blocks.registerBlockTransform('from', 'nueve4/pricing-table', {
             type: 'block',
             blocks: ['core/columns'],
             transform: function(attributes, innerBlocks) {
@@ -178,7 +178,7 @@
                     };
                 });
 
-                return wp.blocks.createBlock('neve/pricing-table', {
+                return wp.blocks.createBlock('nueve4/pricing-table', {
                     plans: plans,
                     columns: innerBlocks.length
                 });
@@ -189,32 +189,32 @@
     /**
      * Add custom block styles
      */
-    wp.blocks.registerBlockStyle('neve/testimonials', {
+    wp.blocks.registerBlockStyle('nueve4/testimonials', {
         name: 'boxed',
         label: 'Boxed Style'
     });
 
-    wp.blocks.registerBlockStyle('neve/testimonials', {
+    wp.blocks.registerBlockStyle('nueve4/testimonials', {
         name: 'minimal',
         label: 'Minimal Style'
     });
 
-    wp.blocks.registerBlockStyle('neve/pricing-table', {
+    wp.blocks.registerBlockStyle('nueve4/pricing-table', {
         name: 'modern',
         label: 'Modern Style'
     });
 
-    wp.blocks.registerBlockStyle('neve/pricing-table', {
+    wp.blocks.registerBlockStyle('nueve4/pricing-table', {
         name: 'classic',
         label: 'Classic Style'
     });
 
-    wp.blocks.registerBlockStyle('neve/team-members', {
+    wp.blocks.registerBlockStyle('nueve4/team-members', {
         name: 'card',
         label: 'Card Style'
     });
 
-    wp.blocks.registerBlockStyle('neve/team-members', {
+    wp.blocks.registerBlockStyle('nueve4/team-members', {
         name: 'overlay',
         label: 'Overlay Style'
     });

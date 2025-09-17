@@ -5,17 +5,17 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      24/09/2018
  *
- * @package Neve\Customizer\Options
+ * @package Nueve4\Customizer\Options
  */
 
-namespace Neve\Customizer\Options;
+namespace Nueve4\Customizer\Options;
 
-use Neve\Customizer\Base_Customizer;
+use Nueve4\Customizer\Base_Customizer;
 
 /**
  * Class Rtl
  *
- * @package Neve\Customizer\Options
+ * @package Nueve4\Customizer\Options
  */
 class Rtl extends Base_Customizer {
 	/**
@@ -31,22 +31,22 @@ class Rtl extends Base_Customizer {
 			return;
 		}
 
-		$this->change_customizer_object( 'control', 'neve_navigation_layout', 'choices', $this->rtl_navigation_layout_choices() );
+		$this->change_customizer_object( 'control', 'nueve4_navigation_layout', 'choices', $this->rtl_navigation_layout_choices() );
 
-		$this->change_customizer_object( 'control', 'neve_top_bar_layout', 'choices', $this->rtl_top_bar_layout_choices() );
+		$this->change_customizer_object( 'control', 'nueve4_top_bar_layout', 'choices', $this->rtl_top_bar_layout_choices() );
 
 		$sidebar_layout_controls = array(
-			'neve_default_sidebar_layout',
-			'neve_blog_archive_sidebar_layout',
-			'neve_single_post_sidebar_layout',
+			'nueve4_default_sidebar_layout',
+			'nueve4_blog_archive_sidebar_layout',
+			'nueve4_single_post_sidebar_layout',
 		);
 
 		if ( class_exists( 'WooCommerce', false ) ) {
 			$sidebar_layout_controls = array_merge(
 				$sidebar_layout_controls,
 				array(
-					'neve_shop_archive_sidebar_layout',
-					'neve_single_product_sidebar_layout',
+					'nueve4_shop_archive_sidebar_layout',
+					'nueve4_single_product_sidebar_layout',
 				)
 			);
 		}

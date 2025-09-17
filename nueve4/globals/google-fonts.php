@@ -2,7 +2,7 @@
 /**
  * Updated on 01/04/24
  *
- * @package neve
+ * @package nueve4
  */
 return array(
 	'ABeeZee' => array( '400', '400italic',),

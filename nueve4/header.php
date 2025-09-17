@@ -4,7 +4,7 @@
  *
  * Displays all of the head element and everything up until the page header div.
  *
- * @package Neve
+ * @package Nueve4
  * @since   1.0.0
  */
 ?><!DOCTYPE html>
@@ -22,7 +22,7 @@ $header_classes = apply_filters( 'nv_header_classes', 'header' );
 /**
  * Fires before the page is rendered.
  */
-do_action( 'neve_html_start_before' );
+do_action( 'nueve4_html_start_before' );
 
 ?>
 <html <?php language_attributes(); ?>>
@@ -34,7 +34,7 @@ do_action( 'neve_html_start_before' );
 	 *
 	 * @since 2.11
 	 */
-	do_action( 'neve_head_start_after' );
+	do_action( 'nueve4_head_start_after' );
 	?>
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -51,18 +51,18 @@ do_action( 'neve_html_start_before' );
 	 *
 	 * @since 2.11
 	 */
-	do_action( 'neve_head_end_before' );
+	do_action( 'nueve4_head_end_before' );
 	?>
 </head>
 
-<body  <?php body_class(); ?> <?php neve_body_attrs(); ?> >
+<body  <?php body_class(); ?> <?php nueve4_body_attrs(); ?> >
 <?php
 /**
  * Executes actions after the body tag is opened.
  *
  * @since 2.11
  */
-do_action( 'neve_body_start_after' );
+do_action( 'nueve4_body_start_after' );
 ?>
 <?php wp_body_open(); ?>
 <div class="wrapper">
@@ -72,12 +72,12 @@ do_action( 'neve_body_start_after' );
 	 *
 	 * @since 2.7.2
 	 */
-	do_action( 'neve_before_header_wrapper_hook' );
+	do_action( 'nueve4_before_header_wrapper_hook' );
 	?>
 
-	<header class="<?php echo esc_attr( $header_classes ); ?>" <?php echo ( neve_is_amp() ) ? 'next-page-hide' : ''; ?> >
-		<a class="neve-skip-link show-on-focus" href="#content" >
-			<?php echo __( 'Skip to content', 'neve' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	<header class="<?php echo esc_attr( $header_classes ); ?>" <?php echo ( nueve4_is_amp() ) ? 'next-page-hide' : ''; ?> >
+		<a class="nueve4-skip-link show-on-focus" href="#content" >
+			<?php echo __( 'Skip to content', 'nueve4' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</a>
 		<?php
 
@@ -86,10 +86,10 @@ do_action( 'neve_body_start_after' );
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'neve_before_header_hook' );
+		do_action( 'nueve4_before_header_hook' );
 
-		if ( apply_filters( 'neve_filter_toggle_content_parts', true, 'header' ) === true ) {
-			do_action( 'neve_do_header' );
+		if ( apply_filters( 'nueve4_filter_toggle_content_parts', true, 'header' ) === true ) {
+			do_action( 'nueve4_do_header' );
 		}
 
 		/**
@@ -97,7 +97,7 @@ do_action( 'neve_body_start_after' );
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'neve_after_header_hook' );
+		do_action( 'nueve4_after_header_hook' );
 		?>
 	</header>
 
@@ -107,7 +107,7 @@ do_action( 'neve_body_start_after' );
 	 *
 	 * @since 2.7.2
 	 */
-	do_action( 'neve_after_header_wrapper_hook' );
+	do_action( 'nueve4_after_header_wrapper_hook' );
 	?>
 
 
@@ -117,10 +117,10 @@ do_action( 'neve_body_start_after' );
 	 *
 	 * @since 1.0.4
 	 */
-	do_action( 'neve_before_primary' );
+	do_action( 'nueve4_before_primary' );
 	?>
 
-	<main id="content" class="neve-main">
+	<main id="content" class="nueve4-main">
 
 <?php
 /**
@@ -128,5 +128,5 @@ do_action( 'neve_body_start_after' );
  *
  * @since 1.0.4
  */
-do_action( 'neve_after_primary_start' );
+do_action( 'nueve4_after_primary_start' );
 

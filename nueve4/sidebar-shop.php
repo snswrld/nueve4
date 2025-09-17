@@ -2,7 +2,7 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package  Neve
+ * @package  Nueve4
  */
 
 if ( ! is_active_sidebar( 'shop-sidebar' ) ) {

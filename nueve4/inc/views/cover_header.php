@@ -2,17 +2,17 @@
 /**
  * Cover header view.
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views;
+namespace Nueve4\Views;
 
-use Neve\Customizer\Defaults\Single_Post;
+use Nueve4\Customizer\Defaults\Single_Post;
 
 /**
  * Class Cover_Header
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 class Cover_Header extends Base_View {
 	use Single_Post;
@@ -21,7 +21,7 @@ class Cover_Header extends Base_View {
 	 * Init function
 	 */
 	public function init() {
-		add_action( 'neve_after_header_wrapper_hook', [ $this, 'render_cover_header' ] );
+		add_action( 'nueve4_after_header_wrapper_hook', [ $this, 'render_cover_header' ] );
 	}
 
 	/**
@@ -33,20 +33,20 @@ class Cover_Header extends Base_View {
 			return;
 		}
 
-		$header_layout = get_theme_mod( 'neve_' . $context . '_header_layout', 'normal' );
+		$header_layout = get_theme_mod( 'nueve4_' . $context . '_header_layout', 'normal' );
 		if ( $header_layout !== 'cover' ) {
 			return;
 		}
 
-		$hide_thumbnail = get_theme_mod( 'neve_' . $context . '_cover_hide_thumbnail', false );
+		$hide_thumbnail = get_theme_mod( 'nueve4_' . $context . '_cover_hide_thumbnail', false );
 		$post_thumbnail = get_the_post_thumbnail_url();
 		$cover_style    = '';
 		if ( $hide_thumbnail === false && ! empty( $post_thumbnail ) ) {
 			$cover_style = 'background-image:url(' . esc_url( $post_thumbnail ) . ');';
 		}
 
-		$container_mode          = get_theme_mod( 'neve_' . $context . '_cover_container', 'contained' );
-		$title_mode              = get_theme_mod( 'neve_' . $context . '_cover_title_boxed_layout', false );
+		$container_mode          = get_theme_mod( 'nueve4_' . $context . '_cover_container', 'contained' );
+		$title_mode              = get_theme_mod( 'nueve4_' . $context . '_cover_title_boxed_layout', false );
 		$title_meta_wrap_classes = [
 			'nv-title-meta-wrap',
 			$title_mode ? 'nv-is-boxed' : '',
@@ -54,7 +54,7 @@ class Cover_Header extends Base_View {
 
 		$meta_before = '';
 		if ( $context === 'post' ) {
-			$meta_before = get_theme_mod( 'neve_post_cover_meta_before_title', false );
+			$meta_before = get_theme_mod( 'nueve4_post_cover_meta_before_title', false );
 		}
 
 		/**
@@ -65,15 +65,15 @@ class Cover_Header extends Base_View {
 		 *
 		 * @since 3.1.0
 		 */
-		$cover_style = apply_filters( 'neve_title_alignment_style', $cover_style, 'cover' );
+		$cover_style = apply_filters( 'nueve4_title_alignment_style', $cover_style, 'cover' );
 
 		if ( ! empty( $cover_style ) ) {
 			$cover_style = 'style="' . $cover_style . '"';
 		}
 
 		if ( $context === 'page' ) {
-			$hide_title          = get_theme_mod( 'neve_page_hide_title', false );
-			$specific_hide_title = get_post_meta( get_the_ID(), 'neve_meta_disable_title', true );
+			$hide_title          = get_theme_mod( 'nueve4_page_hide_title', false );
+			$specific_hide_title = get_post_meta( get_the_ID(), 'nueve4_meta_disable_title', true );
 			$hide_title          = ! empty( $specific_hide_title ) ? $specific_hide_title === 'on' : $hide_title;
 			if ( $hide_title ) {
 				return;
@@ -89,7 +89,7 @@ class Cover_Header extends Base_View {
 			Post_Layout::render_post_meta();
 		}
 
-		do_action( 'neve_before_post_title' );
+		do_action( 'nueve4_before_post_title' );
 
 		echo '<h1 class="title entry-title">' . wp_kses_post( get_the_title() ) . '</h1>';
 		if ( $meta_before === false ) {

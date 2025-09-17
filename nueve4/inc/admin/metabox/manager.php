@@ -2,23 +2,23 @@
 /**
  * Page settings metabox.
  *
- * @package Neve
+ * @package Nueve4
  */
 
-namespace Neve\Admin\Metabox;
+namespace Nueve4\Admin\Metabox;
 
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
-use Neve\Customizer\Defaults\Layout;
-use Neve\Customizer\Defaults\Single_Post;
-use Neve\Customizer\Options\Layout_Single_Post;
-use Neve\Views\Post_Layout;
-use Neve\Core\Supported_Post_Types;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
+use Nueve4\Customizer\Defaults\Layout;
+use Nueve4\Customizer\Defaults\Single_Post;
+use Nueve4\Customizer\Options\Layout_Single_Post;
+use Nueve4\Views\Post_Layout;
+use Nueve4\Core\Supported_Post_Types;
 
 /**
  * Class Manager
  *
- * @package Neve\Admin\Metabox
+ * @package Nueve4\Admin\Metabox
  */
 final class Manager {
 	use Single_Post;
@@ -51,7 +51,7 @@ final class Manager {
 		/**
 		 * Gtb meta
 		 */
-		add_action( 'init', array( $this, 'neve_register_meta' ) );
+		add_action( 'init', array( $this, 'nueve4_register_meta' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'meta_sidebar_script_enqueue' ) );
 	}
 
@@ -60,10 +60,10 @@ final class Manager {
 	 */
 	public function define_controls() {
 		$this->control_classes = array(
-			'Neve\\Admin\\Metabox\\Main',
+			'Nueve4\\Admin\\Metabox\\Main',
 		);
 
-		$this->control_classes = apply_filters( 'neve_filter_metabox_controls', $this->control_classes );
+		$this->control_classes = apply_filters( 'nueve4_filter_metabox_controls', $this->control_classes );
 	}
 
 	/**
@@ -116,17 +116,17 @@ final class Manager {
 	 * Register meta box to control layout on pages and posts.
 	 */
 	public function add() {
-		$post_type         = 'Neve';
+		$post_type         = 'Nueve4';
 		$post_type_from_db = get_post_type();
 		if ( $post_type_from_db ) {
 			$post_type = ucfirst( $post_type_from_db );
 		}
 
 		add_meta_box(
-			'neve-page-settings',
+			'nueve4-page-settings',
 			sprintf(
 			/* translators: %s - post type */
-				__( '%s Settings', 'neve' ),
+				__( '%s Settings', 'nueve4' ),
 				$post_type
 			),
 			array( $this, 'render_metabox' ),
@@ -140,10 +140,10 @@ final class Manager {
 
 		if ( $this->is_gutenberg_active() ) {
 			add_meta_box(
-				'neve-page-settings-notice',
+				'nueve4-page-settings-notice',
 				sprintf(
 				/* translators: %s - post type */
-					__( '%s Settings', 'neve' ),
+					__( '%s Settings', 'nueve4' ),
 					$post_type
 				),
 				array( $this, 'render_metabox_notice' ),
@@ -182,17 +182,17 @@ final class Manager {
 	 */
 	public function render_metabox_notice() {
 		echo '<div class="nv-meta-notice-wrapper">';
-		echo '<h4>' . esc_html__( 'Page Settings are now accessible from the top bar', 'neve' ) . '</h4>';
+		echo '<h4>' . esc_html__( 'Page Settings are now accessible from the top bar', 'nueve4' ) . '</h4>';
 		printf(
 		/* translators: %1$s - Keyboard shortcut.   %2&s - svg icon */
-			esc_html__( 'Click the %1$s icon in the top bar or use the keyboard shortcut ( %2$s ) to customise the layout settings for this page', 'neve' ),
+			esc_html__( 'Click the %1$s icon in the top bar or use the keyboard shortcut ( %2$s ) to customise the layout settings for this page', 'nueve4' ),
 			apply_filters( 'ti_wl_theme_is_localized', false ) ?
 				'<span class="dashicons dashicons-hammer"></span>' :
 				'<svg width="17" height="24" viewBox="0 0 17 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M4.77822 10.2133V19.3287H0.118347V0.802224C0.118347 0.712594 0.145598 0.649854 0.200099 0.614002C0.254601 0.578149 0.354519 0.622964 0.499857 0.748446L12.1359 10.2133V1.04422H16.7958V19.5976C16.7958 19.7051 16.7685 19.7724 16.714 19.7992C16.6595 19.8261 16.5596 19.7768 16.4143 19.6514L4.77822 10.2133Z"/>
 				<rect x="0.118347" y="22.3334" width="16.6774" height="1.51613"/>
 				</svg>',
-			'<strong>SHIFT + ALT + S</strong> ' . esc_html__( 'or', 'neve' ) . ' <strong>control + option + S</strong>'
+			'<strong>SHIFT + ALT + S</strong> ' . esc_html__( 'or', 'nueve4' ) . ' <strong>control + option + S</strong>'
 		);
 		echo '</div>';
 	}
@@ -216,11 +216,11 @@ final class Manager {
 			return;
 		}
 
-		wp_register_script( 'neve-metabox', NEVE_ASSETS_URL . 'js/build/all/metabox.js', array( 'jquery' ), NEVE_VERSION, true );
+		wp_register_script( 'nueve4-metabox', NEVE_ASSETS_URL . 'js/build/all/metabox.js', array( 'jquery' ), NEVE_VERSION, true );
 
-		wp_localize_script( 'neve-metabox', 'neveMetabox', $this->get_localization() );
+		wp_localize_script( 'nueve4-metabox', 'nueve4Metabox', $this->get_localization() );
 
-		wp_enqueue_script( 'neve-metabox' );
+		wp_enqueue_script( 'nueve4-metabox' );
 	}
 
 	/**
@@ -247,48 +247,48 @@ final class Manager {
 	/**
 	 * Register meta
 	 */
-	public function neve_register_meta() {
+	public function nueve4_register_meta() {
 		$meta_sidebar_controls = apply_filters(
-			'neve_sidebar_meta_controls',
+			'nueve4_sidebar_meta_controls',
 			[
 				[
-					'id'   => 'neve_meta_sidebar',
+					'id'   => 'nueve4_meta_sidebar',
 					'type' => 'radio',
 				],
 				[
-					'id'   => 'neve_meta_container',
+					'id'   => 'nueve4_meta_container',
 					'type' => 'button-group',
 				],
 				[
-					'id'   => 'neve_meta_enable_content_width',
+					'id'   => 'nueve4_meta_enable_content_width',
 					'type' => 'checkbox',
 				],
 				[
-					'id'   => 'neve_meta_content_width',
+					'id'   => 'nueve4_meta_content_width',
 					'type' => 'range',
 				],
 				[
-					'id'   => 'neve_meta_title_alignment',
+					'id'   => 'nueve4_meta_title_alignment',
 					'type' => 'button-group',
 				],
 				[
-					'id'   => 'neve_meta_author_avatar',
+					'id'   => 'nueve4_meta_author_avatar',
 					'type' => 'checkbox',
 				],
 				[
-					'id'   => 'neve_post_elements_order',
+					'id'   => 'nueve4_post_elements_order',
 					'type' => 'sortable-list',
 				],
 				[
-					'id'   => 'neve_meta_disable_header',
+					'id'   => 'nueve4_meta_disable_header',
 					'type' => 'checkbox',
 				],
 				[
-					'id'   => 'neve_meta_disable_footer',
+					'id'   => 'nueve4_meta_disable_footer',
 					'type' => 'checkbox',
 				],
 				[
-					'id'   => 'neve_meta_disable_title',
+					'id'   => 'nueve4_meta_disable_title',
 					'type' => 'checkbox',
 				],
 			]
@@ -338,7 +338,7 @@ final class Manager {
 		$dependencies = ( include get_template_directory() . '/assets/apps/metabox/build/index.asset.php' );
 
 		wp_enqueue_script(
-			'neve-meta-sidebar',
+			'nueve4-meta-sidebar',
 			trailingslashit( get_template_directory_uri() ) . 'assets/apps/metabox/build/index.js',
 			$dependencies['dependencies'],
 			$dependencies['version'],
@@ -346,7 +346,7 @@ final class Manager {
 		);
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'neve-meta-sidebar', 'neve' );
+			wp_set_script_translations( 'nueve4-meta-sidebar', 'nueve4' );
 		}
 
 		$container    = $post_type === 'post' ? Mods::get( Config::MODS_SINGLE_POST_CONTAINER_STYLE, 'contained' ) : Mods::get( Config::MODS_DEFAULT_CONTAINER_STYLE, 'contained' );
@@ -371,10 +371,10 @@ final class Manager {
 		$post_type_label   = esc_html( $post_type_details->labels->singular_name );
 
 		$localized_data = apply_filters(
-			'neve_meta_sidebar_localize_filter',
+			'nueve4_meta_sidebar_localize_filter',
 			array(
 				'actions'                 => array(
-					'neve_meta_content_width' => array(
+					'nueve4_meta_content_width' => array(
 						'container' => $container,
 						'editor'    => $editor_width,
 						'content'   => $content_width,
@@ -388,13 +388,13 @@ final class Manager {
 			)
 		);
 		wp_localize_script(
-			'neve-meta-sidebar',
+			'nueve4-meta-sidebar',
 			'metaSidebar',
 			$localized_data
 		);
 
 		wp_enqueue_style(
-			'neve-meta-sidebar-css', // Handle.
+			'nueve4-meta-sidebar-css', // Handle.
 			trailingslashit( get_template_directory_uri() ) . 'assets/apps/metabox/build/index.css',
 			array( 'wp-edit-blocks' ),
 			NEVE_VERSION
@@ -409,7 +409,7 @@ final class Manager {
 	private function get_post_elements_default_order() {
 		$default_order = $this->post_ordering();
 
-		$content_order = get_theme_mod( 'neve_layout_single_post_elements_order', wp_json_encode( $default_order ) );
+		$content_order = get_theme_mod( 'nueve4_layout_single_post_elements_order', wp_json_encode( $default_order ) );
 		if ( ! is_string( $content_order ) ) {
 			$content_order = wp_json_encode( $default_order );
 		}
@@ -435,8 +435,8 @@ final class Manager {
 	 * @return bool
 	 */
 	private function get_author_avatar_state() {
-		$show_avatar = get_theme_mod( 'neve_author_avatar', false );
-		return get_theme_mod( 'neve_single_post_author_avatar', $show_avatar );
+		$show_avatar = get_theme_mod( 'nueve4_author_avatar', false );
+		return get_theme_mod( 'nueve4_single_post_author_avatar', $show_avatar );
 	}
 
 	/**
@@ -445,7 +445,7 @@ final class Manager {
 	 * @return bool
 	 */
 	private function get_reading_time_state() {
-		$meta_fields = get_theme_mod( 'neve_single_post_meta_fields', self::get_default_single_post_meta_fields() );
+		$meta_fields = get_theme_mod( 'nueve4_single_post_meta_fields', self::get_default_single_post_meta_fields() );
 
 		if ( is_string( $meta_fields ) ) {
 			$meta_fields = json_decode( $meta_fields, true );

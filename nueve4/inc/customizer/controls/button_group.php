@@ -2,15 +2,15 @@
 /**
  * Button group control.
  *
- * @package Neve\Customizer\Controls
+ * @package Nueve4\Customizer\Controls
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * Class Button_Group
  *
- * @package Neve\Customizer\Controls
+ * @package Nueve4\Customizer\Controls
  */
 class Button_Group extends \WP_Customize_Control {
 	/**

@@ -280,7 +280,7 @@ abstract class Abstract_Builder implements Builder {
 				'sanitize_callback'  => [ $this, 'sanitize_json' ],
 				'default'            => '',
 				'label'              => '',
-				'type'               => $is_new_builder ? '\Neve\Customizer\Controls\React\Builder' : 'text',
+				'type'               => $is_new_builder ? '\Nueve4\Customizer\Controls\React\Builder' : 'text',
 				'options'            => [
 					'builder_type'   => $this->get_id(),
 					'columns_layout' => $this->columns_layout,
@@ -340,14 +340,14 @@ abstract class Abstract_Builder implements Builder {
 					'id'                 => self::LAYOUT_SETTING,
 					'group'              => $row_setting_id,
 					'tab'                => SettingsManager::TAB_LAYOUT,
-					'label'              => __( 'Layout', 'neve' ),
+					'label'              => __( 'Layout', 'nueve4' ),
 					'type'               => 'select',
 					'section'            => $row_setting_id,
 					'options'            => [
 						'choices' => [
-							'layout-full-contained' => __( 'Full Width', 'neve' ) . ' - ' . __( 'Contained', 'neve' ),
-							'layout-fullwidth'      => __( 'Full Width', 'neve' ),
-							'layout-contained'      => __( 'Contained', 'neve' ),
+							'layout-full-contained' => __( 'Full Width', 'nueve4' ) . ' - ' . __( 'Contained', 'nueve4' ),
+							'layout-fullwidth'      => __( 'Full Width', 'nueve4' ),
+							'layout-contained'      => __( 'Contained', 'nueve4' ),
 						],
 					],
 					'conditional_header' => $this->get_id() === 'header',
@@ -363,8 +363,8 @@ abstract class Abstract_Builder implements Builder {
 					'group'                 => $row_setting_id,
 					'tab'                   => SettingsManager::TAB_STYLE,
 					'section'               => $row_setting_id,
-					'label'                 => __( 'Row height', 'neve' ),
-					'type'                  => '\Neve\Customizer\Controls\React\Responsive_Range',
+					'label'                 => __( 'Row height', 'nueve4' ),
+					'type'                  => '\Nueve4\Customizer\Controls\React\Responsive_Range',
 					'live_refresh_selector' => $row_class,
 					'live_refresh_css_prop' => [
 						'cssVar' => [
@@ -408,8 +408,8 @@ abstract class Abstract_Builder implements Builder {
 					'group'                 => $row_setting_id,
 					'tab'                   => SettingsManager::TAB_STYLE,
 					'section'               => $row_setting_id,
-					'label'                 => __( 'Border Width', 'neve' ),
-					'type'                  => '\Neve\Customizer\Controls\React\Responsive_Range',
+					'label'                 => __( 'Border Width', 'nueve4' ),
+					'type'                  => '\Nueve4\Customizer\Controls\React\Responsive_Range',
 					'live_refresh_selector' => true,
 					'live_refresh_css_prop' => [
 						'cssVar' => [
@@ -450,10 +450,10 @@ abstract class Abstract_Builder implements Builder {
 					'id'                    => self::BORDER_COLOR,
 					'group'                 => $row_setting_id,
 					'tab'                   => SettingsManager::TAB_STYLE,
-					'label'                 => __( 'Border Color', 'neve' ),
+					'label'                 => __( 'Border Color', 'nueve4' ),
 					'section'               => $row_setting_id,
 					'conditional_header'    => $this->get_id() === 'header',
-					'type'                  => 'neve_color_control',
+					'type'                  => 'nueve4_color_control',
 					'transport'             => 'postMessage',
 					'live_refresh_selector' => true,
 					'live_refresh_css_prop' => [
@@ -462,7 +462,7 @@ abstract class Abstract_Builder implements Builder {
 							'selector' => '.' . $this->get_id() . '-' . $row_id,
 						],
 					],
-					'sanitize_callback'     => 'neve_sanitize_colors',
+					'sanitize_callback'     => 'nueve4_sanitize_colors',
 					'default'               => 'var(--nv-light-bg)',
 				]
 			);
@@ -479,8 +479,8 @@ abstract class Abstract_Builder implements Builder {
 				'group'                 => $row_setting_id,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'section'               => $row_setting_id,
-				'label'                 => __( 'Row Background', 'neve' ),
-				'type'                  => '\Neve\Customizer\Controls\React\Background',
+				'label'                 => __( 'Row Background', 'nueve4' ),
+				'type'                  => '\Nueve4\Customizer\Controls\React\Background',
 				'live_refresh_selector' => $row_id === 'sidebar' ? $row_class . ' .header-menu-sidebar-bg' : $row_class,
 				'live_refresh_css_prop' => [
 					'cssVar'  => [
@@ -500,7 +500,7 @@ abstract class Abstract_Builder implements Builder {
 					'colorValue' => $default_colors['background'],
 				],
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_background',
+				'sanitize_callback'     => 'nueve4_sanitize_background',
 				'conditional_header'    => $this->get_id() === 'header',
 			]
 		);
@@ -512,10 +512,10 @@ abstract class Abstract_Builder implements Builder {
 				'id'                    => self::TEXT_COLOR,
 				'group'                 => $row_setting_id,
 				'tab'                   => SettingsManager::TAB_STYLE,
-				'label'                 => __( 'Text Color', 'neve' ),
+				'label'                 => __( 'Text Color', 'nueve4' ),
 				'section'               => $row_setting_id,
 				'conditional_header'    => $this->get_id() === 'header',
-				'type'                  => 'neve_color_control',
+				'type'                  => 'nueve4_color_control',
 				'transport'             => 'postMessage',
 				'live_refresh_selector' => $row_class,
 				'live_refresh_css_prop' => [
@@ -548,7 +548,7 @@ abstract class Abstract_Builder implements Builder {
 			return true;
 		}
 
-		if ( get_theme_mod( 'neve_pro_global_header_settings_advanced_style', true ) === true ) {
+		if ( get_theme_mod( 'nueve4_pro_global_header_settings_advanced_style', true ) === true ) {
 			return true;
 		}
 
@@ -648,7 +648,7 @@ abstract class Abstract_Builder implements Builder {
 
 		$title = ( isset( $this->title ) && ! empty( $this->title ) )
 			? $this->title
-			: __( 'Header', 'neve' );
+			: __( 'Header', 'nueve4' );
 
 		$description = ( isset( $this->description ) && ! empty( $this->description ) )
 			? $this->description
@@ -732,7 +732,7 @@ abstract class Abstract_Builder implements Builder {
 			if ( is_array( $row ) ) {
 				$title = ( isset( $row['title'] ) && ! empty( $row['title'] ) )
 					? $row['title']
-					: __( 'Section Content', 'neve' );
+					: __( 'Section Content', 'nueve4' );
 
 				$description = ( isset( $row['description'] ) && ! empty( $row['description'] ) )
 					? $row['description']
@@ -1014,7 +1014,7 @@ abstract class Abstract_Builder implements Builder {
 		];
 
 		// Exclude the following rules for the header when the global header background is active.
-		if ( get_theme_mod( 'neve_pro_global_header_settings_advanced_style', true ) === true || $this->get_id() !== 'header' || $row_index === 'sidebar' ) {
+		if ( get_theme_mod( 'nueve4_pro_global_header_settings_advanced_style', true ) === true || $this->get_id() !== 'header' || $row_index === 'sidebar' ) {
 			// If there is no default, use site background.
 			$default_color = isset( $default_colors['background'] ) ? $default_colors['background'] : 'var(--nv-site-bg)';
 
@@ -1432,7 +1432,7 @@ abstract class Abstract_Builder implements Builder {
 				echo '</div>';
 			}
 
-			do_action( 'neve_after_slot_component', $this->get_id(), $row_index, $slot );
+			do_action( 'nueve4_after_slot_component', $this->get_id(), $row_index, $slot );
 
 			if ( $row_index !== 'sidebar' ) {
 				echo '</div>';
@@ -1807,15 +1807,15 @@ abstract class Abstract_Builder implements Builder {
 	private function add_sidebar_controls( $row_setting_id ) {
 		$align_choices = [
 			'left'   => [
-				'tooltip' => __( 'Left', 'neve' ),
+				'tooltip' => __( 'Left', 'nueve4' ),
 				'icon'    => 'editor-alignleft',
 			],
 			'center' => [
-				'tooltip' => __( 'Center', 'neve' ),
+				'tooltip' => __( 'Center', 'nueve4' ),
 				'icon'    => 'editor-aligncenter',
 			],
 			'right'  => [
-				'tooltip' => __( 'Right', 'neve' ),
+				'tooltip' => __( 'Right', 'nueve4' ),
 				'icon'    => 'editor-alignright',
 			],
 		];
@@ -1826,14 +1826,14 @@ abstract class Abstract_Builder implements Builder {
 				'group'                 => $row_setting_id,
 				'tab'                   => SettingsManager::TAB_LAYOUT,
 				'transport'             => 'postMessage',
-				'label'                 => __( 'Alignment', 'neve' ),
-				'type'                  => '\Neve\Customizer\Controls\React\Responsive_Radio_Buttons',
+				'label'                 => __( 'Alignment', 'nueve4' ),
+				'type'                  => '\Nueve4\Customizer\Controls\React\Responsive_Radio_Buttons',
 				'section'               => $row_setting_id,
 				'options'               => [
 					'choices' => $align_choices,
 				],
 				'conditional_header'    => true,
-				'sanitize_callback'     => 'neve_sanitize_alignment',
+				'sanitize_callback'     => 'nueve4_sanitize_alignment',
 				'default'               => [
 					'desktop' => 'left',
 					'tablet'  => 'left',
@@ -1878,17 +1878,17 @@ abstract class Abstract_Builder implements Builder {
 				'id'                 => self::LAYOUT_SETTING,
 				'group'              => $row_setting_id,
 				'tab'                => SettingsManager::TAB_LAYOUT,
-				'label'              => __( 'Open Behaviour', 'neve' ),
+				'label'              => __( 'Open Behaviour', 'nueve4' ),
 				'type'               => 'select',
 				'section'            => $row_setting_id,
 				'options'            => [
 					'choices' => [
-						'slide_left'  => __( 'Slide from Left', 'neve' ),
-						'slide_right' => __( 'Slide from Right', 'neve' ),
-						'pull_left'   => __( 'Pull from Left', 'neve' ),
-						'pull_right'  => __( 'Pull from Right', 'neve' ),
-						'full_canvas' => __( 'Full Canvas', 'neve' ),
-						'dropdown'    => __( 'Slide Down', 'neve' ),
+						'slide_left'  => __( 'Slide from Left', 'nueve4' ),
+						'slide_right' => __( 'Slide from Right', 'nueve4' ),
+						'pull_left'   => __( 'Pull from Left', 'nueve4' ),
+						'pull_right'  => __( 'Pull from Right', 'nueve4' ),
+						'full_canvas' => __( 'Full Canvas', 'nueve4' ),
+						'dropdown'    => __( 'Slide Down', 'nueve4' ),
 					],
 				],
 				'conditional_header' => true,
@@ -1903,11 +1903,11 @@ abstract class Abstract_Builder implements Builder {
 				'id'                    => self::WIDTH,
 				'group'                 => $row_setting_id,
 				'tab'                   => SettingsManager::TAB_LAYOUT,
-				'label'                 => __( 'Sidebar Width', 'neve' ),
+				'label'                 => __( 'Sidebar Width', 'nueve4' ),
 				'transport'             => 'postMessage',
 				'section'               => $row_setting_id,
 				'conditional_header'    => true,
-				'type'                  => '\Neve\Customizer\Controls\React\Responsive_Range',
+				'type'                  => '\Nueve4\Customizer\Controls\React\Responsive_Range',
 				'default'               => '{ "mobile": "350", "tablet": "350", "desktop": "350" }',
 				'options'               => [
 					'active_callback' => function () {
@@ -1946,7 +1946,7 @@ abstract class Abstract_Builder implements Builder {
 							width: {{value}}px;
 						}',
 				],
-				'sanitize_callback'     => 'neve_sanitize_range_value',
+				'sanitize_callback'     => 'nueve4_sanitize_range_value',
 			]
 		);
 	}
@@ -1972,8 +1972,8 @@ abstract class Abstract_Builder implements Builder {
 				'id'                => self::COLUMNS_NUMBER,
 				'group'             => $row_setting_id,
 				'tab'               => SettingsManager::TAB_LAYOUT,
-				'label'             => __( 'Number of Columns', 'neve' ),
-				'type'              => '\Neve\Customizer\Controls\React\Radio_Buttons',
+				'label'             => __( 'Number of Columns', 'nueve4' ),
+				'type'              => '\Nueve4\Customizer\Controls\React\Radio_Buttons',
 				'section'           => $row_setting_id,
 				'options'           => [
 					'choices' => $choices,
@@ -1989,8 +1989,8 @@ abstract class Abstract_Builder implements Builder {
 				'id'                => self::COLUMNS_LAYOUT,
 				'group'             => $row_setting_id,
 				'tab'               => SettingsManager::TAB_LAYOUT,
-				'label'             => __( 'Columns Layout', 'neve' ),
-				'type'              => '\Neve\Customizer\Controls\React\Builder_Columns',
+				'label'             => __( 'Columns Layout', 'nueve4' ),
+				'type'              => '\Nueve4\Customizer\Controls\React\Builder_Columns',
 				'section'           => $row_setting_id,
 				'options'           => [
 					'columns_control' => $row_setting_id . '_' . self::COLUMNS_NUMBER,
@@ -2003,15 +2003,15 @@ abstract class Abstract_Builder implements Builder {
 
 		$align_choices = [
 			'flex-start' => [
-				'tooltip' => __( 'Top', 'neve' ),
+				'tooltip' => __( 'Top', 'nueve4' ),
 				'icon'    => 'arrow-up',
 			],
 			'center'     => [
-				'tooltip' => __( 'Middle', 'neve' ),
+				'tooltip' => __( 'Middle', 'nueve4' ),
 				'icon'    => 'sort',
 			],
 			'flex-end'   => [
-				'tooltip' => __( 'Bottom', 'neve' ),
+				'tooltip' => __( 'Bottom', 'nueve4' ),
 				'icon'    => 'arrow-down',
 			],
 		];
@@ -2025,8 +2025,8 @@ abstract class Abstract_Builder implements Builder {
 				'sanitize_callback'     => 'wp_filter_nohtml_kses',
 				'default'               => 'flex-start',
 				'section'               => $row_setting_id,
-				'label'                 => __( 'Vertical Alignment', 'neve' ),
-				'type'                  => '\Neve\Customizer\Controls\React\Radio_Buttons',
+				'label'                 => __( 'Vertical Alignment', 'nueve4' ),
+				'type'                  => '\Nueve4\Customizer\Controls\React\Radio_Buttons',
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
 					'cssVar' => [

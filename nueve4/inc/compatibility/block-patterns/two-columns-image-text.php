@@ -2,15 +2,15 @@
 /**
  * Two Columns with image and text pattern.
  *
- * @package Neve
+ * @package Nueve4
  */
 
 return array(
-	'title'      => __( 'Two columns with image and text', 'neve' ),
+	'title'      => __( 'Two columns with image and text', 'nueve4' ),
 	'content'    => '<!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:image {} -->
-<figure class="wp-block-image"><img src="' . trailingslashit( get_template_directory_uri() ) . 'assets/img/patterns/neve-patterns-6.jpg" alt="" /></figure>
+<figure class="wp-block-image"><img src="' . trailingslashit( get_template_directory_uri() ) . 'assets/img/patterns/nueve4-patterns-6.jpg" alt="" /></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 

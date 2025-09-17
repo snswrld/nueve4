@@ -1,12 +1,12 @@
 <?php
 /**
- * Template Name: Page Builder Full Width (Neve)
+ * Template Name: Page Builder Full Width (Nueve4)
  *
  * The template for the page builder full-width.
  *
  * It contains header, footer and 100% content width.
  *
- * @package Neve
+ * @package Nueve4
  */
 add_action(
 	'body_class',

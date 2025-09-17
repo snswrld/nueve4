@@ -2,10 +2,10 @@
 /**
  * Master Addons Integration
  *
- * @package Neve
+ * @package Nueve4
  */
 
-class Neve_Master_Addons_Integration {
+class Nueve4_Master_Addons_Integration {
 
     public function __construct() {
         add_action('init', array($this, 'init'));
@@ -70,4 +70,4 @@ class Neve_Master_Addons_Integration {
     }
 }
 
-new Neve_Master_Addons_Integration();
+new Nueve4_Master_Addons_Integration();

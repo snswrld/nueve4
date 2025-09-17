@@ -2,15 +2,15 @@
 /**
  * Metabox radio button control.
  *
- * @package Neve\Admin\Metabox\Controls
+ * @package Nueve4\Admin\Metabox\Controls
  */
 
-namespace Neve\Admin\Metabox\Controls;
+namespace Nueve4\Admin\Metabox\Controls;
 
 /**
  * Class Checkbox
  *
- * @package Neve\Admin\Metabox\Controls
+ * @package Nueve4\Admin\Metabox\Controls
  */
 class Checkbox extends Control_Base {
 	/**

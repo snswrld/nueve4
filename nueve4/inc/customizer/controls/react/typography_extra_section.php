@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * @package Neve
+ * @package Nueve4
  */
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Customizer section.

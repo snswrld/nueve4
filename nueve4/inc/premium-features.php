@@ -452,7 +452,7 @@ class Premium_Features {
     }
 
     private function get_scroll_to_top_js() {
-        return "jQuery(document).ready(function($){$(window).scroll(function(){if($(this).scrollTop()>100){$('.neve-scroll-to-top').fadeIn();}else{$('.neve-scroll-to-top').fadeOut();}});$('.neve-scroll-to-top').click(function(){$('html, body').animate({scrollTop:0},800);return false;});});";
+        return "jQuery(document).ready(function($){$(window).scroll(function(){if($(this).scrollTop()>100){$('.nueve4-scroll-to-top').fadeIn();}else{$('.nueve4-scroll-to-top').fadeOut();}});$('.nueve4-scroll-to-top').click(function(){$('html, body').animate({scrollTop:0},800);return false;});});";
     }
 
     private function get_scroll_to_top_css() {
@@ -469,7 +469,7 @@ class Premium_Features {
     }
 
     public function output_scroll_to_top_button() {
-        echo '<div class="neve-scroll-to-top">↑</div>';
+        echo '<div class="nueve4-scroll-to-top">↑</div>';
     }
 
     private function add_performance_features() {
@@ -507,8 +507,8 @@ class Premium_Features {
 }
 
 // Initialize premium features
-$neve_premium = Premium_Features::get_instance();
-$neve_premium->init();
+$nueve4_premium = Premium_Features::get_instance();
+$nueve4_premium->init();
 
 // Load premium activation
 $activation_file = get_template_directory() . '/inc/premium-activation.php';

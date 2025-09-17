@@ -8,12 +8,12 @@
  * @package generic.php
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 /**
  * Class Generic
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class Generic {
 	/**
@@ -33,8 +33,8 @@ class Generic {
 	 * @return array
 	 **/
 	public function max_megamenu_theme( $themes ) {
-		$themes['neve_max_mega_menu'] = array(
-			'title'                           => 'Neve',
+		$themes['nueve4_max_mega_menu'] = array(
+			'title'                           => 'Nueve4',
 			'menu_item_link_height'           => '50px',
 			'menu_item_align'                 => 'right',
 			'container_background_from'       => 'rgba(255, 255, 255, 0)',

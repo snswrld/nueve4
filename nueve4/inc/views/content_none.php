@@ -2,15 +2,15 @@
 /**
  * Content none class.
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views;
+namespace Nueve4\Views;
 
 /**
  * Class Content_None
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 class Content_None extends Base_View {
 
@@ -19,7 +19,7 @@ class Content_None extends Base_View {
 	 */
 	public function init() {
 		add_filter( 'get_search_form', [ $this, 'add_instance_id' ] );
-		add_action( 'neve_do_content_none', array( $this, 'render_content_none' ) );
+		add_action( 'nueve4_do_content_none', array( $this, 'render_content_none' ) );
 	}
 
 	/**
@@ -53,12 +53,12 @@ class Content_None extends Base_View {
 
 			printf(
 				/* translators: %s is Link to new post */
-				esc_html__( 'Ready to publish your first post? %s.', 'neve' ),
+				esc_html__( 'Ready to publish your first post? %s.', 'nueve4' ),
 				sprintf(
 					/* translators: %1$s is Link to new post, %2$s is Get started here */
 					'<a href="%1$s">%2$s</a>',
 					esc_url( admin_url( 'post-new.php' ) ),
-					esc_html__( 'Get started here', 'neve' )
+					esc_html__( 'Get started here', 'nueve4' )
 				)
 			);
 
@@ -76,7 +76,7 @@ class Content_None extends Base_View {
 	 */
 	private function render_search_none() {
 		echo '<p>';
-		esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'neve' );
+		esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'nueve4' );
 		echo '</p>';
 		echo '<div class="nv-seach-form-wrap">';
 		get_search_form();

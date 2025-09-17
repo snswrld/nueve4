@@ -3,7 +3,7 @@
  * The tabs customize control extends the WP_Customize_Control class. This class allows
  * developers to create tabs and hide the sections' settings easily.
  *
- * @package    Neve\Customizer\Controls
+ * @package    Nueve4\Customizer\Controls
  * @since      1.1.45
  * @author     Andrei Baicus <andrei@themeisle.com>
  * @copyright  Copyright (c) 2017, Themeisle
@@ -11,7 +11,7 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * Radio image customize control.
@@ -65,7 +65,7 @@ class Tabs extends \WP_Customize_Control {
 		?>
 		<# if ( ! data.tabs ) { return; } #>
 
-		<div class="neve-tabs-control" id="">
+		<div class="nueve4-tabs-control" id="">
 		<# var i = 1;
 			for( tab in data.tabs) { #>
 				<#
@@ -82,7 +82,7 @@ class Tabs extends \WP_Customize_Control {
 					}
 				});
 				#>
-			<div class="neve-customizer-tab <# if( i === 1 ){#> active <#}#>" data-tab="{{tab}}">
+			<div class="nueve4-customizer-tab <# if( i === 1 ){#> active <#}#>" data-tab="{{tab}}">
 				<label class="{{allControlsInTabs}}">
 					<# if(data.tabs[tab]['icon']) { #>
 						<i class="dashicons dashicons-{{data.tabs[tab]['icon']}}"></i>

@@ -3,24 +3,24 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      17/08/2018
  *
- * @package Neve\Customizer
+ * @package Nueve4\Customizer
  */
 
-namespace Neve\Customizer;
+namespace Nueve4\Customizer;
 
 use HFG\Core\Components\Utility\SearchIconButton;
-use Neve\Core\Factory;
-use Neve\Core\Limited_Offers;
-use Neve\Core\Settings\Config;
-use Neve\Customizer\Options\Colors_Background;
+use Nueve4\Core\Factory;
+use Nueve4\Core\Limited_Offers;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Customizer\Options\Colors_Background;
 
 /**
  * Main customizer handler.
  *
- * @package Neve\Customizer
+ * @package Nueve4\Customizer
  */
 class Loader {
-	const CUSTOMIZER_STYLE_HANDLE = 'neve-customizer-style';
+	const CUSTOMIZER_STYLE_HANDLE = 'nueve4-customizer-style';
 	/**
 	 * Customizer modules.
 	 *
@@ -58,11 +58,11 @@ class Loader {
 	 * @param \WP_Customize_Manager $wp_customize The WP_Customize_Manager object.
 	 */
 	public function change_pro_controls( \WP_Customize_Manager $wp_customize ) {
-		if ( neve_can_use_conditional_header() ) {
+		if ( nueve4_can_use_conditional_header() ) {
 			return;
 		}
 
-		$controls_to_disable = [ 'neve_global_header', 'neve_header_conditional_selector' ];
+		$controls_to_disable = [ 'nueve4_global_header', 'nueve4_header_conditional_selector' ];
 		foreach ( $controls_to_disable as $control_slug ) {
 			$wp_customize->remove_control( $control_slug );
 		}
@@ -73,7 +73,7 @@ class Loader {
 	 */
 	private function define_modules() {
 		$this->customizer_modules = apply_filters(
-			'neve_filter_customizer_modules',
+			'nueve4_filter_customizer_modules',
 			array(
 				'Customizer\Options\Main',
 				'Customizer\Options\Layout_Container',
@@ -88,7 +88,7 @@ class Loader {
 				'Customizer\Options\Buttons',
 				'Customizer\Options\Form_Fields',
 				'Customizer\Options\Rtl',
-				'Customizer\Options\Upsells',
+				// ...existing code...
 			)
 		);
 	}
@@ -97,99 +97,7 @@ class Loader {
 	 * Enqueue customizer controls script.
 	 */
 	public function enqueue_customizer_controls() {
-		wp_register_style( self::CUSTOMIZER_STYLE_HANDLE, NEVE_ASSETS_URL . 'css/customizer-style' . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), NEVE_VERSION );
-		wp_style_add_data( self::CUSTOMIZER_STYLE_HANDLE, 'rtl', 'replace' );
-		wp_style_add_data( self::CUSTOMIZER_STYLE_HANDLE, 'suffix', '.min' );
-		wp_enqueue_style( self::CUSTOMIZER_STYLE_HANDLE );
-
-		wp_enqueue_script(
-			'neve-customizer-controls',
-			NEVE_ASSETS_URL . 'js/build/all/customizer-controls.js',
-			array(
-				'jquery',
-				'wp-color-picker',
-			),
-			NEVE_VERSION,
-			true
-		);
-
-		$offer        = new Limited_Offers();
-		$bundle_path  = get_template_directory_uri() . '/assets/apps/customizer-controls/build/';
-		$dependencies = ( include get_template_directory() . '/assets/apps/customizer-controls/build/controls.asset.php' );
-		wp_register_script( 'react-controls', $bundle_path . 'controls.js', $dependencies['dependencies'], $dependencies['version'], true );
-		wp_localize_script(
-			'react-controls',
-			'NeveReactCustomize',
-			apply_filters(
-				'neve_react_controls_localization',
-				array(
-					'nonce'                         => wp_create_nonce( 'wp_rest' ),
-					'headerControls'                => [],
-					'instructionalVid'              => esc_url( get_template_directory_uri() . '/header-footer-grid/assets/images/customizer/hfg.mp4' ),
-					'dynamicTags'                   => array(
-						'controls' => array(),
-						'options'  => array(),
-					),
-					'upsellComponentsLink'          => tsdk_utmify( 'https://themeisle.com/themes/neve/upgrade/', 'hfgcomponents' ),
-					'fonts'                         => array(
-						'System' => neve_get_standard_fonts(),
-						'Google' => neve_get_google_fonts(),
-					),
-					'fontVariants'                  => neve_get_google_fonts( true ),
-					'systemFontVariants'            => neve_get_standard_fonts( true ),
-					'hideConditionalHeaderSelector' => ! neve_can_use_conditional_header(),
-					'dashUpdatesMessage'            => sprintf( 'Please %s to the latest version of Neve Pro to manage the conditional headers.', '<a href="' . esc_url( admin_url( 'update-core.php' ) ) . '">' . __( 'update', 'neve' ) . '</a>' ),
-					'bundlePath'                    => get_template_directory_uri() . '/assets/apps/customizer-controls/build/',
-					'localGoogleFonts'              => array(
-						'learnMore' => apply_filters( 'neve_external_link', 'https://docs.themeisle.com/article/1349-how-to-load-neve-fonts-locally', esc_html__( 'Learn more', 'neve' ) ),
-						'key'       => Config::OPTION_LOCAL_GOOGLE_FONTS_HOSTING,
-					),
-					'fontPairs'                     => get_theme_mod( Config::MODS_TPOGRAPHY_FONT_PAIRS, Config::$typography_default_pairs ),
-					'allowedGlobalCustomColor'      => Colors_Background::CUSTOM_COLOR_LIMIT,
-					'constants'                     => [
-						'HFGSearch' => [
-							'defaultIconKey' => SearchIconButton::DEFAULT_ICON,
-							'customIconKey'  => SearchIconButton::CUSTOM_ICON,
-						],
-					],
-					'deal'                          => ! defined( 'NEVE_PRO_VERSION' ) ? $offer->get_localized_data() : array(),
-				)
-			)
-		);
-		wp_enqueue_script( 'react-controls' );
-
-		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'react-controls', 'neve' );
-		}
-
-		wp_register_style( 'react-controls', $bundle_path . 'style-controls.css', [ 'neve-components' ], $dependencies['version'] );
-		wp_style_add_data( 'react-controls', 'rtl', 'replace' );
-		wp_enqueue_style( 'react-controls' );
-
-		if ( isset( $dependencies['chunks'] ) ) {
-			foreach ( $dependencies['chunks'] as $chunk_file ) {
-		
-				$chunk_handle = 'neve-customizer-chunk-' . $chunk_file;
-				wp_register_script( $chunk_handle, $bundle_path . $chunk_file, [], $dependencies['version'], true );
-				wp_enqueue_script( $chunk_handle );
-				
-				if ( function_exists( 'wp_set_script_translations' ) ) {
-					wp_set_script_translations( $chunk_handle, 'neve' );
-				}
-			}
-		}
-
-		$fonts  = neve_get_google_fonts();
-		$chunks = array_chunk( $fonts, absint( count( $fonts ) / 5 ) );
-
-		foreach ( $chunks as $index => $fonts_chunk ) {
-			wp_enqueue_style(
-				'neve-fonts-control-google-fonts-' . $index,
-				'https://fonts.googleapis.com/css?family=' . join( '|', $fonts_chunk ) . '&text=AbcTtheigrownfoxJumpsvlazydg"',
-				[],
-				NEVE_VERSION
-			);
-		}
+		\Nueve4\Customizer\Assets_Manager::enqueue_assets();
 	}
 
 	/**
@@ -197,13 +105,13 @@ class Loader {
 	 */
 	public function enqueue_customizer_preview() {
 		wp_enqueue_style(
-			'neve-customizer-preview-style',
+			'nueve4-customizer-preview-style',
 			NEVE_ASSETS_URL . 'css/customizer-preview' . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css',
 			array(),
 			NEVE_VERSION
 		);
 		wp_register_script(
-			'neve-customizer-preview',
+			'nueve4-customizer-preview',
 			NEVE_ASSETS_URL . 'js/build/all/customizer-preview.js',
 			array(),
 			NEVE_VERSION,
@@ -213,7 +121,7 @@ class Loader {
 		$shop_has_meta = 'no';
 		$shop_id       = get_option( 'woocommerce_shop_page_id' );
 		if ( ! empty( $shop_id ) ) {
-			$meta = get_post_meta( $shop_id, 'neve_meta_sidebar', true );
+			$meta = get_post_meta( $shop_id, 'nueve4_meta_sidebar', true );
 
 			if ( ! empty( $meta ) && $meta !== 'default' ) {
 				$shop_has_meta = 'yes';
@@ -221,19 +129,19 @@ class Loader {
 		}
 
 		wp_localize_script(
-			'neve-customizer-preview',
-			'neveCustomizePreview',
+			'nueve4-customizer-preview',
+			'nueve4CustomizePreview',
 			apply_filters(
-				'neve_customize_preview_localization',
+				'nueve4_customize_preview_localization',
 				array(
 					'currentFeaturedImage' => '',
-					'newBuilder'           => neve_is_new_builder(),
-					'newSkin'              => neve_is_new_skin(),
+					'newBuilder'           => nueve4_is_new_builder(),
+					'newSkin'              => nueve4_is_new_skin(),
 					'shopHasMetaSidebar'   => $shop_has_meta,
 				)
 			)
 		);
-		wp_enqueue_script( 'neve-customizer-preview' );
+		wp_enqueue_script( 'nueve4-customizer-preview' );
 	}
 
 	/**
@@ -250,7 +158,7 @@ class Loader {
 		if ( $thumbnail === false ) {
 			return;
 		}
-		wp_add_inline_script( 'neve-customizer-preview', 'neveCustomizePreview.currentFeaturedImage = "' . esc_url( get_the_post_thumbnail_url() ) . '";' );
+		wp_add_inline_script( 'nueve4-customizer-preview', 'nueve4CustomizePreview.currentFeaturedImage = "' . esc_url( get_the_post_thumbnail_url() ) . '";' );
 	}
 
 	/**

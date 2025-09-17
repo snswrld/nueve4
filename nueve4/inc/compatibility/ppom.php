@@ -2,10 +2,10 @@
 /**
  * PPOM compatibility.
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 /**
  * Class PPOM
@@ -39,8 +39,8 @@ class PPOM {
 	 */
 	private function load_hooks() {
 		/**
-		 * Neve has display:flex on the single product page, but PPOM has display:block on the same page.
-		 * Prevent PPOM's override of Neve's CSS.
+		 * Nueve4 has display:flex on the single product page, but PPOM has display:block on the same page.
+		 * Prevent PPOM's override of Nueve4's CSS.
 		 *
 		 * Issue: https://github.com/Codeinwp/woocommerce-product-addon/issues/106
 		*/

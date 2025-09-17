@@ -33,7 +33,7 @@ _e( 'Upgrade <span>Pro</span> for White Labeling', 'master-addons' );
 ?></h2>
                             <p>
                                 <?php 
-_e( 'Master Addons can be completely re-branded with your own brand Logo, Name and Author Details. Your clients will never know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active.', 'master-addons' );
+_e( 'Master Addons can be completely re-branded with your own brand Logo, Name and Author Details. Your clients will nueve4r know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active.', 'master-addons' );
 ?><br>
                                 <em><?php 
 _e( 'Note: Developer Plans Only', 'master-addons' );

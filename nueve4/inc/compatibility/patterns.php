@@ -5,12 +5,12 @@
  * @package Patterns.php
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 /**
  * Class Patterns
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class Patterns {
 	/**
@@ -49,7 +49,7 @@ class Patterns {
 		}
 		foreach ( $this->patterns as $pattern ) {
 			register_block_pattern(
-				'neve/' . $pattern,
+				'nueve4/' . $pattern,
 				require __DIR__ . '/block-patterns/' . $pattern . '.php'
 			);
 		}

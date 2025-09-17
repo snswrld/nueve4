@@ -2,10 +2,10 @@
 /**
  * Top Bar
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views;
+namespace Nueve4\Views;
 
 /**
  * Class Top_Bar
@@ -23,11 +23,11 @@ class Top_Bar extends Base_View {
 	 * Apply filters on the top bar content.
 	 */
 	private function filter_content() {
-		add_filter( 'neve_top_bar_content', 'wptexturize' );
-		add_filter( 'neve_top_bar_content', 'convert_smilies' );
-		add_filter( 'neve_top_bar_content', 'convert_chars' );
-		add_filter( 'neve_top_bar_content', 'wpautop' );
-		add_filter( 'neve_top_bar_content', 'shortcode_unautop' );
-		add_filter( 'neve_top_bar_content', 'do_shortcode' );
+		add_filter( 'nueve4_top_bar_content', 'wptexturize' );
+		add_filter( 'nueve4_top_bar_content', 'convert_smilies' );
+		add_filter( 'nueve4_top_bar_content', 'convert_chars' );
+		add_filter( 'nueve4_top_bar_content', 'wpautop' );
+		add_filter( 'nueve4_top_bar_content', 'shortcode_unautop' );
+		add_filter( 'nueve4_top_bar_content', 'do_shortcode' );
 	}
 }

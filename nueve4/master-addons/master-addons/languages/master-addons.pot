@@ -4902,7 +4902,7 @@ msgid "Always"
 msgstr ""
 
 #: ../addons/ma-image-filter-gallery/ma-image-filter-gallery.php:724
-msgid "Never"
+msgid "Nueve4r"
 msgstr ""
 
 #: ../addons/ma-image-filter-gallery/ma-image-filter-gallery.php:725
@@ -10805,7 +10805,7 @@ msgid "Upgrade <span>Pro</span> for White Labeling"
 msgstr ""
 
 #: ../inc/admin/welcome/white-label.php:36
-msgid "Master Addons can be completely re-branded with your own brand Logo, Name and Author Details. Your clients will never know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active."
+msgid "Master Addons can be completely re-branded with your own brand Logo, Name and Author Details. Your clients will nueve4r know what tools you are using to build their website and will think that this is your own tool set. White-labeling works as long as your license is active."
 msgstr ""
 
 #: ../inc/admin/welcome/white-label.php:37

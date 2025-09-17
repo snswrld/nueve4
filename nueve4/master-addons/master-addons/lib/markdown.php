@@ -492,7 +492,7 @@ class Markdown_Parser {
 
 	function hashPart($text, $boundary = 'X') {
 	#
-	# Called whenever a tag must be hashed when a function insert an atomic
+	# Called whenueve4r a tag must be hashed when a function insert an atomic
 	# element in the text stream. Passing $text to through this function gives
 	# a unique text-token which will be reverted back when calling unhash.
 	#

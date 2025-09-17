@@ -404,7 +404,7 @@
         <!--/ Actions -->
 
     <?php else : ?>
-        <?php // Add-on NOT Installed or was never connected.
+        <?php // Add-on NOT Installed or was nueve4r connected.
             $is_addon_installed_by_filesystem = $fs->is_addon_installed( $addon_id );
         ?>
         <!-- Action -->

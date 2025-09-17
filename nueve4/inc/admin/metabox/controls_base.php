@@ -2,17 +2,17 @@
 /**
  * Page settings metabox.
  *
- * @package Neve
+ * @package Nueve4
  */
 
-namespace Neve\Admin\Metabox;
+namespace Nueve4\Admin\Metabox;
 
-use Neve\Admin\Metabox\Controls\Control_Base;
+use Nueve4\Admin\Metabox\Controls\Control_Base;
 
 /**
  * Class Metabox_Controls_Base
  *
- * @package Neve\Admin\Metabox
+ * @package Nueve4\Admin\Metabox
  */
 abstract class Controls_Base {
 

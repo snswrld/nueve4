@@ -2,33 +2,33 @@
 /**
  * Handles post meta for metabox.
  *
- * @package Neve\Views\Pluggable
+ * @package Nueve4\Views\Pluggable
  */
 
-namespace Neve\Views\Pluggable;
+namespace Nueve4\Views\Pluggable;
 
-use Neve\Core\Dynamic_Css;
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
-use Neve\Core\Styles\Dynamic_Selector;
+use Nueve4\Core\Dynamic_Css;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
+use Nueve4\Core\Styles\Dynamic_Selector;
 
 /**
  * Class Metabox_Settings
  *
- * @package Neve\Views\Pluggable
+ * @package Nueve4\Views\Pluggable
  */
 class Metabox_Settings {
-	const CONTENT_WIDTH          = 'neve_meta_content_width';
-	const ENABLE_CONTENT_WIDTH   = 'neve_meta_enable_content_width';
-	const CONTAINER              = 'neve_meta_container';
-	const SIDEBAR                = 'neve_meta_sidebar';
-	const TITLE_ALIGNMENT        = 'neve_meta_title_alignment';
-	const DISABLE_HEADER         = 'neve_meta_disable_header';
-	const DISABLE_TITLE          = 'neve_meta_disable_title';
-	const DISABLE_FEATURED_IMAGE = 'neve_meta_disable_featured_image';
-	const DISABLE_FOOTER         = 'neve_meta_disable_footer';
-	const ELEMENTS_ORDER         = 'neve_post_elements_order';
-	const SHOW_AVATAR            = 'neve_meta_author_avatar';
+	const CONTENT_WIDTH          = 'nueve4_meta_content_width';
+	const ENABLE_CONTENT_WIDTH   = 'nueve4_meta_enable_content_width';
+	const CONTAINER              = 'nueve4_meta_container';
+	const SIDEBAR                = 'nueve4_meta_sidebar';
+	const TITLE_ALIGNMENT        = 'nueve4_meta_title_alignment';
+	const DISABLE_HEADER         = 'nueve4_meta_disable_header';
+	const DISABLE_TITLE          = 'nueve4_meta_disable_title';
+	const DISABLE_FEATURED_IMAGE = 'nueve4_meta_disable_featured_image';
+	const DISABLE_FOOTER         = 'nueve4_meta_disable_footer';
+	const ELEMENTS_ORDER         = 'nueve4_post_elements_order';
+	const SHOW_AVATAR            = 'nueve4_meta_author_avatar';
 	/**
 	 * Context mapping for the post meta.
 	 *
@@ -47,10 +47,10 @@ class Metabox_Settings {
 	 * @return void
 	 */
 	public function init() {
-		add_filter( 'neve_sidebar_position', array( $this, 'filter_sidebar_position' ) );
-		add_filter( 'neve_container_class_filter', array( $this, 'filter_container_class' ), 100 );
+		add_filter( 'nueve4_sidebar_position', array( $this, 'filter_sidebar_position' ) );
+		add_filter( 'nueve4_container_class_filter', array( $this, 'filter_container_class' ), 100 );
 		add_filter( 'body_class', array( $this, 'body_classes' ) );
-		add_filter( 'neve_filter_toggle_content_parts', array( $this, 'filter_components_toggle' ), 100, 2 );
+		add_filter( 'nueve4_filter_toggle_content_parts', array( $this, 'filter_components_toggle' ), 100, 2 );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_content_width' ), 100 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'content_width' ), 999 );
 
@@ -72,10 +72,10 @@ class Metabox_Settings {
 				];
 			}
 		);
-		add_filter( 'neve_layout_single_post_elements_order', array( $this, 'filter_post_elements' ) );
-		add_filter( 'neve_title_alignment_style', array( $this, 'filter_title_alignment_style' ), 10, 2 );
-		add_filter( 'neve_display_author_avatar', array( $this, 'filter_author_avatar_display' ), 15 );
-		add_filter( 'neve_meta_content_width', array( $this, 'get_content_width' ) );
+		add_filter( 'nueve4_layout_single_post_elements_order', array( $this, 'filter_post_elements' ) );
+		add_filter( 'nueve4_title_alignment_style', array( $this, 'filter_title_alignment_style' ), 10, 2 );
+		add_filter( 'nueve4_display_author_avatar', array( $this, 'filter_author_avatar_display' ), 15 );
+		add_filter( 'nueve4_meta_content_width', array( $this, 'get_content_width' ) );
 	}
 
 	/**
@@ -175,7 +175,7 @@ class Metabox_Settings {
 			return false;
 		}
 
-		$post_id = apply_filters( 'neve_post_meta_filters_post_id', $post->ID );
+		$post_id = apply_filters( 'nueve4_post_meta_filters_post_id', $post->ID );
 
 		if ( ! isset( $post_id ) ) {
 			return false;
@@ -237,7 +237,7 @@ class Metabox_Settings {
 
 		$style = $this->add_button_shadow_styles( $style );
 
-		wp_add_inline_style( 'neve-gutenberg-style', $style );
+		wp_add_inline_style( 'nueve4-gutenberg-style', $style );
 
 
 	}
@@ -369,11 +369,11 @@ class Metabox_Settings {
 		if ( $container === 'contained' ) {
 			$extra_css = sprintf(
 				'
-			#content.neve-main .container .alignfull > [class*="__inner-container"],#content.neve-main .alignwide > [class*="__inner-container"]{
+			#content.nueve4-main .container .alignfull > [class*="__inner-container"],#content.nueve4-main .alignwide > [class*="__inner-container"]{
 				max-width: %s;
 			}
 			@media(min-width: 576px){
-				#content.neve-main .container .alignfull > [class*="__inner-container"],#content.neve-main .alignwide > [class*="__inner-container"]{
+				#content.nueve4-main .container .alignfull > [class*="__inner-container"],#content.nueve4-main .alignwide > [class*="__inner-container"]{
 					max-width: %s;
 				}
 			}
@@ -390,16 +390,16 @@ class Metabox_Settings {
 
 		$style = $extra_css . '
 		@media(min-width: 960px) {
-			#content.neve-main ' . esc_attr( $container_class ) . '.alignfull > [class*="__inner-container"],#content.neve-main ' . esc_attr( $container_class ) . ' .alignwide > [class*="__inner-container"]{
+			#content.nueve4-main ' . esc_attr( $container_class ) . '.alignfull > [class*="__inner-container"],#content.nueve4-main ' . esc_attr( $container_class ) . ' .alignwide > [class*="__inner-container"]{
 				max-width: ' . $desktop_value . ';
 			}
-			#content.neve-main > ' . esc_attr( $container_class ) . ' > .row > .col{ max-width: ' . absint( $meta_value ) . '%' . esc_attr( $important ) . '; }
-			body:not(.neve-off-canvas) #content.neve-main > ' . esc_attr( $container_class ) . ' > .row > .nv-sidebar-wrap,
-			body:not(.neve-off-canvas) #content.neve-main > ' . esc_attr( $container_class ) . ' > .row > .nv-sidebar-wrap.shop-sidebar { max-width: ' . absint( $sidebar_width ) . '%' . esc_attr( $important ) . '; ' . esc_attr( $hide_sidebar ) . ' }
+			#content.nueve4-main > ' . esc_attr( $container_class ) . ' > .row > .col{ max-width: ' . absint( $meta_value ) . '%' . esc_attr( $important ) . '; }
+			body:not(.nueve4-off-canvas) #content.nueve4-main > ' . esc_attr( $container_class ) . ' > .row > .nv-sidebar-wrap,
+			body:not(.nueve4-off-canvas) #content.nueve4-main > ' . esc_attr( $container_class ) . ' > .row > .nv-sidebar-wrap.shop-sidebar { max-width: ' . absint( $sidebar_width ) . '%' . esc_attr( $important ) . '; ' . esc_attr( $hide_sidebar ) . ' }
 		}
 		';
 
-		wp_add_inline_style( 'neve-style', Dynamic_Css::minify_css( $style ) );
+		wp_add_inline_style( 'nueve4-style', Dynamic_Css::minify_css( $style ) );
 	}
 
 	/**
@@ -408,8 +408,8 @@ class Metabox_Settings {
 	 * @param string $style Inline styles for the Gutenberg editor.
 	 */
 	private function add_button_shadow_styles( $style ) {
-		$primary_values   = Mods::get( Config::MODS_BUTTON_PRIMARY_STYLE, neve_get_button_appearance_default() );
-		$secondary_values = Mods::get( Config::MODS_BUTTON_SECONDARY_STYLE, neve_get_button_appearance_default( 'secondary' ) );
+		$primary_values   = Mods::get( Config::MODS_BUTTON_PRIMARY_STYLE, nueve4_get_button_appearance_default() );
+		$secondary_values = Mods::get( Config::MODS_BUTTON_SECONDARY_STYLE, nueve4_get_button_appearance_default( 'secondary' ) );
 		if (
 			( isset( $primary_values['useShadow'] ) && ! empty( $primary_values['useShadow'] ) ) ||
 			( isset( $primary_values['useShadowHover'] ) && ! empty( $primary_values['useShadowHover'] ) ) ||
@@ -459,8 +459,8 @@ class Metabox_Settings {
 	/**
 	 * If WooCommerce does not exist or if ir exists and page is not shop
 	 * This also touches the following issues:
-	 * Codeinwp/neve-pro-addon/issues/999
-	 * Codeinwp/neve/issues/2790
+	 * Codeinwp/nueve4-pro-addon/issues/999
+	 * Codeinwp/nueve4/issues/2790
 	 *
 	 * @return bool
 	 */

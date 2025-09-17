@@ -2,15 +2,15 @@
 /**
  * Metabox radio button control.
  *
- * @package Neve\Admin\Metabox\Controls
+ * @package Nueve4\Admin\Metabox\Controls
  */
 
-namespace Neve\Admin\Metabox\Controls;
+namespace Nueve4\Admin\Metabox\Controls;
 
 /**
  * Class Radio
  *
- * @package Neve\Admin\Metabox\Controls
+ * @package Nueve4\Admin\Metabox\Controls
  */
 class Radio extends Control_Base {
 	/**
@@ -27,7 +27,7 @@ class Radio extends Control_Base {
 	 */
 	public function render_content( $post_id ) {
 		$selected = $this->get_value( $post_id );
-		$markup   = '<style>#neve-page-settings label{ display: block; margin-bottom: 5px;}</style>';
+		$markup   = '<style>#nueve4-page-settings label{ display: block; margin-bottom: 5px;}</style>';
 
 		$markup .= '<p>';
 		foreach ( $this->settings['choices'] as $value => $choice ) {

@@ -2,15 +2,15 @@
 /**
  * Customizer control type enforcement.
  *
- * @package Neve\Customizer\Types
+ * @package Nueve4\Customizer\Types
  */
 
-namespace Neve\Customizer\Types;
+namespace Nueve4\Customizer\Types;
 
 /**
  * Class Control
  *
- * @package Neve\Customizer\Types
+ * @package Nueve4\Customizer\Types
  */
 class Control {
 	/**

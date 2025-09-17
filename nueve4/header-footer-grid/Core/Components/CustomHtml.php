@@ -13,7 +13,7 @@ namespace HFG\Core\Components;
 
 use HFG\Core\Settings\Manager as SettingsManager;
 use HFG\Main;
-use Neve\Core\Styles\Dynamic_Selector;
+use Nueve4\Core\Styles\Dynamic_Selector;
 
 /**
  * Class Copyright
@@ -32,7 +32,7 @@ class CustomHtml extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'HTML', 'neve' ) );
+		$this->set_property( 'label', __( 'HTML', 'nueve4' ) );
 		$this->set_property( 'id', $this->get_class_const( 'COMPONENT_ID' ) );
 		$this->set_property( 'width', 3 );
 		$this->set_property( 'component_slug', 'hfg-html' );
@@ -143,10 +143,10 @@ class CustomHtml extends Abstract_Component {
 				'tab'                => SettingsManager::TAB_GENERAL,
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => 'wp_kses_post',
-				'default'            => get_theme_mod( 'neve_top_bar_content', '' ),
-				'label'              => __( 'HTML', 'neve' ),
-				'description'        => __( 'Arbitrary HTML code. It supports also shortcodes.', 'neve' ),
-				'type'               => '\Neve\Customizer\Controls\React\Rich_Text',
+				'default'            => get_theme_mod( 'nueve4_top_bar_content', '' ),
+				'label'              => __( 'HTML', 'nueve4' ),
+				'description'        => __( 'Arbitrary HTML code. It supports also shortcodes.', 'nueve4' ),
+				'type'               => '\Nueve4\Customizer\Controls\React\Rich_Text',
 				'section'            => $this->section,
 				'options'            => array(
 					'input_attrs' => array(
@@ -167,9 +167,9 @@ class CustomHtml extends Abstract_Component {
 				'group'                 => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
-				'label'                 => __( 'Text Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
+				'label'                 => __( 'Text Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [

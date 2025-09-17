@@ -3,16 +3,16 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      29/08/2018
  *
- * @package Neve\Views\Inline
+ * @package Nueve4\Views\Inline
  */
 
-namespace Neve\Views\Inline;
+namespace Nueve4\Views\Inline;
 
 /**
  * Class Base_Inline
  *
  * @deprecated Functionality replaced with the subscriber mechanism, we keep it only for compatibility with the pro version.
- * @package Neve\Views\Inline
+ * @package Nueve4\Views\Inline
  */
 abstract class Base_Inline {
 	/**
@@ -162,7 +162,7 @@ abstract class Base_Inline {
 				),
 				true
 			) &&
-			! in_array( $style['value'], neve_get_standard_fonts(), true ) ) {
+			! in_array( $style['value'], nueve4_get_standard_fonts(), true ) ) {
 			return esc_attr( $style['css_prop'] ) . ':"' . esc_attr( $style['value'] ) . '"' . esc_attr( $suffix ) . ';';
 		}
 

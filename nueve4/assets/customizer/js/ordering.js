@@ -1,11 +1,11 @@
 /**
  * Customizer order control.
  *
- * @package Neve\Customizer\Controls
+ * @package Nueve4\Customizer\Controls
  */
 ( function ( $ ) {
 	'use strict';
-	wp.neveOrderControl = {
+	wp.nueve4OrderControl = {
 		init: function () {
 			this.setupSorting();
 			this.handleHide();
@@ -46,7 +46,7 @@
 
 	$( document ).ready(
 		function () {
-			wp.neveOrderControl.init();
+			wp.nueve4OrderControl.init();
 		}
 	);
 } )( jQuery );

@@ -14,8 +14,8 @@ namespace HFG\Core\Components;
 use HFG\Core\Settings;
 use HFG\Core\Settings\Manager as SettingsManager;
 use HFG\Main;
-use Neve\Core\Settings\Config;
-use Neve\Core\Styles\Dynamic_Selector;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Styles\Dynamic_Selector;
 use WP_Customize_Manager;
 
 /**
@@ -38,7 +38,7 @@ class NavFooter extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Footer Menu', 'neve' ) );
+		$this->set_property( 'label', __( 'Footer Menu', 'nueve4' ) );
 		$this->set_property( 'id', self::COMPONENT_ID );
 		$this->set_property( 'width', 6 );
 		$this->set_property( 'icon', 'tagcloud' );
@@ -65,8 +65,8 @@ class NavFooter extends Abstract_Component {
 				'transport'         => 'post' . self::COMPONENT_ID,
 				'sanitize_callback' => 'wp_filter_nohtml_kses',
 				'default'           => 'style-plain',
-				'label'             => __( 'Hover Skin Mode', 'neve' ),
-				'type'              => '\Neve\Customizer\Controls\React\Radio_Buttons',
+				'label'             => __( 'Hover Skin Mode', 'nueve4' ),
+				'type'              => '\Nueve4\Customizer\Controls\React\Radio_Buttons',
 				'section'           => $this->section,
 				'options'           => [
 					'large_buttons' => true,
@@ -81,10 +81,10 @@ class NavFooter extends Abstract_Component {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => '',
-				'label'                 => __( 'Items Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Items Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
@@ -107,10 +107,10 @@ class NavFooter extends Abstract_Component {
 				'group'                 => self::COMPONENT_ID,
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'postMessage',
-				'sanitize_callback'     => 'neve_sanitize_colors',
+				'sanitize_callback'     => 'nueve4_sanitize_colors',
 				'default'               => 'var(--nv-primary-accent)',
-				'label'                 => __( 'Items Hover Color', 'neve' ),
-				'type'                  => 'neve_color_control',
+				'label'                 => __( 'Items Hover Color', 'nueve4' ),
+				'type'                  => 'nueve4_color_control',
 				'section'               => $this->section,
 				'live_refresh_selector' => true,
 				'live_refresh_css_prop' => [
@@ -139,11 +139,11 @@ class NavFooter extends Abstract_Component {
 				'tab'               => SettingsManager::TAB_GENERAL,
 				'transport'         => 'postMessage',
 				'sanitize_callback' => 'esc_attr',
-				'type'              => '\Neve\Customizer\Controls\Button',
+				'type'              => '\Nueve4\Customizer\Controls\Button',
 				'options'           => [
 					'button_class' => 'nv-top-bar-menu-shortcut',
 					'icon_class'   => 'menu',
-					'button_text'  => __( 'Footer Menu', 'neve' ),
+					'button_text'  => __( 'Footer Menu', 'nueve4' ),
 					'shortcut'     => true,
 				],
 				'section'           => $this->section,
@@ -156,8 +156,8 @@ class NavFooter extends Abstract_Component {
 				'group'              => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                => SettingsManager::TAB_LAYOUT,
 				'section'            => $this->section,
-				'label'              => __( 'Items Spacing (px)', 'neve' ),
-				'type'               => 'Neve\Customizer\Controls\React\Responsive_Range',
+				'label'              => __( 'Items Spacing (px)', 'nueve4' ),
+				'type'               => 'Nueve4\Customizer\Controls\React\Responsive_Range',
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => [ $this, 'sanitize_responsive_int_json' ],
 				'default'            => $this->get_default_for_responsive_from_intval( self::SPACING, 20 ),
@@ -187,11 +187,11 @@ class NavFooter extends Abstract_Component {
 				'id'                 => self::ITEM_HEIGHT,
 				'group'              => $this->get_class_const( 'COMPONENT_ID' ),
 				'tab'                => SettingsManager::TAB_LAYOUT,
-				'label'              => __( 'Items Min Height (px)', 'neve' ),
+				'label'              => __( 'Items Min Height (px)', 'nueve4' ),
 				'sanitize_callback'  => [ $this, 'sanitize_responsive_int_json' ],
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'default'            => $this->get_default_for_responsive_from_intval( self::ITEM_HEIGHT, 25 ),
-				'type'               => 'Neve\Customizer\Controls\React\Responsive_Range',
+				'type'               => 'Nueve4\Customizer\Controls\React\Responsive_Range',
 				'options'            => [
 					'input_attrs' => [
 						'min'        => 1,

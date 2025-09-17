@@ -2,15 +2,15 @@
 /**
  * Compatibility with Header Footer for Beaver Builder plugin.
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 /**
  * Class Header_Footer_Beaver
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class Header_Footer_Beaver {
 
@@ -43,8 +43,8 @@ class Header_Footer_Beaver {
 	 * Replace theme hooks with the one from the plugin.
 	 */
 	private function add_theme_builder_hooks() {
-		add_action( 'neve_do_header', array( $this, 'do_header' ), 0 );
-		add_action( 'neve_do_footer', array( $this, 'do_footer' ), 0 );
+		add_action( 'nueve4_do_header', array( $this, 'do_header' ), 0 );
+		add_action( 'nueve4_do_footer', array( $this, 'do_footer' ), 0 );
 	}
 
 	/**
@@ -55,8 +55,8 @@ class Header_Footer_Beaver {
 		if ( empty( $header_id ) ) {
 			return false;
 		}
-		remove_all_actions( 'neve_do_top_bar' );
-		remove_all_actions( 'neve_do_header' );
+		remove_all_actions( 'nueve4_do_top_bar' );
+		remove_all_actions( 'nueve4_do_header' );
 
 		echo '<header id="nv-beaver-header">';
 		\BB_Header_Footer::get_header_content();
@@ -73,7 +73,7 @@ class Header_Footer_Beaver {
 		if ( empty( $footer_id ) ) {
 			return false;
 		}
-		remove_all_actions( 'neve_do_footer' );
+		remove_all_actions( 'nueve4_do_footer' );
 		echo '<footer id="nv-beaver-footer">';
 		\BB_Header_Footer::get_footer_content();
 		echo '</footer>';

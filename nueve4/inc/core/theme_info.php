@@ -2,10 +2,10 @@
 /**
  * Theme Info trait.
  *
- * @package Neve\Core
+ * @package Nueve4\Core
  */
 
-namespace Neve\Core;
+namespace Nueve4\Core;
 
 /**
  * Theme_Info trait

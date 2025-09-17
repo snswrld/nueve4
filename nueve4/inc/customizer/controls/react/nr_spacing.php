@@ -2,15 +2,15 @@
 /**
  * Non Responsive Spacing Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Spacing
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Nr_Spacing extends \WP_Customize_Control {
 	/**
@@ -18,7 +18,7 @@ class Nr_Spacing extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_non_responsive_spacing';
+	public $type = 'nueve4_non_responsive_spacing';
 
 	/**
 	 * Min.

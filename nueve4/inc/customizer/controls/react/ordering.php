@@ -2,15 +2,15 @@
 /**
  * Radio Image Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Ordering
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Ordering extends \WP_Customize_Control {
 
@@ -19,7 +19,7 @@ class Ordering extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_ordering_control';
+	public $type = 'nueve4_ordering_control';
 
 	/**
 	 * Additional arguments passed to JS.

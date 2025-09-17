@@ -2,15 +2,15 @@
 /**
  * Metabox range control.
  *
- * @package Neve\Admin\Metabox\Controls
+ * @package Nueve4\Admin\Metabox\Controls
  */
 
-namespace Neve\Admin\Metabox\Controls;
+namespace Nueve4\Admin\Metabox\Controls;
 
 /**
  * Class Range
  *
- * @package Neve\Admin\Metabox\Controls
+ * @package Nueve4\Admin\Metabox\Controls
  */
 class Range extends Control_Base {
 	/**
@@ -27,22 +27,22 @@ class Range extends Control_Base {
 	 */
 	public function render_content( $post_id ) {
 		$value      = $this->get_value( $post_id );
-		$class      = 'neve-range-input ';
+		$class      = 'nueve4-range-input ';
 		$dependency = '';
 		if ( $this->settings['hidden'] === true ) {
-			$class .= ' neve-hidden';
+			$class .= ' nueve4-hidden';
 		}
 		if ( isset( $this->settings['depends_on'] ) ) {
 			$dependency .= ' data-depends=' . esc_attr( $this->settings['depends_on'] );
-			$class      .= ' neve-dependent';
+			$class      .= ' nueve4-dependent';
 		}
 
 		$markup = '
 <style>
-.neve-range-input{display: flex; align-items: center;}
-.neve-range-input .nv-range{flex-grow: 1; margin-right: 5px;}
-.neve-range-input .nv-number{min-width: 0; margin-left: auto;}
-.neve-range-input.neve-hidden{display: none;}
+.nueve4-range-input{display: flex; align-items: center;}
+.nueve4-range-input .nv-range{flex-grow: 1; margin-right: 5px;}
+.nueve4-range-input .nv-number{min-width: 0; margin-left: auto;}
+.nueve4-range-input.nueve4-hidden{display: none;}
 </style>';
 
 		$markup .= '<p class="' . esc_attr( $class ) . '" ' . esc_attr( $dependency ) . ' >';

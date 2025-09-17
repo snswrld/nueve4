@@ -2,15 +2,15 @@
 /**
  * Page settings metabox.
  *
- * @package Neve
+ * @package Nueve4
  */
 
-namespace Neve\Admin\Metabox;
+namespace Nueve4\Admin\Metabox;
 
 /**
  * Class Metabox
  *
- * @package Neve\Admin\Metabox
+ * @package Nueve4\Admin\Metabox
  */
 class Main extends Controls_Base {
 
@@ -20,9 +20,9 @@ class Main extends Controls_Base {
 	 */
 	public function add_controls() {
 		$this->add_layout_controls();
-		$this->add_control( new Controls\Separator( 'neve_meta_separator', array( 'priority' => 20 ) ) );
+		$this->add_control( new Controls\Separator( 'nueve4_meta_separator', array( 'priority' => 20 ) ) );
 		$this->add_content_toggles();
-		$this->add_control( new Controls\Separator( 'neve_meta_separator', array( 'priority' => 45 ) ) );
+		$this->add_control( new Controls\Separator( 'nueve4_meta_separator', array( 'priority' => 45 ) ) );
 		$this->add_content_width();
 	}
 
@@ -32,15 +32,15 @@ class Main extends Controls_Base {
 	private function add_layout_controls() {
 		$this->add_control(
 			new Controls\Radio(
-				'neve_meta_container',
+				'nueve4_meta_container',
 				array(
 					'default' => 'default',
 					'choices' => array(
-						'default'    => __( 'Customizer Setting', 'neve' ),
-						'contained'  => __( 'Contained', 'neve' ),
-						'full-width' => __( 'Full Width', 'neve' ),
+						'default'    => __( 'Customizer Setting', 'nueve4' ),
+						'contained'  => __( 'Contained', 'nueve4' ),
+						'full-width' => __( 'Full Width', 'nueve4' ),
 					),
-					'label'   => __( 'Container', 'neve' ),
+					'label'   => __( 'Container', 'nueve4' ),
 				)
 			)
 		);
@@ -49,16 +49,16 @@ class Main extends Controls_Base {
 
 		$this->add_control(
 			new Controls\Radio(
-				'neve_meta_sidebar',
+				'nueve4_meta_sidebar',
 				array(
 					'default'  => $position_default,
 					'choices'  => array(
-						'default'    => __( 'Customizer Setting', 'neve' ),
-						'left'       => __( 'Left Sidebar', 'neve' ),
-						'right'      => __( 'Right Sidebar', 'neve' ),
-						'full-width' => __( 'No Sidebar', 'neve' ),
+						'default'    => __( 'Customizer Setting', 'nueve4' ),
+						'left'       => __( 'Left Sidebar', 'nueve4' ),
+						'right'      => __( 'Right Sidebar', 'nueve4' ),
+						'full-width' => __( 'No Sidebar', 'nueve4' ),
 					),
-					'label'    => __( 'Sidebar', 'neve' ),
+					'label'    => __( 'Sidebar', 'nueve4' ),
 					'priority' => 15,
 				)
 			)
@@ -70,27 +70,27 @@ class Main extends Controls_Base {
 	 */
 	private function add_content_toggles() {
 		$content_controls = array(
-			'neve_meta_disable_header'         => array(
+			'nueve4_meta_disable_header'         => array(
 				'default'     => 'off',
-				'label'       => __( 'Components', 'neve' ),
-				'input_label' => __( 'Disable Header', 'neve' ),
+				'label'       => __( 'Components', 'nueve4' ),
+				'input_label' => __( 'Disable Header', 'nueve4' ),
 				'priority'    => 25,
 			),
-			'neve_meta_disable_title'          => array(
+			'nueve4_meta_disable_title'          => array(
 				'default'         => 'off',
-				'input_label'     => __( 'Disable Title', 'neve' ),
+				'input_label'     => __( 'Disable Title', 'nueve4' ),
 				'active_callback' => array( $this, 'hide_on_single_product' ),
 				'priority'        => 30,
 			),
-			'neve_meta_disable_featured_image' => array(
+			'nueve4_meta_disable_featured_image' => array(
 				'default'         => 'off',
-				'input_label'     => __( 'Disable Featured Image', 'neve' ),
+				'input_label'     => __( 'Disable Featured Image', 'nueve4' ),
 				'active_callback' => array( $this, 'hide_on_single_page_and_product' ),
 				'priority'        => 35,
 			),
-			'neve_meta_disable_footer'         => array(
+			'nueve4_meta_disable_footer'         => array(
 				'default'     => 'off',
-				'input_label' => __( 'Disable Footer', 'neve' ),
+				'input_label' => __( 'Disable Footer', 'nueve4' ),
 				'priority'    => 40,
 			),
 		);
@@ -130,24 +130,24 @@ class Main extends Controls_Base {
 
 		$this->add_control(
 			new Controls\Checkbox(
-				'neve_meta_enable_content_width',
+				'nueve4_meta_enable_content_width',
 				array(
 					'default'     => $enabled_default,
-					'label'       => __( 'Content Width', 'neve' ) . ' (%)',
-					'input_label' => __( 'Enable Individual Content Width', 'neve' ),
+					'label'       => __( 'Content Width', 'nueve4' ) . ' (%)',
+					'input_label' => __( 'Enable Individual Content Width', 'nueve4' ),
 					'priority'    => 50,
 				)
 			)
 		);
 		$this->add_control(
 			new Controls\Range(
-				'neve_meta_content_width',
+				'nueve4_meta_content_width',
 				array(
 					'default'    => $width_default,
 					'min'        => 50,
 					'max'        => 100,
 					'hidden'     => self::hide_content_width(),
-					'depends_on' => 'neve_meta_enable_content_width',
+					'depends_on' => 'nueve4_meta_enable_content_width',
 					'priority'   => 55,
 				)
 			)
@@ -168,7 +168,7 @@ class Main extends Controls_Base {
 			return true;
 		}
 
-		$meta = get_post_meta( (int) $_GET['post'], 'neve_meta_enable_content_width', true );
+		$meta = get_post_meta( (int) $_GET['post'], 'nueve4_meta_enable_content_width', true );
 
 		if ( empty( $meta ) && self::is_checkout() ) {
 			return false;

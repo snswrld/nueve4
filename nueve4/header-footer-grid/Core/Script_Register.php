@@ -2,7 +2,7 @@
 /**
  * Handles Inline Script Register for HFG components
  *
- * @package Neve
+ * @package Nueve4
  */
 namespace HFG\Core;
 

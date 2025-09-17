@@ -44,7 +44,7 @@ feat: add new filter for tsdk_utmify query arguments
 
 ##### [Version 3.3.9](https://github.com/Codeinwp/themeisle-sdk/compare/v3.3.8...v3.3.9) (2023-11-16)
 
-- Fix: a debugging error when you activate Neve Pro after installing Otter & Otter Pro without the license.
+- Fix: a debugging error when you activate Nueve4 Pro after installing Otter & Otter Pro without the license.
 
 ##### [Version 3.3.8](https://github.com/Codeinwp/themeisle-sdk/compare/v3.3.7...v3.3.8) (2023-11-14)
 
@@ -56,7 +56,7 @@ feat: add new filter for tsdk_utmify query arguments
 
 ##### [Version 3.3.6](https://github.com/Codeinwp/themeisle-sdk/compare/v3.3.5...v3.3.6) (2023-10-05)
 
-- Fix duplicate notification in Neve FSE
+- Fix duplicate notification in Nueve4 FSE
 - Fix SDK breaking Enfold theme builder
 
 ##### [Version 3.3.5](https://github.com/Codeinwp/themeisle-sdk/compare/v3.3.4...v3.3.5) (2023-09-29)
@@ -78,12 +78,12 @@ Fix TPC typo.
 
 ##### [Version 3.3.1](https://github.com/Codeinwp/themeisle-sdk/compare/v3.3.0...v3.3.1) (2023-06-21)
 
-- Fix Neve FSE promo typo
+- Fix Nueve4 FSE promo typo
 
 #### [Version 3.3.0](https://github.com/Codeinwp/themeisle-sdk/compare/v3.2.41...v3.3.0) (2023-05-30)
 
 - Adds About Page Integration
-- Adds promos for Neve FSE, Sparks & PPOM
+- Adds promos for Nueve4 FSE, Sparks & PPOM
 
 ##### [Version 3.2.41](https://github.com/Codeinwp/themeisle-sdk/compare/v3.2.40...v3.2.41) (2023-05-10)
 

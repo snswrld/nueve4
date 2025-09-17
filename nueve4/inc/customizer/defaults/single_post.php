@@ -2,18 +2,18 @@
 /**
  * Default settings traits, shared with other classes.
  *
- * @package Neve\Customizer\Defaults
+ * @package Nueve4\Customizer\Defaults
  */
 
-namespace Neve\Customizer\Defaults;
+namespace Nueve4\Customizer\Defaults;
 
-use Neve\Core\Settings\Config;
-use Neve\Customizer\Options\Layout_Single_Post;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Customizer\Options\Layout_Single_Post;
 
 /**
  * Trait Single_Post_Defaults
  *
- * @package Neve\Customizer\Defaults
+ * @package Nueve4\Customizer\Defaults
  */
 trait Single_Post {
 
@@ -104,7 +104,7 @@ trait Single_Post {
 			];
 		}
 
-		return apply_filters( 'neve_single_post_elements_default_order', $default_components );
+		return apply_filters( 'nueve4_single_post_elements_default_order', $default_components );
 	}
 
 	/**
@@ -126,9 +126,9 @@ trait Single_Post {
 		 *
 		 * @since 3.1.0
 		 */
-		$allowed_context = apply_filters( 'neve_allowed_custom_post_types', $allowed, 10, 1 );
+		$allowed_context = apply_filters( 'nueve4_allowed_custom_post_types', $allowed, 10, 1 );
 		$context         = get_post_type();
-		$context         = apply_filters( 'neve_context_filter', $context, 10, 1 );
+		$context         = apply_filters( 'nueve4_context_filter', $context, 10, 1 );
 
 		return [ $context, $allowed_context ];
 	}
@@ -184,7 +184,7 @@ trait Single_Post {
 			return '';
 		}
 
-		return 'neve_single_' . $context . '_' . Config::MODS_CONTENT_WIDTH;
+		return 'nueve4_single_' . $context . '_' . Config::MODS_CONTENT_WIDTH;
 	}
 
 	/**
@@ -219,26 +219,26 @@ trait Single_Post {
 			return '';
 		}
 
-		return 'neve_' . $context . '_' . $meta;
+		return 'nueve4_' . $context . '_' . $meta;
 	}
 
 	/**
-	 * Returns default values for "neve_single_post_meta_fields" theme mod.
+	 * Returns default values for "nueve4_single_post_meta_fields" theme mod.
 	 *
 	 * @return string
 	 */
 	public static function get_default_single_post_meta_fields() {
 		/**
-		 * We replaced the old ordering control neve_post_meta_ordering with a repeater control named neve_single_post_meta_fields.
+		 * We replaced the old ordering control nueve4_post_meta_ordering with a repeater control named nueve4_single_post_meta_fields.
 		 * Because of that, we need to add some transformations:
 		 */
 
 		$default = wp_json_encode( [ 'author', 'date', 'comments' ] );
 
 		// Take the old control value and bring it to a form that can be used in a repeater.
-		$default_value = neve_get_default_meta_value( 'neve_post_meta_ordering', $default );
+		$default_value = nueve4_get_default_meta_value( 'nueve4_post_meta_ordering', $default );
 
 		// We need to get the value of the meta on blogs.
-		return get_theme_mod( 'neve_blog_post_meta_fields', wp_json_encode( $default_value ) );
+		return get_theme_mod( 'nueve4_blog_post_meta_fields', wp_json_encode( $default_value ) );
 	}
 }

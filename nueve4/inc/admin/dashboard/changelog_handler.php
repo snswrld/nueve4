@@ -4,15 +4,15 @@
  *
  * Handles parsing for Changelog files.
  *
- * @package Neve\Admin\Dashboard
+ * @package Nueve4\Admin\Dashboard
  */
 
-namespace Neve\Admin\Dashboard;
+namespace Nueve4\Admin\Dashboard;
 
 /**
  * Class Changelog_Handler
  *
- * @package Neve\Admin\Dashboard
+ * @package Nueve4\Admin\Dashboard
  */
 class Changelog_Handler {
 	/**

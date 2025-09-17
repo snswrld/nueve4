@@ -3,17 +3,17 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      02/11/2018
  *
- * @package neve
+ * @package nueve4
  */
 
-namespace Neve\Views\Partials;
+namespace Nueve4\Views\Partials;
 
-use Neve\Views\Base_View;
+use Nueve4\Views\Base_View;
 
 /**
  * Class Comments
  *
- * @package Neve\Views\Partials
+ * @package Nueve4\Views\Partials
  */
 class Comments extends Base_View {
 
@@ -28,7 +28,7 @@ class Comments extends Base_View {
 	 * Add in functionality.
 	 */
 	public function init() {
-		add_action( 'neve_do_comment_area', array( $this, 'render_comment_form' ) );
+		add_action( 'nueve4_do_comment_area', array( $this, 'render_comment_form' ) );
 		add_filter( 'comment_form_defaults', array( $this, 'leave_reply_title_tag' ) );
 		add_filter( 'comment_form_fields', array( $this, 'move_textarea' ) );
 	}
@@ -37,7 +37,7 @@ class Comments extends Base_View {
 	 * Render the comments form.
 	 */
 	public function render_comment_form() {
-		$display_form_first    = apply_filters( 'neve_show_comment_form_first', false );
+		$display_form_first    = apply_filters( 'nueve4_show_comment_form_first', false );
 		$comment_form_settings = $this->get_sumbit_form_settings();
 
 		if ( $display_form_first ) {
@@ -46,7 +46,7 @@ class Comments extends Base_View {
 
 		if ( have_comments() ) {
 			$comments_wrap_classes = [ 'nv-comments-wrap' ];
-			$is_boxed              = get_theme_mod( 'neve_comments_boxed_layout', false );
+			$is_boxed              = get_theme_mod( 'nueve4_comments_boxed_layout', false );
 			if ( $is_boxed ) {
 				$comments_wrap_classes[] = 'nv-is-boxed';
 			}
@@ -84,7 +84,7 @@ class Comments extends Base_View {
 			get_comments_number() &&
 			post_type_supports( get_post_type(), 'comments' ) ) {
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'neve' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'nueve4' ); ?></p>
 			<?php
 		}
 		if ( ! $display_form_first ) {
@@ -100,20 +100,20 @@ class Comments extends Base_View {
 	private function get_sumbit_form_settings() {
 		$form_settings = [];
 
-		$form_title = get_theme_mod( 'neve_post_comment_form_title' );
+		$form_title = get_theme_mod( 'nueve4_post_comment_form_title' );
 		if ( ! empty( $form_title ) ) {
 			$form_settings['title_reply'] = $form_title;
 		}
 
-		$submit_button_style           = get_theme_mod( 'neve_post_comment_form_button_style', 'primary' );
+		$submit_button_style           = get_theme_mod( 'nueve4_post_comment_form_button_style', 'primary' );
 		$form_settings['class_submit'] = 'button button-' . esc_attr( $submit_button_style );
 
-		$button_text = get_theme_mod( 'neve_post_comment_form_button_text' );
+		$button_text = get_theme_mod( 'nueve4_post_comment_form_button_text' );
 		if ( ! empty( $button_text ) ) {
 			$form_settings['label_submit'] = $button_text;
 		}
 
-		$boxed_layout = get_theme_mod( 'neve_comments_form_boxed_layout', true );
+		$boxed_layout = get_theme_mod( 'nueve4_comments_form_boxed_layout', true );
 		if ( $boxed_layout ) {
 			$form_settings['class_container'] = 'comment-respond nv-is-boxed';
 		}
@@ -131,15 +131,15 @@ class Comments extends Base_View {
 			return;
 		}
 
-		$aria_label = __( 'Comments Navigation', 'neve' );
+		$aria_label = __( 'Comments Navigation', 'nueve4' );
 		?>
 		<nav class="nv-comment-navigation" role="navigation" aria-label="<?php echo esc_attr( $aria_label ); ?>">
 			<div class="nav-links">
 				<div class="nav-previous">
-					<?php previous_comments_link( __( 'Previous', 'neve' ) ); ?>
+					<?php previous_comments_link( __( 'Previous', 'nueve4' ) ); ?>
 				</div>
 				<div class="nav-next">
-					<?php next_comments_link( __( 'Next', 'neve' ) ); ?>
+					<?php next_comments_link( __( 'Next', 'nueve4' ) ); ?>
 				</div>
 			</div>
 		</nav>
@@ -176,9 +176,9 @@ class Comments extends Base_View {
 				<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
 					<p>
 						<?php
-						echo esc_html__( 'Pingback:', 'neve' ) . '&nbsp;';
+						echo esc_html__( 'Pingback:', 'nueve4' ) . '&nbsp;';
 						comment_author_link();
-						edit_comment_link( '(' . esc_html__( 'Edit', 'neve' ) . ')', '&nbsp;<span class="edit-link">', '</span>' );
+						edit_comment_link( '(' . esc_html__( 'Edit', 'nueve4' ) . ')', '&nbsp;<span class="edit-link">', '</span>' );
 						?>
 					</p>
 				</li>
@@ -203,7 +203,7 @@ class Comments extends Base_View {
 											content="<?php echo esc_attr( get_comment_time( 'Y-m-d' ) ); ?>">
 										<?php
 										/* translators: 1: date, 2: time */
-										echo sprintf( esc_html__( '%1$s at %2$s', 'neve' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) );
+										echo sprintf( esc_html__( '%1$s at %2$s', 'nueve4' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) );
 										?>
 									</time>
 								</a>
@@ -216,7 +216,7 @@ class Comments extends Base_View {
 							<?php comment_text(); ?>
 							<?php if ( '0' === $comment->comment_approved ) { ?>
 								<p class="comment-awaiting-moderation">
-									<?php echo esc_html__( 'Comment awaiting moderation.', 'neve' ); ?>
+									<?php echo esc_html__( 'Comment awaiting moderation.', 'nueve4' ); ?>
 								</p>
 							<?php } ?>
 						</div>
@@ -243,13 +243,13 @@ class Comments extends Base_View {
 	private function render_edit_reply_link( $args, $depth ) {
 		?>
 		<div class="edit-reply">
-			<?php edit_comment_link( '(' . esc_html__( 'Edit', 'neve' ) . ')' ); ?>
+			<?php edit_comment_link( '(' . esc_html__( 'Edit', 'nueve4' ) . ')' ); ?>
 			<?php
 			comment_reply_link(
 				array_merge(
 					$args,
 					array(
-						'reply_text' => esc_html__( 'Reply', 'neve' ),
+						'reply_text' => esc_html__( 'Reply', 'nueve4' ),
 						'add_below'  => 'comment',
 						'depth'      => $depth,
 						'max_depth'  => $args['max_depth'],
@@ -282,22 +282,22 @@ class Comments extends Base_View {
 						'%1$s thoughts on &ldquo;%2$s&rdquo;',
 						get_comments_number(),
 						'comments title',
-						'neve'
+						'nueve4'
 					)
 				),
 				$comments_number,
 				$title
 			);
 
-		$comments_title = get_theme_mod( 'neve_post_comment_section_title' );
+		$comments_title = get_theme_mod( 'nueve4_post_comment_section_title' );
 		if ( empty( $comments_title ) ) {
-			return apply_filters( 'neve_filter_comments_title', $empty_comments_title );
+			return apply_filters( 'nueve4_filter_comments_title', $empty_comments_title );
 		}
 
 		$comments_title = str_replace( '{comments_number}', $comments_number, $comments_title );
 		$comments_title = str_replace( '{title}', $title, $comments_title );
 
-		return apply_filters( 'neve_filter_comments_title', $comments_title );
+		return apply_filters( 'nueve4_filter_comments_title', $comments_title );
 	}
 
 	/**

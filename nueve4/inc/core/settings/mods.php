@@ -10,6 +10,8 @@
 
 namespace Nueve4\Core\Settings;
 
+use Nueve4\Core\Settings\Config;
+
 /**
  * Class Admin
  *

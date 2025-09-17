@@ -14,11 +14,11 @@ namespace HFG\Core\Components;
 use HFG\Core\Script_Register;
 use HFG\Core\Settings\Manager as SettingsManager;
 use HFG\Main;
-use Neve\Core\Dynamic_Css;
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
-use Neve\Core\Styles\Dynamic_Selector;
-use Neve\Core\Theme_Info;
+use Nueve4\Core\Dynamic_Css;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
+use Nueve4\Core\Styles\Dynamic_Selector;
+use Nueve4\Core\Theme_Info;
 
 /**
  * Class PaletteSwitch
@@ -94,14 +94,14 @@ class PaletteSwitch extends Abstract_Component {
 	 * @return void
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Palette Switch', 'neve' ) );
+		$this->set_property( 'label', __( 'Palette Switch', 'nueve4' ) );
 		$this->set_property( 'id', $this->get_class_const( 'COMPONENT_ID' ) );
 		$this->set_property( 'default_selector', '.builder-item--' . $this->get_id() );
 		$this->set_property( 'is_auto_width', true );
 
-		add_filter( 'neve_after_css_root', [ $this, 'toggle_css' ] );
+		add_filter( 'nueve4_after_css_root', [ $this, 'toggle_css' ] );
 		if ( defined( 'ELEMENTOR_VERSION' ) ) {
-			add_filter( 'neve_elementor_colors', [ $this, 'toggle_elementor_css' ] );
+			add_filter( 'nueve4_elementor_colors', [ $this, 'toggle_elementor_css' ] );
 		}
 		add_action( 'wp_enqueue_scripts', [ $this, 'load_scripts' ] );
 		add_filter( 'hfg_component_scripts', [ $this, 'register_script' ] );
@@ -109,8 +109,8 @@ class PaletteSwitch extends Abstract_Component {
 		add_filter(
 			'language_attributes',
 			function ( $output ) {
-				if ( neve_is_amp() ) {
-					return $output . " [class]=\"isDark ? 'neve-dark-theme' : 'neve-light-theme'\" class=\"neve-dark-theme\" ";
+				if ( nueve4_is_amp() ) {
+					return $output . " [class]=\"isDark ? 'nueve4-dark-theme' : 'nueve4-light-theme'\" class=\"nueve4-dark-theme\" ";
 				}
 
 				return $output;
@@ -138,7 +138,7 @@ class PaletteSwitch extends Abstract_Component {
 	 */
 	public function load_scripts() {
 		if ( $this->is_component_active() || is_customize_preview() ) {
-			wp_add_inline_style( 'neve-style', $this->toggle_style() );
+			wp_add_inline_style( 'nueve4-style', $this->toggle_style() );
 		}
 	}
 
@@ -179,7 +179,7 @@ class PaletteSwitch extends Abstract_Component {
 			$default_state = 'window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"';
 		}
 
-		return '!function() {const e = "neve_user_theme";const t = "data-neve-theme";let n = ' . ( ! $auto_adjust && ! is_customize_preview() ? 'localStorage.getItem(e) || ' . $default_state : $default_state ) . ';document.documentElement.setAttribute(t, n);document.addEventListener("click", (n => {if (n.target.matches(".palette-icon-wrapper, .palette-icon-wrapper *")) {(n => {n.preventDefault();const a = "light" === document.documentElement.getAttribute(t) ? "dark" : "light";document.documentElement.setAttribute(t, a);localStorage.setItem(e, a);})(n);}}));}();';
+		return '!function() {const e = "nueve4_user_theme";const t = "data-nueve4-theme";let n = ' . ( ! $auto_adjust && ! is_customize_preview() ? 'localStorage.getItem(e) || ' . $default_state : $default_state ) . ';document.documentElement.setAttribute(t, n);document.addEventListener("click", (n => {if (n.target.matches(".palette-icon-wrapper, .palette-icon-wrapper *")) {(n => {n.preventDefault();const a = "light" === document.documentElement.getAttribute(t) ? "dark" : "light";document.documentElement.setAttribute(t, a);localStorage.setItem(e, a);})(n);}}));}();';
 	}
 
 	/**
@@ -191,7 +191,7 @@ class PaletteSwitch extends Abstract_Component {
 		$default_light = 'base';
 		$default_dark  = 'darkMode';
 
-		$customizer       = Mods::get( 'neve_global_colors', neve_get_global_colors_default( true ) );
+		$customizer       = Mods::get( 'nueve4_global_colors', nueve4_get_global_colors_default( true ) );
 		$defined_palettes = $customizer['palettes'];
 		$active_light     = $customizer['activePalette'];
 		$active_dark      = Mods::get( $this->get_id() . '_' . self::DARK_PALETTE_ID, $default_dark );
@@ -253,10 +253,10 @@ class PaletteSwitch extends Abstract_Component {
 		}
 
 		return $css . '
-		[data-neve-theme="light"], html.neve-light-theme {
+		[data-nueve4-theme="light"], html.nueve4-light-theme {
 			' . $light_css . '
 		}
-		[data-neve-theme="dark"], html.neve-dark-theme ~ * {
+		[data-nueve4-theme="dark"], html.nueve4-dark-theme ~ * {
 			' . $dark_css . '
 		}
 		';
@@ -307,10 +307,10 @@ class PaletteSwitch extends Abstract_Component {
 		}
 
 		$style .= '
-		[data-neve-theme="light"], html.neve-light-theme {
+		[data-nueve4-theme="light"], html.nueve4-light-theme {
 			' . $light_css . '
 		}
-		[data-neve-theme="dark"], html.neve-dark-theme ~ * {
+		[data-nueve4-theme="dark"], html.nueve4-dark-theme ~ * {
 			' . $dark_css . '
 		}
 		';
@@ -325,7 +325,7 @@ class PaletteSwitch extends Abstract_Component {
 	 */
 	public function add_settings() {
 
-		$customizer           = Mods::get( 'neve_global_colors', neve_get_global_colors_default( true ) );
+		$customizer           = Mods::get( 'nueve4_global_colors', nueve4_get_global_colors_default( true ) );
 		$defined_palettes     = $customizer['palettes'];
 		$dark_palette_default = isset( $customizer['palettes']['darkMode'] ) ? 'darkMode' : array_keys( $customizer['palettes'] )[1];
 
@@ -341,9 +341,9 @@ class PaletteSwitch extends Abstract_Component {
 				'tab'         => SettingsManager::TAB_GENERAL,
 				'transport'   => 'postMessage',
 				'section'     => $this->section,
-				'label'       => __( 'Light Palette', 'neve' ),
+				'label'       => __( 'Light Palette', 'nueve4' ),
 				/* translators: %s: Link to Edit global color customizer. */
-				'description' => sprintf( __( 'The base palette is used for light mode. %1$sEdit color palettes%2$s.', 'neve' ), '<br/><a onclick="wp.customize.control(\'neve_global_colors\').focus()" href="javascript:void(0);">', '</a>' ),
+				'description' => sprintf( __( 'The base palette is used for light mode. %1$sEdit color palettes%2$s.', 'nueve4' ), '<br/><a onclick="wp.customize.control(\'nueve4_global_colors\').focus()" href="javascript:void(0);">', '</a>' ),
 				'type'        => 'hidden',
 				'default'     => '',
 			]
@@ -356,14 +356,14 @@ class PaletteSwitch extends Abstract_Component {
 				'tab'               => SettingsManager::TAB_GENERAL,
 				'transport'         => 'refresh',
 				'sanitize_callback' => 'wp_filter_nohtml_kses',
-				'label'             => __( 'Dark Palette', 'neve' ),
-				'description'       => __( 'Dark Palette', 'neve' ),
-				'type'              => 'Neve\Customizer\Controls\React\Inline_Select',
+				'label'             => __( 'Dark Palette', 'nueve4' ),
+				'description'       => __( 'Dark Palette', 'nueve4' ),
+				'type'              => 'Nueve4\Customizer\Controls\React\Inline_Select',
 				'default'           => $dark_palette_default,
 				'options'           => [
 					'options'    => $available_palettes,
 					'default'    => $dark_palette_default,
-					'changes_on' => 'neve_global_colors',
+					'changes_on' => 'nueve4_global_colors',
 				],
 				'section'           => $this->section,
 			]
@@ -376,7 +376,7 @@ class PaletteSwitch extends Abstract_Component {
 			],
 			'setting_custom' => [
 				'transport'         => 'post' . self::COMPONENT_ID,
-				'sanitize_callback' => 'neve_kses_svg',
+				'sanitize_callback' => 'nueve4_kses_svg',
 				'default'           => '',
 			],
 		] : [];
@@ -389,9 +389,9 @@ class PaletteSwitch extends Abstract_Component {
 					'tab'               => SettingsManager::TAB_GENERAL,
 					'transport'         => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 					'sanitize_callback' => 'wp_filter_nohtml_kses',
-					'label'             => __( 'Select icon', 'neve' ),
-					'description'       => __( 'Select icon', 'neve' ),
-					'type'              => 'Neve\Customizer\Controls\React\Radio_Buttons',
+					'label'             => __( 'Select icon', 'nueve4' ),
+					'description'       => __( 'Select icon', 'nueve4' ),
+					'type'              => 'Nueve4\Customizer\Controls\React\Radio_Buttons',
 					'default'           => 'contrast',
 					'options'           => [
 						'is_for' => 'palette_switch',
@@ -420,8 +420,8 @@ class PaletteSwitch extends Abstract_Component {
 				'tab'                   => SettingsManager::TAB_GENERAL,
 				'transport'             => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'     => array( $this, 'sanitize_responsive_int_json' ),
-				'label'                 => __( 'Icon Size', 'neve' ),
-				'type'                  => 'Neve\Customizer\Controls\React\Responsive_Range',
+				'label'                 => __( 'Icon Size', 'nueve4' ),
+				'type'                  => 'Nueve4\Customizer\Controls\React\Responsive_Range',
 				'default'               => $default_size_values,
 				'options'               => [
 					'input_attrs' => [
@@ -455,10 +455,10 @@ class PaletteSwitch extends Abstract_Component {
 				'transport'          => 'post' . $this->get_class_const( 'COMPONENT_ID' ),
 				'sanitize_callback'  => 'wp_filter_nohtml_kses',
 				'default'            => '',
-				'label'              => __( 'Label', 'neve' ),
+				'label'              => __( 'Label', 'nueve4' ),
 				'options'            => [
 					'input_attrs' => array(
-						'placeholder' => __( 'Leave blank for no label ...', 'neve' ),
+						'placeholder' => __( 'Leave blank for no label ...', 'nueve4' ),
 					),
 				],
 				'type'               => 'text',
@@ -475,10 +475,10 @@ class PaletteSwitch extends Abstract_Component {
 				'transport'          => 'refresh',
 				'sanitize_callback'  => 'absint',
 				'default'            => 0,
-				'label'              => __( 'Automatically adjust color scheme', 'neve' ),
+				'label'              => __( 'Automatically adjust color scheme', 'nueve4' ),
 				/* translators: %s: Link to Learn More page. */
-				'description'        => sprintf( __( 'Adjust default color scheme based on the user device preferences. %1$sLearn More%2$s.', 'neve' ), '<a target="_blank" rel="external noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">', '<span class="components-visually-hidden">(opens in a new tab)</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="components-external-link__icon css-6wogo1-StyledIcon etxm6pv0" role="img" aria-hidden="true" focusable="false"><path d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"></path></svg></a>' ),
-				'type'               => 'neve_toggle_control',
+				'description'        => sprintf( __( 'Adjust default color scheme based on the user device preferences. %1$sLearn More%2$s.', 'nueve4' ), '<a target="_blank" rel="external noreferrer noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">', '<span class="components-visually-hidden">(opens in a new tab)</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="components-external-link__icon css-6wogo1-StyledIcon etxm6pv0" role="img" aria-hidden="true" focusable="false"><path d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"></path></svg></a>' ),
+				'type'               => 'nueve4_toggle_control',
 				'section'            => $this->section,
 				'conditional_header' => true,
 			]

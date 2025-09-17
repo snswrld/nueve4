@@ -2,18 +2,18 @@
 /**
  * Style generator based on settings.
  *
- * @package Neve\Core\Styles
+ * @package Nueve4\Core\Styles
  */
 
-namespace Neve\Core\Styles;
+namespace Nueve4\Core\Styles;
 
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
 
 /**
  * Class Generator for Gutenberg editor.
  *
- * @package Neve\Core\Styles
+ * @package Nueve4\Core\Styles
  */
 class Gutenberg extends Generator {
 	use Css_Vars;
@@ -62,13 +62,13 @@ class Gutenberg extends Generator {
 	 * Adds colors from the editor-color-palette theme support.
 	 */
 	private function add_editor_color_palette_styles() {
-		$is_new_user           = get_option( 'neve_new_user' );
-		$imported_starter_site = get_option( 'neve_imported_demo' );
+		$is_new_user           = get_option( 'nueve4_new_user' );
+		$imported_starter_site = get_option( 'nueve4_imported_demo' );
 		if ( $is_new_user === 'yes' && $imported_starter_site !== 'yes' ) {
 			return;
 		}
 
-		$this->_subscribers['.has-neve-button-color-color']            = [
+		$this->_subscribers['.has-nueve4-button-color-color']            = [
 			Config::CSS_PROP_COLOR => [
 				Dynamic_Selector::META_KEY       => Config::MODS_BUTTON_PRIMARY_STYLE . '.background',
 				Dynamic_Selector::META_IMPORTANT => true,
@@ -78,7 +78,7 @@ class Gutenberg extends Generator {
 				],
 			],
 		];
-		$this->_subscribers['.has-neve-button-color-background-color'] = [
+		$this->_subscribers['.has-nueve4-button-color-background-color'] = [
 			Config::CSS_PROP_BACKGROUND_COLOR => [
 				Dynamic_Selector::META_KEY       => Config::MODS_BUTTON_PRIMARY_STYLE . '.background',
 				Dynamic_Selector::META_IMPORTANT => true,

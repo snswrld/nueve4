@@ -2,11 +2,11 @@
 /**
  * Home starter content.
  *
- * @package Neve\Compatibility\Starter_Content
+ * @package Nueve4\Compatibility\Starter_Content
  */
 return [
 	'post_type'    => 'page',
-	'post_title'   => _x( 'Home', 'Theme starter content', 'neve' ),
+	'post_title'   => _x( 'Home', 'Theme starter content', 'nueve4' ),
 	'post_content' => '<!-- wp:cover {"url":"' . trailingslashit( get_template_directory_uri() ) . 'assets/img/starter-content/hero.jpg","dimRatio":0,"focalPoint":{"x":0.5,"y":0.64},"minHeight":700,"isDark":false,"align":"full"} -->
 <div class="wp-block-cover alignfull is-light" style="min-height:700px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="' . trailingslashit( get_template_directory_uri() ) . 'assets/img/starter-content/hero.jpg" style="object-position:50% 64%" data-object-fit="cover" data-object-position="50% 64%"/><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":"80px"} -->
 <div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
@@ -59,8 +59,8 @@ return [
 <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Fixed Price Projects</h3>
+<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Fixed Price Projects</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
@@ -83,8 +83,8 @@ return [
 <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Receive on time</h3>
+<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Receive on time</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
@@ -106,8 +106,8 @@ return [
 <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"neve-text-color"} -->
-<h3 class="has-text-align-center has-neve-text-color-color has-text-color">Fast work turnaround</h3>
+<!-- wp:heading {"level":3,"className":"has-text-align-center","textColor":"nueve4-text-color"} -->
+<h3 class="has-text-align-center has-nueve4-text-color-color has-text-color">Fast work turnaround</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"align":"center"} -->
@@ -142,12 +142,12 @@ return [
 <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"textAlign":"left","textColor":"neve-text-color"} -->
-<h2 class="has-text-align-left has-neve-text-color-color has-text-color">Web Design</h2>
+<!-- wp:heading {"textAlign":"left","textColor":"nueve4-text-color"} -->
+<h2 class="has-text-align-left has-nueve4-text-color-color has-text-color">Web Design</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"left","textColor":"neve-text-color","style":{"typography":{"fontSize":17}}} -->
-<p class="has-text-align-left has-neve-text-color-color has-text-color" style="font-size:17px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+<!-- wp:paragraph {"align":"left","textColor":"nueve4-text-color","style":{"typography":{"fontSize":17}}} -->
+<p class="has-text-align-left has-nueve4-text-color-color has-text-color" style="font-size:17px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"align":"left"} -->
@@ -172,12 +172,12 @@ return [
 
 <!-- wp:columns {"verticalAlignment":"center"} -->
 <div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
-<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:heading {"textAlign":"left","textColor":"neve-text-color"} -->
-<h2 class="has-text-align-left has-neve-text-color-color has-text-color">Branding</h2>
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:heading {"textAlign":"left","textColor":"nueve4-text-color"} -->
+<h2 class="has-text-align-left has-nueve4-text-color-color has-text-color">Branding</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"align":"left","textColor":"neve-text-color","style":{"typography":{"fontSize":17}}} -->
-<p class="has-text-align-left has-neve-text-color-color has-text-color" style="font-size:17px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+<!-- wp:paragraph {"align":"left","textColor":"nueve4-text-color","style":{"typography":{"fontSize":17}}} -->
+<p class="has-text-align-left has-nueve4-text-color-color has-text-color" style="font-size:17px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"align":"left"} -->
@@ -254,8 +254,8 @@ return [
 <div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:heading {"textColor":"neve-text-color"} -->
-<h2 class="has-neve-text-color-color has-text-color">Featured Work</h2>
+<!-- wp:heading {"textColor":"nueve4-text-color"} -->
+<h2 class="has-nueve4-text-color-color has-text-color">Featured Work</h2>
 <!-- /wp:heading -->
 
 <!-- wp:spacer {"height":20} -->
@@ -306,12 +306,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:paragraph {"align":"left","textColor":"neve-text-color","fontSize":"normal"} -->
-<p class="has-text-align-left has-neve-text-color-color has-text-color has-normal-font-size">“What is the point of being alive if you don’t at least try to do something remarkable?”</p>
+<!-- wp:paragraph {"align":"left","textColor":"nueve4-text-color","fontSize":"normal"} -->
+<p class="has-text-align-left has-nueve4-text-color-color has-text-color has-normal-font-size">“What is the point of being alive if you don’t at least try to do something remarkable?”</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color"} -->
-<p class="has-neve-text-color-color has-text-color">JANET MORRIS</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color"} -->
+<p class="has-nueve4-text-color-color has-text-color">JANET MORRIS</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":20} -->
@@ -329,12 +329,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:paragraph {"align":"left","textColor":"neve-text-color","fontSize":"normal"} -->
-<p class="has-text-align-left has-neve-text-color-color has-text-color has-normal-font-size">“What is the point of being alive if you don’t at least try to do something remarkable?”</p>
+<!-- wp:paragraph {"align":"left","textColor":"nueve4-text-color","fontSize":"normal"} -->
+<p class="has-text-align-left has-nueve4-text-color-color has-text-color has-normal-font-size">“What is the point of being alive if you don’t at least try to do something remarkable?”</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color"} -->
-<p class="has-neve-text-color-color has-text-color">WILLIE BROWN</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color"} -->
+<p class="has-nueve4-text-color-color has-text-color">WILLIE BROWN</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":20} -->
@@ -352,12 +352,12 @@ return [
 <div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:paragraph {"align":"left","textColor":"neve-text-color","fontSize":"normal"} -->
-<p class="has-text-align-left has-neve-text-color-color has-text-color has-normal-font-size">“What is the point of being alive if you don’t at least try to do something remarkable?”</p>
+<!-- wp:paragraph {"align":"left","textColor":"nueve4-text-color","fontSize":"normal"} -->
+<p class="has-text-align-left has-nueve4-text-color-color has-text-color has-normal-font-size">“What is the point of being alive if you don’t at least try to do something remarkable?”</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"neve-text-color"} -->
-<p class="has-neve-text-color-color has-text-color">SEAN FISHER</p>
+<!-- wp:paragraph {"textColor":"nueve4-text-color"} -->
+<p class="has-nueve4-text-color-color has-text-color">SEAN FISHER</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":20} -->

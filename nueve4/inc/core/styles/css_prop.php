@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Neve\Core\Styles;
+namespace Nueve4\Core\Styles;
 
 
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
-use Neve\Views\Font_Manager;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
+use Nueve4\Views\Font_Manager;
 
 class Css_Prop {
 	/**
@@ -48,7 +48,7 @@ class Css_Prop {
 		$default_value = isset( $meta[ Dynamic_Selector::META_DEFAULT ] ) ? $meta[ Dynamic_Selector::META_DEFAULT ] : null;
 		$all_value     = isset( $meta[ Dynamic_Selector::META_AS_JSON ] ) ? Mods::to_json( $meta['key'], $default_value ) : Mods::get( $meta['key'], $default_value );
 
-		// The neve_responsive_range_control component double JSON stringified, therefore try to parse it again.
+		// The nueve4_responsive_range_control component double JSON stringified, therefore try to parse it again.
 		if( ! is_array( $all_value ) ) {
 			$maybe_parse_json = json_decode( $all_value , true);
 
@@ -99,7 +99,7 @@ class Css_Prop {
 					$value = strpos( $value, "#" ) === 0 ? $value : '#' . $value;
 				}
 
-				return sprintf( "%s: %s%s;", ( $css_prop ), neve_sanitize_colors( $value ), isset( $meta['important'] ) && $meta['important'] ? '!important' : '' );
+				return sprintf( "%s: %s%s;", ( $css_prop ), nueve4_sanitize_colors( $value ), isset( $meta['important'] ) && $meta['important'] ? '!important' : '' );
 			case Config::CSS_PROP_MAX_WIDTH:
 			case Config::CSS_PROP_WIDTH:
 			case Config::CSS_PROP_FLEX_BASIS:
@@ -321,11 +321,11 @@ class Css_Prop {
 
 		if ( $number_of_directions === 1 ) {
 
-			if ( neve_value_is_zero( $value['top'] ) ) {
+			if ( nueve4_value_is_zero( $value['top'] ) ) {
 				$suffix = '';
 			}
 
-			if ( empty( $value['top'] ) && ! neve_value_is_zero( $value['top'] ) ) {
+			if ( empty( $value['top'] ) && ! nueve4_value_is_zero( $value['top'] ) ) {
 				return '';
 			}
 
@@ -340,12 +340,12 @@ class Css_Prop {
 				return $css_prop . ':' . $value['top'] . ' ' . $value['right'] . ';';
 			}
 
-			if ( neve_value_is_zero( $value['top'] ) && neve_value_is_zero( $value['right'] ) ) {
+			if ( nueve4_value_is_zero( $value['top'] ) && nueve4_value_is_zero( $value['right'] ) ) {
 				return '';
 			}
 
-			$top_suffix   = neve_value_is_zero( $value['top'] ) ? '' : $suffix;
-			$right_suffix = neve_value_is_zero( $value['right'] ) ? '' : $suffix;
+			$top_suffix   = nueve4_value_is_zero( $value['top'] ) ? '' : $suffix;
+			$right_suffix = nueve4_value_is_zero( $value['right'] ) ? '' : $suffix;
 
 			$template .= $value['top'] . $top_suffix . ' ' . $value['right'] . $right_suffix;
 
@@ -358,7 +358,7 @@ class Css_Prop {
 				continue;
 			}
 
-			if ( ! isset( $value[ $direction ] ) || neve_value_is_zero( $value[ $direction ] ) ) {
+			if ( ! isset( $value[ $direction ] ) || nueve4_value_is_zero( $value[ $direction ] ) ) {
 				$template .= '0 ';
 				continue;
 			}
@@ -388,7 +388,7 @@ class Css_Prop {
 		if ( strpos( $value, ',' ) !== false ) {
 			$value = explode( ',', $value );
 
-			$value = array_map( 'Neve\Core\Styles\CSS_Prop::quote_font_family', $value );
+			$value = array_map( 'Nueve4\Core\Styles\CSS_Prop::quote_font_family', $value );
 
 			return join( ',', $value );
 		}

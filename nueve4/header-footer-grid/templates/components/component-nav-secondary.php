@@ -22,7 +22,7 @@ if ( $style !== 'style-plain' ) {
 ?>
 <div class="nv-top-bar">
 	<div role="navigation" class="menu-content <?php echo esc_attr( join( ' ', $container_classes ) ); ?>"
-		aria-label="<?php esc_attr_e( 'Secondary Menu', 'neve' ); ?>">
+		aria-label="<?php esc_attr_e( 'Secondary Menu', 'nueve4' ); ?>">
 		<?php
 		wp_nav_menu(
 			array(

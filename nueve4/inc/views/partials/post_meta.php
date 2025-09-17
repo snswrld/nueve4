@@ -5,19 +5,19 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      28/08/2018
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views\Partials;
+namespace Nueve4\Views\Partials;
 
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
-use Neve\Views\Base_View;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
+use Nueve4\Views\Base_View;
 
 /**
  * Class Post_Meta
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 class Post_Meta extends Base_View {
 	/**
@@ -26,12 +26,12 @@ class Post_Meta extends Base_View {
 	 * @return void
 	 */
 	public function init() {
-		add_filter( 'neve_display_author_avatar', array( $this, 'should_display_author_avatar' ), 15 );
-		add_action( 'neve_post_meta_archive', array( $this, 'render_meta_list' ), 10, 3 );
-		add_action( 'neve_post_meta_single', array( $this, 'render_meta_list' ), 10, 3 );
-		add_action( 'neve_do_tags', array( $this, 'render_tags_list' ) );
+		add_filter( 'nueve4_display_author_avatar', array( $this, 'should_display_author_avatar' ), 15 );
+		add_action( 'nueve4_post_meta_archive', array( $this, 'render_meta_list' ), 10, 3 );
+		add_action( 'nueve4_post_meta_single', array( $this, 'render_meta_list' ), 10, 3 );
+		add_action( 'nueve4_do_tags', array( $this, 'render_tags_list' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'meta_custom_separator' ) );
-		add_filter( 'neve_gravatar_args', [ $this, 'add_dynamic_gravatar' ] );
+		add_filter( 'nueve4_gravatar_args', [ $this, 'add_dynamic_gravatar' ] );
 	}
 
 	/**
@@ -43,9 +43,9 @@ class Post_Meta extends Base_View {
 	 */
 	public function should_display_author_avatar( $value ) {
 
-		$show_avatar = get_theme_mod( 'neve_author_avatar', false );
+		$show_avatar = get_theme_mod( 'nueve4_author_avatar', false );
 		if ( is_singular() ) {
-			$show_avatar = get_theme_mod( 'neve_single_post_author_avatar', $show_avatar );
+			$show_avatar = get_theme_mod( 'nueve4_single_post_author_avatar', $show_avatar );
 		}
 
 		return $show_avatar;
@@ -67,7 +67,7 @@ class Post_Meta extends Base_View {
 			$single_avatar_size = Mods::to_json( Config::MODS_SINGLE_POST_META_AUTHOR_AVATAR_SIZE );
 			$avatar_size        = ! empty( $single_avatar_size ) ? $single_avatar_size : $avatar_size;
 		}
-		$avatar_size = apply_filters( 'neve_author_avatar_size_filter', $avatar_size );
+		$avatar_size = apply_filters( 'nueve4_author_avatar_size_filter', $avatar_size );
 
 		if ( ! isset( $args_array['size'] ) ) {
 			return $args_array;
@@ -142,7 +142,7 @@ class Post_Meta extends Base_View {
 			switch ( $slug ) {
 				case 'author':
 					$show_before  = $format === '{meta}';
-					$meta_content = str_replace( '{meta}', self::neve_get_author_meta( $pid, $show_before ), $format );
+					$meta_content = str_replace( '{meta}', self::nueve4_get_author_meta( $pid, $show_before ), $format );
 					$markup      .= '<' . $tag . '  class="meta author vcard ' . esc_attr( $element_class ) . '">';
 					$markup      .= wp_kses_post( $meta_content );
 					$markup      .= '</' . $tag . '>';
@@ -157,9 +157,9 @@ class Post_Meta extends Base_View {
 					$created           = get_the_time( 'U' );
 					$modified          = get_the_modified_time( 'U' );
 					$has_updated_time  = $created !== $modified;
-					$show_updated_time = get_theme_mod( 'neve_show_last_updated_date', false );
+					$show_updated_time = get_theme_mod( 'nueve4_show_last_updated_date', false );
 					if ( is_singular( 'post' ) ) {
-						$show_updated_time = get_theme_mod( 'neve_single_post_show_last_updated_date', $show_updated_time );
+						$show_updated_time = get_theme_mod( 'nueve4_single_post_show_last_updated_date', $show_updated_time );
 					}
 					if ( $show_updated_time && $has_updated_time ) {
 						$date_meta_classes[] = 'nv-show-updated';
@@ -189,11 +189,11 @@ class Post_Meta extends Base_View {
 					$markup      .= '</' . $tag . '>';
 					break;
 				case 'reading':
-					$allowed_context = apply_filters( 'neve_post_type_supported_list', [ 'post' ], 'block_editor' );
+					$allowed_context = apply_filters( 'nueve4_post_type_supported_list', [ 'post' ], 'block_editor' );
 					if ( ! in_array( $post_type, $allowed_context ) ) {
 						break;
 					}
-					$reading_time = apply_filters( 'neve_do_read_time', $pid );
+					$reading_time = apply_filters( 'nueve4_do_read_time', $pid );
 					if ( empty( $reading_time ) ) {
 						break;
 					}
@@ -203,7 +203,7 @@ class Post_Meta extends Base_View {
 					$markup      .= '</' . $tag . '>';
 					break;
 				case 'custom':
-					$custom_meta = apply_filters( 'neve_do_custom_meta', '', $meta, $tag, $pid );
+					$custom_meta = apply_filters( 'nueve4_do_custom_meta', '', $meta, $tag, $pid );
 					if ( empty( $custom_meta ) ) {
 						break;
 					}
@@ -229,12 +229,12 @@ class Post_Meta extends Base_View {
 	 */
 	private function sanitize_order_array( $order ) {
 		$allowed_order_values = apply_filters(
-			'neve_meta_filter',
+			'nueve4_meta_filter',
 			array(
-				'author'   => __( 'Author', 'neve' ),
-				'category' => __( 'Category', 'neve' ),
-				'date'     => __( 'Date', 'neve' ),
-				'comments' => __( 'Comments', 'neve' ),
+				'author'   => __( 'Author', 'nueve4' ),
+				'category' => __( 'Category', 'nueve4' ),
+				'date'     => __( 'Date', 'nueve4' ),
+				'comments' => __( 'Comments', 'nueve4' ),
 			)
 		);
 		foreach ( $order as $index => $meta_item ) {
@@ -254,7 +254,7 @@ class Post_Meta extends Base_View {
 	 *
 	 * @return string | false
 	 */
-	public static function neve_get_author_meta( $post_id = null, $show_before = true ) {
+	public static function nueve4_get_author_meta( $post_id = null, $show_before = true ) {
 
 		global $post;
 
@@ -274,12 +274,12 @@ class Post_Meta extends Base_View {
 		$display_name   = get_the_author_meta( 'display_name', $author_id );
 		$author_email   = get_the_author_meta( 'user_email', $author_id );
 		$gravatar_args  = apply_filters(
-			'neve_gravatar_args',
+			'nueve4_gravatar_args',
 			array(
 				'size' => 20,
 			)
 		);
-		$display_avatar = apply_filters( 'neve_display_author_avatar', false );
+		$display_avatar = apply_filters( 'nueve4_display_author_avatar', false );
 		$avatar_url     = get_avatar_url( $author_email, $gravatar_args );
 		$avatar_markup  = '<img class="photo" alt="' . esc_attr( $display_name ) . '" src="' . esc_url( $avatar_url ) . '" />&nbsp;';
 
@@ -289,14 +289,14 @@ class Post_Meta extends Base_View {
 		}
 		$markup .= '<span class="author-name fn">';
 		if ( ! $display_avatar && $show_before ) {
-			$markup .= __( 'by', 'neve' ) . ' ';
+			$markup .= __( 'by', 'nueve4' ) . ' ';
 		}
 
 		$link = sprintf(
 			'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
 			esc_url( get_author_posts_url( $author_id, $user_nicename ) ),
 			/* translators: %s: Author's display name. */
-			esc_attr( sprintf( __( 'Posts by %s', 'neve' ), $display_name ) ),
+			esc_attr( sprintf( __( 'Posts by %s', 'nueve4' ), $display_name ) ),
 			$display_name
 		);
 
@@ -315,7 +315,7 @@ class Post_Meta extends Base_View {
 		 *
 		 * @return string
 		 */
-		$markup = apply_filters( 'neve_filter_author_meta_markup', $markup, $post_id, $show_before );
+		$markup = apply_filters( 'nueve4_filter_author_meta_markup', $markup, $post_id, $show_before );
 
 		$post = $original_global_post; //phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 		return wp_kses_post( $markup );
@@ -331,9 +331,9 @@ class Post_Meta extends Base_View {
 		$created           = get_the_time( 'U', $post_id );
 		$modified          = get_the_modified_time( 'U', $post_id );
 		$has_updated_time  = $created !== $modified;
-		$show_updated_time = get_theme_mod( 'neve_show_last_updated_date', false );
+		$show_updated_time = get_theme_mod( 'nueve4_show_last_updated_date', false );
 		if ( is_singular( 'post' ) ) {
-			$show_updated_time = get_theme_mod( 'neve_single_post_show_last_updated_date', $show_updated_time );
+			$show_updated_time = get_theme_mod( 'nueve4_single_post_show_last_updated_date', $show_updated_time );
 		}
 		$format = get_option( 'date_format' );
 
@@ -354,7 +354,7 @@ class Post_Meta extends Base_View {
 		 *
 		 * @since 2.11
 		 */
-		$prefixes = apply_filters( 'neve_meta_date_prefix', $prefixes );
+		$prefixes = apply_filters( 'nueve4_meta_date_prefix', $prefixes );
 
 		$updated_time_markup = '<time class="updated" datetime="' . esc_attr( date_i18n( 'c', $modified ) ) . '">';
 		if ( array_key_exists( 'updated', $prefixes ) && ! empty( $prefixes['updated'] ) ) {
@@ -399,7 +399,7 @@ class Post_Meta extends Base_View {
 			return false;
 		}
 		/* translators: %s: number of comments */
-		$comments = sprintf( _n( '%s Comment', '%s Comments', $comments_number, 'neve' ), $comments_number );
+		$comments = sprintf( _n( '%s Comment', '%s Comments', $comments_number, 'nueve4' ), $comments_number );
 
 		return '<a href="' . esc_url( get_comments_link( $post_id ) ) . '">' . esc_html( $comments ) . '</a>';
 	}
@@ -413,7 +413,7 @@ class Post_Meta extends Base_View {
 			return;
 		}
 		$html  = '<div class="nv-tags-list">';
-		$html .= '<span>' . __( 'Tags', 'neve' ) . ':</span>';
+		$html .= '<span>' . __( 'Tags', 'nueve4' ) . ':</span>';
 		foreach ( $tags as $tag ) {
 			$tag_link = get_tag_link( $tag->term_id );
 			$html    .= '<a href=' . esc_url( $tag_link ) . ' title="' . esc_attr( $tag->name ) . '" class=' . esc_attr( $tag->slug ) . ' rel="tag">';
@@ -428,11 +428,11 @@ class Post_Meta extends Base_View {
 	 */
 	public function meta_custom_separator() {
 
-		$separator = get_theme_mod( 'neve_metadata_separator', esc_html( '/' ) );
+		$separator = get_theme_mod( 'nueve4_metadata_separator', esc_html( '/' ) );
 		if ( is_singular() ) {
-			$separator = get_theme_mod( 'neve_single_post_metadata_separator', $separator );
+			$separator = get_theme_mod( 'nueve4_single_post_metadata_separator', $separator );
 		}
-		$separator = apply_filters( 'neve_metadata_separator_filter', $separator );
+		$separator = apply_filters( 'nueve4_metadata_separator_filter', $separator );
 
 		$custom_css  = '';
 		$custom_css .= '.nv-meta-list li.meta:not(:last-child):after { content:"' . esc_html( $separator ) . '" }';
@@ -451,7 +451,7 @@ class Post_Meta extends Base_View {
 		 		content: "' . esc_html( $separator ) . '" !important;
 			}
 		}';
-		wp_add_inline_style( 'neve-style', $custom_css );
+		wp_add_inline_style( 'nueve4-style', $custom_css );
 	}
 
 }

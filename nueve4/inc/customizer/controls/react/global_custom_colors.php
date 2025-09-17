@@ -2,15 +2,15 @@
 /**
  * Global_Custom_Colors Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Global_Custom_Colors
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Global_Custom_Colors extends \WP_Customize_Control {
 	/**
@@ -18,7 +18,7 @@ class Global_Custom_Colors extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_global_custom_colors';
+	public $type = 'nueve4_global_custom_colors';
 	/**
 	 * Default values.
 	 *

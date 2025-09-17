@@ -808,7 +808,7 @@
          *
          * This method is helpful because:
          *      1. wp.org themes are limited to a single submenu item,
-         *         and sub-submenu items are most likely not allowed (never verified).
+         *         and sub-submenu items are most likely not allowed (nueve4r verified).
          *      2. wp.org themes are not allowed to redirect the user
          *         after the theme activation, therefore, the agreed UX
          *         is showing the opt-in as a modal dialog box after
@@ -861,7 +861,7 @@
             ) {
                 /**
                  * wp.org themes are limited to a single submenu item, and
-                 * sub-submenu items are most likely not allowed (never verified).
+                 * sub-submenu items are most likely not allowed (nueve4r verified).
                  */
                 return false;
             }
@@ -3432,7 +3432,7 @@
 
             if ( is_multisite() ) {
                 $has_skipped_migration = (
-                    // 'id_slug_type_path_map' - was never stored on older versions, therefore, not exists on the site level.
+                    // 'id_slug_type_path_map' - was nueve4r stored on older versions, therefore, not exists on the site level.
                     null === self::$_accounts->get_option( 'id_slug_type_path_map', null, false ) &&
                     // 'file_slug_map' stored on the site level, so it was running an SDK version before it was integrated with MS-network.
                     null !== self::$_accounts->get_option( 'file_slug_map', null, false )
@@ -3748,7 +3748,7 @@
          */
         private function should_run_connectivity_test( $flush_if_no_connectivity = false ) {
             if ( ! isset( $this->_storage->connectivity_test ) ) {
-                // Connectivity test was never executed, or cache was cleared.
+                // Connectivity test was nueve4r executed, or cache was cleared.
                 return true;
             }
 
@@ -4883,7 +4883,7 @@
             $this->check_ajax_referer( 'toggle_permission_tracking' );
 
             if ( ! $this->is_registered( true ) ) {
-                self::shoot_ajax_failure( 'User never opted-in.' );
+                self::shoot_ajax_failure( 'User nueve4r opted-in.' );
             }
 
             $is_enabled  = fs_request_get_bool( 'is_enabled' );
@@ -4913,7 +4913,7 @@
          */
         private function toggle_permission_tracking( $permissions, $is_enabled, $blog_id = null ) {
             if ( ! $this->is_registered( true ) ) {
-                // User never opted-in.
+                // User nueve4r opted-in.
                 return false;
             }
 
@@ -5016,7 +5016,7 @@
          * Note: This will only work if the user opted-in previously.
          *
          * Returns:
-         *  1. FALSE  - If the user never opted-in.
+         *  1. FALSE  - If the user nueve4r opted-in.
          *  2. TRUE   - If successfully opted-in back to usage tracking.
          *  3. object - API result on failure.
          *
@@ -6105,7 +6105,7 @@
         }
 
         /**
-         * Unix timestamp for previous cron execution or false if never executed.
+         * Unix timestamp for previous cron execution or false if nueve4r executed.
          *
          * @author Vova Feldman (@svovaf)
          * @since  2.0.0
@@ -6655,7 +6655,7 @@
         }
 
         /**
-         * Unix timestamp for previous sync cron execution or false if never executed.
+         * Unix timestamp for previous sync cron execution or false if nueve4r executed.
          *
          * @author Vova Feldman (@svovaf)
          * @since  1.1.7.3
@@ -6695,7 +6695,7 @@
         }
 
         /**
-         * Unix timestamp for previous install sync cron execution or false if never executed.
+         * Unix timestamp for previous install sync cron execution or false if nueve4r executed.
          *
          * @todo   There's some very strange bug that $this->_storage->install_sync_timestamp value is not being updated. But for sure the sync event is working.
          *
@@ -10763,7 +10763,7 @@
         }
 
         /**
-         * Returns TRUE if the user never opted-in or manually opted-out.
+         * Returns TRUE if the user nueve4r opted-in or manually opted-out.
          *
          * @author Vova Feldman (@svovaf)
          * @since 1.2.1.5
@@ -17047,7 +17047,7 @@
                 // Even though rand() is known for its security issues,
                 // the timestamp adds another layer of protection.
                 // It would be very hard for an attacker to get the secret key form here.
-                // Plus, this should never run in production since the secret should never
+                // Plus, this should nueve4r run in production since the secret should nueve4r
                 // be included in the production version.
                 $params['ts']     = WP_FS__SCRIPT_START_TIME;
                 $params['salt']   = md5( uniqid( rand() ) );
@@ -21044,7 +21044,7 @@
                 /**
                  * Sync site info.
                  *
-                 * @todo This line will execute install sync on a daily basis, even if running the free version (for opted-in users). The reason we want to keep it that way is for cases when the user was a paying customer, then there was a failure in subscription payment, and then after some time the payment was successful. This could be heavily optimized. For example, we can skip the $flush if the current install was never associated with a paid version.
+                 * @todo This line will execute install sync on a daily basis, even if running the free version (for opted-in users). The reason we want to keep it that way is for cases when the user was a paying customer, then there was a failure in subscription payment, and then after some time the payment was successful. This could be heavily optimized. For example, we can skip the $flush if the current install was nueve4r associated with a paid version.
                  */
                 if ( $is_site_level_sync ) {
                     /**
@@ -23980,7 +23980,7 @@
             $last_time_trial_promotion_shown = $this->_storage->get( 'trial_promotion_shown', false );
             $was_promotion_shown_before      = ( false !== $last_time_trial_promotion_shown );
 
-            // Show promotion if never shown before and 24 hours after initial activation with FS.
+            // Show promotion if nueve4r shown before and 24 hours after initial activation with FS.
             if ( ! $was_promotion_shown_before &&
                  $this->_storage->install_timestamp > ( time() - $this->apply_filters( 'show_first_trial_after_n_sec', WP_FS__TIME_24_HOURS_IN_SEC ) )
             ) {

@@ -5,20 +5,20 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      20/08/2018
  *
- * @package Neve\Customizer\Options
+ * @package Nueve4\Customizer\Options
  */
 
-namespace Neve\Customizer\Options;
+namespace Nueve4\Customizer\Options;
 
-use Neve\Customizer\Base_Customizer;
-use Neve\Customizer\Defaults\Layout;
-use Neve\Customizer\Types\Control;
-use Neve\Customizer\Types\Section;
+use Nueve4\Customizer\Base_Customizer;
+use Nueve4\Customizer\Defaults\Layout;
+use Nueve4\Customizer\Types\Control;
+use Nueve4\Customizer\Types\Section;
 
 /**
  * Class Layout_Sidebar
  *
- * @package Neve\Customizer\Options
+ * @package Nueve4\Customizer\Options
  */
 class Layout_Sidebar extends Base_Customizer {
 
@@ -37,13 +37,13 @@ class Layout_Sidebar extends Base_Customizer {
 	public function __construct() {
 
 		$this->advanced_controls = [
-			'blog_archive' => __( 'Blog / Archive', 'neve' ),
-			'single_post'  => __( 'Single Post', 'neve' ),
+			'blog_archive' => __( 'Blog / Archive', 'nueve4' ),
+			'single_post'  => __( 'Single Post', 'nueve4' ),
 		];
 
 		$this->add_woocommerce_controls();
 
-		$this->advanced_controls['other_pages'] = __( 'Others', 'neve' );
+		$this->advanced_controls['other_pages'] = __( 'Others', 'nueve4' );
 	}
 
 	/**
@@ -57,8 +57,8 @@ class Layout_Sidebar extends Base_Customizer {
 		$this->advanced_controls = array_merge(
 			$this->advanced_controls,
 			[
-				'shop_archive'   => __( 'Shop / Archive', 'neve' ),
-				'single_product' => __( 'Single Product', 'neve' ),
+				'shop_archive'   => __( 'Shop / Archive', 'nueve4' ),
+				'single_product' => __( 'Single Product', 'nueve4' ),
 			]
 		);
 	}
@@ -81,11 +81,11 @@ class Layout_Sidebar extends Base_Customizer {
 	private function section_sidebar() {
 		$this->add_section(
 			new Section(
-				'neve_sidebar',
+				'nueve4_sidebar',
 				array(
 					'priority' => 30,
-					'title'    => esc_html__( 'Content / Sidebar', 'neve' ),
-					'panel'    => 'neve_layout',
+					'title'    => esc_html__( 'Content / Sidebar', 'nueve4' ),
+					'panel'    => 'nueve4_layout',
 				)
 			)
 		);
@@ -97,34 +97,34 @@ class Layout_Sidebar extends Base_Customizer {
 	private function add_main_controls() {
 		$this->add_control(
 			new Control(
-				'neve_default_sidebar_layout',
+				'nueve4_default_sidebar_layout',
 				array(
 					'sanitize_callback' => array( $this, 'sanitize_sidebar_layout' ),
 					'default'           => 'right',
 				),
 				array(
-					'label'           => __( 'Sitewide Sidebar Layout', 'neve' ),
-					'section'         => 'neve_sidebar',
+					'label'           => __( 'Sitewide Sidebar Layout', 'nueve4' ),
+					'section'         => 'nueve4_sidebar',
 					'priority'        => 10,
-					'choices'         => $this->sidebar_layout_choices( 'neve_default_sidebar_layout' ),
+					'choices'         => $this->sidebar_layout_choices( 'nueve4_default_sidebar_layout' ),
 					'active_callback' => array( $this, 'sidewide_options_active_callback' ),
 				),
-				'\Neve\Customizer\Controls\React\Radio_Image'
+				'\Nueve4\Customizer\Controls\React\Radio_Image'
 			)
 		);
 
 		$this->add_control(
 			new Control(
-				'neve_sitewide_content_width',
+				'nueve4_sitewide_content_width',
 				[
 					'sanitize_callback' => 'absint',
 					'transport'         => $this->selective_refresh,
 					'default'           => 70,
 				],
 				[
-					'label'           => esc_html__( 'Sitewide Content Width (%)', 'neve' ),
-					'section'         => 'neve_sidebar',
-					'type'            => 'neve_range_control',
+					'label'           => esc_html__( 'Sitewide Content Width (%)', 'nueve4' ),
+					'section'         => 'nueve4_sidebar',
+					'type'            => 'nueve4_range_control',
 					'input_attrs'     => [
 						'min'        => 50,
 						'max'        => 100,
@@ -133,21 +133,21 @@ class Layout_Sidebar extends Base_Customizer {
 					'priority'        => 20,
 					'active_callback' => [ $this, 'sidewide_options_active_callback' ],
 				],
-				'Neve\Customizer\Controls\React\Range'
+				'Nueve4\Customizer\Controls\React\Range'
 			)
 		);
 
 		$this->add_control(
 			new Control(
-				'neve_advanced_layout_options',
+				'nueve4_advanced_layout_options',
 				array(
-					'sanitize_callback' => 'neve_sanitize_checkbox',
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
 					'default'           => true,
 				),
 				array(
-					'label'    => esc_html__( 'Enable Advanced Options', 'neve' ),
-					'section'  => 'neve_sidebar',
-					'type'     => 'neve_toggle_control',
+					'label'    => esc_html__( 'Enable Advanced Options', 'nueve4' ),
+					'section'  => 'nueve4_sidebar',
+					'type'     => 'nueve4_toggle_control',
 					'priority' => 30,
 				)
 			)
@@ -163,18 +163,18 @@ class Layout_Sidebar extends Base_Customizer {
 	 */
 	private function sidebar_layout_choices( $control_id ) {
 		$options = apply_filters(
-			'neve_sidebar_layout_choices',
+			'nueve4_sidebar_layout_choices',
 			array(
 				'full-width' => array(
-					'name' => __( 'Full Width', 'neve' ),
+					'name' => __( 'Full Width', 'nueve4' ),
 					'url'  => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABqAQMAAABknzrDAAAABlBMVEX////V1dXUdjOkAAAAPUlEQVRIx2NgGAUkAcb////Y/+d/+P8AdcQoc8vhH/X/5P+j2kG+GA3CCgrwi43aMWrHqB2jdowEO4YpAACyKSE0IzIuBgAAAABJRU5ErkJggg==',
 				),
 				'left'       => array(
-					'name' => __( 'Left', 'neve' ),
+					'name' => __( 'Left', 'nueve4' ),
 					'url'  => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABqAgMAAAAjP0ATAAAACVBMVEX///8+yP/V1dXG9YqxAAAAWElEQVR42mNgGAXDE4RCQMDAKONaBQINWqtWrWBatQDIaxg8ygYqQIAOYwC6bwHUmYNH2eBPSMhgBQXKRr0w6oVRL4x6YdQLo14Y9cKoF0a9QCO3jYLhBADvmFlNY69qsQAAAABJRU5ErkJggg==',
 				),
 				'right'      => array(
-					'name' => __( 'Right', 'neve' ),
+					'name' => __( 'Right', 'nueve4' ),
 					'url'  => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAABqAgMAAAAjP0ATAAAACVBMVEX///8+yP/V1dXG9YqxAAAAWUlEQVR42mNgGAUjB4iGgkEIzZStAoEVTECiQWsVkLdiECkboAABOmwBF9BtUGcOImUDEiCkJCQU0ECBslEvjHph1AujXhj1wqgXRr0w6oVRLwyEF0bBUAUAz/FTNXm+R/MAAAAASUVORK5CYII=',
 				),
 			),
@@ -203,11 +203,11 @@ class Layout_Sidebar extends Base_Customizer {
 		 *
 		 * @since 3.1.0
 		 */
-		$this->advanced_controls = apply_filters( 'neve_sidebar_controls_filter', $this->advanced_controls );
+		$this->advanced_controls = apply_filters( 'nueve4_sidebar_controls_filter', $this->advanced_controls );
 		foreach ( $this->advanced_controls as $id => $heading_label ) {
-			$heading_id = 'neve_' . $id . '_heading';
-			$layout_id  = 'neve_' . $id . '_sidebar_layout';
-			$width_id   = 'neve_' . $id . '_content_width';
+			$heading_id = 'nueve4_' . $id . '_heading';
+			$layout_id  = 'nueve4_' . $id . '_sidebar_layout';
+			$width_id   = 'nueve4_' . $id . '_content_width';
 
 			$this->add_control(
 				new Control(
@@ -218,7 +218,7 @@ class Layout_Sidebar extends Base_Customizer {
 					),
 					array(
 						'label'            => $heading_label,
-						'section'          => 'neve_sidebar',
+						'section'          => 'nueve4_sidebar',
 						'priority'         => $priority,
 						'class'            => esc_attr( 'advanced-sidebar-accordion-' . $heading_id ),
 						'accordion'        => true,
@@ -226,7 +226,7 @@ class Layout_Sidebar extends Base_Customizer {
 						'expanded'         => ( $priority === 40 ), // true or false
 						'active_callback'  => array( $this, 'advanced_options_active_callback' ),
 					),
-					'Neve\Customizer\Controls\Heading'
+					'Nueve4\Customizer\Controls\Heading'
 				)
 			);
 
@@ -240,14 +240,14 @@ class Layout_Sidebar extends Base_Customizer {
 						'default'           => $this->sidebar_layout_alignment_default( $layout_id ),
 					),
 					array(
-						'label'           => __( 'Sidebar Layout', 'neve' ),
+						'label'           => __( 'Sidebar Layout', 'nueve4' ),
 						'description'     => $this->get_sidebar_control_description( $layout_id ),
-						'section'         => 'neve_sidebar',
+						'section'         => 'nueve4_sidebar',
 						'priority'        => $priority,
 						'choices'         => $this->sidebar_layout_choices( $layout_id ),
 						'active_callback' => array( $this, 'advanced_options_active_callback' ),
 					),
-					'\Neve\Customizer\Controls\React\Radio_Image'
+					'\Nueve4\Customizer\Controls\React\Radio_Image'
 				)
 			);
 
@@ -264,9 +264,9 @@ class Layout_Sidebar extends Base_Customizer {
 						'default'           => $width_default,
 					),
 					array(
-						'label'           => esc_html__( 'Content Width (%)', 'neve' ),
-						'section'         => 'neve_sidebar',
-						'type'            => 'neve_range_control',
+						'label'           => esc_html__( 'Content Width (%)', 'nueve4' ),
+						'section'         => 'nueve4_sidebar',
+						'type'            => 'nueve4_range_control',
 						'input_attrs'     => [
 							'min'        => 50,
 							'max'        => 100,
@@ -275,7 +275,7 @@ class Layout_Sidebar extends Base_Customizer {
 						'priority'        => $priority,
 						'active_callback' => array( $this, 'advanced_options_active_callback' ),
 					),
-					'Neve\Customizer\Controls\React\Range'
+					'Nueve4\Customizer\Controls\React\Range'
 				)
 			);
 
@@ -291,7 +291,7 @@ class Layout_Sidebar extends Base_Customizer {
 	 * @return string
 	 */
 	private function get_sidebar_control_description( $control_id ) {
-		if ( $control_id !== 'neve_shop_archive_sidebar_layout' ) {
+		if ( $control_id !== 'nueve4_shop_archive_sidebar_layout' ) {
 			return '';
 		}
 
@@ -300,7 +300,7 @@ class Layout_Sidebar extends Base_Customizer {
 			return '';
 		}
 
-		$meta = get_post_meta( $shop_id, 'neve_meta_sidebar', true );
+		$meta = get_post_meta( $shop_id, 'nueve4_meta_sidebar', true );
 		if ( empty( $meta ) || $meta === 'default' ) {
 			return '';
 		}
@@ -312,11 +312,11 @@ class Layout_Sidebar extends Base_Customizer {
 			$template,
 			sprintf(
 			/* translators: %s is edit page link */
-				esc_html__( 'Note: It seems that the shop page has an individual sidebar layout already set. To be able to control the layout from here, %s your page and set the sidebar to "Inherit".', 'neve' ),
+				esc_html__( 'Note: It seems that the shop page has an individual sidebar layout already set. To be able to control the layout from here, %s your page and set the sidebar to "Inherit".', 'nueve4' ),
 				sprintf(
 				/* translators: %s is edit label */
 					'<a target="_blank" href="' . get_edit_post_link( $shop_id ) . '">%s</a>',
-					__( 'edit', 'neve' )
+					__( 'edit', 'nueve4' )
 				)
 			)
 		);
@@ -350,6 +350,6 @@ class Layout_Sidebar extends Base_Customizer {
 	 * Active callback function for advanced controls
 	 */
 	public function advanced_options_active_callback() {
-		return get_theme_mod( 'neve_advanced_layout_options', false );
+		return get_theme_mod( 'nueve4_advanced_layout_options', false );
 	}
 }

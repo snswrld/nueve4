@@ -381,7 +381,7 @@
                 'admin-users',
                 $this->_fs->get_text_inline( 'View Basic Profile Info', 'permissions-profile' ),
                 $this->_fs->get_text_inline( 'Your WordPress user\'s: first & last name, and email address', 'permissions-profile_desc' ),
-                $this->_fs->get_text_inline( 'Never miss important updates, get security warnings before they become public knowledge, and receive notifications about special offers and awesome new features.', 'permissions-profile_tooltip' ),
+                $this->_fs->get_text_inline( 'Nueve4r miss important updates, get security warnings before they become public knowledge, and receive notifications about special offers and awesome new features.', 'permissions-profile_tooltip' ),
                 5,
                 false,
                 true,

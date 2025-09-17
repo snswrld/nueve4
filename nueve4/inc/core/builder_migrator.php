@@ -4,15 +4,15 @@
  *
  * @since 3.0.0
  *
- * @package Neve\Core
+ * @package Nueve4\Core
  */
 
-namespace Neve\Core;
+namespace Nueve4\Core;
 
 /**
  * Class Admin
  *
- * @package Neve\Core
+ * @package Nueve4\Core
  */
 class Builder_Migrator {
 
@@ -440,15 +440,15 @@ class Builder_Migrator {
 	 * @return boolean
 	 */
 	private function migrate_conditional_headers() {
-		if ( ! class_exists( '\Neve_Pro\Admin\Custom_Layouts_Cpt' ) ) {
+		if ( ! class_exists( '\Nueve4_Pro\Admin\Custom_Layouts_Cpt' ) ) {
 			return true;
 		}
 
-		if ( ! method_exists( '\Neve_Pro\Admin\Custom_Layouts_Cpt', 'get_conditional_headers' ) ) {
+		if ( ! method_exists( '\Nueve4_Pro\Admin\Custom_Layouts_Cpt', 'get_conditional_headers' ) ) {
 			return true;
 		}
 
-		$headers = \Neve_Pro\Admin\Custom_Layouts_Cpt::get_conditional_headers();
+		$headers = \Nueve4_Pro\Admin\Custom_Layouts_Cpt::get_conditional_headers();
 
 		self::$current_builder = 'header';
 

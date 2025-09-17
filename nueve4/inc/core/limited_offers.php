@@ -5,10 +5,10 @@
  * Author:          Soare Robert Danial <robert.soare@themeisle.com>
  * Created on:      17/10/2023
  *
- * @package Neve\Core
+ * @package Nueve4\Core
  */
 
-namespace Neve\Core;
+namespace Nueve4\Core;
 
 use Exception;
 
@@ -62,7 +62,7 @@ class Limited_Offers {
 						empty( $event_data ) ||
 						! is_array( $event_data ) ||
 						empty( $event_data['active'] ) ||
-						empty( $event_data['neve_dashboard_url'] ) ||
+						empty( $event_data['nueve4_dashboard_url'] ) ||
 						! isset( $event_data['urgency_text'] )
 					) {
 						continue;
@@ -92,7 +92,7 @@ class Limited_Offers {
 
 		add_filter( 'themeisle_products_deal_priority', array( $this, 'add_priority' ) );
 		add_action( 'admin_notices', array( $this, 'render_notice' ) );
-		add_action( 'wp_ajax_dismiss_themeisle_event_notice_neve', array( $this, 'disable_notification_ajax' ) );
+		add_action( 'wp_ajax_dismiss_themeisle_event_notice_nueve4', array( $this, 'disable_notification_ajax' ) );
 	}
 
 	/**
@@ -117,11 +117,11 @@ class Limited_Offers {
 			$this->assets,
 			array(
 				'bannerUrl'                => get_template_directory_uri() . '/assets/img/dashboard/black-friday-banner.png',
-				'bannerAlt'                => 'Neve Black Friday Sale',
-				'bannerStoreUrl'           => esc_url_raw( $data['neve_dashboard_url'] ),
+				'bannerAlt'                => 'Nueve4 Black Friday Sale',
+				'bannerStoreUrl'           => esc_url_raw( $data['nueve4_dashboard_url'] ),
 				'customizerBannerUrl'      => get_template_directory_uri() . '/assets/img/dashboard/black-friday-customizer-banner.png',
-				'customizerBannerAlt'      => 'Neve Black Friday Sale',
-				'customizerBannerStoreUrl' => esc_url_raw( $data['neve_customizer_url'] ),
+				'customizerBannerAlt'      => 'Nueve4 Black Friday Sale',
+				'customizerBannerStoreUrl' => esc_url_raw( $data['nueve4_customizer_url'] ),
 				'urgencyText'              => $data['urgency_text'],
 			)
 		);
@@ -157,12 +157,12 @@ class Limited_Offers {
 	 * @return void
 	 */
 	public function disable_notification_ajax() {
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'dismiss_themeisle_event_notice_neve' ) ) {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'dismiss_themeisle_event_notice_nueve4' ) ) {
 			wp_die( 'Invalid nonce! Refresh the page and try again.' );
 		}
 
 		// We record the time and the plugin of the dismissed notification.
-		update_option( $this->wp_option_dismiss_notification_key_base . $this->active, 'neve_' . $this->active . '_' . current_time( 'Y_m_d' ) );
+		update_option( $this->wp_option_dismiss_notification_key_base . $this->active, 'nueve4_' . $this->active . '_' . current_time( 'Y_m_d' ) );
 		wp_die( 'success' );
 	}
 
@@ -177,7 +177,7 @@ class Limited_Offers {
 			return;
 		}
 
-		$message = 'Neve <strong>Black Friday Sale</strong> - Save big with a <strong>Lifetime License</strong> of Neve Agency Plan. <strong>Only 100 licenses</strong>, for a limited time!';
+		$message = 'Nueve4 <strong>Black Friday Sale</strong> - Save big with a <strong>Lifetime License</strong> of Nueve4 Agency Plan. <strong>Only 100 licenses</strong>, for a limited time!';
 
 		?>
 		<style>
@@ -230,8 +230,8 @@ class Limited_Offers {
 							'Content-Type': 'application/x-www-form-urlencoded'
 						},
 						body: new URLSearchParams({
-							action: 'dismiss_themeisle_event_notice_neve',
-							nonce: '<?php echo esc_attr( wp_create_nonce( 'dismiss_themeisle_event_notice_neve' ) ); ?>'
+							action: 'dismiss_themeisle_event_notice_nueve4',
+							nonce: '<?php echo esc_attr( wp_create_nonce( 'dismiss_themeisle_event_notice_nueve4' ) ); ?>'
 						})
 					})
 						.then(response => response.text())
@@ -271,10 +271,10 @@ class Limited_Offers {
 	 * Add product priority to the filter.
 	 *
 	 * @param array $products Registered products.
-	 * @return array Array enhanced with Neve priority.
+	 * @return array Array enhanced with Nueve4 priority.
 	 */
 	public function add_priority( $products ) {
-		$products['neve'] = 0;
+		$products['nueve4'] = 0;
 		return $products;
 	}
 
@@ -292,6 +292,6 @@ class Limited_Offers {
 		}
 
 		$highest_priority = array_search( min( $products ), $products );
-		return 'neve' === $highest_priority;
+		return 'nueve4' === $highest_priority;
 	}
 }

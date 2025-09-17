@@ -70,11 +70,11 @@ class Promotions extends Abstract_Module {
 	private $option_rop = 'themeisle_sdk_promotions_rop_installed';
 
 	/**
-	 * Option key for Neve FSE promos.
+	 * Option key for Nueve4 FSE promos.
 	 *
 	 * @var string
 	 */
-	private $option_neve_fse = 'themeisle_sdk_promotions_neve_fse_installed';
+	private $option_nueve4_fse = 'themeisle_sdk_promotions_nueve4_fse_installed';
 
 	/**
 	 * Loaded promotion.
@@ -117,7 +117,7 @@ class Promotions extends Abstract_Module {
 		$promotions_to_load[] = 'optimole';
 		$promotions_to_load[] = 'rop';
 		$promotions_to_load[] = 'woo_plugins';
-		$promotions_to_load[] = 'neve-fse';
+		$promotions_to_load[] = 'nueve4-fse';
 
 		$this->promotions = $this->get_promotions();
 
@@ -159,7 +159,7 @@ class Promotions extends Abstract_Module {
 		add_action( 'wp_ajax_tisdk_update_option', array( $this, 'dismiss_promotion' ) );
 		add_filter( 'themeisle_sdk_ran_promos', '__return_true' );
 
-		if ( get_option( $this->option_neve_fse, false ) !== true ) {
+		if ( get_option( $this->option_nueve4_fse, false ) !== true ) {
 			add_action( 'wp_ajax_themeisle_sdk_dismiss_notice', 'ThemeisleSDK\Modules\Notification::regular_dismiss' );
 		}
 	}
@@ -208,8 +208,8 @@ class Promotions extends Abstract_Module {
 			update_option( 'rop_reference_key', sanitize_key( $_GET['rop_reference_key'] ) );
 		}
 
-		if ( isset( $_GET['neve_fse_reference_key'] ) ) {
-			update_option( 'neve_fse_reference_key', sanitize_key( $_GET['neve_fse_reference_key'] ) );
+		if ( isset( $_GET['nueve4_fse_reference_key'] ) ) {
+			update_option( 'nueve4_fse_reference_key', sanitize_key( $_GET['nueve4_fse_reference_key'] ) );
 		}
 	}
 
@@ -262,7 +262,7 @@ class Promotions extends Abstract_Module {
 		);
 		register_setting(
 			'themeisle_sdk_settings',
-			$this->option_neve_fse,
+			$this->option_nueve4_fse,
 			array(
 				'type'              => 'boolean',
 				'sanitize_callback' => 'rest_sanitize_boolean',
@@ -324,7 +324,7 @@ class Promotions extends Abstract_Module {
 		$is_min_req_v            = version_compare( get_bloginfo( 'version' ), '5.8', '>=' );
 		$is_min_fse_v            = version_compare( get_bloginfo( 'version' ), '6.2', '>=' );
 		$current_theme           = wp_get_theme();
-		$has_neve_fse            = $current_theme->template === 'neve-fse' || $current_theme->parent() === 'neve-fse';
+		$has_nueve4_fse            = $current_theme->template === 'nueve4-fse' || $current_theme->parent() === 'nueve4-fse';
 		$has_enough_attachments  = $this->has_min_media_attachments();
 		$has_enough_old_posts    = $this->has_old_posts();
 
@@ -389,9 +389,9 @@ class Promotions extends Abstract_Module {
 					'screen' => 'edit-product',
 				],
 			],
-			'neve-fse'    => [
-				'neve-fse-themes-popular' => [
-					'env'    => ! $has_neve_fse && $is_min_fse_v,
+			'nueve4-fse'    => [
+				'nueve4-fse-themes-popular' => [
+					'env'    => ! $has_nueve4_fse && $is_min_fse_v,
 					'screen' => 'themes-install-popular',
 				],
 			],
@@ -544,8 +544,8 @@ class Promotions extends Abstract_Module {
 			if ( $this->get_upsells_dismiss_time( 'rop-posts' ) === false ) {
 				add_action( 'admin_notices', [ $this, 'render_rop_dash_notice' ] );
 			}
-			if ( $this->get_upsells_dismiss_time( 'neve-fse-themes-popular' ) === false ) {
-				add_action( 'admin_notices', [ $this, 'render_neve_fse_themes_notice' ] );
+			if ( $this->get_upsells_dismiss_time( 'nueve4-fse-themes-popular' ) === false ) {
+				add_action( 'admin_notices', [ $this, 'render_nueve4_fse_themes_notice' ] );
 			}
 
 			$this->load_woo_promos();
@@ -577,15 +577,15 @@ class Promotions extends Abstract_Module {
 			case 'sparks-product-reviews':
 				$this->load_woo_promos();
 				break;
-			case 'neve-fse-themes-popular':
-				// Remove any other notifications if Neve FSE promotion is showing
+			case 'nueve4-fse-themes-popular':
+				// Remove any other notifications if Nueve4 FSE promotion is showing
 				remove_action( 'admin_notices', array( 'ThemeisleSDK\Modules\Notification', 'show_notification' ) );
 				remove_action( 'wp_ajax_themeisle_sdk_dismiss_notice', array( 'ThemeisleSDK\Modules\Notification', 'dismiss' ) );
 				remove_action( 'admin_head', array( 'ThemeisleSDK\Modules\Notification', 'dismiss_get' ) );
 				remove_action( 'admin_head', array( 'ThemeisleSDK\Modules\Notification', 'setup_notifications' ) );
 				// Add required actions to display this notification
 				add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ] );
-				add_action( 'admin_notices', [ $this, 'render_neve_fse_themes_notice' ] );
+				add_action( 'admin_notices', [ $this, 'render_nueve4_fse_themes_notice' ] );
 				break;
 		}
 	}
@@ -634,9 +634,9 @@ class Promotions extends Abstract_Module {
 				'ropActivationUrl'      => $this->get_plugin_activation_link( 'tweet-old-post' ),
 				'optimoleDash'          => esc_url( add_query_arg( [ 'page' => 'optimole' ], admin_url( 'upload.php' ) ) ),
 				'ropDash'               => esc_url( add_query_arg( [ 'page' => 'TweetOldPost' ], admin_url( 'admin.php' ) ) ),
-				'neveFSEMoreUrl'        => tsdk_utmify( 'https://themeisle.com/themes/neve-fse/', 'neve-fse-themes-popular', 'theme-install' ),
+				'nueve4FSEMoreUrl'        => tsdk_utmify( 'https://themeisle.com/themes/nueve4-fse/', 'nueve4-fse-themes-popular', 'theme-install' ),
 				// translators: %s is the product name.
-				'title'                 => esc_html( sprintf( __( 'Recommended by %s', 'neve' ), $this->product->get_name() ) ),
+				'title'                 => esc_html( sprintf( __( 'Recommended by %s', 'nueve4' ), $this->product->get_name() ) ),
 			]
 		);
 		wp_enqueue_script( $handle );
@@ -657,10 +657,10 @@ class Promotions extends Abstract_Module {
 	}
 
 	/**
-	 * Render Neve FSE Themes notice.
+	 * Render Nueve4 FSE Themes notice.
 	 */
-	public function render_neve_fse_themes_notice() {
-		echo '<div id="ti-neve-fse-notice" class="notice notice-info ti-sdk-neve-fse-notice"></div>';
+	public function render_nueve4_fse_themes_notice() {
+		echo '<div id="ti-nueve4-fse-notice" class="notice notice-info ti-sdk-nueve4-fse-notice"></div>';
 	}
 
 	/**

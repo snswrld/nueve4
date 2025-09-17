@@ -4,7 +4,7 @@
 namespace HFG\Core;
 
 
-use Neve\Core\Styles\Generator;
+use Nueve4\Core\Styles\Generator;
 
 class Css_Generator extends Generator {
 	/**

@@ -2,15 +2,15 @@
 /**
  * Starter Content Compatibility.
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
 /**
  * Class Starter_Content
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class Starter_Content {
 	const HOME_SLUG       = 'home';
@@ -65,13 +65,13 @@ class Starter_Content {
 		if ( get_post_type( $post_id ) !== 'page' ) {
 			return $value;
 		}
-		if ( $meta_key === 'neve_meta_disable_title' ) {
+		if ( $meta_key === 'nueve4_meta_disable_title' ) {
 			return 'on';
 		}
-		if ( $meta_key === 'neve_meta_enable_content_width' ) {
+		if ( $meta_key === 'nueve4_meta_enable_content_width' ) {
 			return 'on';
 		}
-		if ( $meta_key === 'neve_meta_content_width' ) {
+		if ( $meta_key === 'nueve4_meta_content_width' ) {
 			return '100';
 		}
 
@@ -95,9 +95,9 @@ class Starter_Content {
 			return;
 		}
 		if ( $post->post_type === 'page' ) {
-			update_post_meta( $post_ID, 'neve_meta_disable_title', 'on' );
-			update_post_meta( $post_ID, 'neve_meta_enable_content_width', 'on' );
-			update_post_meta( $post_ID, 'neve_meta_content_width', '100' );
+			update_post_meta( $post_ID, 'nueve4_meta_disable_title', 'on' );
+			update_post_meta( $post_ID, 'nueve4_meta_enable_content_width', 'on' );
+			update_post_meta( $post_ID, 'nueve4_meta_content_width', '100' );
 		}
 	}
 
@@ -167,12 +167,12 @@ class Starter_Content {
 				self::BLOG_SLUG       => [
 					'post_name'  => self::BLOG_SLUG,
 					'post_type'  => 'page',
-					'post_title' => _x( 'Blog', 'Theme starter content', 'neve' ),
+					'post_title' => _x( 'Blog', 'Theme starter content', 'nueve4' ),
 				],
 			],
 		];
 
 
-		return apply_filters( 'neve_starter_content', $content );
+		return apply_filters( 'nueve4_starter_content', $content );
 	}
 }

@@ -5,19 +5,19 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      20/08/2018
  *
- * @package Neve\Customizer\Options
+ * @package Nueve4\Customizer\Options
  */
 
-namespace Neve\Customizer\Options;
+namespace Nueve4\Customizer\Options;
 
-use Neve\Core\Settings\Mods;
-use Neve\Customizer\Controls\React\Documentation_Section;
-use Neve\Customizer\Controls\React\Instructions_Section;
-use Neve\Customizer\Base_Customizer;
-use Neve\Customizer\Controls\Simple_Upsell;
-use Neve\Customizer\Types\Control;
-use Neve\Customizer\Types\Panel;
-use Neve\Customizer\Types\Section;
+use Nueve4\Core\Settings\Mods;
+use Nueve4\Customizer\Controls\React\Documentation_Section;
+use Nueve4\Customizer\Controls\React\Instructions_Section;
+use Nueve4\Customizer\Base_Customizer;
+use Nueve4\Customizer\Controls\Simple_Upsell;
+use Nueve4\Customizer\Types\Control;
+use Nueve4\Customizer\Types\Panel;
+use Nueve4\Customizer\Types\Section;
 
 /**
  * Main customizer handler.
@@ -36,14 +36,7 @@ class Main extends Base_Customizer {
 	 * Register customizer controls type.
 	 */
 	private function register_types() {
-		$this->register_type( 'Neve\Customizer\Controls\Radio_Image', 'control' );
-		$this->register_type( 'Neve\Customizer\Controls\Range', 'control' );
-		$this->register_type( 'Neve\Customizer\Controls\Responsive_Number', 'control' );
-		$this->register_type( 'Neve\Customizer\Controls\Tabs', 'control' );
-		$this->register_type( 'Neve\Customizer\Controls\Heading', 'control' );
-		$this->register_type( 'Neve\Customizer\Controls\Checkbox', 'control' );
-		$this->register_type( 'Neve\Customizer\Controls\Upsell_Control', 'control' );
-		$this->register_type( 'Neve\Customizer\Controls\Upsells\Scroll_To_Top_Control', 'control' );
+		\Nueve4\Customizer\Control_Registrar::register_controls( $this );
 	}
 
 	/**
@@ -51,13 +44,13 @@ class Main extends Base_Customizer {
 	 */
 	private function add_main_panels() {
 		$panels = array(
-			'neve_layout'     => array(
+			'nueve4_layout'     => array(
 				'priority' => 25,
-				'title'    => __( 'Layout', 'neve' ),
+				'title'    => __( 'Layout', 'nueve4' ),
 			),
-			'neve_typography' => array(
+			'nueve4_typography' => array(
 				'priority' => 35,
-				'title'    => __( 'Typography', 'neve' ),
+				'title'    => __( 'Typography', 'nueve4' ),
 			),
 		);
 
@@ -75,27 +68,27 @@ class Main extends Base_Customizer {
 		$this->wpc->add_section(
 			new Instructions_Section(
 				$this->wpc,
-				'neve_typography_quick_links',
+				'nueve4_typography_quick_links',
 				array(
 					'priority' => - 100,
-					'panel'    => 'neve_typography',
+					'panel'    => 'nueve4_typography',
 					'type'     => 'hfg_instructions',
 					'options'  => array(
 						'quickLinks' => array(
-							'neve_body_font_family'     => array(
-								'label' => esc_html__( 'Change main font', 'neve' ),
+							'nueve4_body_font_family'     => array(
+								'label' => esc_html__( 'Change main font', 'nueve4' ),
 								'icon'  => 'dashicons-editor-spellcheck',
 							),
-							'neve_headings_font_family' => array(
-								'label' => esc_html__( 'Change headings font', 'neve' ),
+							'nueve4_headings_font_family' => array(
+								'label' => esc_html__( 'Change headings font', 'nueve4' ),
 								'icon'  => 'dashicons-heading',
 							),
-							'neve_h1_accordion_wrap'    => array(
-								'label' => esc_html__( 'Change H1 font size', 'neve' ),
+							'nueve4_h1_accordion_wrap'    => array(
+								'label' => esc_html__( 'Change H1 font size', 'nueve4' ),
 								'icon'  => 'dashicons-info-outline',
 							),
-							'neve_archive_typography_post_title' => array(
-								'label' => esc_html__( 'Change archive font size', 'neve' ),
+							'nueve4_archive_typography_post_title' => array(
+								'label' => esc_html__( 'Change archive font size', 'nueve4' ),
 								'icon'  => 'dashicons-sticky',
 							),
 						),
@@ -107,11 +100,11 @@ class Main extends Base_Customizer {
 		$this->wpc->add_section(
 			new Documentation_Section(
 				$this->wpc,
-				'neve_documentation',
+				'nueve4_documentation',
 				[
 					'priority' => PHP_INT_MAX,
-					'title'    => esc_html__( 'Neve', 'neve' ),
-					'url'      => tsdk_utmify( 'https://docs.themeisle.com/article/946-neve-doc', 'docsbtn' ),
+					'title'    => esc_html__( 'Nueve4', 'nueve4' ),
+					'url'      => tsdk_utmify( 'https://docs.themeisle.com/article/946-nueve4-doc', 'docsbtn' ),
 				]
 			)
 		);
@@ -121,7 +114,7 @@ class Main extends Base_Customizer {
 	 * Change controls
 	 */
 	protected function change_controls() {
-		$this->change_customizer_object( 'section', 'static_front_page', 'panel', 'neve_layout' );
+		$this->change_customizer_object( 'section', 'static_front_page', 'panel', 'nueve4_layout' );
 		// Change default for shop columns WooCommerce option.
 		$this->change_customizer_object( 'setting', 'woocommerce_catalog_columns', 'default', 3 );
 	}

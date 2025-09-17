@@ -2,15 +2,15 @@
 /**
  * Product layout class.
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views;
+namespace Nueve4\Views;
 
 /**
  * Class Product_Layout
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 class Product_Layout extends Base_View {
 
@@ -40,14 +40,14 @@ class Product_Layout extends Base_View {
 	 * Product image wrapper.
 	 */
 	public function product_image_wrap() {
-		$product_classes = apply_filters( 'neve_wrapper_class', '' );
+		$product_classes = apply_filters( 'nueve4_wrapper_class', '' );
 		echo '<div class="sp-product-image ' . esc_attr( $product_classes ) . '">';
 		/**
 		 * Fires before the product warpper is rendered.
 		 *
 		 * @since 2.11
 		 */
-		do_action( 'neve_product_image_wrap_before' );
+		do_action( 'nueve4_product_image_wrap_before' );
 		echo '<div class="img-wrap">';
 	}
 
@@ -65,7 +65,7 @@ class Product_Layout extends Base_View {
 		if ( $product->is_in_stock() ) {
 			return;
 		}
-		$out_of_stock_label = apply_filters( 'nv_out_of_stock_text', __( 'Out of stock', 'neve' ) );
+		$out_of_stock_label = apply_filters( 'nv_out_of_stock_text', __( 'Out of stock', 'nueve4' ) );
 
 		echo '<div class="out-of-stock-badge">';
 		echo wp_kses_post( $out_of_stock_label );
@@ -104,12 +104,12 @@ class Product_Layout extends Base_View {
 	 * Render exclusive products section
 	 */
 	public function render_exclusive_products_section() {
-		$products_category = get_theme_mod( 'neve_exclusive_products_category', '-' );
-		if ( $products_category === '-' || neve_is_amp() ) {
+		$products_category = get_theme_mod( 'nueve4_exclusive_products_category', '-' );
+		if ( $products_category === '-' || nueve4_is_amp() ) {
 			return;
 		}
 
-		$title = get_theme_mod( 'neve_exclusive_products_title' );
+		$title = get_theme_mod( 'nueve4_exclusive_products_title' );
 
 		$query_args = array(
 			'post_type'           => 'product',
@@ -140,7 +140,7 @@ class Product_Layout extends Base_View {
 			return;
 		}
 		$dots = 0;
-		echo '<section class="' . esc_attr( apply_filters( 'neve_exclusive_products_class', 'exclusive products' ) ) . '">';
+		echo '<section class="' . esc_attr( apply_filters( 'nueve4_exclusive_products_class', 'exclusive products' ) ) . '">';
 		if ( ! empty( $title ) ) {
 			echo '<h2>' . wp_kses_post( $title ) . '</h2>';
 		}
@@ -190,7 +190,7 @@ class Product_Layout extends Base_View {
 	 * @return array
 	 */
 	public function body_classes( $classes ) {
-		$products_category = get_theme_mod( 'neve_exclusive_products_category', '-' );
+		$products_category = get_theme_mod( 'nueve4_exclusive_products_category', '-' );
 		if ( $products_category === '-' || ! is_product() ) {
 			return $classes;
 		}

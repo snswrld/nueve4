@@ -3,10 +3,10 @@
  * Customizer Heading.
  *
  * @since   1.0.0
- * @package Neve\Customizer\Controls
+ * @package Nueve4\Customizer\Controls
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * Checkbox control

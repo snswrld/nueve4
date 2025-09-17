@@ -3,19 +3,19 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      05/09/2018
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 
-namespace Neve\Compatibility;
+namespace Nueve4\Compatibility;
 
-use Neve\Core\Dynamic_Css;
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
+use Nueve4\Core\Dynamic_Css;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
 
 /**
  * Class Elementor
  *
- * @package Neve\Compatibility
+ * @package Nueve4\Compatibility
  */
 class Elementor extends Page_Builder_Base {
 	/**
@@ -65,20 +65,20 @@ class Elementor extends Page_Builder_Base {
 
 		self::$custom_global_colors = self::$custom_global_colors ?? Mods::get( Config::MODS_GLOBAL_CUSTOM_COLORS, [] );
 
-		add_filter( 'neve_dynamic_style_output', array( $this, 'fix_links' ), 99, 2 );
+		add_filter( 'nueve4_dynamic_style_output', array( $this, 'fix_links' ), 99, 2 );
 		add_action( 'wp', array( $this, 'add_theme_builder_hooks' ) );
 		add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'maybe_set_page_template' ), 1 );
 		add_filter( 'rest_request_after_callbacks', [ $this, 'alter_global_colors_in_picker' ], 999, 3 );
 		add_filter( 'rest_request_after_callbacks', [ $this, 'alter_global_colors_front_end' ], 999, 3 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 100 );
 		/**
-		* Elementor - Neve Pro Compatibility
-		* add_filter call for "neve_pro_run_wc_view" hook.
+		* Elementor - Nueve4 Pro Compatibility
+		* add_filter call for "nueve4_pro_run_wc_view" hook.
 		*
-		* The callback, suspenses some WooCommerce modifications (especially customizer support) by Neve Pro if an Elementor template is applied on the current page.
-		* That gives full capability to Elementor and removes Neve Pro customizations.
+		* The callback, suspenses some WooCommerce modifications (especially customizer support) by Nueve4 Pro if an Elementor template is applied on the current page.
+		* That gives full capability to Elementor and removes Nueve4 Pro customizations.
 		*/
-		add_filter( 'neve_pro_run_wc_view', array( $this, 'suspend_woo_customizations' ), 10, 2 );
+		add_filter( 'nueve4_pro_run_wc_view', array( $this, 'suspend_woo_customizations' ), 10, 2 );
 	}
 
 	/**
@@ -98,13 +98,13 @@ class Elementor extends Page_Builder_Base {
 		 *
 		 * @since 3.1.0
 		 */
-		$css = apply_filters( 'neve_elementor_colors', $css );
+		$css = apply_filters( 'nueve4_elementor_colors', $css );
 		$css = Dynamic_Css::minify_css( $css );
-		wp_add_inline_style( 'neve-style', $css );
+		wp_add_inline_style( 'nueve4-style', $css );
 	}
 
 	/**
-	 * Filter rest responses to add Neve Palette Colors to pages using Elementor.
+	 * Filter rest responses to add Nueve4 Palette Colors to pages using Elementor.
 	 *
 	 * @param \WP_REST_Response $response request response.
 	 * @param array             $handler request handler.
@@ -141,14 +141,14 @@ class Elementor extends Page_Builder_Base {
 			[
 				'id'    => esc_attr( $rest_id ),
 				'title' => $this->get_global_color_prefix() . esc_html( $rest_to_slugs[ $rest_id ] ),
-				'value' => neve_sanitize_colors( $colors[ $rest_to_slugs[ $rest_id ] ] ),
+				'value' => nueve4_sanitize_colors( $colors[ $rest_to_slugs[ $rest_id ] ] ),
 			]
 		);
 		return $response;
 	}
 
 	/**
-	 * Filter rest responses to add Neve Palette Colors to Elementor.
+	 * Filter rest responses to add Nueve4 Palette Colors to Elementor.
 	 *
 	 * @param \WP_REST_Response $response request response.
 	 * @param array             $handler request handler.
@@ -163,15 +163,15 @@ class Elementor extends Page_Builder_Base {
 		}
 
 		$label_map = [
-			'nv-primary-accent'   => __( 'Primary Accent', 'neve' ),
-			'nv-secondary-accent' => __( 'Secondary Accent', 'neve' ),
-			'nv-site-bg'          => __( 'Site Background', 'neve' ),
-			'nv-light-bg'         => __( 'Light Background', 'neve' ),
-			'nv-dark-bg'          => __( 'Dark Background', 'neve' ),
-			'nv-text-color'       => __( 'Text Color', 'neve' ),
-			'nv-text-dark-bg'     => __( 'Text Dark Background', 'neve' ),
-			'nv-c-1'              => __( 'Extra Color 1', 'neve' ),
-			'nv-c-2'              => __( 'Extra Color 2', 'neve' ),
+			'nv-primary-accent'   => __( 'Primary Accent', 'nueve4' ),
+			'nv-secondary-accent' => __( 'Secondary Accent', 'nueve4' ),
+			'nv-site-bg'          => __( 'Site Background', 'nueve4' ),
+			'nv-light-bg'         => __( 'Light Background', 'nueve4' ),
+			'nv-dark-bg'          => __( 'Dark Background', 'nueve4' ),
+			'nv-text-color'       => __( 'Text Color', 'nueve4' ),
+			'nv-text-dark-bg'     => __( 'Text Dark Background', 'nueve4' ),
+			'nv-c-1'              => __( 'Extra Color 1', 'nueve4' ),
+			'nv-c-2'              => __( 'Extra Color 2', 'nueve4' ),
 		];
 
 		foreach ( self::$custom_global_colors as $slug => $args ) {
@@ -186,7 +186,7 @@ class Elementor extends Page_Builder_Base {
 			$data['colors'][ $no_hyphens ] = [
 				'id'    => esc_attr( $no_hyphens ),
 				'title' => $this->get_global_color_prefix() . esc_html( $label_map[ $slug ] ),
-				'value' => neve_sanitize_colors( $color_value ),
+				'value' => nueve4_sanitize_colors( $color_value ),
 			];
 		}
 
@@ -211,13 +211,13 @@ class Elementor extends Page_Builder_Base {
 		}
 
 		// Override theme templates.
-		add_action( 'neve_do_top_bar', array( $this, 'do_header' ), 0 );
-		add_action( 'neve_do_header', array( $this, 'do_header' ), 0 );
-		add_action( 'neve_do_footer', array( $this, 'do_footer' ), 0 );
-		add_action( 'neve_do_404', array( $this, 'do_404' ), 0 );
-		add_action( 'neve_do_single_post', array( $this, 'do_single_post' ), 0 );
-		add_action( 'neve_do_single_page', array( $this, 'do_single_page' ), 0 );
-		add_action( 'neve_page_header', array( $this, 'remove_header_on_page' ), 0 );
+		add_action( 'nueve4_do_top_bar', array( $this, 'do_header' ), 0 );
+		add_action( 'nueve4_do_header', array( $this, 'do_header' ), 0 );
+		add_action( 'nueve4_do_footer', array( $this, 'do_footer' ), 0 );
+		add_action( 'nueve4_do_404', array( $this, 'do_404' ), 0 );
+		add_action( 'nueve4_do_single_post', array( $this, 'do_single_post' ), 0 );
+		add_action( 'nueve4_do_single_page', array( $this, 'do_single_page' ), 0 );
+		add_action( 'nueve4_page_header', array( $this, 'remove_header_on_page' ), 0 );
 	}
 
 	/**
@@ -236,8 +236,8 @@ class Elementor extends Page_Builder_Base {
 	public function do_header() {
 		$did_location = elementor_theme_do_location( 'header' );
 		if ( $did_location ) {
-			remove_all_actions( 'neve_do_top_bar' );
-			remove_all_actions( 'neve_do_header' );
+			remove_all_actions( 'nueve4_do_top_bar' );
+			remove_all_actions( 'nueve4_do_header' );
 		}
 	}
 
@@ -247,7 +247,7 @@ class Elementor extends Page_Builder_Base {
 	public function do_footer() {
 		$did_location = elementor_theme_do_location( 'footer' );
 		if ( $did_location ) {
-			remove_all_actions( 'neve_do_footer' );
+			remove_all_actions( 'nueve4_do_footer' );
 		}
 	}
 
@@ -260,7 +260,7 @@ class Elementor extends Page_Builder_Base {
 		}
 		$did_location = elementor_theme_do_location( 'single' );
 		if ( $did_location ) {
-			remove_all_actions( 'neve_do_404' );
+			remove_all_actions( 'nueve4_do_404' );
 		}
 	}
 
@@ -270,7 +270,7 @@ class Elementor extends Page_Builder_Base {
 	public function do_single_post() {
 		$did_location = elementor_theme_do_location( 'single' );
 		if ( $did_location ) {
-			remove_all_actions( 'neve_do_single_post' );
+			remove_all_actions( 'nueve4_do_single_post' );
 		}
 	}
 
@@ -280,7 +280,7 @@ class Elementor extends Page_Builder_Base {
 	public function do_single_page() {
 		$did_location = elementor_theme_do_location( 'single' );
 		if ( $did_location ) {
-			remove_all_actions( 'neve_do_single_page' );
+			remove_all_actions( 'nueve4_do_single_page' );
 		}
 	}
 
@@ -292,7 +292,7 @@ class Elementor extends Page_Builder_Base {
 			return;
 		}
 		if ( elementor_theme_do_location( 'single' ) ) {
-			remove_all_actions( 'neve_page_header' );
+			remove_all_actions( 'nueve4_page_header' );
 		}
 	}
 
@@ -313,7 +313,7 @@ class Elementor extends Page_Builder_Base {
 	}
 
 	/**
-	 * Fix the underline of links added by neve.
+	 * Fix the underline of links added by nueve4.
 	 *
 	 * @param string $css Current css.
 	 * @param string $context Context.
@@ -336,7 +336,7 @@ class Elementor extends Page_Builder_Base {
 	 * @return array
 	 */
 	private function get_current_palette_colors() {
-		$customizer = get_theme_mod( 'neve_global_colors', neve_get_global_colors_default( true ) );
+		$customizer = get_theme_mod( 'nueve4_global_colors', nueve4_get_global_colors_default( true ) );
 		$active     = $customizer['activePalette'];
 		$palettes   = $customizer['palettes'];
 		$palette    = $palettes[ $active ];
@@ -355,7 +355,7 @@ class Elementor extends Page_Builder_Base {
 	 * @return string
 	 */
 	private function get_global_color_prefix() {
-		return ( apply_filters( 'ti_wl_theme_is_localized', false ) ? __( 'Theme', 'neve' ) : 'Neve' ) . ' - ';
+		return ( apply_filters( 'ti_wl_theme_is_localized', false ) ? __( 'Theme', 'nueve4' ) : 'Nueve4' ) . ' - ';
 	}
 
 	/**
@@ -510,7 +510,7 @@ class Elementor extends Page_Builder_Base {
 	}
 
 	/**
-	 * Conditionally suspense Woocommerce moditifications by Neve Pro if Elementor template applies to current page.
+	 * Conditionally suspense Woocommerce moditifications by Nueve4 Pro if Elementor template applies to current page.
 	 *
 	 * @param  bool   $should_load Current loading status.
 	 * @param  string $class_name Fully class name that applies the Woo Modification.
@@ -518,16 +518,16 @@ class Elementor extends Page_Builder_Base {
 	 */
 	public function suspend_woo_customizations( $should_load, $class_name ) {
 		switch ( $class_name ) {
-			case 'Neve_Pro\Modules\Woocommerce_Booster\Views\Shop_Page':
+			case 'Nueve4_Pro\Modules\Woocommerce_Booster\Views\Shop_Page':
 				$elementor_template_type = 'product_archive';
 				break;
 
-			case 'Neve_Pro\Modules\Woocommerce_Booster\Views\Shop_Product':
+			case 'Nueve4_Pro\Modules\Woocommerce_Booster\Views\Shop_Product':
 				$elementor_template_type = is_single() ? 'single_product' : 'product_archive'; // Sometimes shop_product is used inside of the single product as related products etc.
 				break;
 
-			case 'Neve_Pro\Modules\Woocommerce_Booster\Views\Single_Product_Video':
-			case 'Neve_Pro\Modules\Woocommerce_Booster\Views\Single_Product':
+			case 'Nueve4_Pro\Modules\Woocommerce_Booster\Views\Single_Product_Video':
+			case 'Nueve4_Pro\Modules\Woocommerce_Booster\Views\Single_Product':
 				$elementor_template_type = 'single_product';
 				break;
 

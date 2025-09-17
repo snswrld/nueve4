@@ -5,29 +5,29 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      17/08/2018
  *
- * @package Neve\Customizer\Abstracts
+ * @package Nueve4\Customizer\Abstracts
  */
 
-namespace Neve\Customizer;
+namespace Nueve4\Customizer;
 
-use Neve\Customizer\Types\Control;
-use Neve\Customizer\Types\Panel;
-use Neve\Customizer\Types\Partial;
-use Neve\Customizer\Types\Section;
+use Nueve4\Customizer\Types\Control;
+use Nueve4\Customizer\Types\Panel;
+use Nueve4\Customizer\Types\Partial;
+use Nueve4\Customizer\Types\Section;
 use HFG\Traits\Core;
 use WP_Customize_Manager;
 
 /**
  * Customizer module base.
  *
- * @package Neve\Customizer\Abstracts
+ * @package Nueve4\Customizer\Abstracts
  */
 abstract class Base_Customizer {
 	use Core;
 
 	/**
 	 * The minimum value of some customizer controls is 0 to able to allow usability relative to CSS units.
-	 * That can be removed after the https://github.com/Codeinwp/neve/issues/3609 issue is handled.
+	 * That can be removed after the https://github.com/Codeinwp/nueve4/issues/3609 issue is handled.
 	 */
 	const RELATIVE_CSS_UNIT_SUPPORTED_MIN_VALUE = 0;
 
@@ -48,7 +48,7 @@ abstract class Base_Customizer {
 	/**
 	 * Controls to register.
 	 *
-	 * @var array  Controls that will be registered. (list of \Neve\Customizer\Types\Control instances.)
+	 * @var array  Controls that will be registered. (list of \Nueve4\Customizer\Types\Control instances.)
 	 */
 	private $controls_to_register = array();
 
@@ -164,7 +164,7 @@ abstract class Base_Customizer {
 	 */
 	private function register_controls() {
 		$controls = $this->controls_to_register;
-		/** @var \Neve\Customizer\Types\Control $control */
+		/** @var \Nueve4\Customizer\Types\Control $control */
 		foreach ( $controls as $control ) {
 			$this->wpc->add_setting( $control->id, $control->setting_args );
 			$control_type = null;
@@ -184,7 +184,7 @@ abstract class Base_Customizer {
 				);
 
 				add_filter(
-					'neve_customize_preview_localization',
+					'nueve4_customize_preview_localization',
 					function ( $array ) use ( $control_args ) {
 						if ( ! isset( $array[ $control_args['type'] ] ) ) {
 							$array[ $control_args['type'] ] = [];
@@ -200,7 +200,7 @@ abstract class Base_Customizer {
 			if ( isset( $control->control_args['conditional_header'] ) && $control->control_args['conditional_header'] ) {
 				$id = $control->id;
 				add_filter(
-					'neve_pro_react_controls_localization',
+					'nueve4_pro_react_controls_localization',
 					function ( $array ) use ( $id ) {
 						$array['headerControls'][] = $id;
 
@@ -343,19 +343,19 @@ abstract class Base_Customizer {
 	public function add_boxed_layout_controls( $id, $settings ) {
 		$this->add_control(
 			new Control(
-				'neve_' . $id . '_boxed_layout',
+				'nueve4_' . $id . '_boxed_layout',
 				[
-					'sanitize_callback' => 'neve_sanitize_checkbox',
+					'sanitize_callback' => 'nueve4_sanitize_checkbox',
 					'default'           => array_key_exists( 'is_boxed_default', $settings ) ? $settings['is_boxed_default'] : false,
 				],
 				[
-					'label'           => esc_html__( 'Boxed layout', 'neve' ),
+					'label'           => esc_html__( 'Boxed layout', 'nueve4' ),
 					'section'         => $settings['section'],
-					'type'            => 'neve_toggle_control',
+					'type'            => 'nueve4_toggle_control',
 					'priority'        => $settings['priority'],
 					'active_callback' => array_key_exists( 'toggle_active_callback', $settings ) ? $settings['toggle_active_callback'] : '__return_true',
 				],
-				'Neve\Customizer\Controls\Checkbox'
+				'Nueve4\Customizer\Controls\Checkbox'
 			)
 		);
 
@@ -411,14 +411,14 @@ abstract class Base_Customizer {
 
 		$this->add_control(
 			new Control(
-				'neve_' . $id . '_boxed_padding',
+				'nueve4_' . $id . '_boxed_padding',
 				[
 					'sanitize_callback' => [ $this, 'sanitize_spacing_array' ],
 					'transport'         => $this->selective_refresh,
 					'default'           => array_key_exists( 'padding_default', $settings ) ? $settings['padding_default'] : false,
 				],
 				[
-					'label'                 => esc_html__( 'Section padding', 'neve' ),
+					'label'                 => esc_html__( 'Section padding', 'nueve4' ),
 					'section'               => $settings['section'],
 					'input_attrs'           => [
 						'units' => [ 'px', 'em', 'rem' ],
@@ -430,20 +430,20 @@ abstract class Base_Customizer {
 					'live_refresh_css_prop' => $padding_live_refresh_settings,
 					'active_callback'       => array_key_exists( 'active_callback', $settings ) ? $settings['active_callback'] : false,
 				],
-				'\Neve\Customizer\Controls\React\Spacing'
+				'\Nueve4\Customizer\Controls\React\Spacing'
 			)
 		);
 
 		$this->add_control(
 			new Control(
-				'neve_' . $id . '_boxed_background_color',
+				'nueve4_' . $id . '_boxed_background_color',
 				[
-					'sanitize_callback' => 'neve_sanitize_colors',
+					'sanitize_callback' => 'nueve4_sanitize_colors',
 					'transport'         => $this->selective_refresh,
 					'default'           => array_key_exists( 'background_default', $settings ) ? $settings['background_default'] : false,
 				],
 				[
-					'label'                 => esc_html__( 'Background color', 'neve' ),
+					'label'                 => esc_html__( 'Background color', 'nueve4' ),
 					'section'               => $settings['section'],
 					'priority'              => $settings['priority'],
 					'input_attrs'           => [
@@ -453,28 +453,28 @@ abstract class Base_Customizer {
 					'live_refresh_css_prop' => $background_live_refresh_settings,
 					'active_callback'       => array_key_exists( 'active_callback', $settings ) ? $settings['active_callback'] : false,
 				],
-				'Neve\Customizer\Controls\React\Color'
+				'Nueve4\Customizer\Controls\React\Color'
 			)
 		);
 
 		if ( $has_text_color ) {
 			$this->add_control(
 				new Control(
-					'neve_' . $id . '_boxed_text_color',
+					'nueve4_' . $id . '_boxed_text_color',
 					[
-						'sanitize_callback' => 'neve_sanitize_colors',
+						'sanitize_callback' => 'nueve4_sanitize_colors',
 						'transport'         => $this->selective_refresh,
 						'default'           => array_key_exists( 'color_default', $settings ) ? $settings['color_default'] : false,
 					],
 					[
-						'label'                 => esc_html__( 'Text color', 'neve' ),
+						'label'                 => esc_html__( 'Text color', 'nueve4' ),
 						'section'               => $settings['section'],
 						'priority'              => $settings['priority'],
 						'live_refresh_selector' => true,
 						'live_refresh_css_prop' => $color_live_refresh_settings,
 						'active_callback'       => array_key_exists( 'active_callback', $settings ) ? $settings['active_callback'] : false,
 					],
-					'Neve\Customizer\Controls\React\Color'
+					'Nueve4\Customizer\Controls\React\Color'
 				)
 			);
 		}

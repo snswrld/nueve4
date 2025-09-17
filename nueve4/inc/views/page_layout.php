@@ -2,15 +2,15 @@
 /**
  * Single page layout.
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views;
+namespace Nueve4\Views;
 
 /**
  * Class Page_Layout
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 class Page_Layout extends Base_View {
 
@@ -18,7 +18,7 @@ class Page_Layout extends Base_View {
 	 * Init function
 	 */
 	public function init() {
-		add_action( 'neve_do_single_page', [ $this, 'render_page' ] );
+		add_action( 'nueve4_do_single_page', [ $this, 'render_page' ] );
 	}
 
 	/**
@@ -28,12 +28,12 @@ class Page_Layout extends Base_View {
 		echo '<div class="nv-content-wrap entry-content">';
 		the_content();
 
-		do_action( 'neve_before_page_comments' );
+		do_action( 'nueve4_before_page_comments' );
 		if ( comments_open() || get_comments_number() ) {
 			comments_template();
 		}
 
 		echo '</div>';
-		do_action( 'neve_do_pagination', 'single' );
+		do_action( 'nueve4_do_pagination', 'single' );
 	}
 }

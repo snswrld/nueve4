@@ -3,10 +3,10 @@
  * Customizer Heading.
  *
  * @since   1.0.0
- * @package Neve\Customizer\Controls
+ * @package Nueve4\Customizer\Controls
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * Heading control
@@ -110,7 +110,7 @@ class Heading extends \WP_Customize_Control {
 		<# if(data.category_label) {#>
 		<span class="customize-control-title">{{data.category_label}}</span>
 		<# }#>
-		<div class="neve-customizer-heading">
+		<div class="nueve4-customizer-heading">
 			<span class="accordion-heading">{{ data.label }}</span>
 			<# if(data.accordion) { #>
 			<span class="accordion-expand-button"></span>

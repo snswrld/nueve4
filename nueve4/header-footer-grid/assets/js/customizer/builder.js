@@ -1530,8 +1530,8 @@ let hfgPanels = {};
             let section = $( this ).data( 'section' ) || ''
             console.log( 'Clicked section' , section );
 
-            if ( section.indexOf('neve_') !== -1 ) {
-            	section = section.replace( 'neve_', '' );
+            if ( section.indexOf('nueve4_') !== -1 ) {
+            	section = section.replace( 'nueve4_', '' );
 				console.log( 'New section' , section );
 			}
 
@@ -1803,7 +1803,7 @@ let hfgPanels = {};
       },
       listenForLayoutSideloading() {
         let that = this
-        document.addEventListener( 'neve-changed-builder-value', function(e) {
+        document.addEventListener( 'nueve4-changed-builder-value', function(e) {
 
           if ( !e.detail ) return false
 
@@ -2155,7 +2155,7 @@ let hfgPanels = {};
       } )
     } )
 
-    wpcustomize.previewer.bind( 'neve-toggle-navbar', function() {
+    wpcustomize.previewer.bind( 'nueve4-toggle-navbar', function() {
       $( '.hfg--cp-sidebar .toggle' ).toggleClass( 'active' )
     } )
   } )

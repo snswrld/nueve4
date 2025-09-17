@@ -29,7 +29,7 @@ if ( ! empty( $component_styles_array ) ) {
 }
 $amp_state = '';
 $amp_class = '';
-if ( neve_is_amp() ) {
+if ( nueve4_is_amp() ) {
 	$amp_state = ' on="tap:AMP.setState({visible: !visible})" ';
 	$amp_class = '[class]="visible ? \'menu-item-nav-search active ' . esc_attr( $open ) . '\' : \'menu-item-nav-search ' . esc_attr( $open ) . '\'"';
 }
@@ -37,14 +37,14 @@ if ( neve_is_amp() ) {
 ?>
 <div class="nv-search-icon-component" <?php echo wp_kses_post( $component_styles ); ?>>
 	<div <?php echo $amp_class; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, Already escaped. ?> class="menu-item-nav-search <?php echo esc_attr( $open ); ?>">
-		<?php neve_search_icon( true, true, $size, ! empty( $amp_state ), 'hfg' ); ?>
+		<?php nueve4_search_icon( true, true, $size, ! empty( $amp_state ), 'hfg' ); ?>
 		<div class="nv-nav-search" aria-label="search">
 			<div class="form-wrap <?php echo $open === 'canvas' ? 'container responsive-search' : ''; ?>">
 				<?php get_search_form(); ?>
 			</div>
 			<?php if ( $open !== 'minimal' ) { ?>
 				<div class="close-container <?php echo $open === 'canvas' ? 'container responsive-search' : ''; ?>">
-					<button  class="close-responsive-search" aria-label="<?php echo esc_attr__( 'Close', 'neve' ); ?>"
+					<button  class="close-responsive-search" aria-label="<?php echo esc_attr__( 'Close', 'nueve4' ); ?>"
 					<?php
 							echo $amp_state; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					?>

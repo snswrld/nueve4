@@ -3,10 +3,10 @@
  * Author:          Bogdan Preda <bogdan.preda@themeisle.com>
  * Created on:      2022-02-10
  *
- * @package Neve
+ * @package Nueve4
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Customizer link control React.
@@ -22,7 +22,7 @@ class Link_Control extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_link';
+	public $type = 'nueve4_link';
 
 	/**
 	 * Control URL for link.

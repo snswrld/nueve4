@@ -3,8 +3,8 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      23/08/2018
  *
- * @package Neve
+ * @package Nueve4
  */
 
-do_action( 'neve_do_single_page' );
+do_action( 'nueve4_do_single_page' );
 

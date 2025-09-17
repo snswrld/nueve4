@@ -14,10 +14,10 @@ namespace HFG\Core\Components;
 use HFG\Core\Script_Register;
 use HFG\Core\Settings\Manager as SettingsManager;
 use HFG\Main;
-use Neve\Core\Dynamic_Css;
-use Neve\Core\Settings\Config;
-use Neve\Core\Settings\Mods;
-use Neve\Core\Styles\Dynamic_Selector;
+use Nueve4\Core\Dynamic_Css;
+use Nueve4\Core\Settings\Config;
+use Nueve4\Core\Settings\Mods;
+use Nueve4\Core\Styles\Dynamic_Selector;
 
 /**
  * Class MenuIcon
@@ -110,7 +110,7 @@ class MenuIcon extends Abstract_Component {
 	 * @access  public
 	 */
 	public function init() {
-		$this->set_property( 'label', __( 'Menu Icon', 'neve' ) );
+		$this->set_property( 'label', __( 'Menu Icon', 'nueve4' ) );
 		$this->set_property( 'id', $this->get_class_const( 'COMPONENT_SLUG' ) );
 		$this->set_property( 'component_slug', self::COMPONENT_SLUG );
 		$this->set_property( 'width', 1 );
@@ -120,7 +120,7 @@ class MenuIcon extends Abstract_Component {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'load_scripts' ] );
 
-		add_filter( 'neve_menu_icon_classes', array( $this, 'add_menu_icon_classes' ), 10, 2 );
+		add_filter( 'nueve4_menu_icon_classes', array( $this, 'add_menu_icon_classes' ), 10, 2 );
 	}
 
 	/**
@@ -151,8 +151,8 @@ class MenuIcon extends Abstract_Component {
 	 */
 	public function load_scripts() {
 		if ( $this->is_component_active() || is_customize_preview() ) {
-			wp_add_inline_style( 'neve-style', $this->toggle_style() );
-			wp_add_inline_script( 'neve-script', $this->toggle_script() );
+			wp_add_inline_style( 'nueve4-style', $this->toggle_style() );
+			wp_add_inline_script( 'nueve4-script', $this->toggle_script() );
 		}
 	}
 
@@ -468,7 +468,7 @@ CSS;
 				'tab'                   => SettingsManager::TAB_GENERAL,
 				'sanitize_callback'     => 'wp_filter_nohtml_kses',
 				'default'               => '',
-				'label'                 => __( 'Menu label', 'neve' ),
+				'label'                 => __( 'Menu label', 'nueve4' ),
 				'type'                  => 'text',
 				'section'               => $this->section,
 				'live_refresh_selector' => $this->default_selector . ' .nav-toggle-label',
@@ -488,17 +488,17 @@ CSS;
 				'transport'         => 'postMessage',
 				'tab'               => SettingsManager::TAB_GENERAL,
 				'sanitize_callback' => 'wp_filter_nohtml_kses',
-				'type'              => '\Neve\Customizer\Controls\React\Instructions_Control',
+				'type'              => '\Nueve4\Customizer\Controls\React\Instructions_Control',
 				'section'           => $this->section,
 				'options'           => [
 					'options' => array(
 						'quickLinks' => array(
 							'toggle_sidebar' => array(
-								'label' => esc_html__( 'Show Mobile Menu', 'neve' ),
+								'label' => esc_html__( 'Show Mobile Menu', 'nueve4' ),
 								'icon'  => 'dashicons-nametag',
 							),
 							'hfg_header_layout_sidebar_layout' => array(
-								'label' => esc_html__( 'Mobile Menu Options', 'neve' ),
+								'label' => esc_html__( 'Mobile Menu Options', 'nueve4' ),
 								'icon'  => 'dashicons-admin-appearance',
 							),
 						),
@@ -514,8 +514,8 @@ CSS;
 				'transport'             => 'postMessage',
 				'tab'                   => SettingsManager::TAB_LAYOUT,
 				'sanitize_callback'     => array( $this, 'sanitize_spacing_array' ),
-				'label'                 => __( 'Margin', 'neve' ) . ' (' . __( 'Label', 'neve' ) . ')',
-				'type'                  => '\Neve\Customizer\Controls\React\Spacing',
+				'label'                 => __( 'Margin', 'nueve4' ) . ' (' . __( 'Label', 'nueve4' ) . ')',
+				'type'                  => '\Nueve4\Customizer\Controls\React\Spacing',
 				'default'               => $this->default_label_margin_value,
 				'live_refresh_selector' => '.builder-item--' . $this->get_id(),
 				'live_refresh_css_prop' => array(
@@ -538,9 +538,9 @@ CSS;
 				'tab'                   => SettingsManager::TAB_STYLE,
 				'transport'             => 'refresh',
 				'sanitize_callback'     => 'wp_filter_nohtml_kses',
-				'label'                 => __( 'Icon', 'neve' ),
-				'description'           => __( 'Icon', 'neve' ),
-				'type'                  => 'Neve\Customizer\Controls\React\Inline_Select',
+				'label'                 => __( 'Icon', 'nueve4' ),
+				'description'           => __( 'Icon', 'nueve4' ),
+				'type'                  => 'Nueve4\Customizer\Controls\React\Inline_Select',
 				'default'               => 'default',
 				'options'               => [
 					'options' => [
@@ -568,8 +568,8 @@ CSS;
 				'transport'             => 'postMessage',
 				'sanitize_callback'     => 'absint',
 				'default'               => 15,
-				'label'                 => __( 'Icon Size', 'neve' ),
-				'type'                  => 'Neve\Customizer\Controls\React\Range',
+				'label'                 => __( 'Icon Size', 'nueve4' ),
+				'type'                  => 'Nueve4\Customizer\Controls\React\Range',
 				'options'               => [
 					'active_callback' => function () {
 						return Mods::get( $this->get_id() . '_' . self::MENU_ICON, 'default' ) === 'svg';
@@ -614,10 +614,10 @@ CSS;
 				'group'                 => $this->get_id(),
 				'transport'             => 'postMessage',
 				'tab'                   => SettingsManager::TAB_STYLE,
-				'sanitize_callback'     => 'neve_sanitize_button_appearance',
+				'sanitize_callback'     => 'nueve4_sanitize_button_appearance',
 				'default'               => $default,
-				'label'                 => __( 'Appearance', 'neve' ),
-				'type'                  => '\Neve\Customizer\Controls\React\Button_Appearance',
+				'label'                 => __( 'Appearance', 'nueve4' ),
+				'type'                  => '\Nueve4\Customizer\Controls\React\Button_Appearance',
 				'section'               => $this->section,
 				'options'               => [
 					'no_hover'     => true,
@@ -725,7 +725,7 @@ CSS;
 	 * @return string
 	 */
 	public static function aria_expanded_behaviour( $only_click_attribute = false ) {
-		if ( neve_is_amp() ) {
+		if ( nueve4_is_amp() ) {
 			return $only_click_attribute ? '' : 'aria-expanded="false"';
 		}
 		return ( $only_click_attribute ? '' : 'aria-expanded="false" ' ) . 'onclick="if(\'undefined\' !== typeof toggleAriaClick ) { toggleAriaClick() }"';

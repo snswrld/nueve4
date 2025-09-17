@@ -2,10 +2,10 @@
 /**
  * Theme Dependencies Manager
  *
- * @package Neve
+ * @package Nueve4
  */
 
-class Neve_Dependencies {
+class Nueve4_Dependencies {
 
     private $required_plugins = array(
         'elementor' => array(
@@ -110,4 +110,4 @@ class Neve_Dependencies {
     }
 }
 
-new Neve_Dependencies();
+new Nueve4_Dependencies();

@@ -4,7 +4,7 @@
  *
  * Contains the closing of the "wrapper" div and all content after.
  *
- * @package Neve
+ * @package Nueve4
  * @since   1.0.0
  */
 
@@ -13,9 +13,9 @@
  *
  * @since 1.0.4
  */
-do_action( 'neve_before_primary_end' ); ?>
+do_action( 'nueve4_before_primary_end' ); ?>
 
-</main><!--/.neve-main-->
+</main><!--/.nueve4-main-->
 
 <?php
 
@@ -24,7 +24,7 @@ do_action( 'neve_before_primary_end' ); ?>
  *
  * @since 1.0.4
  */
-do_action( 'neve_after_primary' );
+do_action( 'nueve4_after_primary' );
 
 /**
  * Filters the content parts.
@@ -34,28 +34,28 @@ do_action( 'neve_after_primary' );
  * @param bool   $status Whether the component should be displayed or not.
  * @param string $context The context name.
  */
-if ( apply_filters( 'neve_filter_toggle_content_parts', true, 'footer' ) === true ) {
+if ( apply_filters( 'nueve4_filter_toggle_content_parts', true, 'footer' ) === true ) {
 
 	/**
 	 * Executes actions before the footer was rendered.
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'neve_before_footer_hook' );
+	do_action( 'nueve4_before_footer_hook' );
 
 	/**
 	 * Executes the rendering function for the footer.
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'neve_do_footer' );
+	do_action( 'nueve4_do_footer' );
 
 	/**
 	 * Executes actions after the footer was rendered.
 	 *
 	 * @since 1.0.0
 	 */
-	do_action( 'neve_after_footer_hook' );
+	do_action( 'nueve4_after_footer_hook' );
 }
 ?>
 
@@ -69,7 +69,7 @@ wp_footer();
  *
  * @since 2.11
  */
-do_action( 'neve_body_end_before' );
+do_action( 'nueve4_body_end_before' );
 
 ?>
 </body>

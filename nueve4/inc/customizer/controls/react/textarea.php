@@ -2,15 +2,15 @@
 /**
  * Textarea Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Textarea
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Textarea extends \WP_Customize_Control {
 	/**
@@ -18,7 +18,7 @@ class Textarea extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_textarea';
+	public $type = 'nueve4_textarea';
 	/**
 	 * Additional arguments passed to JS.
 	 *

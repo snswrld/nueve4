@@ -2,16 +2,16 @@
 /**
  * The range value customize control.
  *
- * @package    Neve/Customizer/Controls
+ * @package    Nueve4/Customizer/Controls
  * @soundtrack I Still Haven't Found What I'm Looking For - U2 ( manily the sense of _js )
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * Class Customizer_Range_Value_Control
  *
- * @package  Neve\Customizer\Controls
+ * @package  Nueve4\Customizer\Controls
  */
 class Range extends \WP_Customize_Control {
 

@@ -26,8 +26,8 @@
 	 * UPDATE:
 	 *  After ongoing conversations with the WordPress.org TRT we received
 	 *  an official approval for including i-frames in the theme's WP Admin setting's
-	 *  page tab (the SDK will never add any i-frames on the sitefront). i-frames
-	 *  were never against the guidelines, but we wanted to get the team's blessings
+	 *  page tab (the SDK will nueve4r add any i-frames on the sitefront). i-frames
+	 *  were nueve4r against the guidelines, but we wanted to get the team's blessings
 	 *  before we move forward. For the record, I got the final approval from
 	 *  Ulrich Pogson (@grapplerulrich), a team lead at the TRT during WordCamp
 	 *  Europe 2017 (June 16th, 2017).

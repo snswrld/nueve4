@@ -2,15 +2,15 @@
 /**
  * Repeater Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Repeater
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Repeater extends \WP_Customize_Control {
 
@@ -19,7 +19,7 @@ class Repeater extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_repeater_control';
+	public $type = 'nueve4_repeater_control';
 
 	/**
 	 * Additional arguments passed to JS.

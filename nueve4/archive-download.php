@@ -3,10 +3,10 @@
  * Author:          Uriahs Victor
  * Created on:      14/07/2021 (d/m/y)
  *
- * @package Neve
+ * @package Nueve4
  */
 
-$container_class = apply_filters( 'neve_container_class_filter', 'container', 'download-archive' );
+$container_class = apply_filters( 'nueve4_container_class_filter', 'container', 'download-archive' );
 
 get_header();
 
@@ -21,7 +21,7 @@ get_header();
 			 *
 			 * @since 3.0.0
 			 */
-			do_action( 'neve_before_download_archive' );
+			do_action( 'nueve4_before_download_archive' );
 			?>
 			<div id="nv-edd-grid-container">
 				<?php
@@ -44,12 +44,12 @@ get_header();
 				 *
 				 * @since 3.0.0
 				 */
-				do_action( 'neve_after_download_archive' );
+				do_action( 'nueve4_after_download_archive' );
 
 				/**
 				 * Download pagination
 				 */
-				neve_edd_download_nav();        
+				nueve4_edd_download_nav();        
 				?>
 		</div>
 

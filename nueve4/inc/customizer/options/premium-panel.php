@@ -1,16 +1,16 @@
 <?php
 /**
- * Premium Panel for Neve Theme Customizer
+ * Premium Panel for Nueve4 Theme Customizer
  * 
- * @package Neve\Customizer\Options
+ * @package Nueve4\Customizer\Options
  */
 
-namespace Neve\Customizer\Options;
+namespace Nueve4\Customizer\Options;
 
-use Neve\Customizer\Base_Customizer;
-use Neve\Customizer\Types\Panel;
-use Neve\Customizer\Types\Section;
-use Neve\Customizer\Types\Control;
+use Nueve4\Customizer\Base_Customizer;
+use Nueve4\Customizer\Types\Panel;
+use Nueve4\Customizer\Types\Section;
+use Nueve4\Customizer\Types\Control;
 
 /**
  * Class Premium_Panel
@@ -34,11 +34,11 @@ class Premium_Panel extends Base_Customizer {
     private function add_premium_panel() {
         $this->add_panel(
             new Panel(
-                'neve_premium_features',
+                'nueve4_premium_features',
                 array(
                     'priority' => 15,
-                    'title' => __('Premium Features', 'neve'),
-                    'description' => __('Advanced customization options for your website.', 'neve')
+                    'title' => __('Premium Features', 'nueve4'),
+                    'description' => __('Advanced customization options for your website.', 'nueve4')
                 )
             )
         );
@@ -51,10 +51,10 @@ class Premium_Panel extends Base_Customizer {
         // Performance section
         $this->add_section(
             new Section(
-                'neve_performance',
+                'nueve4_performance',
                 array(
-                    'title' => __('Performance', 'neve'),
-                    'panel' => 'neve_premium_features',
+                    'title' => __('Performance', 'nueve4'),
+                    'panel' => 'nueve4_premium_features',
                     'priority' => 10
                 )
             )
@@ -63,10 +63,10 @@ class Premium_Panel extends Base_Customizer {
         // Advanced Layout section
         $this->add_section(
             new Section(
-                'neve_advanced_layout',
+                'nueve4_advanced_layout',
                 array(
-                    'title' => __('Advanced Layout', 'neve'),
-                    'panel' => 'neve_premium_features',
+                    'title' => __('Advanced Layout', 'nueve4'),
+                    'panel' => 'nueve4_premium_features',
                     'priority' => 20
                 )
             )
@@ -76,10 +76,10 @@ class Premium_Panel extends Base_Customizer {
         if (class_exists('WooCommerce')) {
             $this->add_section(
                 new Section(
-                    'neve_woocommerce_premium',
+                    'nueve4_woocommerce_premium',
                     array(
-                        'title' => __('WooCommerce Premium', 'neve'),
-                        'panel' => 'neve_premium_features',
+                        'title' => __('WooCommerce Premium', 'nueve4'),
+                        'panel' => 'nueve4_premium_features',
                         'priority' => 30
                     )
                 )
@@ -89,10 +89,10 @@ class Premium_Panel extends Base_Customizer {
         // Blog Premium section
         $this->add_section(
             new Section(
-                'neve_blog_premium',
+                'nueve4_blog_premium',
                 array(
-                    'title' => __('Blog Premium', 'neve'),
-                    'panel' => 'neve_premium_features',
+                    'title' => __('Blog Premium', 'nueve4'),
+                    'panel' => 'nueve4_premium_features',
                     'priority' => 40
                 )
             )
@@ -101,10 +101,10 @@ class Premium_Panel extends Base_Customizer {
         // Header/Footer Premium section
         $this->add_section(
             new Section(
-                'neve_hfg_premium',
+                'nueve4_hfg_premium',
                 array(
-                    'title' => __('Header/Footer Premium', 'neve'),
-                    'panel' => 'neve_premium_features',
+                    'title' => __('Header/Footer Premium', 'nueve4'),
+                    'panel' => 'nueve4_premium_features',
                     'priority' => 50
                 )
             )
@@ -129,15 +129,15 @@ class Premium_Panel extends Base_Customizer {
         // Enable CSS optimization
         $this->add_control(
             new Control(
-                'neve_optimize_css',
+                'nueve4_optimize_css',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Optimize CSS Delivery', 'neve'),
-                    'description' => __('Defer non-critical CSS to improve page load speed.', 'neve'),
-                    'section' => 'neve_performance',
+                    'label' => __('Optimize CSS Delivery', 'nueve4'),
+                    'description' => __('Defer non-critical CSS to improve page load speed.', 'nueve4'),
+                    'section' => 'nueve4_performance',
                     'type' => 'checkbox'
                 )
             )
@@ -146,15 +146,15 @@ class Premium_Panel extends Base_Customizer {
         // Enable lazy loading
         $this->add_control(
             new Control(
-                'neve_lazy_loading',
+                'nueve4_lazy_loading',
                 array(
                     'default' => true,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Enable Lazy Loading', 'neve'),
-                    'description' => __('Load images only when they come into view.', 'neve'),
-                    'section' => 'neve_performance',
+                    'label' => __('Enable Lazy Loading', 'nueve4'),
+                    'description' => __('Load images only when they come into view.', 'nueve4'),
+                    'section' => 'nueve4_performance',
                     'type' => 'checkbox'
                 )
             )
@@ -163,15 +163,15 @@ class Premium_Panel extends Base_Customizer {
         // Preload fonts
         $this->add_control(
             new Control(
-                'neve_preload_fonts',
+                'nueve4_preload_fonts',
                 array(
                     'default' => '',
                     'sanitize_callback' => 'sanitize_textarea_field'
                 ),
                 array(
-                    'label' => __('Preload Fonts', 'neve'),
-                    'description' => __('Enter font URLs to preload (one per line).', 'neve'),
-                    'section' => 'neve_performance',
+                    'label' => __('Preload Fonts', 'nueve4'),
+                    'description' => __('Enter font URLs to preload (one per line).', 'nueve4'),
+                    'section' => 'nueve4_performance',
                     'type' => 'textarea'
                 )
             )
@@ -185,15 +185,15 @@ class Premium_Panel extends Base_Customizer {
         // Enable sticky header
         $this->add_control(
             new Control(
-                'neve_sticky_header',
+                'nueve4_sticky_header',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Sticky Header', 'neve'),
-                    'description' => __('Make header stick to top when scrolling.', 'neve'),
-                    'section' => 'neve_advanced_layout',
+                    'label' => __('Sticky Header', 'nueve4'),
+                    'description' => __('Make header stick to top when scrolling.', 'nueve4'),
+                    'section' => 'nueve4_advanced_layout',
                     'type' => 'checkbox'
                 )
             )
@@ -202,15 +202,15 @@ class Premium_Panel extends Base_Customizer {
         // Header transparency
         $this->add_control(
             new Control(
-                'neve_transparent_header',
+                'nueve4_transparent_header',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Transparent Header', 'neve'),
-                    'description' => __('Make header background transparent.', 'neve'),
-                    'section' => 'neve_advanced_layout',
+                    'label' => __('Transparent Header', 'nueve4'),
+                    'description' => __('Make header background transparent.', 'nueve4'),
+                    'section' => 'nueve4_advanced_layout',
                     'type' => 'checkbox'
                 )
             )
@@ -219,20 +219,20 @@ class Premium_Panel extends Base_Customizer {
         // Page transitions
         $this->add_control(
             new Control(
-                'neve_page_transitions',
+                'nueve4_page_transitions',
                 array(
                     'default' => 'none',
                     'sanitize_callback' => 'sanitize_text_field'
                 ),
                 array(
-                    'label' => __('Page Transitions', 'neve'),
-                    'section' => 'neve_advanced_layout',
+                    'label' => __('Page Transitions', 'nueve4'),
+                    'section' => 'nueve4_advanced_layout',
                     'type' => 'select',
                     'choices' => array(
-                        'none' => __('None', 'neve'),
-                        'fade' => __('Fade', 'neve'),
-                        'slide' => __('Slide', 'neve'),
-                        'zoom' => __('Zoom', 'neve')
+                        'none' => __('None', 'nueve4'),
+                        'fade' => __('Fade', 'nueve4'),
+                        'slide' => __('Slide', 'nueve4'),
+                        'zoom' => __('Zoom', 'nueve4')
                     )
                 )
             )
@@ -241,15 +241,15 @@ class Premium_Panel extends Base_Customizer {
         // Custom 404 page
         $this->add_control(
             new Control(
-                'neve_custom_404_page',
+                'nueve4_custom_404_page',
                 array(
                     'default' => 0,
                     'sanitize_callback' => 'absint'
                 ),
                 array(
-                    'label' => __('Custom 404 Page', 'neve'),
-                    'description' => __('Select a page to use as custom 404 page.', 'neve'),
-                    'section' => 'neve_advanced_layout',
+                    'label' => __('Custom 404 Page', 'nueve4'),
+                    'description' => __('Select a page to use as custom 404 page.', 'nueve4'),
+                    'section' => 'nueve4_advanced_layout',
                     'type' => 'dropdown-pages'
                 )
             )
@@ -267,15 +267,15 @@ class Premium_Panel extends Base_Customizer {
         // Enable quick view
         $this->add_control(
             new Control(
-                'neve_enable_quick_view',
+                'nueve4_enable_quick_view',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Enable Quick View', 'neve'),
-                    'description' => __('Add quick view button to product cards.', 'neve'),
-                    'section' => 'neve_woocommerce_premium',
+                    'label' => __('Enable Quick View', 'nueve4'),
+                    'description' => __('Add quick view button to product cards.', 'nueve4'),
+                    'section' => 'nueve4_woocommerce_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -284,15 +284,15 @@ class Premium_Panel extends Base_Customizer {
         // Enable wishlist
         $this->add_control(
             new Control(
-                'neve_enable_wishlist',
+                'nueve4_enable_wishlist',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Enable Wishlist', 'neve'),
-                    'description' => __('Add wishlist functionality to products.', 'neve'),
-                    'section' => 'neve_woocommerce_premium',
+                    'label' => __('Enable Wishlist', 'nueve4'),
+                    'description' => __('Add wishlist functionality to products.', 'nueve4'),
+                    'section' => 'nueve4_woocommerce_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -301,15 +301,15 @@ class Premium_Panel extends Base_Customizer {
         // Enable product compare
         $this->add_control(
             new Control(
-                'neve_enable_compare',
+                'nueve4_enable_compare',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Enable Product Compare', 'neve'),
-                    'description' => __('Allow customers to compare products.', 'neve'),
-                    'section' => 'neve_woocommerce_premium',
+                    'label' => __('Enable Product Compare', 'nueve4'),
+                    'description' => __('Allow customers to compare products.', 'nueve4'),
+                    'section' => 'nueve4_woocommerce_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -318,15 +318,15 @@ class Premium_Panel extends Base_Customizer {
         // Enable product filters
         $this->add_control(
             new Control(
-                'neve_enable_product_filters',
+                'nueve4_enable_product_filters',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Enable Product Filters', 'neve'),
-                    'description' => __('Add advanced filtering options to shop page.', 'neve'),
-                    'section' => 'neve_woocommerce_premium',
+                    'label' => __('Enable Product Filters', 'nueve4'),
+                    'description' => __('Add advanced filtering options to shop page.', 'nueve4'),
+                    'section' => 'nueve4_woocommerce_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -335,19 +335,19 @@ class Premium_Panel extends Base_Customizer {
         // Mini cart style
         $this->add_control(
             new Control(
-                'neve_mini_cart_style',
+                'nueve4_mini_cart_style',
                 array(
                     'default' => 'dropdown',
                     'sanitize_callback' => 'sanitize_text_field'
                 ),
                 array(
-                    'label' => __('Mini Cart Style', 'neve'),
-                    'section' => 'neve_woocommerce_premium',
+                    'label' => __('Mini Cart Style', 'nueve4'),
+                    'section' => 'nueve4_woocommerce_premium',
                     'type' => 'select',
                     'choices' => array(
-                        'dropdown' => __('Dropdown', 'neve'),
-                        'sidebar' => __('Sidebar', 'neve'),
-                        'popup' => __('Popup', 'neve')
+                        'dropdown' => __('Dropdown', 'nueve4'),
+                        'sidebar' => __('Sidebar', 'nueve4'),
+                        'popup' => __('Popup', 'nueve4')
                     )
                 )
             )
@@ -361,15 +361,15 @@ class Premium_Panel extends Base_Customizer {
         // Reading time
         $this->add_control(
             new Control(
-                'neve_show_reading_time',
+                'nueve4_show_reading_time',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Show Reading Time', 'neve'),
-                    'description' => __('Display estimated reading time for posts.', 'neve'),
-                    'section' => 'neve_blog_premium',
+                    'label' => __('Show Reading Time', 'nueve4'),
+                    'description' => __('Display estimated reading time for posts.', 'nueve4'),
+                    'section' => 'nueve4_blog_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -378,15 +378,15 @@ class Premium_Panel extends Base_Customizer {
         // Post views
         $this->add_control(
             new Control(
-                'neve_show_post_views',
+                'nueve4_show_post_views',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Show Post Views', 'neve'),
-                    'description' => __('Display view count for posts.', 'neve'),
-                    'section' => 'neve_blog_premium',
+                    'label' => __('Show Post Views', 'nueve4'),
+                    'description' => __('Display view count for posts.', 'nueve4'),
+                    'section' => 'nueve4_blog_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -395,15 +395,15 @@ class Premium_Panel extends Base_Customizer {
         // Related posts
         $this->add_control(
             new Control(
-                'neve_show_related_posts',
+                'nueve4_show_related_posts',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Show Related Posts', 'neve'),
-                    'description' => __('Display related posts at the end of single posts.', 'neve'),
-                    'section' => 'neve_blog_premium',
+                    'label' => __('Show Related Posts', 'nueve4'),
+                    'description' => __('Display related posts at the end of single posts.', 'nueve4'),
+                    'section' => 'nueve4_blog_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -412,15 +412,15 @@ class Premium_Panel extends Base_Customizer {
         // Author box
         $this->add_control(
             new Control(
-                'neve_show_author_box',
+                'nueve4_show_author_box',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Show Author Box', 'neve'),
-                    'description' => __('Display author information box in single posts.', 'neve'),
-                    'section' => 'neve_blog_premium',
+                    'label' => __('Show Author Box', 'nueve4'),
+                    'description' => __('Display author information box in single posts.', 'nueve4'),
+                    'section' => 'nueve4_blog_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -429,15 +429,15 @@ class Premium_Panel extends Base_Customizer {
         // Infinite scroll
         $this->add_control(
             new Control(
-                'neve_infinite_scroll',
+                'nueve4_infinite_scroll',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Infinite Scroll', 'neve'),
-                    'description' => __('Load more posts automatically when scrolling.', 'neve'),
-                    'section' => 'neve_blog_premium',
+                    'label' => __('Infinite Scroll', 'nueve4'),
+                    'description' => __('Load more posts automatically when scrolling.', 'nueve4'),
+                    'section' => 'nueve4_blog_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -451,15 +451,15 @@ class Premium_Panel extends Base_Customizer {
         // Multiple headers
         $this->add_control(
             new Control(
-                'neve_multiple_headers',
+                'nueve4_multiple_headers',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Multiple Headers', 'neve'),
-                    'description' => __('Create different headers for different pages.', 'neve'),
-                    'section' => 'neve_hfg_premium',
+                    'label' => __('Multiple Headers', 'nueve4'),
+                    'description' => __('Create different headers for different pages.', 'nueve4'),
+                    'section' => 'nueve4_hfg_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -468,15 +468,15 @@ class Premium_Panel extends Base_Customizer {
         // Conditional display
         $this->add_control(
             new Control(
-                'neve_conditional_headers',
+                'nueve4_conditional_headers',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Conditional Headers', 'neve'),
-                    'description' => __('Show/hide headers based on conditions.', 'neve'),
-                    'section' => 'neve_hfg_premium',
+                    'label' => __('Conditional Headers', 'nueve4'),
+                    'description' => __('Show/hide headers based on conditions.', 'nueve4'),
+                    'section' => 'nueve4_hfg_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -485,15 +485,15 @@ class Premium_Panel extends Base_Customizer {
         // Advanced components
         $this->add_control(
             new Control(
-                'neve_advanced_components',
+                'nueve4_advanced_components',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Advanced Components', 'neve'),
-                    'description' => __('Enable social icons, contact info, and more components.', 'neve'),
-                    'section' => 'neve_hfg_premium',
+                    'label' => __('Advanced Components', 'nueve4'),
+                    'description' => __('Enable social icons, contact info, and more components.', 'nueve4'),
+                    'section' => 'nueve4_hfg_premium',
                     'type' => 'checkbox'
                 )
             )
@@ -502,15 +502,15 @@ class Premium_Panel extends Base_Customizer {
         // Mega menu
         $this->add_control(
             new Control(
-                'neve_mega_menu',
+                'nueve4_mega_menu',
                 array(
                     'default' => false,
                     'sanitize_callback' => 'wp_validate_boolean'
                 ),
                 array(
-                    'label' => __('Mega Menu', 'neve'),
-                    'description' => __('Enable mega menu functionality.', 'neve'),
-                    'section' => 'neve_hfg_premium',
+                    'label' => __('Mega Menu', 'nueve4'),
+                    'description' => __('Enable mega menu functionality.', 'nueve4'),
+                    'section' => 'nueve4_hfg_premium',
                     'type' => 'checkbox'
                 )
             )

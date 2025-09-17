@@ -2,9 +2,9 @@
 /**
  * The class are used to get supported post types for the specific context.
  * 
- * @package Neve\Core
+ * @package Nueve4\Core
  */
-namespace Neve\Core;
+namespace Nueve4\Core;
 
 /**
  * Supported_Post_Types.
@@ -34,7 +34,7 @@ class Supported_Post_Types {
 		if ( ! array_key_exists( $context, self::$maps ) ) {
 			$get_func = 'get_' . $context;
 
-			self::$maps[ $context ] = apply_filters( 'neve_post_type_supported_list', self::$get_func(), $context );
+			self::$maps[ $context ] = apply_filters( 'nueve4_post_type_supported_list', self::$get_func(), $context );
 		}
 
 		return self::$maps[ $context ];

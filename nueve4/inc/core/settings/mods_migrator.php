@@ -6,12 +6,12 @@
  *
  * @since 3.0.0
  *
- * @package Neve\Core
+ * @package Nueve4\Core
  */
 
-namespace Neve\Core\Settings;
+namespace Nueve4\Core\Settings;
 
-use Neve\Core\Builder_Migrator;
+use Nueve4\Core\Builder_Migrator;
 
 /**
  * Class Mods_Migrator
@@ -20,28 +20,28 @@ class Mods_Migrator {
 
 	const LEGACY_HEADINGS = [
 		Config::MODS_TYPEFACE_H6 => [
-			'neve_h6_font_size'   => 'fontSize',
-			'neve_h6_line_height' => 'lineHeight',
+			'nueve4_h6_font_size'   => 'fontSize',
+			'nueve4_h6_line_height' => 'lineHeight',
 		],
 		Config::MODS_TYPEFACE_H5 => [
-			'neve_h5_font_size'   => 'fontSize',
-			'neve_h5_line_height' => 'lineHeight',
+			'nueve4_h5_font_size'   => 'fontSize',
+			'nueve4_h5_line_height' => 'lineHeight',
 		],
 		Config::MODS_TYPEFACE_H4 => [
-			'neve_h4_font_size'   => 'fontSize',
-			'neve_h4_line_height' => 'lineHeight',
+			'nueve4_h4_font_size'   => 'fontSize',
+			'nueve4_h4_line_height' => 'lineHeight',
 		],
 		Config::MODS_TYPEFACE_H3 => [
-			'neve_h3_font_size'   => 'fontSize',
-			'neve_h3_line_height' => 'lineHeight',
+			'nueve4_h3_font_size'   => 'fontSize',
+			'nueve4_h3_line_height' => 'lineHeight',
 		],
 		Config::MODS_TYPEFACE_H2 => [
-			'neve_h2_font_size'   => 'fontSize',
-			'neve_h2_line_height' => 'lineHeight',
+			'nueve4_h2_font_size'   => 'fontSize',
+			'nueve4_h2_line_height' => 'lineHeight',
 		],
 		Config::MODS_TYPEFACE_H1 => [
-			'neve_h1_font_size'   => 'fontSize',
-			'neve_h1_line_height' => 'lineHeight',
+			'nueve4_h1_font_size'   => 'fontSize',
+			'nueve4_h1_line_height' => 'lineHeight',
 		],
 	];
 
@@ -161,11 +161,11 @@ class Mods_Migrator {
 			case Config::MODS_TYPEFACE_GENERAL:
 				$old_value = $this->get_composed_value(
 					[
-						'neve_body_line_height'    => 'lineHeight',
-						'neve_body_letter_spacing' => 'letterSpacing',
-						'neve_body_font_weight'    => 'fontWeight',
-						'neve_body_text_transform' => 'textTransform',
-						'neve_body_font_size'      => 'fontSize',
+						'nueve4_body_line_height'    => 'lineHeight',
+						'nueve4_body_letter_spacing' => 'letterSpacing',
+						'nueve4_body_font_weight'    => 'fontWeight',
+						'nueve4_body_text_transform' => 'textTransform',
+						'nueve4_body_font_size'      => 'fontSize',
 					]
 				);
 
@@ -178,10 +178,10 @@ class Mods_Migrator {
 			case Config::MODS_TYPEFACE_H5:
 			case Config::MODS_TYPEFACE_H6:
 				$partial = [
-					'neve_headings_line_height'    => 'lineHeight',
-					'neve_headings_letter_spacing' => 'letterSpacing',
-					'neve_headings_font_weight'    => 'fontWeight',
-					'neve_headings_text_transform' => 'textTransform',
+					'nueve4_headings_line_height'    => 'lineHeight',
+					'nueve4_headings_letter_spacing' => 'letterSpacing',
+					'nueve4_headings_font_weight'    => 'fontWeight',
+					'nueve4_headings_text_transform' => 'textTransform',
 				];
 
 				$keys      = array_merge( $partial, self::LEGACY_HEADINGS[ $new_mod_key ] );

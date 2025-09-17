@@ -2,15 +2,15 @@
 /**
  * Responsive_Range Control. Handles data passing from args to JS.
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 
-namespace Neve\Customizer\Controls\React;
+namespace Nueve4\Customizer\Controls\React;
 
 /**
  * Class Responsive_Range
  *
- * @package Neve\Customizer\Controls\React
+ * @package Nueve4\Customizer\Controls\React
  */
 class Responsive_Range extends \WP_Customize_Control {
 	/**
@@ -18,7 +18,7 @@ class Responsive_Range extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'neve_responsive_range_control';
+	public $type = 'nueve4_responsive_range_control';
 	/**
 	 * Additional arguments passed to JS.
 	 *

@@ -2,11 +2,11 @@
 /**
  * Customizer functionality for the Blog settings panel.
  *
- * @package Neve\Customizer\Controls
+ * @package Nueve4\Customizer\Controls
  * @since   1.0.0
  */
 
-namespace Neve\Customizer\Controls;
+namespace Nueve4\Customizer\Controls;
 
 /**
  * A customizer control to display text in customizer.
@@ -153,7 +153,7 @@ class Button extends \WP_Customize_Control {
 			$classes .= $this->button_class;
 		}
 		if ( $this->control_to_focus ) {
-			$classes .= ' neve-control-focus';
+			$classes .= ' nueve4-control-focus';
 		}
 
 		return $classes;

@@ -5,18 +5,18 @@
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      24/08/2018
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 
-namespace Neve\Views;
+namespace Nueve4\Views;
 
 use HFG\Core\Components\Nav;
-use Neve\Core\Dynamic_Css;
+use Nueve4\Core\Dynamic_Css;
 
 /**
  * Class Nav_Walker
  *
- * @package Neve\Views
+ * @package Nueve4\Views
  */
 class Nav_Walker extends \Walker_Nav_Menu {
 	/**
@@ -61,7 +61,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 		add_filter( 'nav_menu_item_args', array( $this, 'tweak_mm_heading' ), 10, 3 );
 		add_filter( 'nav_menu_item_title', array( $this, 'add_caret' ), 10, 4 );
 
-		add_action( 'neve_after_header_wrapper_hook', [ $this, 'inline_style_for_sidebar' ], 9 );
+		add_action( 'nueve4_after_header_wrapper_hook', [ $this, 'inline_style_for_sidebar' ], 9 );
 	}
 
 	/**
@@ -97,7 +97,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 	 * @return string
 	 */
 	public function add_caret( $title, $item, $args, $depth ) {
-		if ( neve_is_amp() ) {
+		if ( nueve4_is_amp() ) {
 			return $title;
 		}
 
@@ -119,11 +119,11 @@ class Nav_Walker extends \Walker_Nav_Menu {
 		$default_caret_settings = [
 			'side'      => is_rtl() ? 'left' : 'right',
 			'icon_type' => 'icon',
-			'icon'      => '<svg fill="currentColor" aria-label="' . esc_attr__( 'Dropdown', 'neve' ) . '" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>',
+			'icon'      => '<svg fill="currentColor" aria-label="' . esc_attr__( 'Dropdown', 'nueve4' ) . '" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>',
 		];
 
 		$component_id    = $args->component_id ?? '';
-		$caret_settings  = apply_filters( 'neve_submenu_icon_settings', $default_caret_settings, $component_id );
+		$caret_settings  = apply_filters( 'nueve4_submenu_icon_settings', $default_caret_settings, $component_id );
 		$caret_pictogram = $this->get_caret_pictogram( $caret_settings );
 
 
@@ -140,7 +140,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 		$args->after  = '</div>';
 
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			add_action( 'neve_after_header_wrapper_hook', [ $this, 'inline_style_for_caret' ], 9 );
+			add_action( 'nueve4_after_header_wrapper_hook', [ $this, 'inline_style_for_caret' ], 9 );
 			if ( strpos( $title, 'menu-item-title-wrap' ) === false ) {
 				$title = '<span class="menu-item-title-wrap dd-title">' . $title . '</span>';
 			}
@@ -148,10 +148,10 @@ class Nav_Walker extends \Walker_Nav_Menu {
 			$caret_wrap_css = $caret_settings['side'] === 'right' ? 'margin-left:5px;' : 'margin-right:5px;';
 
 			if ( $is_sidebar_item ) {
-				$expand_dropdowns = apply_filters( 'neve_first_level_expanded', false );
+				$expand_dropdowns = apply_filters( 'nueve4_first_level_expanded', false );
 				$additional_class = $expand_dropdowns && $depth === 0 ? 'dropdown-open' : '';
 
-				$caret  = '<button ' . $expanded . ' type="button" class="caret-wrap navbar-toggle ' . esc_attr( (string) $item->menu_order ) . ' ' . esc_attr( $additional_class ) . '" style="' . esc_attr( $caret_wrap_css ) . '"  aria-label="' . __( 'Toggle', 'neve' ) . ' ' . wp_filter_nohtml_kses( $title ) . '">';
+				$caret  = '<button ' . $expanded . ' type="button" class="caret-wrap navbar-toggle ' . esc_attr( (string) $item->menu_order ) . ' ' . esc_attr( $additional_class ) . '" style="' . esc_attr( $caret_wrap_css ) . '"  aria-label="' . __( 'Toggle', 'nueve4' ) . ' ' . wp_filter_nohtml_kses( $title ) . '">';
 				$caret .= $caret_pictogram;
 				$caret .= '</button>';
 
@@ -162,7 +162,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 				}
 			} else {
 
-				$caret  = '<div role="button" aria-pressed="false" aria-label="' . __( 'Open Submenu', 'neve' ) . '" ' . $expanded . ' class="caret-wrap caret ' . $item->menu_order . '" style="' . esc_attr( $caret_wrap_css ) . '">';
+				$caret  = '<div role="button" aria-pressed="false" aria-label="' . __( 'Open Submenu', 'nueve4' ) . '" ' . $expanded . ' class="caret-wrap caret ' . $item->menu_order . '" style="' . esc_attr( $caret_wrap_css ) . '">';
 				$caret .= $caret_pictogram;
 				$caret .= '</div>';
 
@@ -231,9 +231,9 @@ class Nav_Walker extends \Walker_Nav_Menu {
 		$sidebar_animation_css .= '.header-menu-sidebar .menu-item-nav-search .is-menu-sidebar & { pointer-events: unset; }';
 		/* Accessibility css. */
 		$accessibility_caret_css  = '.nav-ul li:focus-within .wrap.active + .sub-menu { opacity: 1; visibility: visible; }';
-		$accessibility_caret_css .= '.nav-ul li.neve-mega-menu:focus-within .wrap.active + .sub-menu { display: grid; }';
+		$accessibility_caret_css .= '.nav-ul li.nueve4-mega-menu:focus-within .wrap.active + .sub-menu { display: grid; }';
 		$accessibility_caret_css .= '.nav-ul li > .wrap { display: flex; align-items: center; position: relative; padding: 0 4px; }';
-		$accessibility_caret_css .= '.nav-ul:not(.menu-mobile):not(.neve-mega-menu) > li > .wrap > a { padding-top: 1px }';
+		$accessibility_caret_css .= '.nav-ul:not(.menu-mobile):not(.nueve4-mega-menu) > li > .wrap > a { padding-top: 1px }';
 
 		return Dynamic_Css::minify_css( $sidebar_animation_css . $accessibility_caret_css );
 	}
@@ -246,7 +246,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 	 * @return bool
 	 */
 	private function uses_mega_menu( $item ) {
-		return isset( $item->classes ) && in_array( 'neve-mega-menu', $item->classes );
+		return isset( $item->classes ) && in_array( 'nueve4-mega-menu', $item->classes );
 	}
 
 	/**
@@ -276,7 +276,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 		}
 
 		if ( isset( $item->title ) && $item->title === 'divider' ) {
-			$classes = [ 'neve-mm-divider' ];
+			$classes = [ 'nueve4-mm-divider' ];
 
 			if ( isset( $item->classes ) ) {
 				$classes = array_merge( $classes, $item->classes );
@@ -287,7 +287,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 			return;
 		}
 
-		if ( isset( $item->classes ) && in_array( 'neve-mm-col', $item->classes, true ) ) {
+		if ( isset( $item->classes ) && in_array( 'nueve4-mm-col', $item->classes, true ) ) {
 			$output .= '<li class="' . esc_attr( join( ' ', $item->classes ) ) . '">';
 
 			return;
@@ -317,8 +317,8 @@ class Nav_Walker extends \Walker_Nav_Menu {
 				if ( ! self::$mega_menu_enqueued ) {
 					$this->enqueue_mega_menu_style();
 				}
-				if ( strpos( $output, 'neve-mega-menu' ) !== false ) {
-					$output .= '<div class="neve-mm-description">' . esc_html( $item->description ) . '</div>';
+				if ( strpos( $output, 'nueve4-mega-menu' ) !== false ) {
+					$output .= '<div class="nueve4-mm-description">' . esc_html( $item->description ) . '</div>';
 				}
 			}
 		}
@@ -340,7 +340,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 			return $args;
 		}
 
-		if ( in_array( 'neve-mm-heading', $item->classes, true ) ) {
+		if ( in_array( 'nueve4-mm-heading', $item->classes, true ) ) {
 			if ( $item->url === '#' ) { // @phpstan-ignore-line url is defined on WP_Post object that is used as Menu Item.
 				add_filter(
 					'walker_nav_menu_start_el',
@@ -422,7 +422,7 @@ var menuCarets=document.querySelectorAll(".nav-ul li > .wrap > .caret");menuCare
 JSMIN;
 
 
-		wp_add_inline_script( 'neve-script', ( NEVE_DEBUG ) ? $script : $script_min_js );
+		wp_add_inline_script( 'nueve4-script', ( NEVE_DEBUG ) ? $script : $script_min_js );
 		self::$accessibility_menu_enqueued = true;
 	}
 	/**
@@ -433,7 +433,7 @@ JSMIN;
 			return;
 		}
 
-		wp_enqueue_style( 'neve-mega-menu' );
+		wp_enqueue_style( 'nueve4-mega-menu' );
 		self::$mega_menu_enqueued = true;
 	}
 
@@ -466,7 +466,7 @@ function initNoLinkDD() {
 }
 window.addEventListener('DOMContentLoaded', initNoLinkDD);
 JS;
-		wp_add_inline_script( 'neve-script', $script );
+		wp_add_inline_script( 'nueve4-script', $script );
 		self::$dropdowns_inline_js_enqueued = true;
 	}
 }
