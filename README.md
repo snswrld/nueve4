@@ -1,2 +1,2 @@
-# nueve44
-Creating a Child Theme
+# nueve4
+Creating a Child Theme through the dreaded vibe coding. This is a branch of neve 3.8 without a bunch of upsells and integrating premium plugins into the base theme. Hyper functional and ultra-premium theme that no longer depends on passive income after development hours are over. Write on GNU, ship on GNU. I've used a bunch of the coding LLM's head to head on this one to get it straight, but we're still in troubleshooting stages. I'd hate to run afoul during my wholesale theft of the Wordpress.org folks, so if you want to install and branch, see if you can get this monstrosity working. Much love to all developers who poured sweat into these things, but the game has changed, and GNU is GNU so I return to you a non-functional Nueve4.
