@@ -18,32 +18,7 @@ use Nueve4\Core\Builder_Migrator;
  */
 class Mods_Migrator {
 
-	const LEGACY_HEADINGS = [
-		Config::MODS_TYPEFACE_H6 => [
-			'nueve4_h6_font_size'   => 'fontSize',
-			'nueve4_h6_line_height' => 'lineHeight',
-		],
-		Config::MODS_TYPEFACE_H5 => [
-			'nueve4_h5_font_size'   => 'fontSize',
-			'nueve4_h5_line_height' => 'lineHeight',
-		],
-		Config::MODS_TYPEFACE_H4 => [
-			'nueve4_h4_font_size'   => 'fontSize',
-			'nueve4_h4_line_height' => 'lineHeight',
-		],
-		Config::MODS_TYPEFACE_H3 => [
-			'nueve4_h3_font_size'   => 'fontSize',
-			'nueve4_h3_line_height' => 'lineHeight',
-		],
-		Config::MODS_TYPEFACE_H2 => [
-			'nueve4_h2_font_size'   => 'fontSize',
-			'nueve4_h2_line_height' => 'lineHeight',
-		],
-		Config::MODS_TYPEFACE_H1 => [
-			'nueve4_h1_font_size'   => 'fontSize',
-			'nueve4_h1_line_height' => 'lineHeight',
-		],
-	];
+	private static $legacy_headings = null;
 
 	/**
 	 * Builders
@@ -94,6 +69,43 @@ class Mods_Migrator {
 		$this->unset_unused();
 
 		return $this->mods;
+	}
+
+	/**
+	 * Get legacy headings mapping with lazy loading.
+	 *
+	 * @return array
+	 */
+	private static function get_legacy_headings() {
+		if ( null === self::$legacy_headings ) {
+			self::$legacy_headings = [
+				Config::MODS_TYPEFACE_H6 => [
+					'nueve4_h6_font_size'   => 'fontSize',
+					'nueve4_h6_line_height' => 'lineHeight',
+				],
+				Config::MODS_TYPEFACE_H5 => [
+					'nueve4_h5_font_size'   => 'fontSize',
+					'nueve4_h5_line_height' => 'lineHeight',
+				],
+				Config::MODS_TYPEFACE_H4 => [
+					'nueve4_h4_font_size'   => 'fontSize',
+					'nueve4_h4_line_height' => 'lineHeight',
+				],
+				Config::MODS_TYPEFACE_H3 => [
+					'nueve4_h3_font_size'   => 'fontSize',
+					'nueve4_h3_line_height' => 'lineHeight',
+				],
+				Config::MODS_TYPEFACE_H2 => [
+					'nueve4_h2_font_size'   => 'fontSize',
+					'nueve4_h2_line_height' => 'lineHeight',
+				],
+				Config::MODS_TYPEFACE_H1 => [
+					'nueve4_h1_font_size'   => 'fontSize',
+					'nueve4_h1_line_height' => 'lineHeight',
+				],
+			];
+		}
+		return self::$legacy_headings;
 	}
 
 	/**
@@ -184,7 +196,7 @@ class Mods_Migrator {
 					'nueve4_headings_text_transform' => 'textTransform',
 				];
 
-				$keys      = array_merge( $partial, self::LEGACY_HEADINGS[ $new_mod_key ] );
+				$keys      = array_merge( $partial, self::get_legacy_headings()[ $new_mod_key ] );
 				$old_value = $this->get_composed_value( $keys );
 
 				return array_merge( $defaults, $old_value );

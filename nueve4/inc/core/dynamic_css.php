@@ -41,7 +41,17 @@ class Dynamic_Css {
 		$desktop_css = '';
 		$tablet_css = '';
 		foreach ( $classes as $class ) {
-			$object = new $class();
+			if (!class_exists($class)) {
+				continue;
+			}
+			try {
+				$object = new $class();
+				if (!method_exists($object, 'init') || !method_exists($object, 'get_style')) {
+					continue;
+				}
+			} catch ( \Exception $e ) {
+				continue;
+			}
 			$object->init();
 			$mobile_css .= $object->get_style( 'mobile' );
 			$desktop_css .= $object->get_style( 'desktop' );

@@ -26,9 +26,17 @@ class Bootstrap {
 		$this->registerHooks();
 	}
 
+	private static $compatibility_features = null;
+
 	private function defineConstants() {
-		$constants = [
-			'NUEVE4_COMPATIBILITY_FEATURES' => [
+		if ( ! defined( 'NUEVE4_COMPATIBILITY_FEATURES' ) ) {
+			define( 'NUEVE4_COMPATIBILITY_FEATURES', $this->getCompatibilityFeatures() );
+		}
+	}
+
+	private function getCompatibilityFeatures() {
+		if ( null === self::$compatibility_features ) {
+			self::$compatibility_features = [
 				'single_customizer' => true,
 				'repeater_control' => true,
 				'malformed_div_on_shop' => true,
@@ -54,14 +62,9 @@ class Bootstrap {
 				'track' => true,
 				'menu_icon_svg' => true,
 				'custom_payment_icons' => true,
-			]
-		];
-
-		foreach ($constants as $name => $value) {
-			if (!defined($name)) {
-				define($name, $value);
-			}
+			];
 		}
+		return self::$compatibility_features;
 	}
 
 	private function checkRequirements() {
@@ -74,9 +77,16 @@ class Bootstrap {
 
 	private function loadDependencies() {
 		// Load theme autoloader
-		require_once $this->template_dir . '/autoloader.php';
-		$autoloader = new \Nueve4\Autoloader();
-		$autoloader->add_namespace('Nueve4', $this->template_dir . '/inc/');
+		$autoloader_path = realpath( $this->template_dir . '/autoloader.php' );
+		if ( $autoloader_path && strpos( $autoloader_path, realpath( $this->template_dir ) ) === 0 ) {
+			require_once $autoloader_path;
+		}
+		if ( class_exists( '\Nueve4\Autoloader' ) ) {
+			$autoloader = new \Nueve4\Autoloader();
+			$autoloader->add_namespace('Nueve4', $this->template_dir . '/inc/');
+		} else {
+			return;
+		}
 		
 		if (defined('NUEVE4_PRO_SPL_ROOT')) {
 			$autoloader->add_namespace('Nueve4_Pro', NUEVE4_PRO_SPL_ROOT);
@@ -99,15 +109,25 @@ class Bootstrap {
 	}
 
 	private function loadProComponents() {
+		if ( ! defined( 'NUEVE4_PRO_SPL_ROOT' ) ) {
+			return;
+		}
+
 		$pro_components = [
 			'modules/header_footer_grid/components/Yoast_Breadcrumbs.php',
 			'modules/header_footer_grid/components/Language_Switcher.php'
 		];
 
-		foreach ($pro_components as $component) {
-			$file = NUEVE4_PRO_SPL_ROOT . $component;
-			if (is_file($file)) {
-				require_once $file;
+		$pro_root = realpath( NUEVE4_PRO_SPL_ROOT );
+		if ( ! $pro_root ) {
+			return;
+		}
+
+		foreach ( $pro_components as $component ) {
+			$file = $pro_root . DIRECTORY_SEPARATOR . ltrim( $component, '/' );
+			$sanitized_file = realpath( $file );
+			if ( $sanitized_file && strpos( $sanitized_file, $pro_root ) === 0 && is_file( $sanitized_file ) ) {
+				require_once $sanitized_file;
 			}
 		}
 	}

@@ -127,45 +127,8 @@ class Builder_Migrator {
 	private function migrate_fluid_row( $next_row, $old_items ) {
 		$items_no = count( $old_items );
 
-		// We have only one item.
 		if ( $items_no === 1 ) {
-			$alignment        = $this->get_component_alignment( $old_items[0]['id'] );
-			$width            = $old_items[0]['width'];
-			$start_position   = $old_items[0]['x'];
-			$next_row_content = [ 'id' => $old_items[0]['id'] ];
-
-			// Item is at start of row. Slot it according to the alignment.
-			// In the previous version, if the item was alone and started at the beginning of the row, it spanned the whole width.
-			if ( $start_position === 0 ) {
-				$next_row[ $alignment ][] = $next_row_content;
-
-				return $next_row;
-			}
-
-			// Item is not at start or end. It spans until the end of the row.
-			if ( $start_position > 0 ) {
-				if ( $alignment === 'right' ) {
-					$next_row['right'][] = $next_row_content;
-
-					return $next_row;
-				}
-
-				$next_row['center'][] = $next_row_content;
-
-				return $next_row;
-			}
-
-			// Item is at end of row. Slot it to the right.
-			if ( $width + $start_position === 12 ) {
-				$next_row['right'][] = $next_row_content;
-
-				return $next_row;
-			}
-
-			// Item is not at start or end. Slot it at center.
-			$next_row['center'][] = $next_row_content;
-
-			return $next_row;
+			return $this->migrate_single_item( $old_items[0], $next_row );
 		}
 
 		// Check if items fill the whole row so we can know if it has gaps.
@@ -310,6 +273,33 @@ class Builder_Migrator {
 	}
 
 	/**
+	 * Migrate single item positioning.
+	 *
+	 * @param array $item Single item data.
+	 * @param array $next_row Row array to populate.
+	 *
+	 * @return array
+	 */
+	private function migrate_single_item( $item, $next_row ) {
+		$alignment = $this->get_component_alignment( $item['id'] );
+		$width = $item['width'];
+		$start_position = $item['x'];
+		$content = [ 'id' => $item['id'] ];
+
+		if ( $start_position === 0 ) {
+			$next_row[ $alignment ][] = $content;
+		} elseif ( $width + $start_position === 12 ) {
+			$next_row['right'][] = $content;
+		} elseif ( $start_position > 0 && $alignment === 'right' ) {
+			$next_row['right'][] = $content;
+		} else {
+			$next_row['center'][] = $content;
+		}
+
+		return $next_row;
+	}
+
+	/**
 	 * Migrate single builder value.
 	 *
 	 * @return bool
@@ -322,6 +312,9 @@ class Builder_Migrator {
 		}
 
 		$old_value = json_decode( $old_value, true );
+		if ( json_last_error() !== JSON_ERROR_NONE ) {
+			return false;
+		}
 
 		$new_value = $this->get_new_builder_value_from_old( $old_value );
 

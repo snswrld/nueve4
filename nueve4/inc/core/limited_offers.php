@@ -57,17 +57,7 @@ class Limited_Offers {
 
 		try {
 			foreach ( $this->announcements as $announcement => $event_data ) {
-				if ( false !== strpos( $announcement, 'black_friday' ) ) {
-					if (
-						empty( $event_data ) ||
-						! is_array( $event_data ) ||
-						empty( $event_data['active'] ) ||
-						empty( $event_data['nueve4_dashboard_url'] ) ||
-						! isset( $event_data['urgency_text'] )
-					) {
-						continue;
-					}
-
+				if ( $this->is_black_friday_event( $announcement ) && $this->is_valid_event_data( $event_data ) ) {
 					$this->active = $announcement;
 					$this->prepare_black_friday_assets( $event_data );
 				}
@@ -77,6 +67,30 @@ class Limited_Offers {
 				error_log( $e->getMessage() ); // phpcs:ignore
 			}
 		}
+	}
+
+	/**
+	 * Check if announcement is a Black Friday event.
+	 *
+	 * @param string $announcement Announcement key.
+	 * @return bool
+	 */
+	private function is_black_friday_event( $announcement ) {
+		return false !== strpos( $announcement, 'black_friday' );
+	}
+
+	/**
+	 * Validate event data structure.
+	 *
+	 * @param mixed $event_data Event data to validate.
+	 * @return bool
+	 */
+	private function is_valid_event_data( $event_data ) {
+		return ! empty( $event_data ) &&
+			   is_array( $event_data ) &&
+			   ! empty( $event_data['active'] ) &&
+			   ! empty( $event_data['nueve4_dashboard_url'] ) &&
+			   isset( $event_data['urgency_text'] );
 	}
 
 	/**
@@ -157,7 +171,10 @@ class Limited_Offers {
 	 * @return void
 	 */
 	public function disable_notification_ajax() {
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'dismiss_themeisle_event_notice_nueve4' ) ) {
+		if ( ! isset( $_POST['nonce'] ) ) {
+			wp_die( 'Missing nonce parameter.' );
+		}
+		if ( ! wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'dismiss_themeisle_event_notice_nueve4' ) ) {
 			wp_die( 'Invalid nonce! Refresh the page and try again.' );
 		}
 

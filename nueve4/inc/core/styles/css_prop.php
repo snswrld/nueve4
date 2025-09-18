@@ -51,8 +51,7 @@ class Css_Prop {
 		// The nueve4_responsive_range_control component double JSON stringified, therefore try to parse it again.
 		if( ! is_array( $all_value ) ) {
 			$maybe_parse_json = json_decode( $all_value , true);
-
-			if( is_array( $maybe_parse_json ) ) {
+			if ( json_last_error() === JSON_ERROR_NONE && is_array( $maybe_parse_json ) ) {
 				$all_value = $maybe_parse_json;
 			}
 		}

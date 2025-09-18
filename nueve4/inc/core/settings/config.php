@@ -94,7 +94,7 @@ class Config {
 
 	const OPTION_LOCAL_GOOGLE_FONTS_HOSTING = 'nv_pro_enable_local_fonts';
 
-	const MODS_TPOGRAPHY_FONT_PAIRS = 'nueve4_font_pairs';
+	const MODS_TYPOGRAPHY_FONT_PAIRS = 'nueve4_font_pairs';
 
 	/**
 	 * This is only used in a dynamic context for all allowed post types
@@ -157,7 +157,7 @@ class Config {
 	const CSS_PROP_GRID_TEMPLATE_COLS         = 'grid-template-columns';
 	const CSS_PROP_DIRECTIONAL_ONE_AXIS       = 'directional-one-axis';
 	const CSS_PROP_CUSTOM_BTN_TYPE            = 'btn-type';
-	const CSS_PROP_CUSTOM_FONT_WEIGHT_FAMILY  = 'btn-type';
+	const CSS_PROP_CUSTOM_FONT_WEIGHT_FAMILY  = 'font-weight-family';
 
 	const CSS_SELECTOR_BTN_PRIMARY_NORMAL          = 'buttons_primary_normal';
 	const CSS_SELECTOR_BTN_PRIMARY_HOVER           = 'buttons_primary_hover';

@@ -1,6 +1,6 @@
 <?php
 /**
- * Nueve4 Features Factory
+ * Core Loader
  *
  * Author:          Andrei Baicus <andrei@themeisle.com>
  * Created on:      17/08/2018
@@ -68,7 +68,7 @@ class Core_Loader {
 			return;
 		}
 
-		if ( ( $now - $install_time ) <= 60 ) {
+		if ( ( $now - $install_time ) <= 60 ) { // 60 seconds threshold for new user detection
 			update_option( 'nueve4_new_user', 'yes' );
 
 			return;

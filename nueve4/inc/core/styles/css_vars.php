@@ -283,12 +283,13 @@ trait Css_Vars {
 				Dynamic_Selector::META_KEY => Config::MODS_FONT_HEADINGS,
 			],
 		];
-		foreach ( nueve4_get_headings_selectors() as $id => $heading_selector ) {
+		$headings = nueve4_get_headings_selectors();
+		foreach ( $headings as $id => $heading_selector ) {
 
 			$composed_key = sprintf( 'nueve4_%s_typeface_general', $id );
 			$mod_key      = $composed_key;
 			$default      = Mods::get_alternative_mod_default( $composed_key );
-
+			
 			$rules[ '--' . $id . 'fontfamily' ] = [
 				Dynamic_Selector::META_KEY           => $this->get_mod_key_heading_fontfamily( $id )
 			];

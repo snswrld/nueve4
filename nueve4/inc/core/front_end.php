@@ -29,127 +29,164 @@ class Front_End {
 	 * Theme setup.
 	 */
 	public function setup_theme() {
+		$this->setup_content_width();
+		$this->setup_textdomain();
+		$this->add_theme_supports();
+		$this->setup_filters();
+		$this->setup_menus();
+		$this->setup_image_sizes();
+		$this->add_amp_support();
+		$this->add_woo_support();
+	}
 
-		// Maximum allowed width for any content in the theme, like oEmbeds and images added to posts.  https://codex.wordpress.org/Content_Width
+	/**
+	 * Setup content width.
+	 */
+	private function setup_content_width() {
 		global $content_width;
 		if ( ! isset( $content_width ) ) {
 			$content_width = apply_filters( 'nueve4_content_width', 1200 );
 		}
-
-		load_theme_textdomain( 'nueve4', get_template_directory() . '/languages' );
-
-		$logo_settings = array(
-			'flex-width'  => true,
-			'flex-height' => true,
-			'height'      => 50,
-			'width'       => 200,
-		);
-
-		add_theme_support( 'align-wide' );
-		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'border' );
-		add_theme_support( 'custom-background', [] );
-		add_theme_support( 'custom-logo', $logo_settings );
-		add_theme_support( 'custom-spacing' );
-		add_theme_support( 'custom-units' );
-		add_theme_support( 'customize-selective-refresh-widgets' );
-		add_theme_support( 'editor-color-palette', $this->get_gutenberg_color_palette() );
-		add_theme_support( 'fl-theme-builder-footers' );
-		add_theme_support( 'fl-theme-builder-headers' );
-		add_theme_support( 'fl-theme-builder-parts' );
-		add_theme_support( 'header-footer-elementor' );
-		add_theme_support( 'html5', array( 'search-form', 'script', 'style', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
-		add_theme_support( 'lifterlms-sidebars' );
-		add_theme_support( 'lifterlms' );
-		add_theme_support( 'link-color' );
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'service_worker', true );
-		add_theme_support( 'starter-content', ( new Starter_Content() )->get() );
-		add_theme_support( 'title-tag' );
-		add_filter( 'script_loader_tag', array( $this, 'filter_script_loader_tag' ), 10, 2 );
-		add_filter( 'embed_oembed_html', array( $this, 'wrap_oembeds' ), 10, 3 );
-		add_filter( 'video_embed_html', array( $this, 'wrap_jetpack_oembeds' ), 10, 1 );
-
-		$this->add_amp_support();
-		$nav_menus_to_register = apply_filters(
-			'nueve4_register_nav_menus',
-			array(
-				'primary' => esc_html__( 'Primary Menu', 'nueve4' ),
-				'footer'  => esc_html__( 'Footer Menu', 'nueve4' ),
-				'top-bar' => esc_html__( 'Secondary Menu', 'nueve4' ),
-			)
-		);
-		register_nav_menus( $nav_menus_to_register );
-
-		add_image_size( 'nueve4-blog', 930, 620, true );
-		add_filter( 'wp_nav_menu_args', array( $this, 'nav_walker' ), 1001 );
-		add_filter( 'theme_mod_background_color', '__return_empty_string' );
-		$this->add_woo_support();
-		add_filter( 'nueve4_dynamic_style_output', array( $this, 'css_global_custom_colors' ), PHP_INT_MAX, 2 );
 	}
 
 	/**
-	 * Gutenberg Block Color Palettes.
-	 *
-	 * Get the color palette in Gutenberg from Customizer colors.
+	 * Setup theme textdomain.
 	 */
-	private function get_gutenberg_color_palette() {
-		$prefix                  = ( apply_filters( 'ti_wl_theme_is_localized', false ) ? __( 'Theme', 'nueve4' ) : 'Nueve4' ) . ' - ';
-		$gutenberg_color_palette = array();
-		$from_global_colors      = [
-			'nueve4-link-color'       => array(
-				'val'   => 'var(--nv-primary-accent)',
-				'label' => $prefix . __( 'Primary Accent', 'nueve4' ),
-			),
-			'nueve4-link-hover-color' => array(
-				'val'   => 'var(--nv-secondary-accent)',
-				'label' => $prefix . __( 'Secondary Accent', 'nueve4' ),
-			),
-			'nv-site-bg'            => array(
-				'val'   => 'var(--nv-site-bg)',
-				'label' => $prefix . __( 'Site Background', 'nueve4' ),
-			),
-			'nv-light-bg'           => array(
-				'val'   => 'var(--nv-light-bg)',
-				'label' => $prefix . __( 'Light Background', 'nueve4' ),
-			),
-			'nv-dark-bg'            => array(
-				'val'   => 'var(--nv-dark-bg)',
-				'label' => $prefix . __( 'Dark Background', 'nueve4' ),
-			),
-			'nueve4-text-color'       => array(
-				'val'   => 'var(--nv-text-color)',
-				'label' => $prefix . __( 'Text Color', 'nueve4' ),
-			),
-			'nv-text-dark-bg'       => array(
-				'val'   => 'var(--nv-text-dark-bg)',
-				'label' => $prefix . __( 'Text Dark Background', 'nueve4' ),
-			),
-			'nv-c-1'                => array(
-				'val'   => 'var(--nv-c-1)',
-				'label' => $prefix . __( 'Extra Color 1', 'nueve4' ),
-			),
-			'nv-c-2'                => array(
-				'val'   => 'var(--nv-c-2)',
-				'label' => $prefix . __( 'Extra Color 2', 'nueve4' ),
-			),
+	private function setup_textdomain() {
+		load_theme_textdomain( 'nueve4', get_template_directory() . '/languages' );
+	}
+
+	/**
+	 * Add theme supports.
+	 */
+	private function add_theme_supports() {
+		$supports = [
+			'align-wide' => true,
+			'automatic-feed-links' => true,
+			'border' => true,
+			'custom-background' => [],
+			'custom-logo' => [
+				'flex-width' => true,
+				'flex-height' => true,
+				'height' => 50,
+				'width' => 200,
+			],
+			'custom-spacing' => true,
+			'custom-units' => true,
+			'customize-selective-refresh-widgets' => true,
+			'editor-color-palette' => $this->get_gutenberg_color_palette(),
+			'fl-theme-builder-footers' => true,
+			'fl-theme-builder-headers' => true,
+			'fl-theme-builder-parts' => true,
+			'header-footer-elementor' => true,
+			'html5' => [ 'search-form', 'script', 'style', 'comment-form', 'comment-list', 'gallery', 'caption' ],
+			'lifterlms-sidebars' => true,
+			'lifterlms' => true,
+			'link-color' => true,
+			'post-thumbnails' => true,
+			'service_worker' => true,
+			'starter-content' => ( new Starter_Content() )->get(),
+			'title-tag' => true,
 		];
 
-		// Add custom global colors
-		$from_global_colors = array_merge( $from_global_colors, $this->get_global_custom_color_vars() );
+		foreach ( $supports as $feature => $args ) {
+			add_theme_support( $feature, $args );
+		}
+	}
 
-		foreach ( $from_global_colors as $slug => $args ) {
-			array_push(
-				$gutenberg_color_palette,
-				array(
-					'name'  => esc_html( $args['label'] ),
-					'slug'  => esc_html( $slug ),
-					'color' => nueve4_sanitize_colors( $args['val'] ),
-				)
-			);
+	/**
+	 * Setup theme filters.
+	 */
+	private function setup_filters() {
+		add_filter( 'script_loader_tag', [ $this, 'filter_script_loader_tag' ], 10, 2 );
+		add_filter( 'embed_oembed_html', [ $this, 'wrap_oembeds' ], 10, 3 );
+		add_filter( 'video_embed_html', [ $this, 'wrap_jetpack_oembeds' ], 10, 1 );
+		add_filter( 'wp_nav_menu_args', [ $this, 'nav_walker' ], 1001 );
+		add_filter( 'theme_mod_background_color', '__return_empty_string' );
+		add_filter( 'nueve4_dynamic_style_output', [ $this, 'css_global_custom_colors' ], PHP_INT_MAX, 2 );
+	}
+
+	/**
+	 * Setup navigation menus.
+	 */
+	private function setup_menus() {
+		$nav_menus = apply_filters( 'nueve4_register_nav_menus', [
+			'primary' => esc_html__( 'Primary Menu', 'nueve4' ),
+			'footer' => esc_html__( 'Footer Menu', 'nueve4' ),
+			'top-bar' => esc_html__( 'Secondary Menu', 'nueve4' ),
+		] );
+		register_nav_menus( $nav_menus );
+	}
+
+	/**
+	 * Setup image sizes.
+	 */
+	private function setup_image_sizes() {
+		add_image_size( 'nueve4-blog', 930, 620, true );
+	}
+
+	/**
+	 * Get Gutenberg color palette.
+	 */
+	private function get_gutenberg_color_palette() {
+		$prefix = ( apply_filters( 'ti_wl_theme_is_localized', false ) ? __( 'Theme', 'nueve4' ) : 'Nueve4' ) . ' - ';
+		$colors = $this->get_default_colors( $prefix );
+		$colors = array_merge( $colors, $this->get_global_custom_color_vars() );
+
+		$palette = [];
+		foreach ( $colors as $slug => $args ) {
+			$palette[] = [
+				'name' => esc_html( $args['label'] ),
+				'slug' => esc_html( $slug ),
+				'color' => nueve4_sanitize_colors( $args['val'] ),
+			];
 		}
 
-		return array_values( $gutenberg_color_palette );
+		return $palette;
+	}
+
+	/**
+	 * Get default color definitions.
+	 */
+	private function get_default_colors( $prefix ) {
+		return [
+			'nueve4-link-color' => [
+				'val' => 'var(--nv-primary-accent)',
+				'label' => $prefix . __( 'Primary Accent', 'nueve4' ),
+			],
+			'nueve4-link-hover-color' => [
+				'val' => 'var(--nv-secondary-accent)',
+				'label' => $prefix . __( 'Secondary Accent', 'nueve4' ),
+			],
+			'nv-site-bg' => [
+				'val' => 'var(--nv-site-bg)',
+				'label' => $prefix . __( 'Site Background', 'nueve4' ),
+			],
+			'nv-light-bg' => [
+				'val' => 'var(--nv-light-bg)',
+				'label' => $prefix . __( 'Light Background', 'nueve4' ),
+			],
+			'nv-dark-bg' => [
+				'val' => 'var(--nv-dark-bg)',
+				'label' => $prefix . __( 'Dark Background', 'nueve4' ),
+			],
+			'nueve4-text-color' => [
+				'val' => 'var(--nv-text-color)',
+				'label' => $prefix . __( 'Text Color', 'nueve4' ),
+			],
+			'nv-text-dark-bg' => [
+				'val' => 'var(--nv-text-dark-bg)',
+				'label' => $prefix . __( 'Text Dark Background', 'nueve4' ),
+			],
+			'nv-c-1' => [
+				'val' => 'var(--nv-c-1)',
+				'label' => $prefix . __( 'Extra Color 1', 'nueve4' ),
+			],
+			'nv-c-2' => [
+				'val' => 'var(--nv-c-2)',
+				'label' => $prefix . __( 'Extra Color 2', 'nueve4' ),
+			],
+		];
 	}
 
 	/**
@@ -327,7 +364,13 @@ class Front_End {
 			( isset( $secondary_values['useShadow'] ) && ! empty( $secondary_values['useShadow'] ) ) ||
 			( isset( $secondary_values['useShadowHover'] ) && ! empty( $secondary_values['useShadowHover'] ) )
 		) {
-			$style .= '.button.button-primary, .is-style-primary .wp-block-button__link {box-shadow: var(--primarybtnshadow, none);} .button.button-primary:hover, .is-style-primary .wp-block-button__link:hover {box-shadow: var(--primarybtnhovershadow, none);} .button.button-secondary, .is-style-secondary .wp-block-button__link {box-shadow: var(--secondarybtnshadow, none);} .button.button-secondary:hover, .is-style-secondary .wp-block-button__link:hover {box-shadow: var(--secondarybtnhovershadow, none);}';
+			$button_shadow_css = [
+				'.button.button-primary, .is-style-primary .wp-block-button__link {box-shadow: var(--primarybtnshadow, none);}',
+				'.button.button-primary:hover, .is-style-primary .wp-block-button__link:hover {box-shadow: var(--primarybtnhovershadow, none);}',
+				'.button.button-secondary, .is-style-secondary .wp-block-button__link {box-shadow: var(--secondarybtnshadow, none);}',
+				'.button.button-secondary:hover, .is-style-secondary .wp-block-button__link:hover {box-shadow: var(--secondarybtnhovershadow, none);}'
+			];
+			$style .= implode( ' ', $button_shadow_css );;
 		}
 
 		foreach ( nueve4_get_headings_selectors() as $heading_id => $heading_selector ) {

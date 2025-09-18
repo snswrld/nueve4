@@ -179,9 +179,7 @@ class Admin {
 				wp_register_script( $chunk_handle, trailingslashit( NEVE_ASSETS_URL ) . 'apps/components/build/' . $chunk_file, [], $deps['version'], true );
 				wp_enqueue_script( $chunk_handle );
 				
-				if ( function_exists( 'wp_set_script_translations' ) ) {
-					wp_set_script_translations( $chunk_handle, 'nueve4' );
-				}
+				wp_set_script_translations( $chunk_handle, 'nueve4' );
 			}
 		}
 
@@ -275,7 +273,12 @@ class Admin {
 			$array['headerControls'][] = 'hfg_header_layout_v2';
 		}
 
-		$array['currentValues'] = [ 'hfg_header_layout_v2' => json_decode( get_theme_mod( 'hfg_header_layout_v2', wp_json_encode( nueve4_hfg_header_settings() ) ), true ) ];
+		$header_layout = get_theme_mod( 'hfg_header_layout_v2', wp_json_encode( nueve4_hfg_header_settings() ) );
+		$decoded_layout = json_decode( $header_layout, true );
+		if ( json_last_error() !== JSON_ERROR_NONE ) {
+			$decoded_layout = nueve4_hfg_header_settings();
+		}
+		$array['currentValues'] = [ 'hfg_header_layout_v2' => $decoded_layout ];
 
 		return $array;
 	}
@@ -670,7 +673,7 @@ class Admin {
 			return;
 		}
 		// if is_block_editor is `true` we should allow the Gutenberg styles to load eg. the new widgets page.
-		if ( ! post_type_supports( $screen->post_type, 'editor' ) && $screen->is_block_editor !== true ) {
+		if ( ( ! property_exists( $screen, 'post_type' ) || ! post_type_supports( $screen->post_type, 'editor' ) ) && ( ! property_exists( $screen, 'is_block_editor' ) || $screen->is_block_editor !== true ) ) {
 			return;
 		}
 		wp_enqueue_script(

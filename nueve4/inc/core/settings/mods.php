@@ -13,7 +13,7 @@ namespace Nueve4\Core\Settings;
 use Nueve4\Core\Settings\Config;
 
 /**
- * Class Admin
+ * Class Mods
  *
  * @package Nueve4\Core\Settings
  */
@@ -24,7 +24,7 @@ class Mods {
 	 *
 	 * @var array Values cached.
 	 */
-	private static $_cached = [];
+	private static $cached = [];
 	/**
 	 * No cache mode.
 	 *
@@ -50,18 +50,21 @@ class Mods {
 			$master_default = false;
 		}
 
-		if ( ! isset( self::$_cached[ $key ] ) || self::$no_cache ) {
+		if ( ! isset( self::$cached[ $key ] ) || self::$no_cache ) {
 			$master_default        = $master_default === false ? self::defaults( $key ) : $master_default;
-			self::$_cached[ $key ] =
+			self::$cached[ $key ] =
 				( $master_default === false ) ?
 					get_theme_mod( $key ) :
 					get_theme_mod( $key, $master_default );
 		}
 
 		if ( $subkey === null ) {
-			return self::$_cached[ $key ];
+			return self::$cached[ $key ];
 		}
-		$value = is_string( self::$_cached[ $key ] ) ? json_decode( self::$_cached[ $key ], true ) : self::$_cached[ $key ];
+		$value = is_string( self::$cached[ $key ] ) ? json_decode( self::$cached[ $key ], true ) : self::$cached[ $key ];
+		if ( is_string( self::$cached[ $key ] ) && json_last_error() !== JSON_ERROR_NONE ) {
+			return $default;
+		}
 
 		return isset( $value[ $subkey ] ) ? $value[ $subkey ] : $default;
 	}
@@ -161,7 +164,7 @@ class Mods {
 	 */
 	private static function get_typography_defaults( $args ) {
 
-		$line_height    = self::to_json( $args['line_height'] );
+		$line_height    = self::get( $args['line_height'] );
 		$letter_spacing = self::get( $args['letter_spacing'] );
 		$font_weight    = self::get( $args['font_weight'] );
 		$text_transform = self::get( $args['text_transform'] );
@@ -189,7 +192,7 @@ class Mods {
 	 * @param mixed  $value Value.
 	 */
 	public static function set( $key, $value ) {
-		self::$_cached[ $key ] = $value;
+		self::$cached[ $key ] = $value;
 	}
 
 	/**
@@ -202,7 +205,12 @@ class Mods {
 	 * @return mixed
 	 */
 	public static function to_json( $key, $default = false, $as_array = true ) {
-		return json_decode( self::get( $key, $default ), $as_array );
+		$value = self::get( $key, $default );
+		$decoded = json_decode( $value, $as_array );
+		if ( json_last_error() !== JSON_ERROR_NONE ) {
+			return $default;
+		}
+		return $decoded;
 	}
 
 	/**
@@ -213,20 +221,25 @@ class Mods {
 	 * @return string|array|int|false
 	 */
 	public static function get_alternative_mod_default( $key ) {
-		$headings_generic_setup = [
-			'fontWeight'    => '700',
-			'textTransform' => 'none',
-			'letterSpacing' => [
-				'mobile'  => 0,
-				'tablet'  => 0,
-				'desktop' => 0,
-			],
-		];
-		$headings_sufix         = [
-			'mobile'  => 'px',
-			'tablet'  => 'px',
-			'desktop' => 'px',
-		];
+		static $headings_generic_setup = null;
+		static $headings_suffix = null;
+		
+		if ( null === $headings_generic_setup ) {
+			$headings_generic_setup = [
+				'fontWeight'    => '700',
+				'textTransform' => 'none',
+				'letterSpacing' => [
+					'mobile'  => 0,
+					'tablet'  => 0,
+					'desktop' => 0,
+				],
+			];
+			$headings_suffix = [
+				'mobile'  => 'px',
+				'tablet'  => 'px',
+				'desktop' => 'px',
+			];
+		}
 		switch ( $key ) {
 			case Config::MODS_FONT_GENERAL:
 				return 'Arial, Helvetica, sans-serif';
@@ -263,7 +276,7 @@ class Mods {
 							'mobile'  => '36',
 							'tablet'  => '38',
 							'desktop' => '40',
-							'suffix'  => $headings_sufix,
+							'suffix'  => $headings_suffix,
 						],
 						'lineHeight' => [
 							'mobile'  => 1.2,
@@ -280,7 +293,7 @@ class Mods {
 							'mobile'  => '28',
 							'tablet'  => '30',
 							'desktop' => '32',
-							'suffix'  => $headings_sufix,
+							'suffix'  => $headings_suffix,
 						],
 						'lineHeight' => [
 							'mobile'  => 1.3,
@@ -297,7 +310,7 @@ class Mods {
 							'mobile'  => '24',
 							'tablet'  => '26',
 							'desktop' => '28',
-							'suffix'  => $headings_sufix,
+							'suffix'  => $headings_suffix,
 						],
 						'lineHeight' => [
 							'mobile'  => 1.4,
@@ -314,7 +327,7 @@ class Mods {
 							'mobile'  => '20',
 							'tablet'  => '22',
 							'desktop' => '24',
-							'suffix'  => $headings_sufix,
+							'suffix'  => $headings_suffix,
 						],
 						'lineHeight' => [
 							'mobile'  => 1.6,
@@ -331,7 +344,7 @@ class Mods {
 							'mobile'  => '16',
 							'tablet'  => '18',
 							'desktop' => '20',
-							'suffix'  => $headings_sufix,
+							'suffix'  => $headings_suffix,
 						],
 						'lineHeight' => [
 							'mobile'  => 1.6,
@@ -348,7 +361,7 @@ class Mods {
 							'mobile'  => '14',
 							'tablet'  => '14',
 							'desktop' => '16',
-							'suffix'  => $headings_sufix,
+							'suffix'  => $headings_suffix,
 						],
 						'lineHeight' => [
 							'mobile'  => 1.6,
