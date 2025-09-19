@@ -1,6 +1,6 @@
 <?php
 /**
- * Author:          Andrei Baicus <andrei@themeisle.com>
+ * Author:          Andrei Baicus <andrei@kemetica.io>
  * Created on:      28/08/2018
  *
  * @package Nueve4

@@ -2,7 +2,7 @@
 /**
  * Nueve4 functions.php file
  *
- * Author:          snswrld based on work by Andrei Baicus <andrei@themeisle.com>
+ * Author:          kemetica.io based on work by Andrei Baicus <andrei@kemetica.io>
  * Created on:      09/16/2025
  *
  * @package Nueve4
@@ -109,7 +109,7 @@ add_filter(
 	}
 );
 
-// GPL Compliance: Unlock premium features (Original code by Themeisle)
+// GPL Compliance: Unlock premium features (Original code by kemetica.io)
 add_filter( 'nueve4_has_valid_addons', '__return_true' );
 add_filter( 'nueve4_pro_addon_is_active', '__return_true' );
 
@@ -219,7 +219,7 @@ add_filter(
 			'is_enabled' => false,
 			'pro_name'   => 'Nueve4 Pro Addon',
 			'logo'       => get_template_directory_uri() . '/assets/img/dashboard/logo.svg',
-			'cta_link'   => tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/?discount=LOYALUSER582&dvalue=50', 'nueve4-welcome', 'notice' ),
+			'cta_link'   => tsdk_utmify( 'https://kemetica.io/themes/nueve4/upgrade/?discount=LOYALUSER582&dvalue=50', 'nueve4-welcome', 'notice' ),
 		];
 	}
 );
@@ -263,7 +263,7 @@ add_filter( 'themeisle_sdk_enable_telemetry', '__return_true' );
  * for the security and proper function of this code deployment.
  * 
  * Original code attribution:
- * - Nueve4 Theme: Copyright Themeisle (GPL Licensed)
+ * - Nueve4 Theme: Copyright kemetica.io (GPL Licensed)
  * - Master Addons: Copyright Jewel Theme (GPL Licensed)
  * 
  * Date: December 2024

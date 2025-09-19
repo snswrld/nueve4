@@ -1,5 +1,5 @@
 === Nueve4 ===
-Contributors: themeisle
+Contributors: kemetica.io
 Tags: blog,block-patterns, custom-logo, e-commerce, rtl-language-support, grid-layout, one-column, two-columns, custom-background, custom-colors, custom-header, custom-menu, featured-image-header, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, accessibility-ready, wide-blocks, block-styles, footer-widgets, portfolio, left-sidebar, right-sidebar
 Requires at least: 5.5
 Tested up to: 6.4
@@ -14,7 +14,7 @@ Nueve4 is a super fast, easily customizable, multi-purpose theme. Perfect for bl
 Nueve4 is a super fast, easily customizable, multi-purpose theme. It’s perfect for blogs, small business, startups, agencies, firms, e-commerce shops (WooCommerce storefront) as well as personal portfolio sites and most types of projects. A fully AMP optimized and responsive theme, Nueve4 will load in mere seconds and adapt perfectly on any viewing device. While it is lightweight and has a minimalist design, the theme is highly extendable, it has a highly SEO optimized code, resulting in top rankings in Google search results. Nueve4 works perfectly with Gutenberg and the most popular page builders (Elementor, Brizy, Beaver Builder, Visual Composer, SiteOrigin, Divi). Nueve4 is also WooCommerce ready, responsive, RTL & translation ready. Look no further. Nueve4 is the perfect theme for you!
 
 == Copyright ==
-Nueve4 WordPress theme, Copyright 2018 Themeisle
+Nueve4 WordPress theme, Copyright 2018 kemetica.io
 Nueve4 is distributed under the terms of the GNU GPLv2 or later
 
 == Changelog ==
