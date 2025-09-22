@@ -82,3 +82,21 @@ if (!function_exists('nueve4_get_google_fonts')) {
         );
     }
 }
+
+if (!function_exists('nueve4_get_headings_selectors')) {
+    /**
+     * Get headings selectors
+     *
+     * @return array
+     */
+    function nueve4_get_headings_selectors() {
+        return array(
+            'h1' => 'h1, .single h1.entry-title',
+            'h2' => 'h2',
+            'h3' => 'h3, .woocommerce-checkout h3',
+            'h4' => 'h4',
+            'h5' => 'h5',
+            'h6' => 'h6'
+        );
+    }
+}

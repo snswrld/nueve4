@@ -8,7 +8,7 @@
  * @package Nueve4
  */
 
-define( 'NUEVE4_VERSION', '4.1.5' );
+define( 'NUEVE4_VERSION', '4.2.1' );
 define( 'NUEVE4_INC_DIR', trailingslashit( get_template_directory() ) . 'inc/' );
 define( 'NUEVE4_ASSETS_URL', trailingslashit( get_template_directory_uri() ) . 'assets/' );
 define( 'NUEVE4_MAIN_DIR', get_template_directory() . '/' );
@@ -188,6 +188,12 @@ if ( $master_addons_path && strpos( $master_addons_path, realpath( $template_dir
 	if ( $master_addons_path ) {
 		require_once $master_addons_path;
 	}
+}
+
+// Document Gallery Integration
+require_once get_template_directory() . '/inc/document-gallery/document-gallery.php';
+if ( class_exists( '\Nueve4\DocumentGallery\DocumentGallery' ) ) {
+	\Nueve4\DocumentGallery\DocumentGallery::get_instance();
 }
 
 // Social Sharing Integration

@@ -1,6 +1,6 @@
 <?php
 /**
- * Author:          Andrei Baicus <andrei@themeisle.com>
+ * Author:          Andrei Baicus <andrei@kemetica.io>
  * Created on:      17/08/2018
  *
  * @package Nueve4\Customizer
@@ -97,7 +97,9 @@ class Loader {
 	 * Enqueue customizer controls script.
 	 */
 	public function enqueue_customizer_controls() {
-		\Nueve4\Customizer\Assets_Manager::enqueue_assets();
+		if ( class_exists( '\Nueve4\Customizer\Assets_Manager' ) ) {
+			\Nueve4\Customizer\Assets_Manager::enqueue_assets();
+		}
 	}
 
 	/**
@@ -106,15 +108,15 @@ class Loader {
 	public function enqueue_customizer_preview() {
 		wp_enqueue_style(
 			'nueve4-customizer-preview-style',
-			NEVE_ASSETS_URL . 'css/customizer-preview' . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css',
+			NUEVE4_ASSETS_URL . 'css/customizer-preview' . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css',
 			array(),
-			NEVE_VERSION
+			NUEVE4_VERSION
 		);
 		wp_register_script(
 			'nueve4-customizer-preview',
-			NEVE_ASSETS_URL . 'js/build/all/customizer-preview.js',
+			NUEVE4_ASSETS_URL . 'js/build/all/customizer-preview.js',
 			array(),
-			NEVE_VERSION,
+			NUEVE4_VERSION,
 			true
 		);
 

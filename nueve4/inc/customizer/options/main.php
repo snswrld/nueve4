@@ -2,7 +2,7 @@
 /**
  * Handles main customzier setup like root panels.
  *
- * Author:          Andrei Baicus <andrei@themeisle.com>
+ * Author:          Andrei Baicus <andrei@kemetica.io>
  * Created on:      20/08/2018
  *
  * @package Nueve4\Customizer\Options
@@ -18,6 +18,7 @@ use Nueve4\Customizer\Controls\Simple_Upsell;
 use Nueve4\Customizer\Types\Control;
 use Nueve4\Customizer\Types\Panel;
 use Nueve4\Customizer\Types\Section;
+use Nueve4\Customizer\Control_Registrar;
 
 /**
  * Main customizer handler.
@@ -36,7 +37,11 @@ class Main extends Base_Customizer {
 	 * Register customizer controls type.
 	 */
 	private function register_types() {
-		\Nueve4\Customizer\Control_Registrar::register_controls( $this );
+		// Ensure Control_Registrar is loaded
+		if ( ! class_exists( '\Nueve4\Customizer\Control_Registrar' ) ) {
+			require_once get_template_directory() . '/inc/customizer/Control_Registrar.php';
+		}
+		Control_Registrar::register_controls( $this );
 	}
 
 	/**
@@ -104,7 +109,7 @@ class Main extends Base_Customizer {
 				[
 					'priority' => PHP_INT_MAX,
 					'title'    => esc_html__( 'Nueve4', 'nueve4' ),
-					'url'      => tsdk_utmify( 'https://docs.themeisle.com/article/946-nueve4-doc', 'docsbtn' ),
+					'url'      => tsdk_utmify( 'https://docs.kemetica.io/article/946-nueve4-doc', 'docsbtn' ),
 				]
 			)
 		);

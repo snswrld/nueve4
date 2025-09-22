@@ -159,9 +159,9 @@ class Admin {
 	public function register_react_components() {
 		$this->maybe_register_notice_script_starter_sites();
 
-		$deps = include trailingslashit( NEVE_MAIN_DIR ) . 'assets/apps/components/build/components.asset.php';
+		$deps = include trailingslashit( NUEVE4_MAIN_DIR ) . 'assets/apps/components/build/components.asset.php';
 
-		wp_register_script( 'nueve4-components', trailingslashit( NEVE_ASSETS_URL ) . 'apps/components/build/components.js', $deps['dependencies'], $deps['version'], false );
+		wp_register_script( 'nueve4-components', trailingslashit( NUEVE4_ASSETS_URL ) . 'apps/components/build/components.js', $deps['dependencies'], $deps['version'], false );
 		wp_localize_script(
 			'nueve4-components',
 			'nvComponents',
@@ -176,14 +176,14 @@ class Admin {
 			foreach ( $deps['chunks'] as $chunk_file ) {
 		
 				$chunk_handle = 'nueve4-components-chunk-' . $chunk_file;
-				wp_register_script( $chunk_handle, trailingslashit( NEVE_ASSETS_URL ) . 'apps/components/build/' . $chunk_file, [], $deps['version'], true );
+				wp_register_script( $chunk_handle, trailingslashit( NUEVE4_ASSETS_URL ) . 'apps/components/build/' . $chunk_file, [], $deps['version'], true );
 				wp_enqueue_script( $chunk_handle );
 				
 				wp_set_script_translations( $chunk_handle, 'nueve4' );
 			}
 		}
 
-		wp_register_style( 'nueve4-components', trailingslashit( NEVE_ASSETS_URL ) . 'apps/components/build/style-components.css', [ 'wp-components' ], $deps['version'] );
+		wp_register_style( 'nueve4-components', trailingslashit( NUEVE4_ASSETS_URL ) . 'apps/components/build/style-components.css', [ 'wp-components' ], $deps['version'] );
 		wp_add_inline_style( 'nueve4-components', Dynamic_Css::get_root_css() );
 	}
 
@@ -678,15 +678,15 @@ class Admin {
 		}
 		wp_enqueue_script(
 			'nueve4-gutenberg-script',
-			NEVE_ASSETS_URL . 'js/build/all/gutenberg.js',
+			NUEVE4_ASSETS_URL . 'js/build/all/gutenberg.js',
 			array( 'wp-blocks', 'wp-dom' ),
-			NEVE_VERSION,
+			NUEVE4_VERSION,
 			true
 		);
 
 		$path = 'gutenberg-editor-style';
 
-		wp_enqueue_style( 'nueve4-gutenberg-style', NEVE_ASSETS_URL . 'css/' . $path . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), NEVE_VERSION );
+		wp_enqueue_style( 'nueve4-gutenberg-style', NUEVE4_ASSETS_URL . 'css/' . $path . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css', array(), NUEVE4_VERSION );
 	}
 
 	/**

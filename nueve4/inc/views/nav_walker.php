@@ -422,7 +422,7 @@ var menuCarets=document.querySelectorAll(".nav-ul li > .wrap > .caret");menuCare
 JSMIN;
 
 
-		wp_add_inline_script( 'nueve4-script', ( NEVE_DEBUG ) ? $script : $script_min_js );
+		wp_add_inline_script( 'nueve4-script', ( NUEVE4_DEBUG ) ? $script : $script_min_js );
 		self::$accessibility_menu_enqueued = true;
 	}
 	/**

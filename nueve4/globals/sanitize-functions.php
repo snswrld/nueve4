@@ -3,7 +3,7 @@
  *
  * Sanitize functions.
  *
- * Author:          Andrei Baicus <andrei@themeisle.com>
+ * Author:          Andrei Baicus <andrei@kemetica.io>
  * Created on:      20/08/2018
  *
  * @package Nueve4\Globals
@@ -470,4 +470,86 @@ function nueve4_sanitize_font_variants( $value ) {
 	}
 
 	return $value;
+}
+
+/**
+ * Sanitize SVG content
+ *
+ * @param string $svg SVG content to sanitize
+ * @return string Sanitized SVG content
+ */
+function nueve4_kses_svg( $svg ) {
+	$allowed_html = array(
+		'svg' => array(
+			'class' => true,
+			'aria-hidden' => true,
+			'aria-labelledby' => true,
+			'role' => true,
+			'xmlns' => true,
+			'width' => true,
+			'height' => true,
+			'viewbox' => true,
+			'viewBox' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+			'stroke-linecap' => true,
+			'stroke-linejoin' => true,
+		),
+		'g' => array(
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+			'transform' => true,
+		),
+		'title' => array(
+			'title' => true,
+		),
+		'path' => array(
+			'd' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+			'transform' => true,
+		),
+		'circle' => array(
+			'cx' => true,
+			'cy' => true,
+			'r' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		),
+		'rect' => array(
+			'x' => true,
+			'y' => true,
+			'width' => true,
+			'height' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		),
+		'line' => array(
+			'x1' => true,
+			'y1' => true,
+			'x2' => true,
+			'y2' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		),
+		'polygon' => array(
+			'points' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		),
+		'polyline' => array(
+			'points' => true,
+			'fill' => true,
+			'stroke' => true,
+			'stroke-width' => true,
+		),
+	);
+	
+	return wp_kses( $svg, $allowed_html );
 }

@@ -2,7 +2,7 @@
 /**
  * Abstract base class for customizer module.
  *
- * Author:          Andrei Baicus <andrei@themeisle.com>
+ * Author:          Andrei Baicus <andrei@kemetica.io>
  * Created on:      17/08/2018
  *
  * @package Nueve4\Customizer\Abstracts

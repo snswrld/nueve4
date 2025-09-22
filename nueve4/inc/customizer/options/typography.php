@@ -53,14 +53,14 @@ class Typography extends Base_Customizer {
 		 *
 		 * @since 3.5.0
 		 */
-		$pairs = apply_filters( 'nueve4_font_pairings', Mods::get( Config::MODS_TPOGRAPHY_FONT_PAIRS, Config::$typography_default_pairs ) );
+		$pairs = apply_filters( 'nueve4_font_pairings', Mods::get( Config::MODS_TYPOGRAPHY_FONT_PAIRS, Config::$typography_default_pairs ) );
 
 		/**
 		 * Font Pairs Control
 		 */
 		$this->add_control(
 			new Control(
-				Config::MODS_TPOGRAPHY_FONT_PAIRS,
+				Config::MODS_TYPOGRAPHY_FONT_PAIRS,
 				[
 					'transport'         => $this->selective_refresh,
 					'sanitize_callback' => 'sanitize_text_field',

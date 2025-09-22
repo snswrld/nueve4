@@ -30,13 +30,19 @@ class Front_End {
 	 */
 	public function setup_theme() {
 		$this->setup_content_width();
-		$this->setup_textdomain();
 		$this->add_theme_supports();
 		$this->setup_filters();
 		$this->setup_menus();
 		$this->setup_image_sizes();
 		$this->add_amp_support();
 		$this->add_woo_support();
+	}
+
+	/**
+	 * Initialize textdomain at proper time.
+	 */
+	public function init_textdomain() {
+		$this->setup_textdomain();
 	}
 
 	/**
@@ -111,9 +117,9 @@ class Front_End {
 	 */
 	private function setup_menus() {
 		$nav_menus = apply_filters( 'nueve4_register_nav_menus', [
-			'primary' => esc_html__( 'Primary Menu', 'nueve4' ),
-			'footer' => esc_html__( 'Footer Menu', 'nueve4' ),
-			'top-bar' => esc_html__( 'Secondary Menu', 'nueve4' ),
+			'primary' => 'Primary Menu',
+			'footer' => 'Footer Menu', 
+			'top-bar' => 'Secondary Menu',
 		] );
 		register_nav_menus( $nav_menus );
 	}
@@ -152,39 +158,39 @@ class Front_End {
 		return [
 			'nueve4-link-color' => [
 				'val' => 'var(--nv-primary-accent)',
-				'label' => $prefix . __( 'Primary Accent', 'nueve4' ),
+				'label' => $prefix . 'Primary Accent',
 			],
 			'nueve4-link-hover-color' => [
 				'val' => 'var(--nv-secondary-accent)',
-				'label' => $prefix . __( 'Secondary Accent', 'nueve4' ),
+				'label' => $prefix . 'Secondary Accent',
 			],
 			'nv-site-bg' => [
 				'val' => 'var(--nv-site-bg)',
-				'label' => $prefix . __( 'Site Background', 'nueve4' ),
+				'label' => $prefix . 'Site Background',
 			],
 			'nv-light-bg' => [
 				'val' => 'var(--nv-light-bg)',
-				'label' => $prefix . __( 'Light Background', 'nueve4' ),
+				'label' => $prefix . 'Light Background',
 			],
 			'nv-dark-bg' => [
 				'val' => 'var(--nv-dark-bg)',
-				'label' => $prefix . __( 'Dark Background', 'nueve4' ),
+				'label' => $prefix . 'Dark Background',
 			],
 			'nueve4-text-color' => [
 				'val' => 'var(--nv-text-color)',
-				'label' => $prefix . __( 'Text Color', 'nueve4' ),
+				'label' => $prefix . 'Text Color',
 			],
 			'nv-text-dark-bg' => [
 				'val' => 'var(--nv-text-dark-bg)',
-				'label' => $prefix . __( 'Text Dark Background', 'nueve4' ),
+				'label' => $prefix . 'Text Dark Background',
 			],
 			'nv-c-1' => [
 				'val' => 'var(--nv-c-1)',
-				'label' => $prefix . __( 'Extra Color 1', 'nueve4' ),
+				'label' => $prefix . 'Extra Color 1',
 			],
 			'nv-c-2' => [
 				'val' => 'var(--nv-c-2)',
-				'label' => $prefix . __( 'Extra Color 2', 'nueve4' ),
+				'label' => $prefix . 'Extra Color 2',
 			],
 		];
 	}
@@ -405,7 +411,7 @@ class Front_End {
 		if ( class_exists( 'WooCommerce', false ) ) {
 			$style_path = 'css/woocommerce';
 
-			wp_register_style( 'nueve4-woocommerce', NEVE_ASSETS_URL . $style_path . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NEVE_VERSION ) );
+			wp_register_style( 'nueve4-woocommerce', NUEVE4_ASSETS_URL . $style_path . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NUEVE4_VERSION ) );
 			wp_style_add_data( 'nueve4-woocommerce', 'rtl', 'replace' );
 			wp_style_add_data( 'nueve4-woocommerce', 'suffix', '.min' );
 			if ( ! Elementor::is_elementor_checkout() ) {
@@ -417,7 +423,7 @@ class Front_End {
 
 			$style_path = 'css/easy-digital-downloads';
 
-			wp_register_style( 'nueve4-easy-digital-downloads', NEVE_ASSETS_URL . $style_path . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NEVE_VERSION ) );
+			wp_register_style( 'nueve4-easy-digital-downloads', NUEVE4_ASSETS_URL . $style_path . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NUEVE4_VERSION ) );
 			wp_style_add_data( 'nueve4-easy-digital-downloads', 'rtl', 'replace' );
 			wp_style_add_data( 'nueve4-easy-digital-downloads', 'suffix', '.min' );
 			wp_enqueue_style( 'nueve4-easy-digital-downloads' );
@@ -426,14 +432,14 @@ class Front_End {
 
 		$style_path = '/style-main-new';
 
-		wp_register_style( 'nueve4-style', get_template_directory_uri() . $style_path . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NEVE_VERSION ) );
+		wp_register_style( 'nueve4-style', get_template_directory_uri() . $style_path . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NUEVE4_VERSION ) );
 		wp_style_add_data( 'nueve4-style', 'rtl', 'replace' );
 		wp_style_add_data( 'nueve4-style', 'suffix', '.min' );
 		wp_enqueue_style( 'nueve4-style' );
 
 		$mm_path = 'mega-menu';
 
-		wp_register_style( 'nueve4-mega-menu', get_template_directory_uri() . '/assets/css/' . $mm_path . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NEVE_VERSION ) );
+		wp_register_style( 'nueve4-mega-menu', get_template_directory_uri() . '/assets/css/' . $mm_path . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NUEVE4_VERSION ) );
 		wp_style_add_data( 'nueve4-mega-menu', 'rtl', 'replace' );
 		wp_style_add_data( 'nueve4-mega-menu', 'suffix', '.min' );
 	}
@@ -446,7 +452,7 @@ class Front_End {
 			return;
 		}
 
-		wp_register_script( 'nueve4-script', NEVE_ASSETS_URL . 'js/build/modern/frontend.js', apply_filters( 'nueve4_filter_main_script_dependencies', array() ), NEVE_VERSION, true );
+		wp_register_script( 'nueve4-script', NUEVE4_ASSETS_URL . 'js/build/modern/frontend.js', apply_filters( 'nueve4_filter_main_script_dependencies', array() ), NUEVE4_VERSION, true );
 
 		wp_localize_script(
 			'nueve4-script',
@@ -469,7 +475,7 @@ class Front_End {
 		}
 
 		if ( class_exists( 'WooCommerce', false ) && is_woocommerce() ) {
-			wp_register_script( 'nueve4-shop-script', NEVE_ASSETS_URL . 'js/build/modern/shop.js', array(), NEVE_VERSION, true );
+			wp_register_script( 'nueve4-shop-script', NUEVE4_ASSETS_URL . 'js/build/modern/shop.js', array(), NUEVE4_VERSION, true );
 			wp_enqueue_script( 'nueve4-shop-script' );
 			wp_script_add_data( 'nueve4-shop-script', 'async', true );
 		}
@@ -521,17 +527,17 @@ class Front_End {
 	 */
 	public function register_sidebars() {
 		$sidebars = array(
-			'blog-sidebar' => esc_html__( 'Sidebar', 'nueve4' ),
-			'shop-sidebar' => esc_html__( 'Shop Sidebar', 'nueve4' ),
+			'blog-sidebar' => 'Sidebar',
+			'shop-sidebar' => 'Shop Sidebar',
 		);
 
 		$footer_sidebars = apply_filters(
 			'nueve4_footer_widget_areas_array',
 			array(
-				'footer-one-widgets'   => esc_html__( 'Footer One', 'nueve4' ),
-				'footer-two-widgets'   => esc_html__( 'Footer Two', 'nueve4' ),
-				'footer-three-widgets' => esc_html__( 'Footer Three', 'nueve4' ),
-				'footer-four-widgets'  => esc_html__( 'Footer Four', 'nueve4' ),
+				'footer-one-widgets'   => 'Footer One',
+				'footer-two-widgets'   => 'Footer Two',
+				'footer-three-widgets' => 'Footer Three',
+				'footer-four-widgets'  => 'Footer Four',
 			)
 		);
 
@@ -557,43 +563,42 @@ class Front_End {
 	 */
 	public function get_strings() {
 		return [
-			'add_item'                 => __( 'Add item', 'nueve4' ),
-			'add_items'                => __( 'Add items by clicking the ones below.', 'nueve4' ),
-			'all_selected'             => __( 'All items are already selected.', 'nueve4' ),
-			'page_layout'              => __( 'Page Layout', 'nueve4' ),
-			'page_title'               => __( 'Page Title', 'nueve4' ),
-			'upsell_components'        => __( 'Upgrade to Nueve4 Pro and unlock all components, including Wish List, Breadcrumbs, Custom Layouts and many more.', 'nueve4' ),
-			'header_booster'           => esc_html__( 'Header Booster', 'nueve4' ),
-			'blog_booster'             => esc_html__( 'Blog Booster', 'nueve4' ),
-			'woo_booster'              => esc_html__( 'WooCommerce Booster', 'nueve4' ),
-			'custom_layouts'           => esc_html__( 'Custom Layouts', 'nueve4' ),
-			'white_label'              => esc_html__( 'White Label module', 'nueve4' ),
-			'scroll_to_top'            => esc_html__( 'Scroll to Top module', 'nueve4' ),
-			'elementor_booster'        => esc_html__( 'Elementor Booster', 'nueve4' ),
-			'ext_h_description'        => esc_html__( 'Extend your header with more components and settings, build sticky/transparent headers or display them conditionally.', 'nueve4' ),
-			'ctm_h_description'        => esc_html__( 'Easily create custom headers and footers as well as adding your own custom code or content in any of the hooks locations.', 'nueve4' ),
-			'elem_description'         => esc_html__( 'Leverage the true flexibility of Elementor with powerful addons and templates that you can import with just one click.', 'nueve4' ),
-			'get_pro_cta'              => esc_html__( 'Get the PRO version!', 'nueve4' ),
-			'opens_new_tab_des'        => esc_html__( '(opens in a new tab)', 'nueve4' ),
-			'filter'                   => __( 'Filter', 'nueve4' ),
-			/* translators: %s - Theme name */
-			'nueve4_options'             => __( '%s Options', 'nueve4' ),
-			'migrate_builder_d'        => __( 'Migrating builder data', 'nueve4' ),
-			'rollback_builder'         => __( 'Rolling back builder', 'nueve4' ),
-			'remove_old_data'          => __( 'Removing old data', 'nueve4' ),
-			'customizer_values_notice' => __( 'You must save the current customizer values before running the migration.', 'nueve4' ),
-			'wrong_reload_notice'      => __( 'Something went wrong. Please reload the page and try again.', 'nueve4' ),
-			'rollback_to_old'          => __( 'Want to roll back to the old builder?', 'nueve4' ),
-			'new_hfg_experience'       => __( "We've created a new Header/Footer Builder experience! You can always roll back to the old builder from right here.", 'nueve4' ),
-			'manual_adjust'            => __( 'Some manual adjustments may be required.', 'nueve4' ),
-			'reload'                   => __( 'Reload', 'nueve4' ),
-			'migrate'                  => __( 'Migrate Builders Data', 'nueve4' ),
-			'legacy_skin'              => __( 'Legacy Skin', 'nueve4' ),
-			'nueve4_30'                  => __( 'Nueve4 3.0', 'nueve4' ),
-			'switching_skin'           => __( 'Switching skin', 'nueve4' ),
-			'switch_skin'              => __( 'Switch Skin', 'nueve4' ),
-			'dismiss'                  => __( 'Dismiss', 'nueve4' ),
-			'rollback'                 => __( 'Roll Back', 'nueve4' ),
+			'add_item'                 => 'Add item',
+			'add_items'                => 'Add items by clicking the ones below.',
+			'all_selected'             => 'All items are already selected.',
+			'page_layout'              => 'Page Layout',
+			'page_title'               => 'Page Title',
+			'upsell_components'        => 'Upgrade to Nueve4 Pro and unlock all components, including Wish List, Breadcrumbs, Custom Layouts and many more.',
+			'header_booster'           => 'Header Booster',
+			'blog_booster'             => 'Blog Booster',
+			'woo_booster'              => 'WooCommerce Booster',
+			'custom_layouts'           => 'Custom Layouts',
+			'white_label'              => 'White Label module',
+			'scroll_to_top'            => 'Scroll to Top module',
+			'elementor_booster'        => 'Elementor Booster',
+			'ext_h_description'        => 'Extend your header with more components and settings, build sticky/transparent headers or display them conditionally.',
+			'ctm_h_description'        => 'Easily create custom headers and footers as well as adding your own custom code or content in any of the hooks locations.',
+			'elem_description'         => 'Leverage the true flexibility of Elementor with powerful addons and templates that you can import with just one click.',
+			'get_pro_cta'              => 'Get the PRO version!',
+			'opens_new_tab_des'        => '(opens in a new tab)',
+			'filter'                   => 'Filter',
+			'nueve4_options'             => '%s Options',
+			'migrate_builder_d'        => 'Migrating builder data',
+			'rollback_builder'         => 'Rolling back builder',
+			'remove_old_data'          => 'Removing old data',
+			'customizer_values_notice' => 'You must save the current customizer values before running the migration.',
+			'wrong_reload_notice'      => 'Something went wrong. Please reload the page and try again.',
+			'rollback_to_old'          => 'Want to roll back to the old builder?',
+			'new_hfg_experience'       => "We've created a new Header/Footer Builder experience! You can always roll back to the old builder from right here.",
+			'manual_adjust'            => 'Some manual adjustments may be required.',
+			'reload'                   => 'Reload',
+			'migrate'                  => 'Migrate Builders Data',
+			'legacy_skin'              => 'Legacy Skin',
+			'nueve4_30'                  => 'Nueve4 3.0',
+			'switching_skin'           => 'Switching skin',
+			'switch_skin'              => 'Switch Skin',
+			'dismiss'                  => 'Dismiss',
+			'rollback'                 => 'Roll Back',
 		];
 	}
 
@@ -615,5 +620,15 @@ class Front_End {
 		}
 
 		return $current_styles;
+	}
+
+	/**
+	 * Get mod key for heading font family
+	 *
+	 * @param string $heading_id Heading ID (h1, h2, etc.)
+	 * @return string Mod key for heading font family
+	 */
+	private function get_mod_key_heading_fontfamily( $heading_id ) {
+		return 'nueve4_' . $heading_id . '_font_family';
 	}
 }

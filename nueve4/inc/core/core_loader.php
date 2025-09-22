@@ -175,6 +175,7 @@ class Core_Loader {
 		$front_end = new Front_End();
 		add_action( 'wp_enqueue_scripts', array( $front_end, 'enqueue_scripts' ) );
 		add_action( 'after_setup_theme', array( $front_end, 'setup_theme' ) );
+		add_action( 'init', array( $front_end, 'init_textdomain' ) );
 		add_action( 'widgets_init', array( $front_end, 'register_sidebars' ) );
 	}
 

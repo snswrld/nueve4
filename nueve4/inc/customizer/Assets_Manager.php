@@ -7,7 +7,7 @@
 
 namespace Nueve4\Customizer;
 
-use Nueve4\Core\Config;
+use Nueve4\Core\Settings\Config;
 use Nueve4\Customizer\Colors_Background;
 use HFG\Core\Components\Utility\SearchIconButton;
 use Nueve4\Core\Limited_Offers;
@@ -18,9 +18,9 @@ class Assets_Manager {
         // Register and enqueue customizer style
         wp_register_style(
             'nueve4-customizer-style',
-            NEVE_ASSETS_URL . 'css/customizer-style' . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css',
+            NUEVE4_ASSETS_URL . 'css/customizer-style' . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css',
             array(),
-            NEVE_VERSION
+            NUEVE4_VERSION
         );
         wp_style_add_data( 'nueve4-customizer-style', 'rtl', 'replace' );
         wp_style_add_data( 'nueve4-customizer-style', 'suffix', '.min' );
@@ -29,12 +29,12 @@ class Assets_Manager {
         // Enqueue customizer controls script
         wp_enqueue_script(
             'nueve4-customizer-controls',
-            NEVE_ASSETS_URL . 'js/build/all/customizer-controls.js',
+            NUEVE4_ASSETS_URL . 'js/build/all/customizer-controls.js',
             array(
                 'jquery',
                 'wp-color-picker'
             ),
-            NEVE_VERSION,
+            NUEVE4_VERSION,
             true
         );
 
@@ -77,7 +77,7 @@ class Assets_Manager {
                         'learnMore' => apply_filters( 'nueve4_external_link', 'https://docs.themeisle.com/article/1349-how-to-load-nueve4-fonts-locally', esc_html__( 'Learn more', 'nueve4' ) ),
                         'key' => Config::OPTION_LOCAL_GOOGLE_FONTS_HOSTING,
                     ),
-                    'fontPairs' => get_theme_mod( Config::MODS_TPOGRAPHY_FONT_PAIRS, Config::$typography_default_pairs ),
+                    'fontPairs' => get_theme_mod( Config::MODS_TYPOGRAPHY_FONT_PAIRS, Config::$typography_default_pairs ),
                     'allowedGlobalCustomColor' => Colors_Background::CUSTOM_COLOR_LIMIT,
                     'constants' => array(
                         'HFGSearch' => array(
@@ -85,7 +85,7 @@ class Assets_Manager {
                             'customIconKey'  => SearchIconButton::CUSTOM_ICON,
                         ),
                     ),
-                    'deal' => ! defined( 'NEVE_PRO_VERSION' ) ? $offer->get_localized_data() : array(),
+                    'deal' => ! defined( 'NUEVE4_PRO_VERSION' ) ? $offer->get_localized_data() : array(),
                 )
             )
         );
