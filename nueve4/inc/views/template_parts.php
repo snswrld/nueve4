@@ -348,7 +348,7 @@ class Template_Parts extends Base_View {
 	private function get_image_wrap_classes() {
 		$post_classes = [ 'nv-post-thumbnail-wrap', 'img-wrap' ];
 
-		if ( defined( 'NEVE_PRO_VERSION' ) ) {
+		if ( defined( 'NUEVE4_PRO_VERSION' ) ) {
 			$blog_image_hover = get_theme_mod( 'nueve4_blog_image_hover', 'none' );
 			if ( $blog_image_hover !== 'none' ) {
 				$post_classes[] = $blog_image_hover;

@@ -37,7 +37,7 @@ class Premium_Activation {
         
         // Set premium status
         update_option('nueve4_premium_active', true);
-        update_option('nueve4_premium_version', defined('NEVE_VERSION') ? NEVE_VERSION : '1.0.0');
+        update_option('nueve4_premium_version', defined('NUEVE4_VERSION') ? NUEVE4_VERSION : '1.0.0');
         
         // Flush rewrite rules if needed
         if (get_option('nueve4_premium_flush_rules')) {

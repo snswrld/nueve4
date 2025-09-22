@@ -38,6 +38,8 @@ class Patterns {
 	 */
 	public function init() {
 		add_action( 'init', [ $this, 'define_patterns' ] );
+		// Ensure patterns are always available
+		add_filter( 'nueve4_has_valid_addons', '__return_true' );
 	}
 
 	/**
@@ -47,11 +49,24 @@ class Patterns {
 		if ( ! function_exists( 'register_block_pattern' ) ) {
 			return;
 		}
+		
+		// Unlock all patterns - GPL compliance
+		add_filter( 'nueve4_patterns_locked', '__return_false' );
+		add_filter( 'nueve4_pro_patterns_locked', '__return_false' );
+		
 		foreach ( $this->patterns as $pattern ) {
-			register_block_pattern(
-				'nueve4/' . $pattern,
-				require __DIR__ . '/block-patterns/' . $pattern . '.php'
-			);
+			$pattern_file = __DIR__ . '/block-patterns/' . $pattern . '.php';
+			if ( file_exists( $pattern_file ) ) {
+				$pattern_config = require $pattern_file;
+				// Remove any pro restrictions
+				if ( isset( $pattern_config['blockTypes'] ) ) {
+					unset( $pattern_config['pro'] );
+				}
+				register_block_pattern(
+					'nueve4/' . $pattern,
+					$pattern_config
+				);
+			}
 		}
 	}
 

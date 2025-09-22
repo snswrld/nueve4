@@ -24,7 +24,7 @@ class Checkout extends Base_Customizer {
 	 * @return bool|void
 	 */
 	public function init() {
-		if ( defined( 'NEVE_PRO_VERSION' ) ) {
+		if ( defined( 'NUEVE4_PRO_VERSION' ) ) {
 			return false;
 		}
 

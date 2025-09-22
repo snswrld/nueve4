@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+</style>
+<path class="st0" d="M0,1.6C0,0.7,0.7,0,1.6,0h28.8C31.3,0,32,0.7,32,1.6V30c0,0.9-0.7,1.6-1.6,1.6H1.6C0.7,31.5,0,30.8,0,30V1.6z
+	 M8,8h16v2H8V8z M8,12h12v2H8V12z M8,16h14v2H8V16z M8,20h10v2H8V20z M8,24h8v2H8V24z"/>
+</svg>

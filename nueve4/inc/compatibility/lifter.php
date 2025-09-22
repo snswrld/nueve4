@@ -257,7 +257,7 @@ class Lifter {
 	public function load_styles() {
 		$path = 'lifter';
 
-		wp_enqueue_style( 'nueve4-lifter', NEVE_ASSETS_URL . 'css/' . $path . ( ( NEVE_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NEVE_VERSION ) );
+		wp_enqueue_style( 'nueve4-lifter', NUEVE4_ASSETS_URL . 'css/' . $path . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css', array(), apply_filters( 'nueve4_version_filter', NUEVE4_VERSION ) );
 	}
 
 	/**

@@ -48,7 +48,7 @@ class About_Us extends Abstract_Module {
 	 *     'location' => 'top level page',
 	 *     'logo' => 'logo path',
 	 *     'page_menu' => [['text' => '', 'url' => '']], // Optional
-	 *     'has_upgrade_menu' => !defined('NEVE_PRO_VERSION'),
+	 *     'has_upgrade_menu' => !defined('NUEVE4_PRO_VERSION'),
 	 *     'upgrade_link' => 'upgrade url',
 	 *     'upgrade_text' => 'Get Pro Version',
 	 * ]

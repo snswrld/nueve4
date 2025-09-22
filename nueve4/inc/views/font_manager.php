@@ -248,7 +248,7 @@ class Font_Manager extends Base_View {
 			return $url;
 		}
 
-		wp_enqueue_style( 'nueve4-google-font-' . str_replace( ' ', '-', strtolower( $font ) ), $url, array(), NEVE_VERSION );
+		wp_enqueue_style( 'nueve4-google-font-' . str_replace( ' ', '-', strtolower( $font ) ), $url, array(), NUEVE4_VERSION );
 	}
 
 	/**

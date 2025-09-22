@@ -8,7 +8,7 @@
  * @package Nueve4
  */
 
-define( 'NUEVE4_VERSION', '4.2.1' );
+define( 'NUEVE4_VERSION', '4.3.1' );
 define( 'NUEVE4_INC_DIR', trailingslashit( get_template_directory() ) . 'inc/' );
 define( 'NUEVE4_ASSETS_URL', trailingslashit( get_template_directory_uri() ) . 'assets/' );
 define( 'NUEVE4_MAIN_DIR', get_template_directory() . '/' );
@@ -41,13 +41,8 @@ if ( version_compare( PHP_VERSION, '7.0' ) < 0 ) {
 	$_nueve4_bootstrap_errors->add(
 		'minimum_php_version',
 		sprintf(
-		/* translators: %s message to upgrade PHP to the latest version */
-			__( "Hey, we've noticed that you're running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by %1\$s. Nueve4's minimal requirement is PHP%2\$s.", 'nueve4' ),
-			sprintf(
-			/* translators: %s message to upgrade PHP to the latest version */
-				'<a href="https://wordpress.org/support/upgrade-php/">%s</a>',
-				__( 'upgrading PHP to the latest version', 'nueve4' )
-			),
+			"Hey, we've noticed that you're running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by %1\$s. Nueve4's minimal requirement is PHP%2\$s.",
+			'<a href="https://wordpress.org/support/upgrade-php/">upgrading PHP to the latest version</a>',
 			'7.0'
 		)
 	);
@@ -66,7 +61,7 @@ foreach ( $_files_to_check as $_file_to_check ) {
 		$_nueve4_bootstrap_errors->add(
 			'build_missing',
 			sprintf(
-				__( 'You appear to be running the Nueve4 theme from source code. Please finish installation by running %s.', 'nueve4' ),
+				'You appear to be running the Nueve4 theme from source code. Please finish installation by running %s.',
 				'<code>composer install --no-dev &amp;&amp; yarn install --frozen-lockfile &amp;&amp; yarn run build</code>'
 			)
 		);
@@ -91,23 +86,11 @@ if ( $_nueve4_bootstrap_errors->has_errors() ) {
 	return;
 }
 
-function nueve4_filter_sdk( $products ) {
-	$products[] = get_template_directory() . '/style.css';
-	return $products;
-}
+// Load Nueve4 SDK instead of ThemeIsle SDK
+require_once NUEVE4_INC_DIR . 'nueve4-sdk/load.php';
 
-add_filter( 'themeisle_sdk_products', 'nueve4_filter_sdk' );
-add_filter(
-	'themeisle_sdk_compatibilities/' . NUEVE4_BASENAME,
-	function ( $compatibilities ) {
-		$compatibilities['Nueve4Pro'] = [
-			'basefile'  => defined( 'NUEVE4_PRO_BASEFILE' ) ? NUEVE4_PRO_BASEFILE : '',
-			'required'  => '2.4',
-			'tested_up' => '2.8',
-		];
-		return $compatibilities;
-	}
-);
+// Register Nueve4 product
+\Nueve4SDK\Loader::add_product( get_template_directory() . '/style.css' );
 
 // GPL Compliance: Unlock premium features (Original code by kemetica.io)
 add_filter( 'nueve4_has_valid_addons', '__return_true' );
@@ -153,7 +136,8 @@ $core_files = [
 	'start.php',
 	'header-footer-grid/loader.php',
 	'inc/social-sharing/premium-override.php',
-	'inc/social-sharing/social-sharing.php'
+	'inc/social-sharing/social-sharing.php',
+	'inc/compatibility/sdk-override.php'
 ];
 
 array_walk($core_files, function($file) use ($template_dir) {
@@ -162,6 +146,12 @@ array_walk($core_files, function($file) use ($template_dir) {
 		require_once $full_path;
 	}
 });
+
+// Initialize SDK Override
+if ( class_exists( '\Nueve4\Compatibility\SDK_Override' ) ) {
+	$sdk_override = new \Nueve4\Compatibility\SDK_Override();
+	$sdk_override->init();
+}
 
 // Widget editor customization
 if ( nueve4_is_new_widget_editor() ) {
@@ -173,10 +163,11 @@ if ( nueve4_is_new_widget_editor() ) {
 	}, 10, 2 );
 }
 
-// Master Addons Integration using DI
+// Master Addons Integration disabled temporarily
+// Uncomment to re-enable:
+/*
 $master_addons_path = realpath( $template_dir . '/master-addons/master-addons/master-addons.php' );
 if ( $master_addons_path && strpos( $master_addons_path, realpath( $template_dir ) ) === 0 && file_exists( $master_addons_path ) ) {
-	// GPL Compliance: Override Freemius restrictions
 	add_filter( 'pre_option_fs_accounts', function() use ($container) {
 		return $container->resolve('premium_features')->generateFreemiusAccount();
 	});
@@ -189,6 +180,7 @@ if ( $master_addons_path && strpos( $master_addons_path, realpath( $template_dir
 		require_once $master_addons_path;
 	}
 }
+*/
 
 // Document Gallery Integration
 require_once get_template_directory() . '/inc/document-gallery/document-gallery.php';
@@ -198,11 +190,6 @@ if ( class_exists( '\Nueve4\DocumentGallery\DocumentGallery' ) ) {
 
 // Social Sharing Integration
 if ( class_exists( '\Nueve4\SocialSharing\Social_Sharing' ) ) {
-	// Remove any existing Blog2Social admin notices
-	add_action( 'admin_init', function() {
-		remove_all_actions( 'admin_notices' );
-		remove_all_actions( 'network_admin_notices' );
-	}, 0 );
 	
 	// Override Blog2Social constants for full integration
 	add_action( 'init', function() {
@@ -224,13 +211,15 @@ add_filter(
 		return [
 			'is_enabled' => false,
 			'pro_name'   => 'Nueve4 Pro Addon',
-			'logo'       => get_template_directory_uri() . '/assets/img/dashboard/logo.svg',
-			'cta_link'   => tsdk_utmify( 'https://kemetica.io/themes/nueve4/upgrade/?discount=LOYALUSER582&dvalue=50', 'nueve4-welcome', 'notice' ),
+			'logo'       => get_template_directory_uri() . '/assets/img/dashboard/nueve4-icon.svg',
+			'cta_link'   => 'https://kemetica.io/themes/nueve4/upgrade/',
 		];
 	}
 );
 
-add_filter( 'themeisle_sdk_enable_telemetry', '__return_true' );
+// Disable external telemetry
+add_filter( 'themeisle_sdk_enable_telemetry', '__return_false' );
+add_filter( 'nueve4_sdk_enable_telemetry', '__return_false' );
 
 
 

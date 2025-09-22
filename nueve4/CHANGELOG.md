@@ -417,7 +417,7 @@
 
 - [Fix] Both posted date and updated date are displayed
 - [Fix] {current_query_title} magic tag can't be displayed inline with other text
-- From 3.3.0 we decided to remove the copyright component from the free version. You can continue using it if you roll back to 3.2.x or you can upgrade to pro, using a one-time 50% discount by using NEVEBRANDING50 discount code. The promotion is available until the 5th of July 2022.
+- From 3.3.0 we decided to remove the copyright component from the free version. You can continue using it if you roll back to 3.2.x or you can upgrade to pro, using a one-time 50% discount by using NUEVE4BRANDING50 discount code. The promotion is available until the 5th of July 2022.
 
 #### [Version 3.3.0](https://github.com/Codeinwp/nueve4/compare/v3.2.5...v3.3.0) (2022-06-23)
 

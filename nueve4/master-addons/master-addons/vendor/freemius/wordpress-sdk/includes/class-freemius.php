@@ -25569,7 +25569,7 @@
                         $have_write_permissions = ( 'direct' === get_filesystem_method( array(), fs_normalize_path( $img_dir ) ) );
 
                         /**
-                         * IMPORTANT: THIS CODE WILL NEVER RUN AFTER THE PLUGIN IS IN THE REPO.
+                         * IMPORTANT: THIS CODE WILL NUEVE4R RUN AFTER THE PLUGIN IS IN THE REPO.
                          *
                          * This code will only be executed once during the testing
                          * of the plugin in a local environment. The plugin icon file WILL

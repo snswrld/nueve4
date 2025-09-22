@@ -416,7 +416,7 @@ class Manager {
 					return $array;
 				}
 			);
-			if ( defined( 'NEVE_PRO_VERSION' ) ) {
+			if ( defined( 'NUEVE4_PRO_VERSION' ) ) {
 				add_filter(
 					'nueve4_pro_react_controls_localization',
 					function ( $array ) use ( $id ) {

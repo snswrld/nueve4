@@ -119,7 +119,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 		$default_caret_settings = [
 			'side'      => is_rtl() ? 'left' : 'right',
 			'icon_type' => 'icon',
-			'icon'      => '<svg fill="currentColor" aria-label="' . esc_attr__( 'Dropdown', 'nueve4' ) . '" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>',
+			'icon'      => '<svg fill="currentColor" aria-label="Dropdown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>',
 		];
 
 		$component_id    = $args->component_id ?? '';
@@ -151,7 +151,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 				$expand_dropdowns = apply_filters( 'nueve4_first_level_expanded', false );
 				$additional_class = $expand_dropdowns && $depth === 0 ? 'dropdown-open' : '';
 
-				$caret  = '<button ' . $expanded . ' type="button" class="caret-wrap navbar-toggle ' . esc_attr( (string) $item->menu_order ) . ' ' . esc_attr( $additional_class ) . '" style="' . esc_attr( $caret_wrap_css ) . '"  aria-label="' . __( 'Toggle', 'nueve4' ) . ' ' . wp_filter_nohtml_kses( $title ) . '">';
+				$caret  = '<button ' . $expanded . ' type="button" class="caret-wrap navbar-toggle ' . esc_attr( (string) $item->menu_order ) . ' ' . esc_attr( $additional_class ) . '" style="' . esc_attr( $caret_wrap_css ) . '"  aria-label="Toggle ' . wp_filter_nohtml_kses( $title ) . '">';
 				$caret .= $caret_pictogram;
 				$caret .= '</button>';
 
@@ -162,7 +162,7 @@ class Nav_Walker extends \Walker_Nav_Menu {
 				}
 			} else {
 
-				$caret  = '<div role="button" aria-pressed="false" aria-label="' . __( 'Open Submenu', 'nueve4' ) . '" ' . $expanded . ' class="caret-wrap caret ' . $item->menu_order . '" style="' . esc_attr( $caret_wrap_css ) . '">';
+				$caret  = '<div role="button" aria-pressed="false" aria-label="Open Submenu" ' . $expanded . ' class="caret-wrap caret ' . $item->menu_order . '" style="' . esc_attr( $caret_wrap_css ) . '">';
 				$caret .= $caret_pictogram;
 				$caret .= '</div>';
 

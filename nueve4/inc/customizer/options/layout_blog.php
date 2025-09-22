@@ -50,11 +50,11 @@ class Layout_Blog extends Base_Customizer {
 	 * Adapting old pro versions to make them still usable with the old theme version.
 	 */
 	public function adapt_old_pro() {
-		if ( ! defined( 'NEVE_PRO_VERSION' ) ) {
+		if ( ! defined( 'NUEVE4_PRO_VERSION' ) ) {
 			return;
 		}
 
-		if ( version_compare( NEVE_PRO_VERSION, '1.2.8', '>' ) ) {
+		if ( version_compare( NUEVE4_PRO_VERSION, '1.2.8', '>' ) ) {
 			return;
 		}
 
@@ -236,7 +236,7 @@ class Layout_Blog extends Base_Customizer {
 					'active_callback' => function () {
 						$is_list_layout = get_theme_mod( $this->section ) === 'default';
 						$has_image      = true;
-						if ( $is_list_layout && defined( 'NEVE_PRO_VERSION' ) ) {
+						if ( $is_list_layout && defined( 'NUEVE4_PRO_VERSION' ) ) {
 							$has_image = get_theme_mod( 'nueve4_blog_list_image_position', 'left' ) !== 'no';
 						}
 						return $is_list_layout && $has_image;

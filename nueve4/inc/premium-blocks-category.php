@@ -48,7 +48,7 @@ class Premium_Blocks_Category {
             'nueve4-blocks-editor',
             get_template_directory_uri() . '/assets/css/premium-blocks.css',
             array(),
-            NEVE_VERSION
+            NUEVE4_VERSION
         );
 
         // Enqueue block editor scripts
@@ -56,7 +56,7 @@ class Premium_Blocks_Category {
             'nueve4-blocks-editor',
             get_template_directory_uri() . '/assets/js/premium-blocks/editor.js',
             array('wp-blocks', 'wp-element', 'wp-editor'),
-            NEVE_VERSION,
+            NUEVE4_VERSION,
             true
         );
 
@@ -84,14 +84,14 @@ class Premium_Blocks_Category {
                 'nueve4-premium-blocks',
                 get_template_directory_uri() . '/assets/css/premium-blocks.css',
                 array(),
-                NEVE_VERSION
+                NUEVE4_VERSION
             );
 
             wp_enqueue_script(
                 'nueve4-premium-blocks',
                 get_template_directory_uri() . '/assets/js/premium-blocks/frontend.js',
                 array('jquery'),
-                NEVE_VERSION,
+                NUEVE4_VERSION,
                 true
             );
         }

@@ -89,7 +89,7 @@ class Front_End {
 			'lifterlms-sidebars' => true,
 			'lifterlms' => true,
 			'link-color' => true,
-			'post-thumbnails' => true,
+			'post-thumbnails' => [],
 			'service_worker' => true,
 			'starter-content' => ( new Starter_Content() )->get(),
 			'title-tag' => true,
@@ -135,7 +135,7 @@ class Front_End {
 	 * Get Gutenberg color palette.
 	 */
 	private function get_gutenberg_color_palette() {
-		$prefix = ( apply_filters( 'ti_wl_theme_is_localized', false ) ? __( 'Theme', 'nueve4' ) : 'Nueve4' ) . ' - ';
+		$prefix = 'Nueve4 - ';
 		$colors = $this->get_default_colors( $prefix );
 		$colors = array_merge( $colors, $this->get_global_custom_color_vars() );
 

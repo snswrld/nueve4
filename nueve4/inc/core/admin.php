@@ -66,7 +66,7 @@ class Admin {
 		add_action( 'admin_menu', [ $this, 'remove_background_submenu' ], 110 );
 		add_action( 'after_switch_theme', [ $this, 'get_previous_theme' ] );
 
-		add_filter( 'all_plugins', array( $this, 'change_plugin_names' ) );
+
 
 		$this->auto_update_skin_and_builder();
 
@@ -486,10 +486,9 @@ class Admin {
 		/* translators: 1 - notice title, 2 - notice message */
 		$notice_header = sprintf(
 			'<h2>%1$s</h2><p class="about-description">%2$s</p></hr>',
-			esc_html__( 'Congratulations!', 'nueve4' ),
+			'Congratulations!',
 			sprintf(
-				/* translators: %s - theme name */
-				esc_html__( '%s is now installed and ready to use. We\'ve assembled some links to get you started.', 'nueve4' ),
+				'%s is now installed and ready to use. We\'ve assembled some links to get you started.',
 				$name
 			)
 		);
@@ -505,18 +504,18 @@ class Admin {
 		/* translators: 1 - onboarding url, 2 - button text */
 			'<a href="%1$s" class="button button-primary button-hero install-now" >%2$s</a>',
 			esc_url( $ob_btn_link ),
-			sprintf( apply_filters( 'ti_onboarding_nueve4_start_site_cta', esc_html__( 'Try one of our ready to use Starter Sites', 'nueve4' ) ) )
+			sprintf( apply_filters( 'ti_onboarding_nueve4_start_site_cta', 'Try one of our ready to use Starter Sites' ) )
 		);
 		$ob_return_dashboard = sprintf(
 		/* translators: 1 - button text */
 			'<a href="' . esc_url( admin_url() ) . '" class=" ti-return-dashboard  button button-secondary button-hero install-now" ><span>%1$s</span></a>',
-			__( 'Return to your dashboard', 'nueve4' )
+			'Return to your dashboard'
 		);
 		$options_page_btn = sprintf(
 		/* translators: 1 - options page url, 2 - button text */
 			'<a href="%1$s" class="options-page-btn">%2$s</a>',
 			esc_url( admin_url( 'admin.php?page=' . $theme_page ) ),
-			esc_html__( 'or go to the theme settings', 'nueve4' )
+			'or go to the theme settings'
 		);
 		$notice_picture    = sprintf(
 			'<picture>
@@ -527,21 +526,19 @@ class Admin {
 		);
 		$notice_sites_list = sprintf(
 			'<div><h3><span class="dashicons dashicons-images-alt2"></span> %1$s</h3><p>%2$s</p><p>%3$s</p></div><div> <p id="nueve4-ss-install">%4$s</p><p>%5$s</p> </div>',
-			__( 'Sites Library', 'nueve4' ),
-			// translators: %s - Theme name
-				sprintf( esc_html__( '%s now comes with a sites library with various designs to pick from. Visit our collection of demos that are constantly being added.', 'nueve4' ), $name ),
-			esc_html( __( 'Install the template patterns plugin to get started.', 'nueve4' ) ),
+			'Sites Library',
+				sprintf( '%s now comes with a sites library with various designs to pick from. Visit our collection of demos that are constantly being added.', $name ),
+			'Install the template patterns plugin to get started.',
 			$ob_btn,
 			$options_page_btn
 		);
 		$notice_documentation = sprintf(
 			'<div><h3><span class="dashicons dashicons-format-aside"></span> %1$s</h3><p>%2$s</p><a target="_blank" rel="external noopener noreferrer" href="%3$s"><span class="screen-reader-text">%4$s</span><svg xmlns="http://www.w3.org/2000/svg" focusable="false" role="img" viewBox="0 0 512 512" width="12" height="12" style="margin-right: 5px;"><path fill="currentColor" d="M432 320H400a16 16 0 0 0-16 16V448H64V128H208a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16H48A48 48 0 0 0 0 112V464a48 48 0 0 0 48 48H400a48 48 0 0 0 48-48V336A16 16 0 0 0 432 320ZM488 0h-128c-21.4 0-32 25.9-17 41l35.7 35.7L135 320.4a24 24 0 0 0 0 34L157.7 377a24 24 0 0 0 34 0L435.3 133.3 471 169c15 15 41 4.5 41-17V24A24 24 0 0 0 488 0Z"/></svg>%5$s</a></div><div> <p>%6$s</p></div>',
-			__( 'Documentation', 'nueve4' ),
-			// translators: %s - Theme name
-				sprintf( esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use %s.', 'nueve4' ), $name ),
+			'Documentation',
+				sprintf( 'Need more details? Please check our full documentation for detailed information on how to use %s.', $name ),
 			'https://docs.themeisle.com/article/946-nueve4-doc',
-			esc_html__( '(opens in a new tab)', 'nueve4' ),
-			esc_html__( 'Read full documentation', 'nueve4' ),
+			'(opens in a new tab)',
+			'Read full documentation',
 			$ob_return_dashboard
 		);
 		$style = '
@@ -751,19 +748,7 @@ class Admin {
 		wp_die();
 	}
 
-	/**
-	 * Change Orbit Fox and Otter plugin names to make clear where they are from.
-	 */
-	public function change_plugin_names( $plugins ) {
-		if ( array_key_exists( 'themeisle-companion/themeisle-companion.php', $plugins ) ) {
-			$plugins['themeisle-companion/themeisle-companion.php']['Name'] = 'Orbit Fox Companion by Nueve4 theme';
-		}
-		if ( array_key_exists( 'otter-pro/otter-pro.php', $plugins ) ) {
-			$plugins['otter-pro/otter-pro.php']['Description'] = $plugins['otter-pro/otter-pro.php']['Description'] . ' It is part of Block Editor Booster from Nueve4.';
-		}
 
-		return $plugins;
-	}
 
 	/**
 	 * Import nueve4 options when switching to a child theme.

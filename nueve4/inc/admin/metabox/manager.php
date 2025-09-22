@@ -216,7 +216,7 @@ final class Manager {
 			return;
 		}
 
-		wp_register_script( 'nueve4-metabox', NEVE_ASSETS_URL . 'js/build/all/metabox.js', array( 'jquery' ), NEVE_VERSION, true );
+		wp_register_script( 'nueve4-metabox', NUEVE4_ASSETS_URL . 'js/build/all/metabox.js', array( 'jquery' ), NUEVE4_VERSION, true );
 
 		wp_localize_script( 'nueve4-metabox', 'nueve4Metabox', $this->get_localization() );
 
@@ -397,7 +397,7 @@ final class Manager {
 			'nueve4-meta-sidebar-css', // Handle.
 			trailingslashit( get_template_directory_uri() ) . 'assets/apps/metabox/build/index.css',
 			array( 'wp-edit-blocks' ),
-			NEVE_VERSION
+			NUEVE4_VERSION
 		);
 	}
 

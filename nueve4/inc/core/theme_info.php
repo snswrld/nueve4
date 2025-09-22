@@ -17,11 +17,11 @@ trait Theme_Info {
 	 * @return bool
 	 */
 	private function has_valid_addons() {
-		if ( ! defined( 'NEVE_PRO_BASEFILE' ) ) {
+		if ( ! defined( 'NUEVE4_PRO_BASEFILE' ) ) {
 			return false;
 		}
 
-		$option_name = basename( dirname( NEVE_PRO_BASEFILE ) );
+		$option_name = basename( dirname( NUEVE4_PRO_BASEFILE ) );
 		$option_name = str_replace( '-', '_', strtolower( trim( $option_name ) ) );
 		$status      = get_option( $option_name . '_license_data' );
 
