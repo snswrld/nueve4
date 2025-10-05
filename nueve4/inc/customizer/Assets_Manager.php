@@ -18,7 +18,7 @@ class Assets_Manager {
         // Register and enqueue customizer style
         wp_register_style(
             'nueve4-customizer-style',
-            NUEVE4_ASSETS_URL . 'css/customizer-style' . ( ( NUEVE4_DEBUG ) ? '' : '.min' ) . '.css',
+            NUEVE4_ASSETS_URL . 'customizer/css/font-selector.css',
             array(),
             NUEVE4_VERSION
         );
@@ -29,7 +29,7 @@ class Assets_Manager {
         // Enqueue customizer controls script
         wp_enqueue_script(
             'nueve4-customizer-controls',
-            NUEVE4_ASSETS_URL . 'js/build/all/customizer-controls.js',
+            NUEVE4_ASSETS_URL . 'customizer/js/button.js',
             array(
                 'jquery',
                 'wp-color-picker'
@@ -63,7 +63,7 @@ class Assets_Manager {
                         'controls' => array(),
                         'options' => array(),
                     ),
-                    'upsellComponentsLink' => tsdk_utmify( 'https://themeisle.com/themes/nueve4/upgrade/', 'hfgcomponents' ),
+                    'upsellComponentsLink' => 'https://kemetica.io/themes/nueve4/upgrade/',
                     'fonts' => array(
                         'System' => nueve4_get_standard_fonts(),
                         'Google' => nueve4_get_google_fonts(),

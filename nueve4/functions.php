@@ -8,7 +8,7 @@
  * @package Nueve4
  */
 
-define( 'NUEVE4_VERSION', '4.3.1' );
+define( 'NUEVE4_VERSION', '4.3.4' );
 define( 'NUEVE4_INC_DIR', trailingslashit( get_template_directory() ) . 'inc/' );
 define( 'NUEVE4_ASSETS_URL', trailingslashit( get_template_directory_uri() ) . 'assets/' );
 define( 'NUEVE4_MAIN_DIR', get_template_directory() . '/' );
@@ -100,33 +100,7 @@ add_filter( 'nueve4_pro_addon_is_active', '__return_true' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );
 
-// Initialize Enhanced Customizer
-require_once NUEVE4_INC_DIR . 'customizer/enhanced-customizer.php';
-require_once NUEVE4_INC_DIR . 'customizer/output-css.php';
 
-if ( class_exists( '\Nueve4\Customizer\Enhanced_Customizer' ) ) {
-	$enhanced_customizer = new \Nueve4\Customizer\Enhanced_Customizer();
-	$enhanced_customizer->init();
-}
-
-if ( class_exists( '\Nueve4\Customizer\Output_CSS' ) ) {
-	$output_css = new \Nueve4\Customizer\Output_CSS();
-	$output_css->init();
-}
-
-// Initialize Panel Organizer
-require_once NUEVE4_INC_DIR . 'customizer/panel-organizer.php';
-if ( class_exists( '\Nueve4\Customizer\Panel_Organizer' ) ) {
-	$panel_organizer = new \Nueve4\Customizer\Panel_Organizer();
-	$panel_organizer->init();
-}
-
-// Initialize Control Converter
-require_once NUEVE4_INC_DIR . 'customizer/control-converter.php';
-if ( class_exists( '\Nueve4\Customizer\Control_Converter' ) ) {
-	$control_converter = new \Nueve4\Customizer\Control_Converter();
-	$control_converter->init();
-}
 
 // Initialize Footer Fixes
 require_once NUEVE4_INC_DIR . 'footer-fixes.php';
@@ -134,6 +108,26 @@ if ( class_exists( '\Nueve4\Footer_Fixes' ) ) {
 	$footer_fixes = new \Nueve4\Footer_Fixes();
 	$footer_fixes->init();
 }
+
+// Enable existing customizer and fix broken controls
+add_action( 'after_setup_theme', function() {
+	// Load existing customizer
+	if ( class_exists( '\Nueve4\Customizer\Loader' ) ) {
+		$customizer_loader = new \Nueve4\Customizer\Loader();
+		$customizer_loader->init();
+	}
+});
+
+// Fix broken controls after they load
+add_action( 'customize_register', function( $wp_customize ) {
+	// Remove upsell sections
+	$wp_customize->remove_section( 'typography_extra_section' );
+	$wp_customize->remove_section( 'nueve4_upsell_section' );
+	
+	// Enable all pro features
+	add_filter( 'nueve4_has_valid_addons', '__return_true' );
+	add_filter( 'nueve4_pro_addon_is_active', '__return_true' );
+}, 999 );
 
 // Initialize DI Container and Services
 require_once NUEVE4_INC_DIR . 'core/container.php';

@@ -46,6 +46,10 @@ class Loader {
 		if ( ! isset( $wp_customize ) ) {
 			return;
 		}
+		
+		// Load premium customizer integration
+		require_once get_template_directory() . '/inc/customizer/premium-integration.php';
+		
 		$this->define_modules();
 		$this->load_modules();
 		add_action( 'customize_register', array( $this, 'change_pro_controls' ), PHP_INT_MAX );
