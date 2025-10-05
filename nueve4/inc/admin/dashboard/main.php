@@ -350,13 +350,13 @@ class Main {
 				'header'                        => sprintf( __( '%s Options', 'nueve4' ), wp_kses_post( $theme_name ) ),
 				/* translators: %s - Theme name */
 				'starterSitesCardDescription'   => sprintf( __( '%s now comes with a sites library with various designs to pick from. Visit our collection of demos that are constantly being added.', 'nueve4' ), wp_kses_post( $theme_name ) ),
-				'starterSitesCardUpsellMessage' => esc_html__( 'Upgrade to the Pro version and get instant access to all Premium Starter Sites — including Expert Sites — and much more.', 'nueve4' ),
+				'starterSitesCardUpsellMessage' => esc_html__( 'All starter sites and templates are included with Nueve4.', 'nueve4' ),
 				/* translators: %s - Theme name */
 				'starterSitesTabDescription'    => sprintf( __( 'With %s, you can choose from multiple unique demos, specially designed for you, that can be installed with a single click. You just need to choose your favorite, and we will take care of everything else.', 'nueve4' ), wp_kses_post( $theme_name ) ),
 				/* translators: 1 - Theme name, 2 - Cloud Templates & Patterns Collection */
-				'starterSitesUnavailableActive' => sprintf( __( 'In order to be able to import any starter sites for %1$s you would need to have the %2$s plugin active.', 'nueve4' ), wp_kses_post( $theme_name ), 'Cloud Templates & Patterns Collection' ),
+				'starterSitesUnavailableActive' => sprintf( __( 'Starter sites are built into %1$s and ready to use.', 'nueve4' ), wp_kses_post( $theme_name ) ),
 				/* translators: %s - Theme name */
-				'starterSitesUnavailableUpdate' => sprintf( __( 'In order to be able to import any starter sites for %1$s you would need to have the %2$s plugin updated to the latest version.', 'nueve4' ), wp_kses_post( $theme_name ), 'Cloud Templates & Patterns Collection' ),
+				'starterSitesUnavailableUpdate' => sprintf( __( 'All starter sites are included with %1$s.', 'nueve4' ), wp_kses_post( $theme_name ) ),
 				/* translators: %s - Theme name */
 				'supportCardDescription'        => sprintf( __( 'We want to make sure you have the best experience using %1$s, and that is why we have gathered all the necessary information here for you. We hope you will enjoy using %1$s as much as we enjoy creating great products.', 'nueve4' ), wp_kses_post( $theme_name ) ),
 				/* translators: %s - Theme name */
@@ -376,8 +376,8 @@ class Main {
 			'onboarding'              => [],
 			'hasFileSystem'           => WP_Filesystem(),
 			'hidePluginsTab'          => apply_filters( 'nueve4_hide_useful_plugins', ! array_key_exists( 'useful_plugins', $old_about_config ) ),
-			'tpcPath'                 => defined( 'TIOB_PATH' ) ? TIOB_PATH . 'template-patterns-collection.php' : 'template-patterns-collection/template-patterns-collection.php',
-			'tpcAdminURL'             => admin_url( 'admin.php?page=tiob-starter-sites' ),
+			'tpcPath'                 => '',
+			'tpcAdminURL'             => '',
 			'pluginsURL'              => esc_url( admin_url( 'plugins.php' ) ),
 			'getPluginStateBaseURL'   => esc_url( rest_url( '/nv/v1/dashboard/plugin-state/' ) ),
 			'canInstallPlugins'       => current_user_can( 'install_plugins' ),

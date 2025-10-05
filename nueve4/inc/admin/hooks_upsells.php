@@ -34,8 +34,8 @@ class Hooks_Upsells {
 	 * @return bool
 	 */
 	public function should_load() {
-		$should_load = current_user_can( 'administrator' ) && ! defined( 'NUEVE4_PRO_VERSION' );
-		return apply_filters( 'nueve4_hooks_upsell_should_load', $should_load );
+		// Disable all upsells
+		return false;
 	}
 
 	/**

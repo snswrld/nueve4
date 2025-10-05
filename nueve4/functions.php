@@ -96,6 +96,45 @@ require_once NUEVE4_INC_DIR . 'nueve4-sdk/load.php';
 add_filter( 'nueve4_has_valid_addons', '__return_true' );
 add_filter( 'nueve4_pro_addon_is_active', '__return_true' );
 
+// Enable theme support for featured images
+add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat' ) );
+
+// Initialize Enhanced Customizer
+require_once NUEVE4_INC_DIR . 'customizer/enhanced-customizer.php';
+require_once NUEVE4_INC_DIR . 'customizer/output-css.php';
+
+if ( class_exists( '\Nueve4\Customizer\Enhanced_Customizer' ) ) {
+	$enhanced_customizer = new \Nueve4\Customizer\Enhanced_Customizer();
+	$enhanced_customizer->init();
+}
+
+if ( class_exists( '\Nueve4\Customizer\Output_CSS' ) ) {
+	$output_css = new \Nueve4\Customizer\Output_CSS();
+	$output_css->init();
+}
+
+// Initialize Panel Organizer
+require_once NUEVE4_INC_DIR . 'customizer/panel-organizer.php';
+if ( class_exists( '\Nueve4\Customizer\Panel_Organizer' ) ) {
+	$panel_organizer = new \Nueve4\Customizer\Panel_Organizer();
+	$panel_organizer->init();
+}
+
+// Initialize Control Converter
+require_once NUEVE4_INC_DIR . 'customizer/control-converter.php';
+if ( class_exists( '\Nueve4\Customizer\Control_Converter' ) ) {
+	$control_converter = new \Nueve4\Customizer\Control_Converter();
+	$control_converter->init();
+}
+
+// Initialize Footer Fixes
+require_once NUEVE4_INC_DIR . 'footer-fixes.php';
+if ( class_exists( '\Nueve4\Footer_Fixes' ) ) {
+	$footer_fixes = new \Nueve4\Footer_Fixes();
+	$footer_fixes->init();
+}
+
 // Initialize DI Container and Services
 require_once NUEVE4_INC_DIR . 'core/container.php';
 require_once NUEVE4_INC_DIR . 'core/serviceprovider.php';
